@@ -27,11 +27,11 @@
         		<br>
           		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">공지 사항</button></li>
           		<br>
-          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">자주 묻는 질문</button></li>
+          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">자주 묻는 질문</button></li>
           		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'">민원 신청</button></li>
          		<br>
-         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">문의 하기</button></li>
+         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의 하기</button></li>
          		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">칭찬 하기</button></li>
          		<br>

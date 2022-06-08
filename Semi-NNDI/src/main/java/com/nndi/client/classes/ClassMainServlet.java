@@ -1,4 +1,4 @@
-package com.nndi.client.Class;
+package com.nndi.client.classes;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
