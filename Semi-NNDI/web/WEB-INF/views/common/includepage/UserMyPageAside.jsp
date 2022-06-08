@@ -29,7 +29,7 @@
 		    	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo/Update'">개인정보수정</button></li>
 	        	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">회원탈퇴신청</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberOut'">회원탈퇴신청</button></li>
 	        	<br>
 	      	</ul>
 	    </div>

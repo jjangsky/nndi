@@ -58,4 +58,46 @@ public class MemberService {
 		return 0;
 	}
 
+
+	/* Member Update Service */
+	public int UpdateMember(MemberAliveDTO updateMemberList) {
+		
+		System.out.println("Update 서블릿 도착");
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(AccountMapper.class);
+		
+		
+		int result = mapper.updateMember(updateMemberList);
+		System.out.println("update 결과: " + result);
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+
+
+	public int deletemember(MemberAliveDTO loginMember) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(AccountMapper.class);
+		
+		int result = mapper.deleteMember(loginMember);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		
+		return result;
+	}
+
 }

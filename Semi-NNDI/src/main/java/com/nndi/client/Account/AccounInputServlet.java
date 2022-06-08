@@ -30,7 +30,6 @@ public class AccounInputServlet extends HttpServlet {
 			memberlist.setGender("W");
 		}
 		
-		
 		memberlist.setId(request.getParameter("userId"));
 		memberlist.setIdQueNum(Integer.valueOf(request.getParameter("selectIdQueNum")));
 		memberlist.setIdAnswer(request.getParameter("idQueAnswer"));
