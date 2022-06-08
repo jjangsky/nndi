@@ -24,27 +24,18 @@
       	<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">고객지원센터</button>
       	<div class="collapse" id="home-collapse">
         	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-<<<<<<< HEAD
-          		<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">공지 사항</a></li>
-          		<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">자주 묻는 질문</a></li>
-         		 <li><a href="${pageContext.servletContext.contextPath}/board/list/complain" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">민원 신청</a></li>
-         		  <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">문의 하기</a></li>
-         		 <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">칭찬 하기</a></li>
-         		 <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">강사 모집</a></li>
-=======
         		<br>
           		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">공지 사항</button></li>
           		<br>
-          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">자주 묻는 질문</button></li>
+          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">자주 묻는 질문</button></li>
           		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'">민원 신청</button></li>
          		<br>
-         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">문의 하기</button></li>
+         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의 하기</button></li>
          		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">칭찬 하기</button></li>
          		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">강사 모집</button></li>
->>>>>>> SOL
         	</ul>
       	</div>
   	
