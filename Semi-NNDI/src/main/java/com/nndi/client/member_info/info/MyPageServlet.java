@@ -1,4 +1,4 @@
-package com.nndi.client.member_info;
+package com.nndi.client.member_info.info;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

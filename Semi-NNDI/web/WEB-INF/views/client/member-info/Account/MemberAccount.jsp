@@ -27,7 +27,6 @@
   </div>
 
     <div class="hc" >
-        <div class="it">본인 확인</div>
         <div class="it">약관 동의</div>
         <div class="it first">회원정보 입력</div>
         <div class="it">가입 완료</div>
@@ -88,16 +87,21 @@
                                                                     <option value="hanmir.com">hanmir.com</option>
                                                                     <option value="paran.com">paran.com</option>
                                                                     </select>
+			<br>                                                                   
             <label for="birth" id="input">생년월일:</label>
             <input type="date" name="userBD" id="userBirthDate" size="30" required> <p>
     
             
-            <label for="address" id="input">우편번호: </label>
-            <input type="search" name="address"  required> &nbsp;&nbsp;&nbsp;<input type="button" value="우편번호 찾기"> <p>
-            
-            <label for="address2" id="input">상세주소: </label>
-            <input type="text" name="address2" size="30" required><p>
-    
+            <label for="address1"> 우편 번호: </label>
+				<input type="text" name="zipCode" id="zipCode" readonly>
+				<input type="button" value="검색" class="btn btn-yg" id="searchZipCode" style="border: 1px solid black">
+			<br>
+			<label for="address2"> 주소: </label>            
+				<input type="text" name="address1" id="address1" readonly>
+			<label for="address3"> 상세 주소: </label>		
+				<input type="text" name="address2" id="address2">
+
+    		<br>
             <label for="phone" id="input">연락처: </label>
             <select name="selectUserPhone" style="width: auto;">
                 <option value="010">010</option>
@@ -110,7 +114,7 @@
             
                 <div style="margin-left: 40%;">
                     <button id="submitbutton">등록</button>
-                    <button id="submitbutton">취소</button>
+                    <button type="reset" id="submitbutton">취소</button>
                 </div>
         </form>
     </div>
@@ -217,5 +221,27 @@ $(function(){
 })
 </script>
 	  
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		const $searchZipCode = document.getElementById("searchZipCode");
+		const $goMain = document.getElementById("goMain");
+		
+		$searchZipCode.onclick = function() {
+		
+			//다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다.
+			new daum.Postcode({
+				oncomplete: function(data){
+					//팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분
+					document.getElementById("zipCode").value = data.zonecode;
+					document.getElementById("address1").value = data.address;
+					document.getElementById("address2").focus();
+				}
+			}).open();
+		}
+		
+		$goMain.onclick = function() {
+			location.href = "${ pageContext.servletContext.contextPath }";
+		}
+	</script>
 
 </html>

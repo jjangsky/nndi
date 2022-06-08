@@ -6,9 +6,14 @@
 	<resultMap type="AliveDTO" id="memberAliveResultMap">
 		<id property="id" column="ID"/>
 		<result property="idQueNum" column="ID_QUE_NUM"/>
-		<result property="phone" column="PHONE"/>
-		<result property="email" column="EMAIL"/>
-		<result property="address" column="ADDRESS"/>
+		<result property="phone1" column="PHONE1"/>
+		<result property="phone2" column="PHONE2"/>
+		<result property="phone3" column="PHONE3"/>
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="address1" column="ADDRESS1"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="address3" column="ADDRESS3"/>
 		<result property="pwd" column="PWD"/>
 		<result property="name" column="NAME"/>
 		<result property="birth" column="BIRTH"/>
@@ -23,9 +28,14 @@
 	<!-- MemberDead ResultMap, typeAlias = DeadDTO -->
 	<resultMap type="DeadDTO" id="DeadMemberResultMap">
 		<id property="no" column="NO"/>
-		<result property="phone" column="PHONE"/>
-		<result property="email" column="EMAIL"/>
-		<result property="address" column="ADDRESS"/>
+		<result property="phone1" column="PHONE1"/>
+		<result property="phone2" column="PHONE2"/>
+		<result property="phone3" column="PHONE3"/>
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="address1" column="ADDRESS1"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="address3" column="ADDRESS3"/>
 		<result property="id" column="ID"/>
 		<result property="pwd" column="PWD"/>
 		<result property="birth" column="BIRTH"/>
@@ -72,9 +82,14 @@
 		SELECT 
 			   A.ID	
 			 , A.ID_QUE_NUM
-			 , A.PHONE
-			 , A.EMAIL
-			 , A.ADDRESS
+			 , A.PHONE1
+			 , A.PHONE2
+			 , A.PHONE3
+			 , A.EMAIL1
+			 , A.EMAIL2
+			 , A.ADDRESS1
+			 , A.ADDRESS2
+			 , A.ADDRESS3
 			 , A.PWD
 			 , A.NAME
 			 , A.BIRTH
@@ -112,9 +127,14 @@
 		SELECT 
 			   A.ID 
 			 , A.ID_QUE_NUM
-			 , A.PHONE
-			 , A.EMAIL
-			 , A.ADDRESS
+			 , A.PHONE1
+			 , A.PHONE2
+			 , A.PHONE3
+			 , A.EMAIL1
+			 , A.EMAIL2
+			 , A.ADDRESS1
+			 , A.ADDRESS2
+			 , A.ADDRESS3
 			 , A.PWD
 			 , A.NAME
 			 , A.BIRTH
@@ -152,9 +172,14 @@
 	<!-- Select OutMember List -->
 	<select id="selectOutMemberList" resultMap="memberAliveResultMap">
 		SELECT
-			   A.PHONE
-			 , A.EMAIL  	
-			 , A.ADDRESS
+			   A.PHONE1
+			 , A.PHONE2
+			 , A.PHONE3
+			 , A.EMAIL1  	
+			 , A.EMAIL2  	
+			 , A.ADDRESS1
+			 , A.ADDRESS2
+			 , A.ADDRESS3
 			 , A.ID
 			 , A.PWD
 			 , A.BIRTH
@@ -171,9 +196,14 @@
 		  INTO TBL_MEMBER_DEAD A
 		(
 		  A.NO
-		, A.PHONE
-		, A.EMAIL
-		, A.ADDRESS
+		, A.PHONE1
+		, A.PHONE2
+		, A.PHONE3
+		, A.EMAIL1
+		, A.EMAIL2
+		, A.ADDRESS1
+		, A.ADDRESS2
+		, A.ADDRESS3
 		, A.ID
 		, A.PWD
 		, A.BIRTH
@@ -183,9 +213,14 @@
 		VALUES
 		(
 		  CONCAT('D-', SEQ_MEMBER_DEAD_NO.NEXTVAL)	
-		, #{ phone }
-		, #{ email }
-		, #{ address }
+		, #{ phone1 }
+		, #{ phone2 }
+		, #{ phone3 }
+		, #{ email1 }
+		, #{ email2 }
+		, #{ address1 }
+		, #{ address2 }
+		, #{ address3 }
 		, #{ id }
 		, #{ pwd }
 		, #{ birth }
