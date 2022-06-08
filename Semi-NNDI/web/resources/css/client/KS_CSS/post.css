@@ -463,3 +463,20 @@ th, td {
     color: rgba(0, 0, 0, 0.6) !important;
     font-weight: bold;
   }
+  
+.r9 {
+    float: right;
+    margin-right: 1%;
+    width: 120px;
+    padding: 10px 8px;
+    border-radius: 6px;
+    background-color: rgba(255, 175, 199, 0.15);
+    border: 1px solid #e493cc;
+    color: rgb(79, 78, 78);
+    font-weight: bolder;
+}
+
+.r9:hover {
+    background-color: #ffc4d1;
+    border: 1px solid #e493a5;
+} 

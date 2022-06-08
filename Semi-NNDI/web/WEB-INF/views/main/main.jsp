@@ -14,6 +14,11 @@
 
 	<jsp:include page="../common/includepage/UserHeader.jsp"/>
 	<button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/main'">관리자페이지로</button>
+	<button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/commend/test'">
+	칭찬게시판</button>
+	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의글조회</button>  	
+	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">강좌 조회</button>  
+	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">FAQ 조회</button>  	
 	
 	<section>
   <table class="mainPageTable" >
