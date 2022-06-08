@@ -35,9 +35,9 @@
 		      <button id="back" class="back">목록으로</button>
 		    </div>
 		    <div class="post add">
-		        <form action="${pageContext.servletContext.contextPath}/login/admin/complainRE" method="post">
+		        <form id="update" action="${pageContext.servletContext.contextPath}/login/admin/complainRE" method="post">
 		            <label>민원 내용</label>
-					<input type="hidden" id="num" name="num" value="${ detailComplain.num }" />
+					<input type="hidden" id="num" name="num" value="${ detailComplain.num }">
 		            <table>
 		                <tr>
 		                    <td class="td1">문의 제목</td>
@@ -58,35 +58,34 @@
 		            </table>
 		            <label>답변 내용</label><br>
 		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" required>${ requestScope.detailComplain.answerContent }</textarea><br>
-		            <button id="updatepost" class="btns add" type="submit">수 정 하 기</button>
-		            <button id="deletepost" class="btns">삭 제 하 기</button>
+		            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
+		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button>
 		        </form>
 		    </div>
   		</div>
 	  <script>
 			const back = document.getElementById("back");
 			const updatepost = document.getElementById("updatepost");
+			const deletepost = document.getElementById("deletepost");
 		    back.onclick = function(){
 		      let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
 		      /* console.log('누름확인'); */
 		      if (confirm(text) == true) {
 		    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/complainList"; 
-		      }
+		      } 
 		    };
 		    updatepost.onclick = function(){
 		      let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
 		      if (confirm(text) == true) {
-		    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/complainRE";
+		    	  document.getElementById("update").submit();
 		      }
 		    };
-		    $("#deletepost").click(function(){
+		    deletepost.onclick = function(){
 		      let text = "답변을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
 		      if (confirm(text) == true) {
-		        
-		      } else {
-		        
+		    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/deleteComplain.do?num=${ detailComplain.num }"; 
 		      }
-		    });
+		    };
 	  </script>
 			  
 	</section>

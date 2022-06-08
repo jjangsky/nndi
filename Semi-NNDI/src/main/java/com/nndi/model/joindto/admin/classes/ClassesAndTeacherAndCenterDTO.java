@@ -23,14 +23,14 @@ public class ClassesAndTeacherAndCenterDTO {
 //	카테고리명	CLS_CATEGORY_NAME	VARCHAR2(15 BYTE)
 //	추천연령	CLS_RECO_AGE	VARCHAR2(30 BYTE)
 	
-	private String clsNum;
+	private int clsNum;
 	private String tcrNo;
 	private String cenName;
 	private String clsName;
 	private int clsApplyCnt;
 	private int clsMaxCnt;
-	private java.sql.Date clsStartDay;
-	private java.sql.Date clsEndDay;
+	private java.util.Date clsStartDay;
+	private java.util.Date clsEndDay;
 	private String clsExplain;
 	private int clsTime;
 	private int clsCost;
@@ -44,10 +44,10 @@ public class ClassesAndTeacherAndCenterDTO {
 	public ClassesAndTeacherAndCenterDTO() {
 		super();
 	}
-	public ClassesAndTeacherAndCenterDTO(String clsNum, String tcrNo, String cenName, String clsName, int clsApplyCnt,
-			int clsMaxCnt, Date clsStartDay, Date clsEndDay, String clsExplain, int clsTime, int clsCost, String clsDay,
-			String clsStartYn, String clsCategoryName, String clsRecoAge, String clsRunTime, TeacherDTO teacher,
-			CenterManagementDTO center) {
+	public ClassesAndTeacherAndCenterDTO(int clsNum, String tcrNo, String cenName, String clsName, int clsApplyCnt,
+			int clsMaxCnt, java.util.Date clsStartDay, java.util.Date clsEndDay, String clsExplain, int clsTime,
+			int clsCost, String clsDay, String clsStartYn, String clsCategoryName, String clsRecoAge, String clsRunTime,
+			TeacherDTO teacher, CenterManagementDTO center) {
 		super();
 		this.clsNum = clsNum;
 		this.tcrNo = tcrNo;
@@ -68,10 +68,10 @@ public class ClassesAndTeacherAndCenterDTO {
 		this.teacher = teacher;
 		this.center = center;
 	}
-	public String getClsNum() {
+	public int getClsNum() {
 		return clsNum;
 	}
-	public void setClsNum(String clsNum) {
+	public void setClsNum(int clsNum) {
 		this.clsNum = clsNum;
 	}
 	public String getTcrNo() {
@@ -104,16 +104,16 @@ public class ClassesAndTeacherAndCenterDTO {
 	public void setClsMaxCnt(int clsMaxCnt) {
 		this.clsMaxCnt = clsMaxCnt;
 	}
-	public java.sql.Date getClsStartDay() {
+	public java.util.Date getClsStartDay() {
 		return clsStartDay;
 	}
-	public void setClsStartDay(java.sql.Date clsStartDay) {
+	public void setClsStartDay(java.util.Date clsStartDay) {
 		this.clsStartDay = clsStartDay;
 	}
-	public java.sql.Date getClsEndDay() {
+	public java.util.Date getClsEndDay() {
 		return clsEndDay;
 	}
-	public void setClsEndDay(java.sql.Date clsEndDay) {
+	public void setClsEndDay(java.util.Date clsEndDay) {
 		this.clsEndDay = clsEndDay;
 	}
 	public String getClsExplain() {
@@ -185,6 +185,7 @@ public class ClassesAndTeacherAndCenterDTO {
 				+ ", clsCategoryName=" + clsCategoryName + ", clsRecoAge=" + clsRecoAge + ", clsRunTime=" + clsRunTime
 				+ ", teacher=" + teacher + ", center=" + center + "]";
 	}
+	
 	
 	
 	

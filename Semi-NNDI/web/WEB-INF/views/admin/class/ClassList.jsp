@@ -68,11 +68,10 @@
 	                <td>${ cls.clsEndDay }</td>
 	                <td>${ cls.clsStartYn }</td>
 	                <td>
-	                <input type="hidden" id="num" name="num" value="${ cls.clsNum }" />
-	                <button type="submit"
+	                <button type="button"
 	                			class="btn btn-secondary" 
 	                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/detailClass'">조회</button></td>
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailClass.do?num=${ cls.clsNum }'">조회</button></td>
 	              </tr>
 	              </c:forEach>
 	            </tbody>
