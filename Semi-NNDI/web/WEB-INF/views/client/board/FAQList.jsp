@@ -12,6 +12,9 @@
 <body>
 <jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 <section>
+  <div>
+    <h3 class="notice"><b>FAQ</b></h3>
+  </div>
 <div class="post list"> 
     <table class="blueone">
       <thead>
