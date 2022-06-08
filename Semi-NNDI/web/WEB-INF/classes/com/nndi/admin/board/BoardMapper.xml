@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.admin.board.BoardMapper">
+
+  <!-- NoticeDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.commondto.NoticeDTO" id="NoticeMap">
+  	<id property="num" column="NUM"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="hits" column="HITS"/>
+  	<result property="uploadFileKey" column="UPLOAD_FILE_KEY"/>
+  </resultMap>
+  
+  <!-- PostCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.commondto.PostCategoryDTO" id="postCategoryMap">
+  	<id property="cateNum" column="CATE_NUM"/>
+  	<result property="cateKind" column="CATE_KIND"/>
+  </resultMap>
+  
+  <!-- NoticeAndPostCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.board.NoticeAndCategoryDTO" id="noticeAndCateMap">
+  	<id property="num" column="NUM"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="hits" column="HITS"/>
+  	<result property="uploadFileKey" column="UPLOAD_FILE_KEY"/>
+  	<association property="category" resultMap="postCategoryMap"/>
+  </resultMap>
+  
+  <!-- ComplainAndCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.board.ComplainAndCategoryDTO" id="complainAndCategoyMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="answerYn" column="ANSWER_YN"/>
+  	<result property="answerContent" column="ANSWER_CONTENT"/>
+  	<result property="displayYn" column="DISPLAY_YN"/>
+  	<result property="hits" column="HITS"/>
+  	<association property="category" resultMap="postCategoryMap"/>
+  </resultMap>
+  
+  <!-- AdmireAndCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO" id="AdmireAndCategoryMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="answerYn" column="ANSWER_YN"/>
+  	<result property="answerContent" column="ANSWER_CONTENT"/>
+  	<result property="displayYn" column="DISPLAY_YN"/>
+  	<result property="hits" column="HITS"/>
+  	<association property="category" resultMap="postCategoryMap"/>
+  </resultMap>
+  
+  <!-- 공지사항 전체 조회 쿼리 -->
+  <select id="selectAllNoticeList" resultMap="noticeAndCateMap">
+  	SELECT
+  	       A.NUM
+  	     , A.TITLE
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.MANAGER_ID
+  	     , A.POST_DATE
+  	     , A.HITS
+  	  FROM TBL_POST_NOTICE A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 ORDER BY A.NUM DESC
+  </select>
+  
+  <!-- 공지사항 상세보기 쿼리 -->
+  <select id="selectOneByNumNotice" parameterType="_int" resultMap="noticeAndCateMap">
+  	SELECT
+  	       A.NUM
+  	     , A.TITLE
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.MANAGER_ID
+  	     , A.POST_DATE
+  	     , A.UPLOAD_FILE_KEY
+  	     , A.CONTENT
+  	     , A.HITS
+  	  FROM TBL_POST_NOTICE A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 WHERE A.NUM = #{ num }
+  </select>
+  
+  <!-- 민원 전체 조회 쿼리 -->
+  <select id="selectAllComplainList" resultMap="complainAndCategoyMap">
+  	SELECT
+  	       A.NUM
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.TITLE
+  	     , A.MEM_ID
+  	     , A.POST_DATE
+  	     , A.MANAGER_ID
+  	     , A.ANSWER_YN
+  	     , A.ANSWER_CONTENT
+  	     , A.HITS
+  	  FROM TBL_POST_COMPLAIN A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 ORDER BY A.NUM DESC
+  </select>
+  
+  <!-- 민원 상세보기 쿼리 -->
+  <select id="selectOneByNumComplain" parameterType="_int" resultMap="complainAndCategoyMap">
+  	SELECT
+  	       A.NUM
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.TITLE
+  	     , A.MEM_ID
+  	     , A.POST_DATE
+  	     , A.CONTENT
+  	     , A.MANAGER_ID
+  	     , A.ANSWER_YN
+  	     , A.ANSWER_CONTENT
+  	     , A.HITS
+  	  FROM TBL_POST_COMPLAIN A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 WHERE A.NUM = #{ num }
+  </select>
+  
+  <!-- 칭찬하기 전체 조회 쿼리 -->
+  <select id="selectAllAdmireList" resultMap="AdmireAndCategoryMap">
+  	SELECT
+  	       A.NUM
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.TITLE
+  	     , A.MEM_ID
+  	     , A.POST_DATE
+  	     , A.HITS
+  	  FROM TBL_POST_ADMIRE A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 ORDER BY A.NUM DESC
+  </select>
+  
+  <!-- 칭찬하기 상세 조회 쿼리 -->
+  <select id="selectOneByNumAdmire" parameterType="_int" resultMap="AdmireAndCategoryMap">
+	SELECT
+  	       A.NUM
+  	     , A.CATE_NUM
+  	     , B.CATE_KIND
+  	     , A.TITLE
+  	     , A.CONTENT
+  	     , A.MEM_ID
+  	     , A.POST_DATE
+  	     , A.HITS
+  	  FROM TBL_POST_ADMIRE A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)  
+  	 WHERE A.NUM = #{ num }
+  </select>
+  
+  <!-- 민원 답변 쿼리 -->
+  <update id="UpdateComplainRE" parameterType="com.nndi.model.commondto.ComplainDTO">
+  	UPDATE 
+  	       TBL_POST_COMPLAIN A
+  	   SET A.ANSWER_CONTENT = #{ answerContent }
+  	     , A.ANSWER_YN = 'Y'
+  	 WHERE A.NUM = #{ num }
+  </update>
+</mapper>

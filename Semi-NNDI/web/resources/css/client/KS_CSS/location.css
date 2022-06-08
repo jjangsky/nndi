@@ -1,0 +1,19 @@
+.locationhead{
+    float: right;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.location {
+    float: left;
+    width: 80%
+    
+}
+
+.location td{
+    height: 50px;
+    text-align: left;
+   
+    }
+    

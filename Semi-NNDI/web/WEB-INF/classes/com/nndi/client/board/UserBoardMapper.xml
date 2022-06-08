@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+ <mapper namespace="com.nndi.client.board.UserBoardMapper">
+ 
+ 	<resultMap type="com.nndi.model.joindto.client.board.BoardAndCategoryDTO" id="BoardAndCategoryResultMap">
+ 		<id property="num" column="NUM"/>
+ 		<result property="cate" column="CATE_NUM"/>
+ 		<result property="memberId" column="MEM_ID"/>
+ 		<result property="managerId" column="MANAGER_ID"/>
+ 		<result property="date" column="POST_DATE"/>
+ 		<result property="title" column="TITLE"/>
+ 		<result property="content" column="CONTENT"/>
+ 		<result property="answer" column="ANSWER_YN"/>
+ 		<result property="answerContent" column="ANSWER_CONTENT"/>
+ 		<result property="display" column="DISPLAY_YN"/>
+ 		<result property="hits" column="HITS"/>
+ 		<association property="category" javaType="com.nndi.model.commondto.PostCategoryDTO">
+ 			<id property="cateNum" column="CATE_NUM"/>
+ 			<result property="cateKind" column="CATE_KIND"/>
+ 		</association>
+ 	</resultMap>
+ 	
+ 	<resultMap type="com.nndi.model.commondto.BoardDTO" id="boardResultMap">
+ 		<id property="num" column="NUM"/>
+ 		<result property="cate" column="CATE_NUM"/>
+ 		<result property="memberId" column="MEM_ID"/>
+ 		<result property="managerId" column="MANAGER_ID"/>
+ 		<result property="date" column="POST_DATE"/>
+ 		<result property="title" column="TITLE"/>
+ 		<result property="content" column="CONTEN reT"/>
+ 		<result property="answer" column="ANSWER_YN"/>
+ 		<result property="answerContent" column="ANSWER_CONTENT"/>
+ 		<result property="display" column="DISPLAY_YN"/>
+ 		<result property="hits" column="HITS"/>
+ 	</resultMap>
+ 
+ 	<!--  민원 전체 조회 쿼리 -->
+ 	<select id="selectBoardList" resultMap="BoardAndCategoryResultMap">
+ 		SELECT
+               A.NUM
+             , A.CATE_NUM
+             , A.MEM_ID
+             , A.MANAGER_ID
+             , A.POST_DATE
+             , A.TITLE
+             , A.CONTENT
+             , A.ANSWER_YN
+             , A.ANSWER_CONTENT
+             , A.DISPLAY_YN
+             , A.HITS
+             , B.CATE_NUM
+             , B.CATE_KIND
+          FROM TBL_POST_COMPLAIN A
+          JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+        ORDER BY NUM DESC
+ 	</select>
+ 	<!-- 민원 신청 쿼리 -->
+ 	<insert id="insertComplain" parameterType="com.nndi.model.commondto.BoardDTO">
+ 		
+ 		INSERT 
+               INTO TBL_POST_COMPLAIN
+        VALUES
+        (
+          SEQ_COMPLAIN_POST_NUM.NEXTVAL
+        , #{ cate }
+        , 'user01'
+        , 'MANAGER01'
+        , TO_DATE(SYSDATE,'YYYY.MM.DD HH24:MI')
+        , #{ title }
+        , #{ content }
+        , 'N'
+        , '미답변'
+        , 'Y'
+        , '0'
+        )
+ 	</insert>
+ 	
+ 	<!-- 민원 상세 조회 쿼리 -->
+ 	<select id="complainDetail" parameterType="_int" resultMap="BoardAndCategoryResultMap">
+ 		SELECT
+               A.NUM
+             , A.CATE_NUM
+             , A.MEM_ID
+             , A.MANAGER_ID
+             , A.POST_DATE
+             , A.TITLE
+             , A.CONTENT
+             , A.ANSWER_YN
+             , A.ANSWER_CONTENT
+             , A.DISPLAY_YN
+             , A.HITS
+             , B.CATE_NUM
+             , B.CATE_KIND
+          FROM TBL_POST_COMPLAIN A
+          JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+         WHERE A.NUM = #{ num }
+ 	</select>
+ 	
+ 	<update id="updateComplain" parameterType="com.nndi.model.commondto.BoardDTO">
+ 		UPDATE
+               TBL_POST_COMPLAIN A
+           SET A.CATE_NUM = #{ cate }
+             , A.TITLE = #{ title }
+             , A.CONTENT = #{ content }
+         WHERE A.NUM = #{ num }
+ 	
+ 	</update>
+ 	
+ 	
+ 
+ </mapper>

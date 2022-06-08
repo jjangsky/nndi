@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.client.Account.AccountMapper">
+
+	<!-- MemberAlive ResultMap, typeAlias = AliveDTO -->
+	<resultMap type="AliveDTO" id="memberAliveResultMap">
+		<id property="id" column="ID"/>
+		<result property="idQueNum" column="ID_QUE_NUM"/>
+		<result property="phone" column="PHONE"/>
+		<result property="email" column="EMAIL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="birth" column="BIRTH"/>
+		<result property="idAnswer" column="ID_ANSWER"/>
+		<result property="gender" column="GENDER"/>
+		<result property="lastLogin" column="LAST_LOGIN"/>
+		<result property="userStatus" column="USER_STATUS"/>
+		<result property="outDate" column="OUT_DATE"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+	</resultMap>
+
+	<!-- Manager ResultMap, typeAlias = ManagerDTO -->
+	<resultMap type="ManagerDTO" id="ManagerlistResultMap">
+		<id property="managerId" column="MANAGER_ID"/>
+		<result property="pwd" column="PWD"/>
+		<result property="managerName" column="MANAGER_NAME"/>
+	</resultMap>
+	
+	<!-- Insert AccountMember  -->
+	<insert id="accountMember" parameterType="AliveDTO">
+		INSERT 
+		  INTO TBL_MEMBER_ALIVE A
+		(
+		  A.ID
+		, A.ID_QUE_NUM
+		, A.PHONE
+		, A.EMAIL
+		, A.ADDRESS
+		, A.PWD
+		, A.NAME
+		, A.BIRTH
+		, A.ID_ANSWER
+		, A.GENDER
+		, A.LAST_LOGIN
+		, A.USER_STATUS
+		, A.OUT_DATE
+		, A.ENROLL_DATE
+		)
+		VALUES
+		(
+		  #{ id }
+		, #{ idQueNum }
+		, #{ phone }
+		, #{ email }
+		, #{ address }
+		, #{ pwd }
+		, #{ name }
+		, #{ birth }
+		, #{ idAnswer }
+		, #{ gender }
+		, SYSDATE
+		, 'A'
+		, NULL
+		, DEFAULT
+		)
+	</insert>
+
+	<!-- Insert AccountManager -->
+	<insert id="accountManager" parameterType="ManagerDTO">
+		INSERT
+		  INTO TBL_MANAGER A
+		(
+		  A.MANAGER_ID
+		, A.PWD
+		, A.MANAGER_NAME  
+		)  
+		VALUES
+		(
+		  #{ managerId }
+		, #{ pwd }
+		, #{ managerName }  
+		)
+	</insert>
+</mapper>

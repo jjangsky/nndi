@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+button{
+	background-color: rgba(254, 190, 190, 1);
+	color: blue;
+	border: 0px
+}
+
+#FooterButton{
+	float: right;
+	color: blue;
+}

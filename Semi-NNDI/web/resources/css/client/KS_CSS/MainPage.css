@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+section{
+	height: auto;
+}
+.mainPageTable{
+	border : 0; 
+	width: 400px; 
+	float: left; 
+	margin-left: 15%; 
+	margin-top: 5%
+}
+
+.mainPageTable legend{
+	border: 1px solid black;
+}
+
+.mainPageTable td{
+	text-align: center;
+}
+
+.mainPageTable img{
+	text-align: left; 
+	width: 50px; 
+	height: 50px;
+}
+
+.mainPageTable li{
+	text-align: left;
+}
+
+.mainPageTable2{
+	border :0; 
+	height: 300px; 
+	width: 400px; 
+	float: right; 
+	margin-right: 15%; 
+	margin-top: 5%;
+}
+
+.mainPageTable2 legend{
+	border: 1px solid black;
+}
+
+.mainPageTable2 td{
+	text-align: center;
+}
+
+.mainPageTable2 img{
+	width: 20px; 
+	height: 20px
+}
+button{
+	background-color: white; 
+	margin: 20px;
+	text-align: center;
+	width: 150px;
+}
+a{
+	background-color: white; 
+	margin: 20px;
+	text-align: center;
+	width: 150px;
+}
+.mainPageTable2 li{
+	text-align: left;
+}
+
+.accountmain button{
+	width:2000px;
+	height: 200px;
+}
