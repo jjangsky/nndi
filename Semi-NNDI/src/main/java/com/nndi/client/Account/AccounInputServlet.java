@@ -23,8 +23,8 @@ public class AccounInputServlet extends HttpServlet {
 		
 		memberlist.setName(request.getParameter("uName"));
 		memberlist.setGender(request.getParameter("selectGender"));
-		
-		if(memberlist.getGender().equals("남")){
+		System.out.println(memberlist.getGender());
+		if(memberlist.getGender().equals("male")){
 			memberlist.setGender("M");
 		} else {
 			memberlist.setGender("W");

@@ -40,7 +40,7 @@
             <label>성별: </label>
             <select id="ugender" name="selectGender" style="width: auto;" required>
             	<option value="" ></option>
-                <option value="male" id="male">남</option>
+                <option value="male" id="male" >남</option>
                 <option value="female" id="female">여</option>
             </select>
             <br>

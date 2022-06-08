@@ -65,7 +65,7 @@
 	    <div class="collapse" id="orders3-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 	    	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">도서 대출 목록 조회</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/Member/BookRent'">대출목록 조회</button></li>
 	        </ul>
 	    </div>
 	    
