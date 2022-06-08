@@ -31,10 +31,6 @@ public class MemberService {
 		return result;
 	}
 
-	public int checkId(String userId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	/* Manager Account Service*/
 	public int registManager(ManagerDTO managerList) {
@@ -54,6 +50,12 @@ public class MemberService {
 		sqlSession.close();
 		
 		return result;
+	}
+	
+	/* ID 중복 체크용 Service */
+	public int checkId(String userId) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

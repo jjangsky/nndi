@@ -30,11 +30,14 @@ public class AccounInputServlet extends HttpServlet {
 			memberlist.setGender("W");
 		}
 		
+		
 		memberlist.setId(request.getParameter("userId"));
 		memberlist.setIdQueNum(Integer.valueOf(request.getParameter("selectIdQueNum")));
 		memberlist.setIdAnswer(request.getParameter("idQueAnswer"));
 		memberlist.setPwd(request.getParameter("password"));
-		memberlist.setEmail(request.getParameter("str_email01") +"@"+ request.getParameter("selectEmail"));
+		
+		memberlist.setEmail1(request.getParameter("str_email01"));
+		memberlist.setEmail2("@"+ request.getParameter("selectEmail"));
 		
 		java.util.Date date = null;
 		
@@ -46,8 +49,13 @@ public class AccounInputServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			
-		memberlist.setAddress(request.getParameter("address")+request.getParameter(" address2"));
-		memberlist.setPhone(request.getParameter("selectUserPhone")+request.getParameter("phone2")+request.getParameter("phone3"));
+		memberlist.setAddress1(request.getParameter("zipCode"));
+		memberlist.setAddress2(request.getParameter("address1"));
+		memberlist.setAddress3(request.getParameter("address1"));
+		
+		memberlist.setPhone1(request.getParameter("selectUserPhone"));
+		memberlist.setPhone2(request.getParameter("phone2"));
+		memberlist.setPhone3(request.getParameter("phone3"));
 		
 		int result = new MemberService().registMember(memberlist);
 	
