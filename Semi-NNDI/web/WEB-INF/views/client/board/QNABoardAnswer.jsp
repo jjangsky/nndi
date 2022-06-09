@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/MainPage.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/post.css">
 <jsp:include page="../../common/includepage/UserHeader.jsp"/>
 <title>Insert title here</title>
 </head>

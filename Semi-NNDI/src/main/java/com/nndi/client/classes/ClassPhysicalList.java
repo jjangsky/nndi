@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
-@WebServlet("/login/board/QNAClassList")
-public class ClassList extends HttpServlet {
+@WebServlet("/login/board/ClassphList")
+public class ClassPhysicalList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("서블릿 확인용");
 		ClassListService classservice = new ClassListService();
-		List<ClassesAndTeacherAndCenterDTO> classList = classservice.ClassList();
+		List<ClassesAndTeacherAndCenterDTO> classList = classservice.ClassPhysicalList();
 		System.out.println("dto 확인용 "+ classList);
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		request.setAttribute("classList", classList);
 		
-		request.getRequestDispatcher("/WEB-INF/views/client/classes/QNAClassList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassPhysicalList.jsp").forward(request, response);
 		
 	}
 	

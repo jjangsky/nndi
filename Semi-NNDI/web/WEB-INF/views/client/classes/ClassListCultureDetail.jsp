@@ -4,9 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/program.css">
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/post.css">
 <jsp:include page="../../common/includepage/UserHeader.jsp"/>
@@ -51,10 +48,9 @@
 </form>  
 
     <div class="buton">
-      <button id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">취소</button>
+      <button id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'">취소</button>
       <button id="app" class="btns" type="submit">신청</button>
     </div>
-    
 </section>
  
 <br clear="both"> 

@@ -13,11 +13,9 @@
 <jsp:include page="../../common/includepage/ClassAside.jsp"/>
 <section>	
   <div>
-    <h3 class="notice"><b><u>강좌</u>조회</b></h3>
+    <h3 class="notice"><b><u>문화 강좌</u> 조회</b></h3>
   </div>
- 
 	<div class="post list"> 
-	 <p style="float: right;">내부사정으로 요일은 불가피하게 변경될수있슴다</p>
     <table class="blueone">
       <thead>
         <tr>
@@ -81,7 +79,7 @@
 				
 				$tds[i].onclick = function() {
 					const num = this.parentNode.children[0].innerText;
-					location.href="${pageContext.servletContext.contextPath}/login/board/ClassListDetail?num=" + num;
+					location.href="${pageContext.servletContext.contextPath}/login/board/ClassListCultureDetail?num=" + num;
 					
 				}
 				
