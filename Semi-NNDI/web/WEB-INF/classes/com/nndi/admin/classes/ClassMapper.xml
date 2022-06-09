@@ -152,4 +152,29 @@
 		  FROM TBL_CLASS A
 		 WHERE A.CLS_NUM = #{ num }
 	</delete>
+	
+	<!-- 강좌 등록 -->
+	<insert id="insertClass" parameterType="com.nndi.model.commondto.ClassDTO" >
+		INSERT 
+		  INTO TBL_CLASS
+		VALUES 
+		(
+		  SEQ_CLASS_CLS_NUM.NEXTVAL
+		, #{ tcrNo }
+		, #{ cenName }
+		, #{ clsName }
+		, DEFAULT
+		, #{ clsMaxCnt }
+		, #{ clsStartDay }
+		, #{ clsEndDay }
+		, #{ clsExplain }
+		, #{ clsTime }
+		, #{ clsCost }
+		, #{ clsDay }
+		, DEFAULT
+		, #{ clsCategoryName }
+		, #{ clsRecoAge } 
+		, #{ clsRunTime } 
+		)
+	</insert>
 </mapper>
