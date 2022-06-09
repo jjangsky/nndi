@@ -333,4 +333,5 @@
       FROM TBL_POST_NOTICE A
      WHERE A.NUM = #{ num }
   </delete>
+
 </mapper>

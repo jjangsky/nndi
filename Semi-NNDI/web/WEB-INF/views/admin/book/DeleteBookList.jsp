@@ -63,11 +63,10 @@
 		               		 <td>${ restbook.isbn }</td>
 		                	 <td>${ restbook.publisher }</td>
 		                	 <td>
-		                	<button class="btn btn-secondary"
-		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBookReturn.do?no=${ book.code }'" >
-		                	복귀</button>
-		                </td>
+		                	 	<button class="btn btn-secondary"
+		                				onclick="location.href=
+		                				'${ pageContext.servletContext.contextPath }/login/admin/deleteBookReturn.do?code=${ restbook.code }'" >복귀</button>
+		                	 </td>
 		              </tr>
 		              </c:forEach>
 		        </tbody>
