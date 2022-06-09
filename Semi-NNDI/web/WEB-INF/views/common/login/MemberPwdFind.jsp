@@ -15,24 +15,44 @@
 <jsp:include page="../../common/includepage/UserFindAside.jsp"/>
 </aside>
 
-<section style="float: left;">
-	<div>
-		<br><h3> 비밀번호 찾기</h3><br>
-	
-			<table>
-				<tr>
-	   				<td>
-						<strong>휴대폰 인증으로 비밀번호 찾기</strong><br><br>
-						<img src="${pageContext.servletContext.contextPath}/resources/image/client/Phone.png"><br><br>
-						<strong>가입자 본인 명의의 휴대폰으로</strong> <br> 본인여부를 확인합니다. <br> 아래 버튼을 눌러 인증을 <br> 진행하시길 바랍니다. <br><br>
-						<button type="submit">휴대폰 인증하기</button><br>
-	           		</td>
-	       		</tr>
-	   		</table>
-	</div> 
-</section>
+<section>
+    <form action="${ pageContext.servletContext.contextPath }/Account/pwdinitialization" method="post" id="pwdFind">
+        <p><br>
+        <label for="name">아이디 : </label>
+        <input type="text" id="userId" name="userId" size="30" required>   <p>
+        
+         <label for="phone" id="input">연락처: </label>
+            <select name="selectUserPhone" style="width: auto;">
+                <option value="010">010</option>
+                <option value="016">016</option>
+                <option value="011">011</option>
+                <option value="019">019</option>
+            </select>
+            <input type="tel" name="phone2" size="4" id="phone2">
+            <input type="tel" name="phone3" size="4" id="phone3"><p>
 
+        <button type="button" id="pwdFind" class="pwdinitialization">비밀번호 초기화</button>
+
+    </form>
+	
+
+</section>
 </body>
+
+	<script>
+		
+	const pwdinitialization = document.getElementByClass("pwdinitialization");
+	
+    	if(pwdinitialization){
+	   		const text = "비밀번호 초기화 시 임의의 난수 번호로 변경됩니다. 정말 초기화 하시겠습니까? '확인' " ;
+	   			pwdinitialization.clieck = function(){
+					if(confirm(text) == true){
+						document.getElementByClass("pwdinitialization").submit();
+					} 
+				}
+		}
+	</script>
+	
 <br clear="both">
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
 
