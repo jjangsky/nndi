@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,42 +43,28 @@
 		  <div class="post list">
 		    <table>
 		        <thead class="table-lgiht">
-		            <tr;">
-		                <th>회원번호</th>
+		            <tr>
+		                <th>회원ID</th>
 		                <th>이름</th>
-		                <th>연락처</th>
-		                <th>생년월일</th>
-		                <th>가입날짜</th>
-		                <th>회원관리</th>
+		                <th>가입 시기</th>
+		                <th>마지막 로그인 시기</th>
+		                <th>휴면회원 해지</th>
 		            </tr>
 		        </thead>
-		        <tbody>
-		            <tr>
-		                <td>421</td>
-		                <td>나큰솔</td>
-		                <td>010-4545-7878</td>
-		                <td>1999/01/01</td>
-		                <td>2022/05/28</td>
-		                <td><button type="button" class="btn btn-secondary" onclick="deleteEdit()">해제</button></td>
-		    
-		            </tr>
-		            <tr>
-		                <td>241</td>
-		                <td>서석진</td>
-		                <td>010-4485-5578</td>
-		                <td>1999/01/11</td>
-		                <td>2022/05/28</td>
-		                <td><button type="button" class="btn btn-secondary"  >해제</button></td>
-		            </tr>
-		            <tr>
-		                <td>13</td>
-		                <td>김동로</td>
-		                <td>010-1111-7878</td>
-		                <td>1999/01/21</td>
-		                <td>2022/05/28</td>
-		                <td><button type="button" class="btn btn-secondary" >해제</button></td>
-		
-		            </tr>
+		       <c:forEach var="rest" items="${ requestScope.memberAliveList }">
+		              <tr>
+		                <td>${ rest.id }</td>
+		                <td>${ rest.name }</td>
+		                <td>${ rest.enrollDate }</td>
+		                <td>${ rest.lastLogin }</td>
+		                <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'" >
+		                	회원관리</button>
+		                </td>
+		              </tr>
+		              </c:forEach>
 		        </tbody>
 		    </table>
 		    <script>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
         color: aliceblue !important;
       }
     </style>
-<title>Admin Teacher List</title>
+<title>Admin Delete Book List</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp"/>
@@ -48,33 +49,27 @@
 		                <th>번호</th>
 		                <th>제목</th>
 		                <th>작가</th>
-		                <th>청구기호</th>
 		                <th>ISBN</th>
 		                <th>출판사</th>
-		                <th>관리</th>
+		                <th>일반도서 복귀</th>
 		            </tr>
 		        </thead>
 		        <tbody>
-		            <tr>
-		                <td>242</td>
-		                <td>불편한 편의점</td>
-		                <td>김호연</td>
-		                <td>818</td>
-		                <td>9791161571188</td>
-		                <td>나무옆의자</td>
-		                <td><button onclick="returnList()" class="btn btn-secondary">복귀</button></td>
-		
-		            </tr>
-		            <tr>
-		                <td>125</td>
-		                <td>이웃집 백만장자</td>
-		                <td>토머스 J</td>
-		                <td>327.856</td>
-		                <td>9788972773627</td>
-		                <td>리드리드</td>
-		                <td><button onclick="returnList()" class="btn btn-secondary">복귀</button></td>
-		            </tr>
-		            
+		            <c:forEach var="restbook" items="${ requestScope.deleteBookList }">
+		              		<tr>
+		               		 <td>${ restbook.code }</td>
+		               		 <td>${ restbook.name }</td>
+		               		 <td>${ restbook.writer }</td>
+		               		 <td>${ restbook.isbn }</td>
+		                	 <td>${ restbook.publisher }</td>
+		                	 <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBookReturn.do?no=${ book.code }'" >
+		                	복귀</button>
+		                </td>
+		              </tr>
+		              </c:forEach>
 		        </tbody>
 		    </table>
 		    <script>

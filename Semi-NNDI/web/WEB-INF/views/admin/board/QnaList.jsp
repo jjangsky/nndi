@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>        
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@
 		        <select class="search select" required>
 		          <option value="">None</option>
 		          <option value="title">제목</option>
-		          <option value="category">문의유형</option>
+		          <option value="category">카테고리</option>
 		          <option value="writer">작성자</option>
 		          <option value="all">전체</option>
 		        </select>
@@ -47,41 +48,34 @@
 		            <thead>
 		              <tr>
 		                <th>번호</th>
-		                <th>문의유형</th>
 		                <th>제목</th>
+		                <th>카테고리</th>
 		                <th>작성자</th>
+		                <th>답변자</th>
+		                <th>작성일자</th>
+		                <th>조회수</th>
 		                <th>답변여부</th>
+		                <th>상세보기</th>
 		              </tr>
 		            </thead>
 		            <tbody>
+		            <c:forEach var="qna" items="${ requestScope.QnaList }">
 		              <tr>
-		                <td>1</td>
-		                <td>시설</td>
-		                <td>시설 뭐가 있나요?</td>
-		                <td>user01</td>
-		                <td>N</td>
-		              </tr>
-		              <tr>
-		                <td>2</td>
-		                <td>강좌</td>
-		                <td>필라테스 강좌 언제 개강하나요?</td>
-		                <td>user05</td>
-		                <td>N</td>
-		              </tr>
-		              <tr>
-		                <td>3</td>
-		                <td>시설</td>
-		                <td>배드민턴장은 어디에 있나요?</td>
-		                <td>user03</td>
-		                <td>N</td>
-		              </tr>
-		              <tr>
-		                <td>4</td>
-		                <td>기타</td>
-		                <td>취업특강은 언제 하나요?</td>
-		                <td>user04</td>
-		                <td>N</td>
-		              </tr>
+		                <td>${ qna.num }</td>
+		                <td>${ qna.title }</td>
+		                <td>${ qna.category.cateKind }</td>
+		                <td>${ qna.memId }</td>
+		                <td>${ qna.managerId }</td>
+		                <td>${ qna.postDate }</td>
+		                <td>${ qna.hits }</td>
+		                <td>${ qna.answerYn }</td>
+		              <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailqna.do?no=${ qna.num }'" >
+		                	보기</button>
+		                </td>
+		              </c:forEach>
 		            </tbody>
 		        </table>
 		    </div>

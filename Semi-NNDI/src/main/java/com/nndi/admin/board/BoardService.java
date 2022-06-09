@@ -1,16 +1,19 @@
 package com.nndi.admin.board;
 
+import static com.nndi.common.config.Template.getSqlSession;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.ComplainDTO;
-import com.nndi.model.commondto.NoticeDTO;
+import com.nndi.model.commondto.FAQDTO;
+import com.nndi.model.commondto.QnaDTO;
 import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.ComplainAndCategoryDTO;
+import com.nndi.model.joindto.admin.board.FAQAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.NoticeAndCategoryDTO;
-
-import static com.nndi.common.config.Template.getSqlSession;
+import com.nndi.model.joindto.admin.board.QnaAndCategoryDTO;
 
 public class BoardService {
 	
@@ -120,6 +123,106 @@ public class BoardService {
 		mapper = sqlSession.getMapper(BoardMapper.class);
 		
 		int result = mapper.UpdateComplainRE(complain);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
+	/* FAQ 전체 조회 */
+	public List<FAQAndCategoryDTO> selectAllFAQList() {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		List<FAQAndCategoryDTO> faqList = mapper.selectAllFAQList();
+		
+		System.out.println("faqList : " + faqList);
+		
+		return faqList;
+		
+	}
+	
+	/* FAQ 상세 보기 */
+	public FAQAndCategoryDTO selectFAQOneByNum(int num) {
+
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		FAQAndCategoryDTO detailFaq = mapper.selectFAQOneByNum(num);
+		
+		System.out.println("Service : " + detailFaq);
+		
+		return detailFaq;
+	}
+	
+	/* QNA 전체 조회 */
+	public List<QnaAndCategoryDTO> selectAllQnaList() {
+
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		List<QnaAndCategoryDTO> qnaList = mapper.selectAllQnaList();
+		
+		System.out.println("Service : " + qnaList);
+		
+		return qnaList;
+	}
+	
+	/* QNA 상세 보기 */
+	public QnaAndCategoryDTO selectQnaOneByNum(int num) {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		QnaAndCategoryDTO detailqna = mapper.selectQnaOneByNum(num);
+		
+		System.out.println("Service : " + detailqna);
+		
+		return detailqna;
+	}
+	
+
+	/* QNA 답변하기 */
+	public int UpdateQnaRE(QnaDTO qna) {
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.UpdateQnaRE(qna);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
+	/* FAQ 수정 */
+	public int UpdateFaqRE(FAQDTO faq) {
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.UpdateFaqRE(faq);
 		
 		if(result > 0) {
 			sqlSession.commit();

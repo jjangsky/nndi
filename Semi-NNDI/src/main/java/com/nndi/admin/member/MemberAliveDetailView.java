@@ -1,8 +1,6 @@
 package com.nndi.admin.member;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,26 +9,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.commondto.MemberAliveDTO;
 
-@WebServlet("/login/admin/memberList")
-public class AdminMemberList extends HttpServlet {
+@WebServlet("/login/admin/detailaliveMember.do")
+public class MemberAliveDetailView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("컨트롤러 도착");
+		String id =(request.getParameter("id"));
+		
+		System.out.println("가져왔니? " + id);
 		
 		AdminMemberService adminmemberService = new AdminMemberService();
 		
-		List<MemberAliveDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
+		MemberAliveDTO detailMemberAlive = adminmemberService.selectOneMemberAliveById(id);
 		
-		for(MemberAliveDTO memberAlive : memberAliveList) {
-			System.out.println(memberAlive);
-		}
+		System.out.println( "Servlet : " + detailMemberAlive );
 		
 		String path = "";
-		if (!memberAliveList.isEmpty()) {
-			path = "/WEB-INF/views/admin/member/MemberList.jsp";
-			request.setAttribute("memberAliveList", memberAliveList);
+		if (!"".equals(detailMemberAlive.getId()) && detailMemberAlive.getId() != null) {
+			path = "/WEB-INF/views/admin/member/MemberDetail.jsp";
+			request.setAttribute("detailMemberAlive", detailMemberAlive);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");
@@ -39,8 +37,7 @@ public class AdminMemberList extends HttpServlet {
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		
+		
 	}
 
 }
-
-

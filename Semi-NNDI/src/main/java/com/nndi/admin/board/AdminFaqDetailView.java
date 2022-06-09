@@ -1,7 +1,6 @@
-package com.nndi.admin.book;
+package com.nndi.admin.board;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,28 +8,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.commondto.BookInfoDTO;
+import com.nndi.model.joindto.admin.board.FAQAndCategoryDTO;
 
-@WebServlet("/login/admin/bookList")
-public class AdminBookList extends HttpServlet {
+@WebServlet("/login/admin/detailFaq.do")
+public class AdminFaqDetailView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("컨트롤러 도착");
+		int num = Integer.valueOf(request.getParameter("no"));
 		
-		BookService bookService = new BookService();
+		System.out.println("가져왔니? " + num);
 		
-		List<BookInfoDTO> bookList = bookService.selectAllBookList();
+		BoardService boardService = new BoardService();
 		
-		for(BookInfoDTO book : bookList) {
-			System.out.println(book);
-		}
+		FAQAndCategoryDTO detailFaq = boardService.selectFAQOneByNum(num);
+		
+		System.out.println( "Servlet : " + detailFaq );
 		
 		String path = "";
-		if (!bookList.isEmpty()) {
-			path = "/WEB-INF/views/admin/book/BookList.jsp";
-			request.setAttribute("bookList", bookList);
+		if (!"".equals(detailFaq.getManagerId()) && detailFaq.getManagerId() != null) {
+			path = "/WEB-INF/views/admin/board/FaqUpdate.jsp";
+			request.setAttribute("detailFaq", detailFaq);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");
@@ -38,8 +37,8 @@ public class AdminBookList extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
-	
+		
+		
 	}
 
 }
-

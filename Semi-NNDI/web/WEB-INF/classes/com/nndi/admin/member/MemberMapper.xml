@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.admin.member.MemberMapper">
+
+<!-- MemberAliveDTO  resultMap 생성-->
+<resultMap type="com.nndi.model.commondto.MemberAliveDTO" id="MemberAliveMap">
+	<id property="id" column="ID"/>
+  	<result property="idQueNum" column="ID_QUE_NUM"/>
+  	<result property="phone1" column="PHONE1"/>
+  	<result property="phone2" column="PHONE2"/>
+  	<result property="phone3" column="PHONE3"/>
+  	<result property="email1" column="EMAIL1"/>
+  	<result property="email2" column="EMAIL2"/>
+  	<result property="address1" column="ADDRESS1"/>
+  	<result property="address2" column="ADDRESS2"/>
+  	<result property="address3" column="ADDRESS3"/>
+  	<result property="pwd" column="PWD"/>
+  	<result property="name" column="NAME"/>
+  	<result property="birth" column="BIRTH"/>
+  	<result property="idAnswer" column="ID_ANSWER"/>
+  	<result property="gender" column="GENDER"/>
+  	<result property="lastLogin" column="LAST_LOGIN"/>
+  	<result property="userStatus" column="USER_STATUS"/>
+  	<result property="outDate" column="OUT_DATE"/>
+  	<result property="enrollDate" column="ENROLL_DATE"/>
+</resultMap>
+
+<!-- BookRentDTO resultMap 생성-->
+<resultMap type="com.nndi.model.commondto.BookRentDTO" id="BookRentMap">
+	<id property="rentNum" column="RENT_NUM"/>
+  	<result property="code" column="CODE"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="rentDate" column="RENT_DATE"/>
+  	<result property="returnDate" column="RETURN_DATE"/>
+  	<result property="rentYn" column="RENT_YN"/>
+</resultMap>
+
+<!-- BookInfoDTO resultMap 생성-->
+<resultMap type="com.nndi.model.commondto.BookInfoDTO" id="BookInfoMap">
+    <id property="code" column="CODE"/>
+  	<result property="KindsCode" column="KINDS_CODE"/>
+  	<result property="name" column="NAME"/>
+  	<result property="writer" column="WRITER"/>
+  	<result property="locationCode" column="LOCATION_CODE"/>
+  	<result property="isbn" column="ISBN"/>
+  	<result property="serchYN" column="SEARCH_YN"/>
+  	<result property="publisher" column="PUBLISHER"/>
+</resultMap>
+
+<!-- BookRentAndBookInfoDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO" id="bookRentAndBookInfoMap">
+  	<id property="rentNum" column="RENT_NUM"/>
+  	<result property="code" column="CODE"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="rentDate" column="RENT_DATE"/>
+  	<result property="returnDate" column="RETURN_DATE"/>
+  	<result property="rentYn" column="RENT_YN"/>
+  	<association property="bookinfo" resultMap="BookInfoMap"/>
+  </resultMap>
+  
+  <!-- MemberAlive 전체 조회 쿼리 -->	
+  <select id="selectAllMemberAliveList" resultMap="MemberAliveMap">
+    SELECT 
+           ID
+         , NAME
+         , PHONE1
+         , PHONE2
+         , PHONE3
+         , BIRTH
+         , ENROLL_DATE
+      FROM TBL_MEMBER_ALIVE
+      ORDER BY ENROLL_DATE
+  </select>
+  
+  <!-- MemberAlive 상세보기 쿼리 -->
+   <select id="selectOneMemberAliveById" parameterType="string" resultMap="MemberAliveMap">
+     SELECT
+  	        A.NAME
+          , A.GENDER
+          , A.ID
+          , A.PWD
+          , A.BIRTH 
+          , A.EMAIL1
+          , A.EMAIL2
+          , A.ADDRESS1
+          , A.ADDRESS2
+          , A.ADDRESS3
+          , A.PHONE1
+          , A.PHONE2
+          , A.PHONE3
+          , A.LAST_LOGIN
+          , A.USER_STATUS
+       FROM TBL_MEMBER_ALIVE A
+  	 WHERE A.ID = #{ id }
+   </select>
+   
+   <!-- memberDetailBookList 조회 쿼리  -->
+    <select id="selectOneMemberBookListById" parameterType="string" resultMap="bookRentAndBookInfoMap">
+      SELECT
+             A.RENT_NUM
+           , B.KINDS_CODE
+           , B.NAME
+           , B.WRITER
+           , A.RENT_DATE
+           , A.RETURN_DATE
+           , A.RENT_YN
+        FROM TBL_BOOK_RENT A
+      JOIN TBL_BOOK_INFO B ON(A.CODE=B.CODE)
+      WHERE A.MEM_ID = #{ id }
+	</select>
+
+	<!-- MemberRest전체 조회 쿼리 -->	
+  <select id="selectAllRestMemberList"  parameterType="string" resultMap="MemberAliveMap">
+    SELECT 
+           ID
+         , NAME
+         , LAST_LOGIN
+         , ENROLL_DATE
+      FROM TBL_MEMBER_ALIVE
+      WHERE USER_STATUS = 'R'
+      ORDER BY ENROLL_DATE
+  </select>
+</mapper>
+
