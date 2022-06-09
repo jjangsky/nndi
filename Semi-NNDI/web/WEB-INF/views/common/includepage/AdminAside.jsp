@@ -44,8 +44,6 @@
 		        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 		          <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/rentList'" class="menubtn">
 		          대관 신청 조회</button></li>
-		          <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/centerManage'" class="menubtn" >
-		          시설 관리</button></li>
 		        </ul>
 		      </div>
 		
@@ -92,6 +90,8 @@
 		            문의 관리</button></li>
 		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/faqList'" class="menubtn">
 		            FAQ 관리</button></li>
+		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/employTeacherList'" class="menubtn">
+		            강사모집 관리</button></li>
 		          </ul>
 		        </div>
 		
@@ -128,8 +128,6 @@
 		            회원 통계</button></li>
 		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/postSumming'" class="menubtn">
 		            게시글 통계</button></li>
-		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/classRentSumming'" class="menubtn">
-		            강좌,대관 통계</button></li>
 		          </ul>
 		        </div>
 		    

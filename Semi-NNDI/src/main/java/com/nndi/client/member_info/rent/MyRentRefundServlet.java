@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.member_info.rent.RentRequestSQLAndCenterManagementDTO;
 
 @WebServlet("/login/rent/refund")
@@ -18,10 +20,13 @@ public class MyRentRefundServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String user = request.getParameter("user");
-		System.out.println(user);
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		System.out.println(loginMember.getId());
 		
-		List<RentRequestSQLAndCenterManagementDTO> rentRefund = MyPageRentService.selectRentRefund(user);
+		String login = loginMember.getId();
+		
+		List<RentRequestSQLAndCenterManagementDTO> rentRefund = MyPageRentService.selectRentRefund(login);
 		System.out.println(rentRefund);
 		
 		String path = "";

@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nndi.client.board.QNABoardDAO">
 
+
+<!-- 문의글 작성 하기 -->
 <insert id="insertqna">
      	INSERT
    INTO TBL_POST_QUESTION
@@ -34,6 +36,8 @@ SEQ_QUESTION_POST_NUM.NEXTVAL,
 )
 </insert>
 
+<!-- 문의글 수정 하기 -->
+
 <update id="QNAUpdateDAO">
 UPDATE 
        TBL_POST_QUESTION
@@ -42,7 +46,14 @@ UPDATE
 ,  TITLE = #{title}
 , CONTENT = #{content}
 WHERE NUM = #{ num }
+</update>
 
+
+<update id="QNAdelete">
+	UPDATE TBL_POST_QUESTION
+  	   SET 
+           DISPLAY_YN = 'N'
+     WHERE NUM = ${ num }
 </update>
 
 

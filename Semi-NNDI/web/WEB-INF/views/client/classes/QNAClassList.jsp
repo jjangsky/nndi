@@ -10,18 +10,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+<jsp:include page="../../common/includepage/ClassAside.jsp"/>
 <section>	
   <div>
     <h3 class="notice"><b><u>강좌</u>조회</b></h3>
   </div>
+ 
 	<div class="post list"> 
+	 <p style="float: right;">내부사정으로 요일은 불가피하게 변경될수있슴다</p>
     <table class="blueone">
       <thead>
         <tr>
-            <th>번호</th>
-            <th>시설이름</th>
+            <!-- <th>번호</th> -->
             <th>강좌명</th>           
+            <th>강사명</th>
+            <th>장소</th>
             <th>신청인원</th>
             <th>개강일</th>
             <th>종강일</th>
@@ -32,9 +35,10 @@
     <tbody>
     <c:forEach var="cls" items="${ requestScope.classList }">
       <tr>
-          <td class="mudo">${cls.clsNum}</td>
-          <td class="mudo">${cls.cenName}</td>
+          <td class="mudo" style="display: none;">${cls.clsNum}</td>
           <td class="mudo">${cls.clsName}</td>
+          <td class="mudo">${cls.teacher.name}</td>
+          <td class="mudo">${cls.cenName} 호</td>
           <td class="mudo">${cls.clsApplyCnt}명//${cls.clsMaxCnt}명</td>
           <td class="mudo">${cls.clsStartDay}</td>
           <td class="mudo">${cls.clsEndDay}</td>

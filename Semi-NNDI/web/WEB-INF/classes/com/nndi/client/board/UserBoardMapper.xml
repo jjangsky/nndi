@@ -78,7 +78,7 @@
         (
           SEQ_COMPLAIN_POST_NUM.NEXTVAL
         , #{ cate }
-        , 'TESTID01'
+        , #{ memberId }
         , NULL
         , TO_DATE(SYSDATE,'YYYY.MM.DD HH24:MI')
         , #{ title }
@@ -179,6 +179,18 @@
           JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
          WHERE A.NUM = #{ num }
  	</select> 
+ 	
+ 	<!-- 공지사항 조회수 증가 쿼리문 -->
+ 	<update id="incrementNoticeCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_NOTICE A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_NOTICE B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }
+ 		  
+ 	</update>
  	
  	
  

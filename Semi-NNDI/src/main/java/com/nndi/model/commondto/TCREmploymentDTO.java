@@ -1,5 +1,7 @@
 package com.nndi.model.commondto;
 
+import java.sql.Date;
+
 public class TCREmploymentDTO {
 //	NUM	NUMBER
 //	MANAGER_ID	VARCHAR2(30 BYTE)
@@ -16,7 +18,7 @@ public class TCREmploymentDTO {
 	private String managerId;
 	private String clsNum;
 	private String title;
-	private String fileName;
+	private java.sql.Date postDate;
 	private String empYn;
 	private String empCondition;
 	private int empNumber;
@@ -25,14 +27,14 @@ public class TCREmploymentDTO {
 	public TCREmploymentDTO() {
 		super();
 	}
-	public TCREmploymentDTO(int num, String managerId, String clsNum, String title, String fileName, String empYn,
+	public TCREmploymentDTO(int num, String managerId, String clsNum, String title, Date postDate, String empYn,
 			String empCondition, int empNumber, String environment, String empProcess) {
 		super();
 		this.num = num;
 		this.managerId = managerId;
 		this.clsNum = clsNum;
 		this.title = title;
-		this.fileName = fileName;
+		this.postDate = postDate;
 		this.empYn = empYn;
 		this.empCondition = empCondition;
 		this.empNumber = empNumber;
@@ -63,11 +65,11 @@ public class TCREmploymentDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getFileName() {
-		return fileName;
+	public java.sql.Date getPostDate() {
+		return postDate;
 	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setPostDate(java.sql.Date postDate) {
+		this.postDate = postDate;
 	}
 	public String getEmpYn() {
 		return empYn;
@@ -102,9 +104,10 @@ public class TCREmploymentDTO {
 	@Override
 	public String toString() {
 		return "TCREmploymentDTO [num=" + num + ", managerId=" + managerId + ", clsNum=" + clsNum + ", title=" + title
-				+ ", fileName=" + fileName + ", empYn=" + empYn + ", empCondition=" + empCondition + ", empNumber="
+				+ ", postDate=" + postDate + ", empYn=" + empYn + ", empCondition=" + empCondition + ", empNumber="
 				+ empNumber + ", environment=" + environment + ", empProcess=" + empProcess + "]";
 	}
+	
 	
 	
 }

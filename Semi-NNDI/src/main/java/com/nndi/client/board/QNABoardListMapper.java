@@ -8,8 +8,10 @@ import com.nndi.model.commondto.QnaDTO;
 
 public interface QNABoardListMapper {
 
+	/* 문의글 전체 조회 하기 */
 	List<QnaDTO> QNABoardList();
 
+	/* 문의글 상세 조회 하기 */
 	QnaDTO QNABoardListDetail(int num);	
 
 }

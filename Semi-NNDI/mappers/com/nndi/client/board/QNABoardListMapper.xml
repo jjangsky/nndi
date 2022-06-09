@@ -17,8 +17,8 @@
      </resultMap>     
      
      
-     
-     <select id="QNABoardList" resultMap="QNAMap">
+ <!-- 문의글 전체 조회 -->    
+ <select id="QNABoardList" resultMap="QNAMap">
 		SELECT 
      		   NUM
      		 , CATE_NUM
@@ -32,10 +32,12 @@
 		     , DISPLAY_YN
 		     , HITS
 		  FROM TBL_POST_QUESTION
+		 WHERE DISPLAY_YN = 'Y' 
 		 ORDER BY 1 DESC 
-     </select>
+ </select>
      
-     <select id="QNABoardListDetail" resultMap="QNAMap">
+ <!-- 문의글 상세 조회 -->    
+ <select id="QNABoardListDetail" resultMap="QNAMap">
 		SELECT 
      		   NUM
      		 , CATE_NUM
@@ -50,7 +52,7 @@
 		     , HITS
 		  FROM TBL_POST_QUESTION 
 		 WHERE NUM = #{ num } 
-     </select>
+ </select>
      
 
 </mapper>

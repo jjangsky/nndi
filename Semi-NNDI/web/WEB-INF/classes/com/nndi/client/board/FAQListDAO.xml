@@ -12,9 +12,9 @@
      </resultMap>     
      
      
-     
-     <select id="FAQlist" resultMap="FAQMap">
-		SELECT
+ <!-- 자주 묻는 질문 전체 조회 -->    
+ <select id="FAQlist" resultMap="FAQMap">
+SELECT
        NUM
      , MANAGER_ID
      , CATE_NUM
@@ -22,10 +22,11 @@
      , CONTENT
      , HITS 
   FROM TBL_POST_FAQ
-     </select>
-     
-          <select id="FAQListDetail" resultMap="FAQMap">
-		SELECT
+ </select>
+ 
+ <!-- 자주 묻는 질문 상세 조회 -->    
+ <select id="FAQListDetail" resultMap="FAQMap">
+SELECT
        NUM
      , MANAGER_ID
      , CATE_NUM
@@ -34,5 +35,5 @@
      , HITS 
   FROM TBL_POST_FAQ 
 		 WHERE NUM = #{ num } 
-     </select>
+ </select>
 </mapper>

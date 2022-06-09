@@ -19,38 +19,19 @@
  			<svg class="bi pe-none me-2" width="30" height="24"></svg>
   			<span class="fs-5 fw-semibold" style="color:rgb(255, 255, 255)">강좌 안내</span></a>
 		</div>
+		
+		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false" 
+		onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">전체 강좌 조회</button>
+		
+		<br>
 
-		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">문화</button>
-		<div class="collapse" id="home-collapse">
-			<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-				<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">아동</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">청소년</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">성인</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">시니어</button></li>
-  			</ul>
-		</div>
+		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false"
+		 onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'">문화</button>
 
 		<br>
 		
-		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false">체육</button>
-		<div class="collapse" id="orders1-collapse">
-			<ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
-				<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">수영</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">탁구</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">농구</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">배드민턴</button></li>
-    			<br>
-    			<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">클라이밍</button></li>
-  			</ul>
-		</div>
+		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false" 
+		onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassphList'">체육</button>
 		
 	</nav>
 </aside>

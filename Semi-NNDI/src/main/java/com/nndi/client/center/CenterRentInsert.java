@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.commondto.RentRequestSQLDTO;
 
 
@@ -19,9 +21,16 @@ public class CenterRentInsert extends HttpServlet {
 		
 
 		request.setCharacterEncoding("UTF-8");
+		
+		
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		System.out.println(loginMember.getId());
+		
 		String code = request.getParameter("code");
 		java.sql.Date start = java.sql.Date.valueOf(request.getParameter("start"));
 		java.sql.Date end = java.sql.Date.valueOf(request.getParameter("end"));
+		String login = loginMember.getId();
 		
 		System.out.println(code);
 		System.out.println(start);
@@ -31,6 +40,7 @@ public class CenterRentInsert extends HttpServlet {
 		rentReq.setCenterName(code);
 		rentReq.setRentStart(start);
 		rentReq.setRentEnd(end);
+		rentReq.setMemId(login);
 		
 		int result = CenterService.insertRantReq(rentReq);
 		
