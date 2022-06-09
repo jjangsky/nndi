@@ -10,6 +10,7 @@ import com.nndi.client.board.UserBoardMapper;
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.CenterManagementDTO;
 import com.nndi.model.commondto.RentRequestDTO;
+import com.nndi.model.commondto.RentRequestSQLDTO;
 
 public class CenterService {
 	
@@ -60,6 +61,25 @@ public class CenterService {
 		
 		
 		return centerDetail;
+	}
+	
+	/* 대관 요청 */
+	public static int insertRantReq(RentRequestSQLDTO rentReq) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		centerMapper = sqlSession.getMapper(CenterMapper.class);
+		int result = centerMapper.insertRantReq(rentReq);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
 	}
 
 }

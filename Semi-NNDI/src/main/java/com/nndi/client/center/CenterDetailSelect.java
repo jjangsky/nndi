@@ -48,10 +48,11 @@ public class CenterDetailSelect extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
-	
-	
+		
 	
 	}
+	
+
 
 
 }
