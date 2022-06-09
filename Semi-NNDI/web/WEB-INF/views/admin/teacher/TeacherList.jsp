@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +24,8 @@
 	
 	<section>
 	 
-	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
-	   
+	  <jsp:include page="../../common/includepage/AdminAside.jsp"/>
+	  
     <div class="post title">
         <h3 class="top">강사 조회</h3>
     </div>
@@ -46,41 +47,32 @@
               <tr>
                 <th>번호</th>
                 <th>이름</th>
+                <th>성별</th>
                 <th>연락처</th>
                 <th>이메일</th>
-                <th>생년월일</th>
                 <th>주소</th>
-                <th>활동여부</th>
+                <th>계약해지여부</th>
+                <th>수정</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>김효지</td>
-                <td>010-1111-2345</td>
-                <td>khj@nndi.com</td>
-                <td>90.01.01</td>
-                <td>서울시 광진구 xxx</td>
-                <td>Y</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>나큰소</td>
-                <td>010-1111-2346</td>
-                <td>nks@nndi.com</td>
-                <td>90.01.02</td>
-                <td>서울시 서초구 xxx</td>
-                <td>Y</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>김혜주</td>
-                <td>010-1111-2347</td>
-                <td>khj@nndi.com</td>
-                <td>90.01.01</td>
-                <td>서울시 종로구 xxx</td>
-                <td>Y</td>
-              </tr>
+              <c:forEach var="teacher" items="${ requestScope.teacherList }">
+		              <tr>
+		                <td>${ teacher.no }</td>
+		                <td>${ teacher.name }</td>
+		                <td>${ teacher.gender }</td>
+		                <td>${ teacher.phone }</td>
+		                <td>${ teacher.email }</td>
+		                <td>${ teacher.address }</td>
+		                <td>${ teacher.contractYn }</td>
+		                <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/teacherUpdate.do?no=${ teacher.no }'" >
+		                	수정</button>
+		                </td>
+		              </tr>
+		              </c:forEach>
             </tbody>
         </table>
     </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,42 +46,33 @@
 	    <table class="tb01">
 	        <thead class="table-lgiht">
 	            <tr>
-	                <th>회원번호</th>
+	                <th>회원ID</th>
 	                <th>이름</th>
 	                <th>연락처</th>
 	                <th>생년월일</th>
 	                <th>가입날짜</th>
 	                <th>회원관리</th>
 	            </tr>
-	        </thead>
-	        <tbody>
-	            <tr>
-	                <td>3</td>
-	                <td>김유찬</td>
-	                <td>010-4545-7878</td>
-	                <td>1999/01/01</td>
-	                <td>2022/05/28</td>
-	                <td><button type="button" class="btn btn-secondary" onclick="location.href='selectMember.html'">회원관리</button></td>
-	            </tr>
-	            <tr></tr>
-	                <td>2</td>
-	                <td>김혜준</td>
-	                <td>010-4485-5578</td>
-	                <td>1999/01/11</td>
-	                <td>2022/05/28</td>
-	                <td><button type="button" class="btn btn-secondary">회원관리</button></td>
-	            </tr>
-	            <tr>
-	                <td>1</td>
-	                <td>김효진</td>
-	                <td>010-1111-7878</td>
-	                <td>1999/01/21</td>
-	                <td>2022/05/28</td>
-	                <td><button type="button" class="btn btn-secondary">회원관리</button></td>
-	            </tr>
+			</thead>
+			<tbody>
+	            <c:forEach var="alive" items="${ requestScope.memberAliveList }">
+		              <tr>
+		                <td>${ alive.id }</td>
+		                <td>${ alive.name }</td>
+		                <td>${ alive.phone }</td>
+		                <td>${ alive.birth }</td>
+		                <td>${ alive.enrollDate }</td>
+		                <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'" >
+		                	회원관리</button>
+		                </td>
+		              </tr>
+		              </c:forEach>
 	          </tbody>
 	      </table>
-	  
+	  	</div>
 	    <div class="pagination">
 	      <a href="#">&laquo;</a>
 	      <a href="#">1</a>

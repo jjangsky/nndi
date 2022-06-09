@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,46 +46,34 @@
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>
-		              <tr>
+	 	              <tr>
 		                <th>번호</th>
-		                <th>문의유형</th>
 		                <th>제목</th>
+		                <th>카테고리</th>
 		                <th>작성자</th>
 		                <th>조회수</th>
+		                <th>상세보기</th>
 		              </tr>
 		            </thead>
 		            <tbody>
 		              <tr>
-		                <td>1</td>
-		                <td>시설</td>
-		                <td>시설 종류는 뭐가 있나요?</td>
-		                <td>admin01</td>
-		                <td>10</td>
-		              </tr>
+		               <c:forEach var="faq" items="${ requestScope.FAQList }">
 		              <tr>
-		                <td>2</td>
-		                <td>강좌</td>
-		                <td>수강신청은 어떻게 하나요?</td>
-		                <td>admin01</td>
-		                <td>10</td>
+		                <td>${ faq.num }</td>
+		                <td>${ faq.title }</td>
+		                <td>${ faq.category.cateKind }</td>
+		                <td>${ faq.managerId }</td>
+		                <td>${ faq.hits }</td>
+		                <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailFaq.do?no=${ faq.num }'" >
+		                	보기</button>
 		              </tr>
-		              <tr>
-		                <td>3</td>
-		                <td>대관</td>
-		                <td>대관 신청 승인 기준이 있나요?</td>
-		                <td>admin01</td>
-		                <td>10</td>
-		              </tr>
-		              <tr>
-		                <td>4</td>
-		                <td>기타</td>
-		                <td>취업특강은 언제 하나요?</td>
-		                <td>admin01</td>
-		                <td>10</td>
-		              </tr>
+		              </c:forEach>
 		            </tbody>
 		        </table>
-		    </div>
+		    </div> 
 		    <div class="btns">
 		      <button class="btns addbtn">글쓰기</button>
 		    </div>
