@@ -9,4 +9,8 @@ public interface AccountMapper {
 
 	int accountManager(ManagerDTO managerList);
 
+	int updateMember(MemberAliveDTO updateMemberList);
+
+	int deleteMember(MemberAliveDTO loginMember);
+
 }

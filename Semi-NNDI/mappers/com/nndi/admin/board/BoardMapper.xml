@@ -64,6 +64,58 @@
   	<association property="category" resultMap="postCategoryMap"/>
   </resultMap>
   
+  <!-- FAQDTO reaultMap 생성 -->
+  <resultMap type="com.nndi.model.commondto.FAQDTO" id="allFAQMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="hits" column="HITS"/>
+  </resultMap>
+  
+   <!-- FAQAndCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.board.FAQAndCategoryDTO" id="faqAndCateMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="hits" column="HITS"/>
+  	<association property="category" resultMap="postCategoryMap"/>
+  </resultMap>
+  
+  <!-- QnaDTO reaultMap 생성 -->
+  <resultMap type="com.nndi.model.commondto.QnaDTO" id="allQNAMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="answerYn" column="ANSWER_YN"/>
+  	<result property="answerContent" column="ANSWER_CONTENT"/>
+  	<result property="displayYn" column="DISPLAY_YN"/>
+  	<result property="hits" column="HITS"/>
+  </resultMap>
+  
+  <!-- QnaAndCategoryDTO resultMap 생성 -->
+  <resultMap type="com.nndi.model.joindto.admin.board.QnaAndCategoryDTO" id="QnaAndCateMap">
+  	<id property="num" column="NUM"/>
+  	<result property="cateNum" column="CATE_NUM"/>
+  	<result property="memId" column="MEM_ID"/>
+  	<result property="managerId" column="MANAGER_ID"/>
+  	<result property="postDate" column="POST_DATE"/>
+  	<result property="title" column="TITLE"/>
+  	<result property="content" column="CONTENT"/>
+  	<result property="answerYn" column="ANSWER_YN"/>
+  	<result property="answerContent" column="ANSWER_CONTENT"/>
+  	<result property="displayYn" column="DISPLAY_YN"/>
+  	<result property="hits" column="HITS"/>
+  	<association property="category" resultMap="postCategoryMap"/>
+  </resultMap>
+  
   <!-- 공지사항 전체 조회 쿼리 -->
   <select id="selectAllNoticeList" resultMap="noticeAndCateMap">
   	SELECT
@@ -173,6 +225,94 @@
   	 WHERE A.NUM = #{ num }
   </update>
   
+  <!-- FAQ 전체 조회 쿼리 -->
+  <select id="selectAllFAQList" resultMap="faqAndCateMap">
+    SELECT 
+           A.NUM
+         , A.MANAGER_ID
+         , A.CATE_NUM
+         , A.TITLE
+         , A.HITS
+         , B.CATE_KIND
+      FROM TBL_POST_FAQ A
+      LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+      </select>
+      
+  <!-- FAQ 상세보기 쿼리 -->
+  <select id="selectFAQOneByNum" parameterType="_int" resultMap="faqAndCateMap">
+  	SELECT 
+           A.NUM
+         , A.MANAGER_ID
+         , A.CATE_NUM
+         , A.TITLE
+         , A.HITS
+         , A.CONTENT
+         , B.CATE_KIND
+      FROM TBL_POST_FAQ A
+      LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 WHERE A.NUM = #{ num }
+  </select>    
+  
+  <!-- Qna 전체 조회 쿼리 -->
+  <select id="selectAllQnaList" resultMap="QnaAndCateMap">
+  	SELECT
+  	       A.NUM
+  	     , A.TITLE
+  	     , A.MEM_ID
+  	     , B.CATE_KIND
+  	     , A.MANAGER_ID
+  	     , A.POST_DATE
+  	     , A.HITS
+  	     , A.ANSWER_YN
+  	     , A.ANSWER_CONTENT
+  	  FROM TBL_POST_QUESTION A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  </select>
+  
+  <!-- Qna 상세보기 쿼리 -->
+  <select id="selectQnaOneByNum" parameterType="_int" resultMap="QnaAndCateMap">
+  	SELECT
+  	       A.NUM
+  	     , A.TITLE
+  	     , A.MEM_ID
+  	     , B.CATE_KIND
+  	     , A.MANAGER_ID
+  	     , A.POST_DATE
+  	     , A.HITS
+  	     , A.ANSWER_YN
+  	     , A.CONTENT
+  	     , A.ANSWER_CONTENT
+  	  FROM TBL_POST_QUESTION A
+  	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 WHERE A.NUM = #{ num }
+  </select>
+  
+   <!-- Qna 답변 쿼리 -->
+  <update id="UpdateQnaRE" parameterType="com.nndi.model.commondto.QnaDTO">
+  	UPDATE 
+  	       TBL_POST_QUESTION 
+  	   SET 
+  	   	   ANSWER_CONTENT = #{ answerContent }
+  	     , ANSWER_YN = 'Y'
+  	 WHERE NUM = #{ num }
+  </update>
+
+	<!-- Qna 삭제 쿼리 -->		
+	<delete id="DeleteQnaRE" parameterType="_int">
+	  DELETE
+	    FROM TBL_POST_QUESTION A
+	   WHERE A.NUM = #{ num }  
+	</delete>
+  
+     <!--  FAQ 수정 쿼리 -->
+  <update id="UpdateFaqRE" parameterType="com.nndi.model.commondto.FAQDTO">
+  	UPDATE 
+  	       TBL_POST_FAQ
+  	   SET 
+  	   	   CONTENT = #{ content }
+  	 WHERE NUM = #{ num }
+  </update>
+
   <!-- 칭찬하기 삭제 -->
   <delete id="deleteAdmire" parameterType="_int">
   	DELETE 

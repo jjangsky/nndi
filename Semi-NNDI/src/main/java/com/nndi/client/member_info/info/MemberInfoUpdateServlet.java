@@ -14,9 +14,7 @@ public class MemberInfoUpdateServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			HttpSession loginMemberSession = request.getSession();
-			System.out.println(loginMemberSession);
-			request.setAttribute("member", loginMemberSession);
+			System.out.println("회원 정보 수정 서블릿");
 			
 			request.getRequestDispatcher("/WEB-INF/views/client/member-info/info/MemberInfoUpdate.jsp").forward(request, response);
 	}

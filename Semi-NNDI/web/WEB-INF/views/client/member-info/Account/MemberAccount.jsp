@@ -40,7 +40,7 @@
             <label>성별: </label>
             <select id="ugender" name="selectGender" style="width: auto;" required>
             	<option value="" ></option>
-                <option value="male" id="male">남</option>
+                <option value="male" id="male" >남</option>
                 <option value="female" id="female">여</option>
             </select>
             <br>
@@ -228,10 +228,8 @@ $(function(){
 		
 		$searchZipCode.onclick = function() {
 		
-			//다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 매개변수로 전달한다.
 			new daum.Postcode({
 				oncomplete: function(data){
-					//팝업에서 검색결과 항목을 클릭했을 시 실행할 코드를 작성하는 부분
 					document.getElementById("zipCode").value = data.zonecode;
 					document.getElementById("address1").value = data.address;
 					document.getElementById("address2").focus();
@@ -243,5 +241,18 @@ $(function(){
 			location.href = "${ pageContext.servletContext.contextPath }";
 		}
 	</script>
+
+		  <script>
+	    $("#back").click(function(){
+	      let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+	      if (confirm(text) == true) {
+	        	location.href = "${ pageContext.servletContext.contextPath }";
+	      } else {
+	        
+	      }
+	    });
+
+	  </script>
+	
 
 </html>

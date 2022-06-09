@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
         color: aliceblue !important;
       }
     </style>
-<title>Admin Teacher List</title>
+<title>Admin Book List</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp"/>
@@ -51,41 +52,29 @@
 			                <th>번호</th>
 			                <th>제목</th>
 			                <th>작가</th>
-			                <th>청구기호</th>
+			                <th>도서위치</th>
 			                <th>ISBN</th>
 			                <th>출판사</th>
 			                <th>조회 설정</th>
 			            </tr>
 			        </thead>
 			        <tbody>
-			            <tr>
-			                <td>3</td>
-			                <td>미드나잇 라이브러리</td>
-			                <td>매트 헤이그</td>
-			                <td>813.7</td>
-			                <td>9791191056556</td>
-			                <td>민음사</td>
-			                <td><button onclick="deleteEdit()" class="btn btn-secondary">설정</button></td>
-			
-			            </tr>
-			            <tr>
-			                <td>2</td>
-			                <td>아몬드</td>
-			                <td>손원평</td>
-			                <td>813.7</td>
-			                <td>9791588453384</td>
-			                <td>길벗</td>
-			                <td><button onclick="deleteEdit()" class="btn btn-secondary">설정</button></td>
-			            </tr>
-			            <tr>
-			                <td>1</td>
-			                <td>코딩의 정석</td>
-			                <td>김용승</td>
-			                <td>020.135</td>
-			                <td>9791818564848</td>
-			                <td>하이미디어</td>
-			                <td><button onclick="deleteEdit()" class="btn btn-secondary">설정</button></td>   
-			            </tr>
+			           <c:forEach var="book" items="${ requestScope.bookList }">
+		              		<tr>
+		               		 <td>${ book.code }</td>
+		               		 <td>${ book.name }</td>
+		               		 <td>${ book.writer }</td>
+		               		 <td>${ book.locationCode }</td>
+		               		 <td>${ book.isbn }</td>
+		                	 <td>${ book.publisher }</td>
+		                	 <td>
+		                	<button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBookList.do?no=${ book.code }'" >
+		                	설정</button>
+		                </td>
+		              </tr>
+		              </c:forEach>
 			        </tbody>
 			    </table>
 			 </div>

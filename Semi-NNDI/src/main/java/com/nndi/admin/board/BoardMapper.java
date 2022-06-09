@@ -3,10 +3,13 @@ package com.nndi.admin.board;
 import java.util.List;
 
 import com.nndi.model.commondto.ComplainDTO;
-import com.nndi.model.commondto.NoticeDTO;
+import com.nndi.model.commondto.FAQDTO;
+import com.nndi.model.commondto.QnaDTO;
 import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.ComplainAndCategoryDTO;
+import com.nndi.model.joindto.admin.board.FAQAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.NoticeAndCategoryDTO;
+import com.nndi.model.joindto.admin.board.QnaAndCategoryDTO;
 
 public interface BoardMapper {
 
@@ -30,6 +33,27 @@ public interface BoardMapper {
 
 	/* 민원 답변 */
 	int UpdateComplainRE(ComplainDTO complain);
+	
+	/* FAQ 전체 보기 */
+	List<FAQAndCategoryDTO> selectAllFAQList();
+
+	/* FAQ 상세 보기 */
+	FAQAndCategoryDTO selectFAQOneByNum(int num);
+
+	/* QNA 전체 보기 */
+	List<QnaAndCategoryDTO> selectAllQnaList();
+	
+	/* QNA 상세 보기 */
+	QnaAndCategoryDTO selectQnaOneByNum(int num);
+
+	/* QNA 답변하기 */
+	int UpdateQnaRE(QnaDTO qna);
+	
+	/* Qna 삭제 */
+	int DeleteQnaRE(int qna);
+
+	/* FAQ 수정 */
+	int UpdateFaqRE(FAQDTO faq);
 
 	/* 칭찬하기 삭제 */
 	int deleteAdmire(int num);
@@ -39,5 +63,6 @@ public interface BoardMapper {
 
 	/* 공지사항 삭제 */
 	int deleteNotice(int num);
+
 
 }
