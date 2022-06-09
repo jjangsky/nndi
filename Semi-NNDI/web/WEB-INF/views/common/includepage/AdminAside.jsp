@@ -92,6 +92,8 @@
 		            문의 관리</button></li>
 		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/faqList'" class="menubtn">
 		            FAQ 관리</button></li>
+		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/employTeacherList'" class="menubtn">
+		            강사모집 관리</button></li>
 		          </ul>
 		        </div>
 		
