@@ -34,7 +34,6 @@ public class RentListServlet extends HttpServlet {
 			System.out.println("Controller : " + rentList);
 		}
 		
-		
 		String path = "";
 		System.out.println("Servlet에서의 조회 결과값: " + bookRentList);
 		
@@ -44,9 +43,8 @@ public class RentListServlet extends HttpServlet {
 			path = "";
 			System.out.println("대출 도서 없음");
 		} else {
-			request.setAttribute("bookRentList", bookRentList);
-			path = "/WEB-INF/views/client/member-info/book/MemberRentBookList.jsp";
-			System.out.println("대출 도서 있음");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "현재 빌리신 도서가 존재하지 않습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

@@ -23,13 +23,22 @@ public class AccountManagerInputServlet extends HttpServlet {
 		
 		int result = new MemberService().registManager(managerList);
 		
+		String page = "";
+		
 		if(result > 0) {
-			System.out.println("가입 성공");
-			response.sendRedirect(request.getContextPath());
+		
+			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+
+			request.setAttribute("successCode", "insertMember");
+
 		} else {
-			System.out.println("가입 실패");
-			response.sendRedirect(request.getContextPath());
+
+			page = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			
+			request.setAttribute("message", "회원 가입에 실패하셨습니다. 입력값을 확인해 주세요.");
 		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 }

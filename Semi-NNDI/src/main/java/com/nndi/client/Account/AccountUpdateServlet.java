@@ -51,13 +51,19 @@ public class AccountUpdateServlet extends HttpServlet {
 			
 			int result = new MemberService().UpdateMember(updateMemberList);
 			
+			String path = "";
 			if(result > 0) {
 				System.out.println("정보 수정 성공");
-				response.sendRedirect(request.getContextPath());
+				path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+				request.setAttribute("successCode", "updateMember");
+
 			} else {
 				System.out.println("정보 수정 실패");
-				response.sendRedirect(request.getContextPath());
+				path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+				request.setAttribute("message", "정보 수정에 실패하셨습니다. 입력값을 확인하세요.");
 			}
+			
+			request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }
