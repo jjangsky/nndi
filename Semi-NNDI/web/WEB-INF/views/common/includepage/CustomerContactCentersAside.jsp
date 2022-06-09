@@ -25,7 +25,7 @@
       	<div class="collapse" id="home-collapse">
         	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
         		<br>
-          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">공지 사항</button></li>
+          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">공지 사항</button></li>
           		<br>
           		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">자주 묻는 질문</button></li>
           		<br>

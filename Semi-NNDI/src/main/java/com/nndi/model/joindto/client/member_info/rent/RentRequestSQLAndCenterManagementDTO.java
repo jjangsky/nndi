@@ -1,36 +1,30 @@
-package com.nndi.model.commondto;
+package com.nndi.model.joindto.client.member_info.rent;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class RentRequestDTO {
-//	POST_NUM	NUMBER
-//	CENTER_NAME	VARCHAR2(30 BYTE)
-//	MANAGER_ID	VARCHAR2(30 BYTE)
-//	MEM_ID	VARCHAR2(30 BYTE)
-//	RENT_REQ_YN	VARCHAR2(3 BYTE)
-//	RENT_COST	NUMBER
-//	RENT_PAY_YN	VARCHAR2(3 BYTE)
-//	RENT_REF_YN	VARCHAR2(3 BYTE)
-//	RENT_START	DATE
-//	RENT_END	DATE
-	
+import com.nndi.model.commondto.CenterManagementDTO;
+
+public class RentRequestSQLAndCenterManagementDTO {
+
 	private int num;
 	private String centerName;
+	private CenterManagementDTO centerManagement;
 	private String managerId;
 	private String memId;
 	private String rentReqYn;
 	private int rentCost;
 	private String rentPayYn;
 	private String rentRefYn;
-	private java.util.Date rentStart;
-	private java.util.Date rentEnd;
-	public RentRequestDTO() {
-		super();
+	private java.sql.Date rentStart;
+	private java.sql.Date rentEnd;
+	public RentRequestSQLAndCenterManagementDTO() {
 	}
-	public RentRequestDTO(int num, String centerName, String managerId, String memId, String rentReqYn, int rentCost,
-			String rentPayYn, String rentRefYn, Date rentStart, Date rentEnd) {
+	public RentRequestSQLAndCenterManagementDTO(int num, String centerName, CenterManagementDTO centerManagement,
+			String managerId, String memId, String rentReqYn, int rentCost, String rentPayYn, String rentRefYn,
+			Date rentStart, Date rentEnd) {
 		this.num = num;
 		this.centerName = centerName;
+		this.centerManagement = centerManagement;
 		this.managerId = managerId;
 		this.memId = memId;
 		this.rentReqYn = rentReqYn;
@@ -51,6 +45,12 @@ public class RentRequestDTO {
 	}
 	public void setCenterName(String centerName) {
 		this.centerName = centerName;
+	}
+	public CenterManagementDTO getCenterManagement() {
+		return centerManagement;
+	}
+	public void setCenterManagement(CenterManagementDTO centerManagement) {
+		this.centerManagement = centerManagement;
 	}
 	public String getManagerId() {
 		return managerId;
@@ -88,23 +88,25 @@ public class RentRequestDTO {
 	public void setRentRefYn(String rentRefYn) {
 		this.rentRefYn = rentRefYn;
 	}
-	public java.util.Date getRentStart() {
+	public java.sql.Date getRentStart() {
 		return rentStart;
 	}
-	public void setRentStart(java.util.Date rentStart) {
+	public void setRentStart(java.sql.Date rentStart) {
 		this.rentStart = rentStart;
 	}
-	public java.util.Date getRentEnd() {
+	public java.sql.Date getRentEnd() {
 		return rentEnd;
 	}
-	public void setRentEnd(java.util.Date rentEnd) {
+	public void setRentEnd(java.sql.Date rentEnd) {
 		this.rentEnd = rentEnd;
 	}
 	@Override
 	public String toString() {
-		return "RentRequestDTO [num=" + num + ", centerName=" + centerName + ", managerId=" + managerId + ", memId="
-				+ memId + ", rentReqYn=" + rentReqYn + ", rentCost=" + rentCost + ", rentPayYn=" + rentPayYn
-				+ ", rentRefYn=" + rentRefYn + ", rentStart=" + rentStart + ", rentEnd=" + rentEnd + "]";
+		return "RentRequestSQLAndCenterManagementDTO [num=" + num + ", centerName=" + centerName + ", centerManagement="
+				+ centerManagement + ", managerId=" + managerId + ", memId=" + memId + ", rentReqYn=" + rentReqYn
+				+ ", rentCost=" + rentCost + ", rentPayYn=" + rentPayYn + ", rentRefYn=" + rentRefYn + ", rentStart="
+				+ rentStart + ", rentEnd=" + rentEnd + "]";
 	}
+	
 	
 }
