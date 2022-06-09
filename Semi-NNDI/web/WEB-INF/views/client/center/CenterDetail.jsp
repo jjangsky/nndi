@@ -23,30 +23,33 @@
 	</aside>
 	
   <section>
-	  <form action="">
+	  <form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
 	  <table class="blueone">
 	      <tr>
-	          <th>시설명</th>
-	          <td>${requestScope.centerDetail.centerKindName }</td>
+	          <th><label>시설명</label></th>
+	         <td> ${requestScope.centerDetail.centerKindName }</td>
+	         <input type="hidden" name="code" value="${requestScope.centerDetail.cenName }">
+	         
+
 	      </tr>
 	      <tr>
-	        <th>>접수대상</th>
+	        <th><label>접수 대상 및 기간</label></th>
 	        <td>제한없음:정기접수</td>
 	    </tr>
 	    <tr>
-	        <th>>이용 시작일</th>
-	        <td><input type="date" id="startDate"></td>
+	        <th><label>이용 시작일</label></th>
+	        <td><input type="date" name="start"></td>
 	    </tr>
 	    <tr>
-	        <th>>이용 종료일</th>
-	        <td><input type="date" id="endDate"></td>
+	        <th><label>이용 종료일</label></th>
+	        <td><input type="date" name="end"></td>
 	    </tr>
 	    <tr>
-	        <th>>접수방법</th>
+	        <th><label>접수 방법</label></th>
 	        <td>대기제(관리자승인)</td>
 	    </tr>
 	    <tr>
-	        <th>>1일 대관료</th>
+	        <th><label>대관료</label></th>
 	        <td>문의 요망</td>
 	    </tr>
 	  

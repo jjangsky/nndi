@@ -65,5 +65,24 @@
  		  
  	</select>
  	
+ 	<!-- 대관 신청하기 -->
+ 	<insert id="insertRantReq" parameterType="com.nndi.model.commondto.RentRequestSQLDTO">
+ 		INSERT
+          INTO TBL_RENT_REQUEST
+ 		VALUES
+ 		(
+ 		  SEQ_REQUEST_POST_NUM.nextval
+ 		, #{ centerName }
+ 		, NULL
+ 		, 'TESTID01'
+ 		, 'N'
+ 		, '0'
+ 		, 'N'
+ 		, 'N'
+ 		, #{ rentStart }
+ 		, #{ rentEnd }
+ 		)
+ 	</insert>
+ 	
  
  </mapper>

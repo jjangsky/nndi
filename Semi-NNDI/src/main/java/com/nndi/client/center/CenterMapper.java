@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.nndi.model.commondto.CenterManagementDTO;
 import com.nndi.model.commondto.RentRequestDTO;
+import com.nndi.model.commondto.RentRequestSQLDTO;
 
 public interface CenterMapper {
 	
@@ -15,6 +16,9 @@ public interface CenterMapper {
 
 	/* 대관 상세조회 */
 	CenterManagementDTO selectCenterDetail(String num);
+	
+	/* 대관 신청 */
+	int insertRantReq(RentRequestSQLDTO rentReq);
 
 
 
