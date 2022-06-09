@@ -15,6 +15,7 @@
 	<jsp:include page="../common/includepage/UserHeader.jsp"/>
 	<button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/main'">관리자페이지로</button>
 	
+	
 	<section>
   <table class="mainPageTable" >
     <tr>

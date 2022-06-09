@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.client.board.FAQListDAO">
+
+     <resultMap type="com.nndi.model.commondto.FAQDTO" id="FAQMap">
+     		<id property="num" column="NUM"/>
+     		<result property="managerId" column="MANAGER_ID"/>
+     		<result property="cateNum" column="CATE_NUM"/>
+     		<result property="title" column="TITLE"/>
+			<result property="content" column="CONTENT"/>     		
+			<result property="hits" column="HITS"/>   
+     </resultMap>     
+     
+     
+     
+     <select id="FAQlist" resultMap="FAQMap">
+		SELECT
+       NUM
+     , MANAGER_ID
+     , CATE_NUM
+     , TITLE
+     , CONTENT
+     , HITS 
+  FROM TBL_POST_FAQ
+     </select>
+     
+          <select id="FAQListDetail" resultMap="FAQMap">
+		SELECT
+       NUM
+     , MANAGER_ID
+     , CATE_NUM
+     , TITLE
+     , CONTENT
+     , HITS 
+  FROM TBL_POST_FAQ 
+		 WHERE NUM = #{ num } 
+     </select>
+</mapper>

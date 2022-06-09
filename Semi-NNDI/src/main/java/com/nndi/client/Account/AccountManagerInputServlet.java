@@ -14,8 +14,6 @@ import com.nndi.model.commondto.ManagerDTO;
 public class AccountManagerInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ManagerDTO managerList = new ManagerDTO();
 		

@@ -7,14 +7,31 @@ public class ClassDTO implements Serializable {
 
 	private static final long serialVersionUID = 5431130540889267348L;
 
-	private String clsNum;
+//	강좌 고유번호	CLS_NUM	NUMBER
+//	강사코드	TCR_NO	VARCHAR2(30 BYTE)
+//	시설이름	CEN_NAME	VARCHAR2(30 BYTE)
+//	강좌명	CLS_NAME	VARCHAR2(50 BYTE)
+//	신청인원	CLS_APPLY_CNT	NUMBER
+//	최대 수강인원	CLS_MAX_CNT	NUMBER
+//	개강일	CLS_START_DAY	DATE
+//	종강일	CLS_END_DAY	DATE
+//	강좌 설명	CLS_EXPLAIN	VARCHAR2(4000 BYTE)
+//	진행시간	CLS_TIME	NUMBER
+//	수강료	CLS_COST	NUMBER
+//	요일	CLS_DAY	VARCHAR2(20 BYTE)
+//	개강 여부	CLS_START_YN	VARCHAR2(3 BYTE)
+//	카테고리명	CLS_CATEGORY_NAME	VARCHAR2(15 BYTE)
+//	추천연령	CLS_RECO_AGE	VARCHAR2(30 BYTE)
+//		CLS_RUN_TIME	VARCHAR2(100 BYTE)
+		
+	private int clsNum;
 	private String tcrNo;
 	private String cenName;
 	private String clsName;
 	private int clsApplyCnt;
 	private int clsMaxCnt;
-	private java.sql.Date clsStartDay;
-	private java.sql.Date clsEndDay;
+	private java.util.Date clsStartDay;
+	private java.util.Date clsEndDay;
 	private String clsExplain;
 	private int clsTime;
 	private int clsCost;
@@ -27,9 +44,9 @@ public class ClassDTO implements Serializable {
 	public ClassDTO() {
 	}
 
-	public ClassDTO(String clsNum, String tcrNo, String cenName, String clsName, int clsApplyCnt, int clsMaxCnt,
-			Date clsStartDay, Date clsEndDay, String clsExplain, int clsTime, int clsCost, String clsDay,
-			String clsStartYn, String clsCategoryName, String clsRecoAge, String clsRunTime) {
+	public ClassDTO(int clsNum, String tcrNo, String cenName, String clsName, int clsApplyCnt, int clsMaxCnt,
+			java.util.Date clsStartDay, java.util.Date clsEndDay, String clsExplain, int clsTime, int clsCost,
+			String clsDay, String clsStartYn, String clsCategoryName, String clsRecoAge, String clsRunTime) {
 		super();
 		this.clsNum = clsNum;
 		this.tcrNo = tcrNo;
@@ -49,11 +66,11 @@ public class ClassDTO implements Serializable {
 		this.clsRunTime = clsRunTime;
 	}
 
-	public String getClsNum() {
+	public int getClsNum() {
 		return clsNum;
 	}
 
-	public void setClsNum(String clsNum) {
+	public void setClsNum(int clsNum) {
 		this.clsNum = clsNum;
 	}
 
@@ -97,19 +114,19 @@ public class ClassDTO implements Serializable {
 		this.clsMaxCnt = clsMaxCnt;
 	}
 
-	public java.sql.Date getClsStartDay() {
+	public java.util.Date getClsStartDay() {
 		return clsStartDay;
 	}
 
-	public void setClsStartDay(java.sql.Date clsStartDay) {
+	public void setClsStartDay(java.util.Date clsStartDay) {
 		this.clsStartDay = clsStartDay;
 	}
 
-	public java.sql.Date getClsEndDay() {
+	public java.util.Date getClsEndDay() {
 		return clsEndDay;
 	}
 
-	public void setClsEndDay(java.sql.Date clsEndDay) {
+	public void setClsEndDay(java.util.Date clsEndDay) {
 		this.clsEndDay = clsEndDay;
 	}
 
@@ -189,6 +206,8 @@ public class ClassDTO implements Serializable {
 				+ clsCost + ", clsDay=" + clsDay + ", clsStartYn=" + clsStartYn + ", clsCategoryName=" + clsCategoryName
 				+ ", clsRecoAge=" + clsRecoAge + ", clsRunTime=" + clsRunTime + "]";
 	}
+
+	
 
 	
 	

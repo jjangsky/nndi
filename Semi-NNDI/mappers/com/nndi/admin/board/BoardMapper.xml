@@ -301,4 +301,25 @@
   	   SET CONTENT = #{ content }
   	 WHERE NUM = #{ num }
   </update>
+
+  <!-- 칭찬하기 삭제 -->
+  <delete id="deleteAdmire" parameterType="_int">
+  	DELETE 
+      FROM TBL_POST_ADMIRE A
+     WHERE A.NUM = #{ num }
+  </delete>
+  
+  <!-- 민원 삭제 -->
+  <delete id="deleteComplain" parameterType="_int">
+  	DELETE 
+      FROM TBL_POST_COMPLAIN A
+     WHERE A.NUM = #{ num }
+  </delete>
+  
+  <!-- 공지사항 삭제 -->
+  <delete id="deleteNotice" parameterType="_int">
+  	DELETE 
+      FROM TBL_POST_NOTICE A
+     WHERE A.NUM = #{ num }
+  </delete>
 </mapper>

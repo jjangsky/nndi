@@ -24,9 +24,13 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">개인 정보</button>
 	    <div class="collapse " id="home-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-		    	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo'">개인정보조회</button></li>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">개인정보수정</button></li>
+	    		<br>
+		    	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/Member/Info'">개인정보조회</button></li>
+		    	<br>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo/Update'">개인정보수정</button></li>
+	        	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">회원탈퇴신청</button></li>
+	        	<br>
 	      	</ul>
 	    </div>
 	    
@@ -35,9 +39,13 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false">대관 관리</button>
 	    <div class="collapse" id="orders1-collapse">
 	      	<ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
+   			   	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 신청 현황</button></li>
+	        	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 신청 취소</button></li>
+	        	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 환불 신청</button></li>
+	        	<br>
 	      	</ul>
 	    </div>
 	    
@@ -56,6 +64,7 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders3-collapse" aria-expanded="false">도서대출조회</button>
 	    <div class="collapse" id="orders3-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+	    	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">도서 대출 목록 조회</button></li>
 	        </ul>
 	    </div>
@@ -65,9 +74,13 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders4-collapse" aria-expanded="false">게시판</button>
 	    <div class="collapse" id="orders4-collapse">
 	        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+	        <br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">문의 조회</button></li>
+	          	<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">칭찬 조회</button></li>
+	          	<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">민원 조회</button></li>
+	          	<br>
 	        </ul>
 	    </div>
 	</nav>

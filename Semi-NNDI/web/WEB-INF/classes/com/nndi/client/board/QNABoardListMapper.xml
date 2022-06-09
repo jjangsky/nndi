@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.client.board.QNABoardListMapper">
+
+     <resultMap type="com.nndi.model.commondto.QnaDTO" id="QNAMap">
+     		<id property="num" column="NUM"/>
+     		<result property="cateNum" column="CATE_NUM"/>
+     		<result property="memId" column="MEM_ID"/>
+     		<result property="managerId" column="MANAGER_ID"/>
+			<result property="postDate" column="POST_DATE"/>     		
+			<result property="title" column="TITLE"/>   
+     		<result property="content" column="CONTENT"/>
+     		<result property="answerYn" column="ANSWER_YN"/>
+     		<result property="answerContent" column="ANSWER_CONTENT"/>
+			<result property="displayYn" column="DISPLAY_YN"/>   
+			<result property="hits" column="HITS"/> 
+     </resultMap>     
+     
+     
+     
+     <select id="QNABoardList" resultMap="QNAMap">
+		SELECT 
+     		   NUM
+     		 , CATE_NUM
+		     , MEM_ID
+     		 , MANAGER_ID  
+		     , POST_DATE
+		     , TITLE
+		     , CONTENT
+		     , ANSWER_YN
+		     , ANSWER_CONTENT
+		     , DISPLAY_YN
+		     , HITS
+		  FROM TBL_POST_QUESTION
+		 ORDER BY 1 DESC 
+     </select>
+     
+     <select id="QNABoardListDetail" resultMap="QNAMap">
+		SELECT 
+     		   NUM
+     		 , CATE_NUM
+		     , MEM_ID
+     		 , MANAGER_ID  
+		     , POST_DATE
+		     , TITLE
+		     , CONTENT
+		     , ANSWER_YN
+		     , ANSWER_CONTENT
+		     , DISPLAY_YN
+		     , HITS
+		  FROM TBL_POST_QUESTION 
+		 WHERE NUM = #{ num } 
+     </select>
+     
+
+</mapper>

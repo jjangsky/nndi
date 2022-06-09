@@ -17,13 +17,12 @@ public class MemberAccountPolicyServlet extends HttpServlet {
 		String xo2 = request.getParameter("agree2");
 		
 		String path="";
-		System.out.println(xo1);
 		if(xo1.equals("true") && xo2.equals("true")) {
 			path="/WEB-INF/views/client/member-info/Account/MemberAccount.jsp";
 		} else {
 			path="/WEB-INF/views/client/member-info/info/UserMainPage.jsp";
 		}
-		
+	
 		request.getRequestDispatcher(path).forward(request, response);
 
 	}

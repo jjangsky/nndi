@@ -52,4 +52,13 @@ public interface BoardMapper {
 	/* FAQ 수정 */
 	int UpdateFaqRE(FAQDTO faq);
 
+	/* 칭찬하기 삭제 */
+	int deleteAdmire(int num);
+
+	/* 민원 삭제 */
+	int deleteComplain(int num);
+
+	/* 공지사항 삭제 */
+	int deleteNotice(int num);
+
 }

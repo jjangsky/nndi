@@ -233,4 +233,58 @@ public class BoardService {
 		return result;
 	}
 
+	/* 칭찬하기 글 삭제 */
+	public int deleteAdmire(int num) {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.deleteAdmire(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 민원 삭제 */
+	public int deleteComplain(int num) {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.deleteComplain(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 공지사항 삭제 */
+	public int deleteNotice(int num) {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.deleteNotice(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
 }
