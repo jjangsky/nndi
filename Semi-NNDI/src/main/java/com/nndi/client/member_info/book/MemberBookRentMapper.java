@@ -9,6 +9,7 @@ import com.nndi.model.joindto.client.member_info.book.MemberAndBookRentDTO;
 
 public interface MemberBookRentMapper {
 
+	/* 대출 도서 목록 조회 Mapper */
 	List<MemberAndBookRentDTO> selectBookRentList(HttpSession loginSession);
 
 }

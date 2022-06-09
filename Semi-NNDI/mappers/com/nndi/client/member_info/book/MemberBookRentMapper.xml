@@ -35,6 +35,18 @@
 		<result property="rentYn" column="RENT_YN"/>
 	</resultMap>
 	
+	<!-- BookInfoDTO ResultMap, typeAlias="BookInfoDTO -->
+	<resultMap type="BookInfoDTO" id="BookResultMap">
+		<id property="number" column="NUMBER"/>
+		<result property="KindsCode" column="KINDS_CODE"/>
+		<result property="name" column="NAME"/>
+		<result property="writer" column="WRITER"/>
+		<result property="locationCode" column="LOCATION_CODE"/>
+		<result property="isbn" column="ISBN"/>
+		<result property="serachYN" column="SEARCH_YN"/>
+		<result property="publisher" column="PUBLISHER"/>
+	</resultMap>
+	
 	<!-- MemberBookRentDTO ReulstMap, typeAlias="MemberAndBookRentDTO -->
 	<resultMap type="MemberAndBookRentDTO" id="MemberBookRentResult">
 		<id property="rentNum" column="RENT_NUM"/>
@@ -44,18 +56,18 @@
 		<result property="returnDate" column="RETURN_DATE"/>
 		<result property="rentYn" column="RENT_YN"/>
 	  	<association property="member" resultMap="memberAliveResultMap"/>
+	  	<association property="book" resultMap="BookResultMap"/>
 	</resultMap>
 	
- 	<select id="selectBookRentList" resultMap="BookRentResultMap">
+ 	<select id="selectBookRentList" resultMap="MemberBookRentResult">
 		SELECT
-			   A.RENT_NUM
-			 , A.CODE
-			 , A.MEM_ID
+			   DISTINCT B.NAME
+			 , B.WRITER
+			 , A.RENT_YN
 			 , A.RENT_DATE
-			 , A.RETURN_DATE
-			 , A.RENT_YN  	 
 		  FROM TBL_BOOK_RENT A
-		   WHERE RETURN_DATE IS NULL 
+		  LEFT OUTER JOIN TBL_BOOK_INFO B ON (A.CODE = B.CODE) 
+		 WHERE A.RETURN_DATE IS NULL 
 	</select> 
 
 </mapper>

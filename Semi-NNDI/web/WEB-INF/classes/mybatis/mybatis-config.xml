@@ -6,6 +6,7 @@
 		<typeAlias type="com.nndi.model.commondto.MemberDeadDTO" alias="DeadDTO"/>
 		<typeAlias type="com.nndi.model.commondto.ManagerDTO" alias="ManagerDTO"/>
 		<typeAlias type="com.nndi.model.commondto.BookRentDTO" alias="BookRentDTO"/>
+		<typeAlias type="com.nndi.model.commondto.BookInfoDTO" alias="BookInfoDTO"/>
 		<typeAlias type="com.nndi.model.joindto.client.member_info.book.MemberAndBookRentDTO" alias="MemberAndBookRentDTO"/>
 	</typeAliases>
 	
