@@ -101,7 +101,23 @@ public class BoardService {
 		
 		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
 		
-		NoticeDTO noticeDetail = boardMapper.selectNoticeDetail(num);
+		int result = boardMapper.incrementNoticeCount(num);
+		
+		NoticeDTO noticeDetail = null;
+		
+		if(result > 0) {
+			noticeDetail = boardMapper.selectNoticeDetail(num);
+			
+			if(noticeDetail != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
 		
 		return noticeDetail;
 	}

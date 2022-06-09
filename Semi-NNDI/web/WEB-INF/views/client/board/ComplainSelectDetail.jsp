@@ -46,6 +46,7 @@
   </div>
 
   <div>
+    <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/complain/delete?num=${ requestScope.complainDetail.num }'">삭제하기</button>
   	<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/complain/update?num=${ requestScope.complainDetail.num }'">수정하기</button>
     <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'">목록으로</button>
   </div>

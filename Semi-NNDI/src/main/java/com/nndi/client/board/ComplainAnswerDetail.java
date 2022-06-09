@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
 @WebServlet("/login/answer/complain/detail/*")
@@ -15,7 +17,11 @@ public class ComplainAnswerDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-			      
+		
+	  HttpSession loginSession = request.getSession();
+	  MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+	  System.out.println(loginMember.getId());
+		
       int num = Integer.valueOf(request.getParameter("num"));
       
       System.out.println(num);
@@ -27,7 +33,7 @@ public class ComplainAnswerDetail extends HttpServlet {
       System.out.println(complainAnswer); //확인용
       
       String path = "";
-		if(complainAnswer != null) {
+		if(loginMember.getId().equals(complainAnswer.getMemberId())) {
 			path = "/WEB-INF/views/client/board/ComplainAnswerDetail.jsp";
 			request.setAttribute("complainAnswer", complainAnswer);
 		} else {

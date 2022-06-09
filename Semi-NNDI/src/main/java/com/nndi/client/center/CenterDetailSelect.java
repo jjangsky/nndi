@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.CenterManagementDTO;
+import com.nndi.model.commondto.MemberAliveDTO;
 
 
 
@@ -34,6 +36,8 @@ public class CenterDetailSelect extends HttpServlet {
 		 * 
 		 * request.getRequestDispatcher(path).forward(request, response);
 		 */
+		
+		
 		
 		CenterManagementDTO centerDetail = CenterService.selectCenterDetail(num);
 		System.out.println(centerDetail);
