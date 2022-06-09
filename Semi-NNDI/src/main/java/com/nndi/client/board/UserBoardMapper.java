@@ -32,6 +32,9 @@ public interface UserBoardMapper {
 	
 	/* 민원게시판 답변 상세 조회 */
 	BoardAndCategoryDTO selectComplainAnswer(int num);
+	
+	/* 공지사항 조회수 증가 업데이트 */
+	int incrementNoticeCount(int num);
 
 
 

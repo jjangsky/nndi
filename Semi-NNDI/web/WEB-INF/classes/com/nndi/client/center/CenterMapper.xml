@@ -74,7 +74,7 @@
  		  SEQ_REQUEST_POST_NUM.nextval
  		, #{ centerName }
  		, NULL
- 		, 'TESTID01'
+ 		, #{ memId }
  		, 'N'
  		, '0'
  		, 'N'

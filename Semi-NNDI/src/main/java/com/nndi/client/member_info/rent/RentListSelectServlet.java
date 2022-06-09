@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.member_info.rent.RentRequestSQLAndCenterManagementDTO;
 
 @WebServlet("/login/myPage/rentList")
@@ -17,11 +19,16 @@ public class RentListSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String user = request.getParameter("user");
-		System.out.println(user);
 		
-		List<RentRequestSQLAndCenterManagementDTO> myPageRentList = MyPageRentService.selectMyRentRequest(user);
+		
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		System.out.println(loginMember.getId());
+		
+		String login = loginMember.getId();
+	
+		
+		List<RentRequestSQLAndCenterManagementDTO> myPageRentList = MyPageRentService.selectMyRentRequest(login);
 		System.out.println(myPageRentList);
 		
 		String path = "";
