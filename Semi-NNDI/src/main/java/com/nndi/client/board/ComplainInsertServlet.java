@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.BoardDTO;
+import com.nndi.model.commondto.MemberAliveDTO;
 
 @WebServlet("/login/board/complain/insert")
 public class ComplainInsertServlet extends HttpServlet {
@@ -18,11 +20,17 @@ public class ComplainInsertServlet extends HttpServlet {
 	
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		System.out.println(loginMember.getId());
+		
+		String login = loginMember.getId();
 		int categoryCode = Integer.parseInt(request.getParameter("category"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		BoardDTO board = new BoardDTO();
+		board.setMemberId(login);
 		board.setCate(categoryCode);
 		board.setTitle(title);
 		board.setContent(content);

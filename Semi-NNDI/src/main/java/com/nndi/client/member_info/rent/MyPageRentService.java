@@ -17,7 +17,7 @@ public class MyPageRentService {
 	private static MyRentMapper MyRentMapper;
 	
 	/* 마이페이지 대관 신청 리스트 조회 */
-	public static List<RentRequestSQLAndCenterManagementDTO> selectMyRentRequest(String user) {
+	public static List<RentRequestSQLAndCenterManagementDTO> selectMyRentRequest(String login) {
 		
 		System.out.println("서비스");
 		
@@ -25,7 +25,7 @@ public class MyPageRentService {
 		
 		MyRentMapper = sqlSession.getMapper(MyRentMapper.class);
 		
-		List<RentRequestSQLAndCenterManagementDTO> myPageRentList = MyRentMapper.selectMyRentRequest();
+		List<RentRequestSQLAndCenterManagementDTO> myPageRentList = MyRentMapper.selectMyRentRequest(login);
 		
 		sqlSession.close();
 		
@@ -34,13 +34,13 @@ public class MyPageRentService {
 	}
 	
 	/* 마이페이지 대관 신청 환불 내역 조회 */
-	public static List<RentRequestSQLAndCenterManagementDTO> selectRentRefund(String user) {
+	public static List<RentRequestSQLAndCenterManagementDTO> selectRentRefund(String login) {
 		
 		SqlSession sqlSession = getSqlSession();
 		
 		MyRentMapper = sqlSession.getMapper(MyRentMapper.class);
 		
-		List<RentRequestSQLAndCenterManagementDTO> rentRefund = MyRentMapper.selectRentRefund();
+		List<RentRequestSQLAndCenterManagementDTO> rentRefund = MyRentMapper.selectRentRefund(login);
 		
 		sqlSession.close();
 		
@@ -48,12 +48,12 @@ public class MyPageRentService {
 	}
 	
 	/* 마이페이지에서 대관 신청취소가 가능한 리스트 조회 */
-	public static List<RentRequestSQLAndCenterManagementDTO> selectRentCancel(String user) {
+	public static List<RentRequestSQLAndCenterManagementDTO> selectRentCancel(String login) {
 		SqlSession sqlSession = getSqlSession();
 		
 		MyRentMapper = sqlSession.getMapper(MyRentMapper.class);
 		
-		List<RentRequestSQLAndCenterManagementDTO> rentCancelList = MyRentMapper.selectRentCancel();
+		List<RentRequestSQLAndCenterManagementDTO> rentCancelList = MyRentMapper.selectRentCancel(login);
 		
 		sqlSession.close();
 		

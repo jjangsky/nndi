@@ -10,13 +10,13 @@ import com.nndi.model.joindto.client.member_info.rent.RentRequestSQLAndCenterMan
 public interface MyRentMapper {
 	
 	/* 마이페이지 대관 신청 내역 조회 */
-	List<RentRequestSQLAndCenterManagementDTO> selectMyRentRequest();
+	List<RentRequestSQLAndCenterManagementDTO> selectMyRentRequest(String login);
 
 	/* 마이페이지 대관 환불 내역 조회 */
-	List<RentRequestSQLAndCenterManagementDTO> selectRentRefund();
+	List<RentRequestSQLAndCenterManagementDTO> selectRentRefund(String login);
 	
 	/* 대관신청 철회 가능 리스트 조회 */
-	List<RentRequestSQLAndCenterManagementDTO> selectRentCancel();
+	List<RentRequestSQLAndCenterManagementDTO> selectRentCancel(String login);
 	
 	/* 대관 철회 Update */
 	int updateCancel(int num);
