@@ -264,6 +264,7 @@
   	     , A.POST_DATE
   	     , A.HITS
   	     , A.ANSWER_YN
+  	     , A.ANSWER_CONTENT
   	  FROM TBL_POST_QUESTION A
   	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
   </select>
@@ -280,6 +281,7 @@
   	     , A.HITS
   	     , A.ANSWER_YN
   	     , A.CONTENT
+  	     , A.ANSWER_CONTENT
   	  FROM TBL_POST_QUESTION A
   	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
   	 WHERE A.NUM = #{ num }
@@ -289,16 +291,25 @@
   <update id="UpdateQnaRE" parameterType="com.nndi.model.commondto.QnaDTO">
   	UPDATE 
   	       TBL_POST_QUESTION 
-  	   SET ANSWER_CONTENT = #{ content }
-  	   , ANSWER_YN = 'Y'
+  	   SET 
+  	   	   ANSWER_CONTENT = #{ answerContent }
+  	     , ANSWER_YN = 'Y'
   	 WHERE NUM = #{ num }
   </update>
+
+	<!-- Qna 삭제 쿼리 -->		
+	<delete id="DeleteQnaRE" parameterType="_int">
+	  DELETE
+	    FROM TBL_POST_QUESTION A
+	   WHERE A.NUM = #{ num }  
+	</delete>
   
      <!--  FAQ 수정 쿼리 -->
   <update id="UpdateFaqRE" parameterType="com.nndi.model.commondto.FAQDTO">
   	UPDATE 
   	       TBL_POST_FAQ
-  	   SET CONTENT = #{ content }
+  	   SET 
+  	   	   CONTENT = #{ content }
   	 WHERE NUM = #{ num }
   </update>
 

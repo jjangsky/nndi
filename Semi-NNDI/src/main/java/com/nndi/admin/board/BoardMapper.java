@@ -49,6 +49,9 @@ public interface BoardMapper {
 	/* QNA 답변하기 */
 	int UpdateQnaRE(QnaDTO qna);
 	
+	/* Qna 삭제 */
+	int DeleteQnaRE(int qna);
+
 	/* FAQ 수정 */
 	int UpdateFaqRE(FAQDTO faq);
 
@@ -60,5 +63,6 @@ public interface BoardMapper {
 
 	/* 공지사항 삭제 */
 	int deleteNotice(int num);
+
 
 }

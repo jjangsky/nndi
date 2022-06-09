@@ -204,8 +204,26 @@ public class BoardService {
 		SqlSession sqlSession = getSqlSession();
 		
 		mapper = sqlSession.getMapper(BoardMapper.class);
-		
+		System.out.println("Service에서 전달받은 qna 내용 :" + qna);
 		int result = mapper.UpdateQnaRE(qna);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
+	/* Qna 삭제 */
+	public int deleteQnaRE(int qna) {
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		System.out.println("Service에서 전달받은 qna 내용 :" + qna);
+		int result = mapper.DeleteQnaRE(qna);
+		System.out.println("쿼리 결과값: " + result);
 		
 		if(result > 0) {
 			sqlSession.commit();
@@ -286,5 +304,7 @@ public class BoardService {
 		
 		return result;
 	}
+
+
 
 }
