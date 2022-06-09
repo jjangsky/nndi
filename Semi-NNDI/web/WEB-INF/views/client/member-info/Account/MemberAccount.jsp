@@ -103,14 +103,14 @@
 
     		<br>
             <label for="phone" id="input">연락처: </label>
-            <select name="selectUserPhone" style="width: auto;">
+            <select name="selectUserPhone" style="width: auto;" required>
                 <option value="010">010</option>
                 <option value="016">016</option>
                 <option value="011">011</option>
                 <option value="019">019</option>
             </select>
-            <input type="tel" name="phone2" size="4" id="phone2">
-            <input type="tel" name="phone3" size="4" id="phone3"><p>
+            <input type="tel" name="phone2" size="4" id="phone2" required>
+            <input type="tel" name="phone3" size="4" id="phone3" required><p>
             
                 <div style="margin-left: 40%;">
                     <button id="submitbutton">등록</button>

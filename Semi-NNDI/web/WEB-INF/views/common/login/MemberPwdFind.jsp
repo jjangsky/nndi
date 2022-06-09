@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFindAside.css" >
 <title>너나들이 중랑</title>
 
@@ -16,44 +15,46 @@
 </aside>
 
 <section>
-    <form action="${ pageContext.servletContext.contextPath }/Account/pwdinitialization" method="post" id="pwdFind">
-        <p><br>
-        <label for="name">아이디 : </label>
-        <input type="text" id="userId" name="userId" size="30" required>   <p>
-        
-         <label for="phone" id="input">연락처: </label>
-            <select name="selectUserPhone" style="width: auto;">
-                <option value="010">010</option>
-                <option value="016">016</option>
-                <option value="011">011</option>
-                <option value="019">019</option>
-            </select>
-            <input type="tel" name="phone2" size="4" id="phone2">
-            <input type="tel" name="phone3" size="4" id="phone3"><p>
-
-        <button type="button" id="pwdFind" class="pwdinitialization">비밀번호 초기화</button>
-
-    </form>
+	<div>
+	    <form id="pwdFind" action="${ pageContext.servletContext.contextPath }/Member/pwdinitialization/input" method="post" >
+	        <p><br>
+	        <label for="name">아이디 : </label>
+	        <input type="text" id="userId" name="userId" size="30" required>   <p>
+	        
+	         <label for="phone" id="input">연락처: </label>
+	            <select name="selectUserPhone" required style="width: auto;">
+	                <option value="010">010</option>
+	                <option value="016">016</option>
+	                <option value="011">011</option>
+	                <option value="019">019</option>
+	            </select>
+	            <input type="tel" name="phone2" size="4" id="phone2" required>
+	            <input type="tel" name="phone3" size="4" id="phone3" required><p>
+	
+	        <button type="button" id="pwdfinbutton" >비밀번호 초기화</button>
+	    </form>
+	</div>
+	<script>
+	
+		
+	const pwdfinbutton = document.getElementById("pwdfinbutton");
+	
+		pwdfinbutton.onclick = function(){
+		 	let text ="비밀번호 초기화시 임의의 난수로 비밀번호가 재생성됩니다. \n 정말 변경하시려면 '확인'을 누르세요.";
+				if(confirm(text) ==  true){
+					document.getElementById("pwdFind").submit();
+			} 
+		};
+    	
+	</script>
 	
 
 </section>
 </body>
 
-	<script>
-		
-	const pwdinitialization = document.getElementByClass("pwdinitialization");
-	
-    	if(pwdinitialization){
-	   		const text = "비밀번호 초기화 시 임의의 난수 번호로 변경됩니다. 정말 초기화 하시겠습니까? '확인' " ;
-	   			pwdinitialization.clieck = function(){
-					if(confirm(text) == true){
-						document.getElementByClass("pwdinitialization").submit();
-					} 
-				}
-		}
-	</script>
 	
 <br clear="both">
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
+
 
 </html>
