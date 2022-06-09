@@ -64,7 +64,7 @@
   </div> -->
 
   <div>
-    <button id="cancelqna" class="btns" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
+    <button id="cancelqna" class="btns" type="button" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
     <button id="insertqna" type="button" class="btns">등록</button>
   </div>
 </form>
@@ -80,6 +80,13 @@
 		    };
 		   
  </script>
+ 
+ <script>
+			const updatecancel = document.getElementById("cancelqna");
+			cancelqna.onclick = function(){
+		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
+		    };
+</script>
 
 </section>
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>

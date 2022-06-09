@@ -1,4 +1,5 @@
 package com.nndi.client.classes;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
-@WebServlet("/login/board/ClassListDetail")
-public class ClassListDetail extends HttpServlet {
+@WebServlet("/login/board/ClassListCultureDetail")
+public class ClassListCulturedetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,12 +22,12 @@ public class ClassListDetail extends HttpServlet {
 		System.out.println("파라미터 확인용"+num);
 		
 		ClassListService classlist = new ClassListService();
-		ClassesAndTeacherAndCenterDTO classdto = classlist.classdetail(num);
+		ClassesAndTeacherAndCenterDTO classdto = classlist.classculturedetail(num);
 		
 		System.out.println("dto확인용"+classdto);
 		request.setAttribute("classdto", classdto);
 		
-		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassListDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassListCultureDetail.jsp").forward(request, response);
 		
 		
 		}	

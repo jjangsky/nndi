@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nndi.client.classes.ClasspaymentMapper">
+
+<insert id="classmemberinsert">
+INSERT
+  INTO TBL_CLASS_MEMBER
+(
+  ID
+, CLS_NUM
+, REFUND_YN
+)
+VALUES
+(
+  'TESTID04'
+, '1'
+, 'N'
+)
+</insert>
+
+<insert id="classpaymentinsert">
+INSERT
+  INTO TBL_CLASS_PAYMENT
+(
+  ID
+, CLS_NUM
+, CLS_PRICE
+, CLS_PAY_DAY
+, CLS_PAY_YN
+, CLS_PAY_TYPE
+)
+VALUES
+(
+  'TESTID01'
+, '3'
+, '30000'
+, SYSDATE
+, 'Y'
+, '카드'
+)
+</insert>
+
+</mapper>
