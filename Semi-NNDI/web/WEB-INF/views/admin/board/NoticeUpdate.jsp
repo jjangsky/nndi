@@ -36,6 +36,7 @@
 		    </div>
 		    <div class="post add">
 		        <form action="post">
+		        	<input type="hidden" id="num" name="num" value="${ detailComplain.num }">
 		            <label>제목</label><br>
 		            <input id="title" maxlength=100 type="text" readonly value='${ detailNotice.title }'><br>     <!-- readonly에 value값 넣기 -->
 		            <label>카테고리</label><br>
@@ -51,30 +52,28 @@
 		    </div>
   		</div>
 	  <script>
-	    $("#back").click(function(){
-	      let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+	  	const back = document.getElementById("back");
+		const updatepost = document.getElementById("updatepost");
+		const deletepost = document.getElementById("deletepost");
+	    back.onclick = function(){
+	      let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+	      /* console.log('누름확인'); */
 	      if (confirm(text) == true) {
-	        	
-	      } else {
-	        
-	      }
-	    });
-	    $("#updatepost").click(function(){
+	    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/noticeList"; 
+	      } 
+	    };
+	    updatepost.onclick = function(){
 	      let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
 	      if (confirm(text) == true) {
-	        
-	      } else {
-	        
+	    	  document.getElementById("update").submit();
 	      }
-	    });
-	    $("#deletepost").click(function(){
+	    };
+	    deletepost.onclick = function(){
 	      let text = "답변을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
 	      if (confirm(text) == true) {
-	        
-	      } else {
-	        
+	    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/deleteNotice.do?num=${ detailNotice.num }"; 
 	      }
-	    });
+	    };
 	  </script>
 			  
 	</section>

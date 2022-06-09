@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
-@WebServlet("/login/admin/detailClass")
+@WebServlet("/login/admin/detailClass.do")
 public class AdminClassDetailView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int num = Integer.valueOf(request.getParameter("no"));
+		int num = Integer.valueOf(request.getParameter("num"));
 		
 		System.out.println("가져왔니? " + num);
 		

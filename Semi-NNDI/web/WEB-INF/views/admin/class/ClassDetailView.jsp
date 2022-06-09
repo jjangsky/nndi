@@ -35,23 +35,23 @@
 	        <table class="tb_02">
 	          <tbody>
 	            <tr>
-	              <th >강좌고유번호</th>
+	              <th >강좌고유번호 (수정 불가)</th>
 	              <td>${ cls.clsNum }</td>
 	            </tr>
 	            <tr>
-	              <th >강좌명</th>
+	              <th >강좌명 (수정 불가)</th>
 	              <td>${ cls.clsName }</td>
 	            </tr>
 	            <tr>
-	              <th >강좌분류</th>
+	              <th >강좌분류 (수정 불가)</th>
 	              <td>${ cls.clsCategoryName }</td>
 	            </tr>
 	            <tr>
-	              <th >강의실(시설이름)</th>
+	              <th >강의실 (수정 불가)</th>
 	              <td>${ cls.cenName }호</td>
 	            </tr>
 	            <tr>
-	              <th >시설 분류</th>
+	              <th >시설 분류 (수정 불가)</th>
 	              <td>${ cls.center.centerKindName }호</td>
 	            </tr>
 	            <tr>
@@ -59,11 +59,11 @@
 	              <td>${ cls.teacher.name }</td>
 	            </tr>
 	            <tr>
-	              <th>강사 성별</th>
+	              <th>강사 성별 (수정 불가)</th>
 	              <td>${ cls.teacher.gender }</td>
 	            </tr>
 	            <tr>
-	              <th>강좌 신청 인원</th>
+	              <th>강좌 신청 인원 (수정 불가)</th>
 	              <td>${ cls.clsApplyCnt }</td>
 	            </tr>
 	            <tr>
@@ -109,11 +109,10 @@
 	          </tbody>
 	          </table>
 	          <form action="classUpdate" method="get">
-		    <input type="hidden" id="num" name="num" value="${ cls.clsNum }" /> 
 	    	<button type="button" class="btn btn-secondary btns addbtn" 
 	    	onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/classList'">목록으로</button>
-	    	<button id="updatepost" class="btn btn-secondary btns addbtn" type="submit"
-	    			onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/classUpdate'">수정하기</button>
+	    	<button id="updatepost" class="btn btn-secondary btns addbtn" type="button"
+	    			onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/classUpdate.do?num=${ cls.clsNum }'">수정하기</button>
 	          </form>
 	    </div>
 	  	

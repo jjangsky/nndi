@@ -31,4 +31,13 @@ public interface BoardMapper {
 	/* 민원 답변 */
 	int UpdateComplainRE(ComplainDTO complain);
 
+	/* 칭찬하기 삭제 */
+	int deleteAdmire(int num);
+
+	/* 민원 삭제 */
+	int deleteComplain(int num);
+
+	/* 공지사항 삭제 */
+	int deleteNotice(int num);
+
 }
