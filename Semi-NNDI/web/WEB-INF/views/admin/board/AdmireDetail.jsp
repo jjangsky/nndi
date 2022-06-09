@@ -37,7 +37,7 @@
 		    <div class="post add">
 		        <form action="">
 		        	<input type="hidden" id="num" name="num" value="${ detailAdmire.num }" />
-		            <label>민원 내용</label>
+		            <label>내용</label>
 		            <table>
 		                <tr>
 		                    <td class="td1">제목</td>

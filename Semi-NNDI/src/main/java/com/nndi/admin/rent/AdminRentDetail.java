@@ -1,8 +1,6 @@
 package com.nndi.admin.rent;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,24 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.rent.RentAndMemberAliveDTO;
 
-@WebServlet("/login/admin/rentList")
-public class AdminRentList extends HttpServlet {
+@WebServlet("/login/admin/detailRent.do")
+public class AdminRentDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("Detail Rent Servlet");
 		
-		System.out.println("어서와 렌탈은 처음이지?");
+		int num = Integer.valueOf(request.getParameter("num"));
+		
+		System.out.println("잘가져왔니 ? " + num);
 		
 		RentService rentService = new RentService();
 		
-		List<RentAndMemberAliveDTO> rentList = rentService.selectAllrentList();
+		RentAndMemberAliveDTO rent = rentService.selectOneByNumRent(num);
 		
-		System.out.println("Controller : " + rentList);
+		System.out.println("나와라 " + rent);
 		
 		String path = "";
-		if (!rentList.isEmpty()) {
-			path = "/WEB-INF/views/admin/rent/RentList.jsp";
-			request.setAttribute("rentList", rentList);
+		if (!"".equals(rent.getMemId()) && rent.getMemId() != null) {
+			path = "/WEB-INF/views/admin/rent/RentDetail.jsp";
+			request.setAttribute("rent", rent);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			System.out.println("잔넨..");
@@ -36,6 +38,7 @@ public class AdminRentList extends HttpServlet {
 		
 		request.getRequestDispatcher(path).forward(request, response);
 
+	
 	}
 
 }
