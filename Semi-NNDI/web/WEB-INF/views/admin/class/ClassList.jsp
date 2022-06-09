@@ -57,22 +57,21 @@
 	              </tr>
 	            </thead>
 	            <tbody>
-	            <c:forEach var="cls" items="${ requestScope.classList }">
+	            <c:forEach var="cls" items="${ requestScope.classList }" varStatus="status"> <!--  -->
 	              <tr>
 	                <td>${ cls.clsNum }</td>
 	                <td>${ cls.clsName }</td>
 	                <td>${ cls.teacher.name }</td>
 	                <td>${ cls.clsApplyCnt }</td>
 	                <td>${ cls.clsMaxCnt }</td>
-	                <td>${ cls.clsStartDay }</td>
-	                <td>${ cls.clsEndDay }</td>
+	                <td>${ requestScope.time[status.index].start }</td>
+	                <td>${ requestScope.time[status.index].end }</td>
 	                <td>${ cls.clsStartYn }</td>
 	                <td>
-	                <input type="hidden" id="num" name="num" value="${ cls.clsNum }" />
-	                <button type="submit"
+	                <button type="button"
 	                			class="btn btn-secondary" 
 	                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/detailClass'">조회</button></td>
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailClass.do?num=${ cls.clsNum }'">조회</button></td>
 	              </tr>
 	              </c:forEach>
 	            </tbody>

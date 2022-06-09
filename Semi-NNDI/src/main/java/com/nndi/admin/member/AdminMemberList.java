@@ -1,11 +1,15 @@
 package com.nndi.admin.member;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.nndi.model.commondto.MemberAliveDTO;
 
 @WebServlet("/login/admin/memberList")
 public class AdminMemberList extends HttpServlet {
@@ -13,8 +17,30 @@ public class AdminMemberList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/admin/member/MemberList.jsp").forward(request, response);
+		System.out.println("컨트롤러 도착");
+		
+		AdminMemberService adminmemberService = new AdminMemberService();
+		
+		List<MemberAliveDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
+		
+		for(MemberAliveDTO memberAlive : memberAliveList) {
+			System.out.println(memberAlive);
+		}
+		
+		String path = "";
+		if (!memberAliveList.isEmpty()) {
+			path = "/WEB-INF/views/admin/member/MemberList.jsp";
+			request.setAttribute("memberAliveList", memberAliveList);
+		} else {
+			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
+			request.setAttribute("message", "목록 조회 실패!");
+			
+		}
+		
+		request.getRequestDispatcher(path).forward(request, response);
 		
 	}
 
 }
+
+

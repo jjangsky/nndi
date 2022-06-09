@@ -22,9 +22,22 @@
 	
 	<section>
 	<h3 class="locationhead"> 오시는 길</h3>
-   <div id="googleMap" style="width: 60%;height: 700px;"></div>
-   
+		<table class="location">
+		    <tr>
+		        <td>
+					주소 : 서울특별시 중랑구 묵2동  <br>
+					전화 : 02-123-4567 (대표)  <br>
+					FAX : 02-2000-1234   <br>
+					7호선 먹골역 5번출구, 
+					다이소 안쪽 212m <br>
+					2114  :  묵2동 주민센터 하차 <br>
+					105, 202, 1224  :  먹골역  
+		        </td>
+		    </tr>
+		</table>
+   <div id="googleMap" style="width: 50%; height: 700px; float: left"></div>
    <script>
+   
       function myMap(){
          var uluru = {lat: 37.609584, lng: 127.076004};
          var mapOptions = { 
@@ -39,22 +52,9 @@
       }
    </script> 
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAngVeADK8oiPm38ZgHWsvQKsW9FgUQZe0&callback=myMap"></script>
-	<br><br><br>
    	<div class="location">
         
-		<table class="location">
-		    <tr>
-		        <td>
-					주소 : 서울특별시 중랑구 묵2동  <br>
-					전화 : 02-123-4567 (대표)  <br>
-					FAX : 02-2000-1234   <br>
-					7호선 먹골역 5번출구, 
-					다이소 안쪽 212m 
-					2114  :  묵2동 주민센터 하차 <br>
-					105, 202, 1224  :  먹골역  
-		        </td>
-		    </tr>
-		</table>
+
         
    	</div>
       

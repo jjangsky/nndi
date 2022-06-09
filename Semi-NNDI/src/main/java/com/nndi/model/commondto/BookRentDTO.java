@@ -13,6 +13,7 @@ public class BookRentDTO implements Serializable {
 	private java.sql.Date rentDate;
 	private java.sql.Date returnDate;
 	private String rentYn;
+	
 	public BookRentDTO() {
 	}
 	public BookRentDTO(int rentNum, int code, String memId, Date rentDate, Date returnDate, String rentYn) {

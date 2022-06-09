@@ -22,6 +22,26 @@
 		<result property="cenCapacity" column="CEN_CAPACITY"/>
 	</resultMap>
 
+	<!-- ClassDTO resultMap 생성 -->
+	<resultMap type="com.nndi.model.commondto.ClassDTO" id="classMap">
+		<id property="clsNum" column="CLS_NUM"/>
+		<result property="tcrNo" column="TCR_NO"/>
+		<result property="cenName" column="CEN_NAME"/>
+		<result property="clsName" column="CLS_NAME"/>
+		<result property="clsApplyCnt" column="CLS_APPLY_CNT"/>
+		<result property="clsMaxCnt" column="CLS_MAX_CNT"/>
+		<result property="clsStartDay" column="CLS_START_DAY"/>
+		<result property="clsEndDay" column="CLS_END_DAY"/>
+		<result property="clsExplain" column="CLS_EXPLAIN"/>
+		<result property="clsTime" column="CLS_TIME"/>
+		<result property="clsCost" column="CLS_COST"/>
+		<result property="clsDay" column="CLS_DAY"/>
+		<result property="clsStartYn" column="CLS_START_YN"/>
+		<result property="clsCategoryName" column="CLS_CATEGORY_NAME"/>
+		<result property="clsRecoAge" column="CLS_RECO_AGE"/>
+		<result property="clsRunTime" column="CLS_RUN_TIME"/>
+	</resultMap>
+	
 	<!-- ClassesAndTeacherAndCenterDTO resultMap 생성 -->
 	<resultMap type="com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO" id="classAndTeacherAndCenterMap">
 		<id property="clsNum" column="CLS_NUM"/>
@@ -100,4 +120,61 @@
 		  LEFT OUTER JOIN TBL_CENTER_MANAGEMENT C ON (A.CEN_NAME = C.CEN_NAME)
 		 WHERE A.CLS_NUM = #{ num }
 	</select>
+	
+	<!-- /* 강좌 수정, 등록시 강사 존재여부 확인 */ -->
+	<select id="selectTeacher" parameterType="string" resultMap="TeacherMap">
+		SELECT 
+		       A.TCR_NO
+		     , A.TCR_NAME
+		  FROM TBL_TEACHER A
+		 WHERE A.TCR_NAME = #{ tcrName }
+	</select>
+	
+	<!-- 강좌 수정 -->
+	<update id="updateClass" parameterType="com.nndi.model.commondto.ClassDTO">
+		UPDATE
+		       TBL_CLASS A
+		   SET A.CLS_MAX_CNT = #{ clsMaxCnt }
+		     , A.CLS_START_DAY = #{ clsStartDay }
+			 , A.CLS_END_DAY = #{ clsEndDay }
+			 , A.CLS_EXPLAIN = #{ clsExplain }
+			 , A.CLS_TIME = #{ clsTime }
+			 , A.CLS_COST = #{ clsCost }
+			 , A.CLS_DAY = #{ clsDay }
+			 , A.CLS_START_YN = #{ clsStartYn }
+			 , A.CLS_RUN_TIME = #{ clsRunTime }
+		 WHERE A.CLS_NUM =  #{ clsNum }
+	</update>
+	
+	<!-- 강좌 삭제 -->
+	<delete id="deleteClass" parameterType="_int">
+		DELETE 
+		  FROM TBL_CLASS A
+		 WHERE A.CLS_NUM = #{ num }
+	</delete>
+	
+	<!-- 강좌 등록 -->
+	<insert id="insertClass" parameterType="com.nndi.model.commondto.ClassDTO" >
+		INSERT 
+		  INTO TBL_CLASS
+		VALUES 
+		(
+		  SEQ_CLASS_CLS_NUM.NEXTVAL
+		, #{ tcrNo }
+		, #{ cenName }
+		, #{ clsName }
+		, DEFAULT
+		, #{ clsMaxCnt }
+		, #{ clsStartDay }
+		, #{ clsEndDay }
+		, #{ clsExplain }
+		, #{ clsTime }
+		, #{ clsCost }
+		, #{ clsDay }
+		, DEFAULT
+		, #{ clsCategoryName }
+		, #{ clsRecoAge } 
+		, #{ clsRunTime } 
+		)
+	</insert>
 </mapper>

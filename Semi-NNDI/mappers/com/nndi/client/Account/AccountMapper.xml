@@ -97,4 +97,32 @@
 		, #{ managerName }  
 		)
 	</insert>
+
+	<!-- Update Member -->
+  	<update id="updateMember" parameterType="AliveDTO">
+		UPDATE
+			   TBL_MEMBER_ALIVE A
+		   SET 
+			   A.PHONE1 = #{ phone1 }
+			 , A.PHONE2 = #{ phone2 }
+			 , A.PHONE3 = #{ phone3 }
+			 , A.EMAIL1 = #{ email1 }
+			 , A.EMAIL2 = #{ email2 }
+		 	 , A.ADDRESS1 = #{ address1 }
+			 , A.ADDRESS2 = #{ address2 }
+			 , A.ADDRESS3 = #{ address3 }
+			 , A.PWD = #{ pwd }
+			 , A.ID_ANSWER = #{ idAnswer}
+		 WHERE A.ID = #{ id }	 
+	</update> 
+ 
+ 	<!-- Delete Member -->
+	<update id="deleteMember" parameterType="AliveDTO">
+		UPDATE
+			   TBL_MEMBER_ALIVE A
+		   SET 
+		       A.USER_STATUS = 'O'
+		 WHERE A.ID = #{ id }       
+		       
+	</update>
 </mapper>

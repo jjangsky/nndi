@@ -126,9 +126,14 @@ public class MemberLoginService {
 		System.out.println("탈퇴로부터 1년 이상 지난 고객 리스트 : " + outMemberList);
 		int result = 0;
 		
-		deadMemberList.setPhone(outMemberList.getPhone());
-		deadMemberList.setEmail(outMemberList.getEmail());
-		deadMemberList.setAddress(outMemberList.getAddress());
+		deadMemberList.setPhone1(outMemberList.getPhone1());
+		deadMemberList.setPhone2(outMemberList.getPhone2());
+		deadMemberList.setPhone3(outMemberList.getPhone3());
+		deadMemberList.setEmail1(outMemberList.getEmail1());
+		deadMemberList.setEmail2(outMemberList.getEmail2());
+		deadMemberList.setAddress1(outMemberList.getAddress1());
+		deadMemberList.setAddress2(outMemberList.getAddress2());
+		deadMemberList.setAddress3(outMemberList.getAddress3());
 		deadMemberList.setId(outMemberList.getId());
 		deadMemberList.setPwd(outMemberList.getPwd());
 		deadMemberList.setBirth(outMemberList.getBirth());

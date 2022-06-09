@@ -36,7 +36,8 @@
 		    </div>
 		    <div class="post add">
 		        <form action="">
-		            <label>민원 내용</label>
+		        	<input type="hidden" id="num" name="num" value="${ detailAdmire.num }" />
+		            <label>내용</label>
 		            <table>
 		                <tr>
 		                    <td class="td1">제목</td>
@@ -59,36 +60,29 @@
 		                    <td class="td2">${ detailAdmire.postDate }</td>
 		                </tr>
 		            </table>
-		            <button id="updatepost" class="btns add" type="submit">수 정 하 기</button>
-		            <button id="deletepost" class="btns">삭 제 하 기</button>
+		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button>
 		        </form>
 		    </div>
   		</div>
 	  <script>
-	    $("#back").click(function(){
-	      let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+	  	const back = document.getElementById("back");
+		const deletepost = document.getElementById("deletepost");
+		const num = document.getElementById("num").value;
+	    back.onclick = function(){
+	      let text = " 이 창을 나가시겠습니까?\n나가시려면 '확인'을 누르세요.";
+	      /* console.log('누름확인'); */
 	      if (confirm(text) == true) {
-	        	
-	      } else {
-	        
-	      }
-	    });
-	    $("#updatepost").click(function(){
-	      let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-	      if (confirm(text) == true) {
-	        
-	      } else {
-	        
-	      }
-	    });
-	    $("#deletepost").click(function(){
+	    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/admireList"; 
+	      } 
+	    };
+	    deletepost.onclick = function(){
 	      let text = "답변을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
 	      if (confirm(text) == true) {
-	        
+	    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/admireDelete.do?num="+num;
 	      } else {
 	        
 	      }
-	    });
+	    };
 	  </script>
 			  
 	</section>

@@ -12,48 +12,98 @@
 </head>
 <body>
 <aside>
-	<jsp:include page="../../../common/includepage/UserFindAside.jsp"/>
+	<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
 </aside>
 <section>
+    <div>
+        <div class="post title">
+            <h3 class="top">개인 정보 조회</h3>
+        </div>
+    </div>
 
     <div class="hc" style="float: right;">
-        <button id="back" class="back">목록으로</button>
+        <button id="back" class="back">홈으로</button>
   </div>
+
+    <div class="hc" >
+        <div class="it">약관 동의</div>
+        <div class="it first">회원정보 입력</div>
+        <div class="it">가입 완료</div>
+    </div>
+
     <div class="post add">
-        <form action="${ pageContext.servletContext.contextPath }/Account/input" method="post" >
+        <form action="${ pageContext.servletContext.contextPath }/Account/Update" method="post" >
             <label>이름</label>
-            
-            <input type="text" name="uName" id="uName" value='${ loginMember.name }'  readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<br>
-            <label for="uid" id="inputid" >아이디:</label>   
-            <input type="text" id="uid" name="userId" size="30" value='${ loginMember.id }' placeholder="소문자와 숫자 6~12자리" readonly>
+            <input type="text" name="uName" id="uName" value='${ loginMember.name }' readonly >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+				<c:set var="gender" value="${ loginMember.gender }"/>
+				<c:if test="${ loginMember.gender eq 'M'}">
+					<label>성별: </label>
+            		<select id="ugender" name="selectGender" style="width: auto;">
+                		<option value="male" id="male" selected>남</option>
+            		</select>
+				</c:if>
+				<c:if test="${ loginMember.gender eq 'W'}">
+					<label>성별: </label>
+            		<select id="ugender" name="selectGender" style="width: auto;">
+                		<option value="male" id="female" selected>여</option>
+            		</select>
+				</c:if>
+				
+            <br>
+
+            <label for="uid" id="inputid">아이디:</label>   
+            <input type="text" id="uid" name="userId" size="30" value='${ loginMember.id }' readonly>
     		<br>
     		
-    		<label for="idQueNum" id="idQueNum">아이디 질문</label>
-    		<select name="selectIdQueNum" id="selectIdQueNum" readonly>
-    			<option value="1">출신 고등학교를 적어주세요.</option>
-    			<option value="2">가장 친한 친구의 이름을 적어주세요.</option>
-    			<option value="3">가장 존경하는 인물의 이름을 적어주세요.</option>
-    			<option value="4">어릴적 별명을 적어주세요.</option>
-    			<option value="5">고향을 적어주세요.</option>
-    			<option value="6">좋아하는 책의 제목을 적어주세요.</option>
-   			</select>
-   			
-    		<input type="text" id=idQueAnser" name="idQueAnswer" placeholder="답변을 작성하세요." value='${ loginMember.idQueAnswer }' required>
+    		<c:set var="idQueNum" value="${ loginMember.idQueNum }"/>
+    		<input type="text" name="selectIdQueNum" value="${ loginMember.idQueNum }" style="display: none;">
+    		<c:if test="${ loginMember.idQueNum eq 1 }">
+    			출신 고등학교를 적어주세요.
+    		</c:if>
+    		<c:if test="${ loginMember.idQueNum eq 2 }">
+    			가장 친한 친구의 이름을 적어주세요.
+    		</c:if>
+    		<c:if test="${ loginMember.idQueNum eq 3 }">
+    			가장 존경하는 인물의 이름을 적어주세요.
+    		</c:if>
+    		<c:if test="${ loginMember.idQueNum eq 4 }">
+    			어릴적 별명을 적어주세요.
+    		</c:if>
+    		<c:if test="${ loginMember.idQueNum eq 5 }">
+    			고향을 적어주세요.
+    		</c:if>
+    		<c:if test="${ loginMember.idQueNum eq 6 }">
+    			좋아하는 책의 제목을 적어주세요.
+    		</c:if> 
+    		
+    		<input type="text" id=idQueAnser" name="idQueAnswer" value='${ loginMember.idAnswer }'>
     		<br>
             <label for="upwd" id="inputpwd">비밀번호: </label>  
-            <input type="password" name="password" id="password" size="30" placeholder="소문자,숫자,특수문자 8~12글자" value='*****' readonly> <p id="pwdresult"></p>
+            <input type="password" name="password" id="password" size="30" value='${ loginMember.pwd }'> <p id="pwdresult"></p>
     
     		<p id="pwdresult2"></p> 
             <label for="upwd2" id="inputpwd2">비밀번호 확인: </label>
-            <input type="password" name="password2" id="password2" size="30" placeholder="비밀번호 재입력" value='*****' readonly>
+            <input type="password" name="password2" id="password2" size="30" value='${ loginMember.pwd }'>
             
     		<br>
     		
-                <label>이메일</label>
-                <input type="text" name="str_email02" id="str_email02"  value="naver.com" value='${ loginMember.email }' readonly>
-               	<br>
+            <label>이메일</label><input type="text" name="str_email01" id="str_email01" value='${ loginMember.email1 }' style="width:100px"> 
+            <input type="text" name="str_email02" id="str_email02" style="width:100px;" value='${ loginMember.email2 }'>
+                
+                <br>
+            <label for="address1"> 우편 번호: </label>
+				<input type="text" name="zipCode" id="zipCode" value='${ loginMember.address1 }' readonly>
+				<input type="button" value="검색" class="btn btn-yg" id="searchZipCode" style="border: 1px solid black">
+			<br>
+			<label for="address2"> 주소: </label>            
+				<input type="text" name="address1" id="address1" value='${ loginMember.address2 }' readonly>
+			<label for="address3"> 상세 주소: </label>		
+				<input type="text" name="address2" id="address2" value='${ loginMember.address3 }'>
+
+    		<br>
             
+           	<br>
             <label for="phone" id="input">연락처: </label>
             <select name="selectUserPhone" style="width: auto;">
                 <option value="010">010</option>
@@ -61,12 +111,13 @@
                 <option value="011">011</option>
                 <option value="019">019</option>
             </select>
-            <input type="tel" name="phone2" size="4" id="phone2">
-            <input type="tel" name="phone3" size="4" id="phone3"><p>
+            
+            <input type="tel" name="phone2" size="4" id="phone2" value='${ loginMember.phone2 }' >
+            <input type="tel" name="phone3" size="4" id="phone3" value='${ loginMember.phone3 }'><p>
             
                 <div style="margin-left: 40%;">
-                    <button id="submitbutton">등록</button>
-                    <button id="submitbutton">취소</button>
+                    <button id="submitbutton" onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo/Update'">수정</button>
+                    <button type="reset" id="submitbutton">작성 내용 삭제</button>
                 </div>
         </form>
     </div>
@@ -159,6 +210,39 @@ $(function(){
     })
 })
 </script>
+
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		const $searchZipCode = document.getElementById("searchZipCode");
+		const $goMain = document.getElementById("goMain");
+		
+		$searchZipCode.onclick = function() {
+		
+			new daum.Postcode({
+				oncomplete: function(data){
+					document.getElementById("zipCode").value = data.zonecode;
+					document.getElementById("address1").value = data.address;
+					document.getElementById("address2").focus();
+				}
+			}).open();
+		}
+		
+		$goMain.onclick = function() {
+			location.href = "${ pageContext.servletContext.contextPath }";
+		}
+	</script>
+
+		  <script>
+	    $("#back").click(function(){
+	      let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+	      if (confirm(text) == true) {
+	        	location.href = "${ pageContext.servletContext.contextPath }";
+	      } else {
+	        
+	      }
+	    });
+
+	  </script>
 	  
 
 </html>

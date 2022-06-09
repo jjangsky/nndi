@@ -30,6 +30,7 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false">대관 안내</button>
 	    <div class="collapse" id="orders1-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+	    	<li><a href="${pageContext.servletContext.contextPath}/center/list/select" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">대관 신청</a></li>
 	        </ul>
 	    </div>
 	    
