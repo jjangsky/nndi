@@ -18,15 +18,16 @@ public class AdminComplainRE extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String content = request.getParameter("content");
+		String managerId = request.getParameter("managerId");
 		int num = Integer.valueOf(request.getParameter("num"));
 		
-		System.out.println("Controller " + content + " " + num);
-//		System.out.println("Controller " + content );
+		System.out.println("Controller " + content + " " + num +"  " + managerId);
 		
 		ComplainDTO complain = new ComplainDTO();
 		
 		complain.setNum(num);
 		complain.setAnswerContent(content);
+		complain.setManagerId(managerId);
 		
 		BoardService boardService = new BoardService();
 		
