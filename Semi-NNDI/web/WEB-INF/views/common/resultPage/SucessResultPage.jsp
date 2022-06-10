@@ -27,6 +27,26 @@
 				successMessage = "회원 탈퇴에 성공하셨습니다!";
 				movePath = "../index.jsp";
 				break;
+			case "insertRent" : 
+				successMessage = "대관신청이 성공적으로 진행되었습니다 !";
+				movePath = "../../index.jsp";
+				break;
+			case "updateRentCancel" : 
+				successMessage = "대관신청 철회가 성공적으로 진행되었습니다. !";
+				movePath = "../../index.jsp";
+				break;
+			case "insertComplain" : 
+				successMessage = "민원 신청이 성공적으로 접수되었습니다. !";
+				movePath = "../../../index.jsp";
+				break;
+			case "updateComplain" : 
+				successMessage = "해당 민원을 성공적으로 수정하였습니다 !";
+				movePath = "../../../index.jsp";
+				break;
+			case "deleteComplain" : 
+				successMessage = "해당 민원을 성공적으로 삭제하였습니다. !";
+				movePath = "../../../index.jsp";
+				break;
 		}
 
 		alert(successMessage);

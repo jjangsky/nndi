@@ -34,11 +34,13 @@ public class ComplainUpdateModify extends HttpServlet {
 		
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("update 성공");
+			request.setAttribute("successCode", "updateComplain");
 		} else {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("update 실패");
+			request.setAttribute("message", "민원 수정 실패");
 		}
 		
 		

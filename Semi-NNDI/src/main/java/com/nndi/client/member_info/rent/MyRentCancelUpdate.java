@@ -27,11 +27,13 @@ public class MyRentCancelUpdate extends HttpServlet {
 		
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/client/member-info/rent/RentList.jsp";
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("update 성공");
+			request.setAttribute("successCode", "updateRentCancel");
 		} else {
-			path = "/WEB-INF/views/client/member-info/rent/RentList.jsp";
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("update 실패");
+			request.setAttribute("message", "대관 신청 철회를 실패하셨습니다.");
 		}
 
 		request.getRequestDispatcher(path).forward(request, response);

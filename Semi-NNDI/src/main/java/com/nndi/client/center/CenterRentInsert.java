@@ -46,11 +46,13 @@ public class CenterRentInsert extends HttpServlet {
 		
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/main/main.jsp";
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("insert 성공");
+			request.setAttribute("successCode", "insertRent");
 		} else {
-			path = "/WEB-INF/views/main/main.jsp";
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("insert 실패");
+			request.setAttribute("message", "대관 신청을 실패하셨습니다. 입력값을 확인하세요.");
 		}
 		
 		

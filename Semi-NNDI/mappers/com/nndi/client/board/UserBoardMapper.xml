@@ -50,6 +50,20 @@
 	  	<result property="hits" column="HITS"/>
 	  	<result property="uploadFileKey" column="UPLOAD_FILE_KEY"/>
 	  </resultMap>
+	  
+	<!-- TBLEmploymentDTO -->
+	   <resultMap type="com.nndi.model.commondto.TCREmploymentDTO" id="EmpResultMap">
+	     <id property="num" column="NUM"/>
+	     <result property="managerId" column="MANAGER_ID"/>
+	     <result property="clsNum" column="CLS_NUM"/>
+	     <result property="title" column="TITLE"/>
+	     <result property="fileName" column="FILE_NAME"/>
+	     <result property="empYn" column="EMP_YN"/>
+	     <result property="empCondition" column="EMP_CONDITION"/>
+	     <result property="empNumber" column="EMP_NUMBER"/>
+	     <result property="environment" column="ENVIRONMENT"/>
+	     <result property="empProcess" column="EMP_PROCESS"/>
+	   </resultMap>
  	
  	<!--  민원 전체 조회 쿼리 -->
  	<select id="selectBoardList" resultMap="BoardAndCategoryResultMap">
@@ -205,6 +219,42 @@
   		WHERE A.NUM = #{ num }
  		  
  	</update>
+ 	
+ 	<!--  강사 모집 게시판 전체 조회 쿼리문 -->
+ 	<select id="selectEmployee" resultMap="EmpResultMap">
+		SELECT
+		       A.NUM
+		     , A.MANAGER_ID
+		     , A.CLS_NUM
+		     , A.TITLE
+		     , A.FILE_NAME
+		     , A.EMP_YN
+		     , A.EMP_CONDITION
+		     , A.EMP_NUMBER
+		     , A.ENVIRONMENT
+		     , A.EMP_PROCESS
+		  FROM TBL_TEACHER_EMPLOYMENT A
+	  </select>
+	  
+	  
+	  <!--  강사 모집 게시판 전체 조회 쿼리문 -->
+ 	<select id="selectEmpDetail" resultMap="EmpResultMap">
+		SELECT
+		       A.NUM
+		     , A.MANAGER_ID
+		     , A.CLS_NUM
+		     , A.TITLE
+		     , A.FILE_NAME
+		     , A.EMP_YN
+		     , A.EMP_CONDITION
+		     , A.EMP_NUMBER
+		     , A.ENVIRONMENT
+		     , A.EMP_PROCESS
+		  FROM TBL_TEACHER_EMPLOYMENT A
+		 WHERE A.NUM = #{ num }
+	  </select>
+	  
+ 	
  	
  	
  
