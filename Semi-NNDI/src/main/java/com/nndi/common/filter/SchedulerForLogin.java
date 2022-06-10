@@ -11,25 +11,25 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import com.nndi.common.login.SchedulerJob;
 public class SchedulerForLogin {
-//    public static void main(String[] args) {
-//        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
-//        
-//        try {
-//            Scheduler scheduler = schedulerFactory.getScheduler();
-//            
-//            JobDetail job = newJob(SchedulerJob.class)
-//                .withIdentity("jobName", Scheduler.DEFAULT_GROUP)
-//                .build();
-//            
-//            Trigger trigger = newTrigger()
-//                .withIdentity("trggerName", Scheduler.DEFAULT_GROUP)
-//                .withSchedule(cronSchedule("* * * * 1 ?"))
-//                .build();
-//                        
-//            scheduler.scheduleJob(job, trigger);
-//            scheduler.start();
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }        
-//    }
+    public static void main(String[] args) {
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+        
+        try {
+            Scheduler scheduler = schedulerFactory.getScheduler();
+            
+            JobDetail job = newJob(SchedulerJob.class)
+                .withIdentity("jobName", Scheduler.DEFAULT_GROUP)
+                .build();
+            
+            Trigger trigger = newTrigger()
+                .withIdentity("trggerName", Scheduler.DEFAULT_GROUP)
+                .withSchedule(cronSchedule("1 * * * * ?"))
+                .build();
+                        
+            scheduler.scheduleJob(job, trigger);
+            scheduler.start();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }        
+    }
 }
