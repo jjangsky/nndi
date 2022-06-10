@@ -42,17 +42,12 @@
           <td class="mudo">${cls.clsEndDay}</td>
           <td class="mudo">${cls.clsRunTime}</td>
           <td class="mudo">${cls.clsDay}</td>
-          <%-- <td>
-           	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/QNABoardListDetail?num=${qna.num}'">
-          		보기
-          	</button> 
-          </td> --%>
       </tr>
       </c:forEach>
     </tbody>
     </table>
 
-  </div>
+   </div>
     <div class="pagination">
       <a href="#">&laquo;</a>
       <a href="#">1</a>
@@ -62,7 +57,7 @@
       <a href="#">5</a>
       <a href="#">6</a>
       <a href="#">&raquo;</a>
-  </div>
+  </div> 
   </section>
   <jsp:include page="../../common/includepage/UserFooter.jsp"/>
     <script>

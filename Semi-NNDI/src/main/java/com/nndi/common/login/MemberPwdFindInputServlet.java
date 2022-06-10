@@ -41,14 +41,15 @@ public class MemberPwdFindInputServlet extends HttpServlet {
 			Random random = new Random();
 			String setOfCharacters = "abcdefghxyz1234567-/@";
 			
-			int newPwd1 = random.nextInt(setOfCharacters.length());
-			char newPwd2 = setOfCharacters.charAt(newPwd1);
-			char newPwd3 = setOfCharacters.charAt(newPwd1);
+			int newPwdchar = random.nextInt(setOfCharacters.length());
+			int newPwdchar2 = random.nextInt(setOfCharacters.length());
+			char newPwd2 = setOfCharacters.charAt(newPwdchar);
+			char newPwd3 = setOfCharacters.charAt(newPwdchar2);
 			int newPwd4 = (int)(Math.random() * 10);
 			int newPwd5 = (int)(Math.random() * 10);
 			int newPwd6 = (int)(Math.random() * 10);
 			int newPwd7 = (int)(Math.random() * 10);
-			String password = ("" + newPwd1 + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
+			String password = ("" + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
 
 			/* 난수 비크립트 처리 */
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
