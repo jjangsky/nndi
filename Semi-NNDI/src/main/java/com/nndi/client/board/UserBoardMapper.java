@@ -2,9 +2,11 @@ package com.nndi.client.board;
 
 import java.util.List;
 
+import com.nndi.model.commondto.AdmireDTO;
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.NoticeDTO;
 import com.nndi.model.commondto.TCREmploymentDTO;
+import com.nndi.model.joindto.client.board.AdmireAndCategoryDTO;
 import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
 
@@ -45,6 +47,15 @@ public interface UserBoardMapper {
 	
 	/* 강사 모집 상세 조회 */
 	TCREmploymentDTO selectEmpDetail(int num);
+	
+	/* 칭찬 게시판 전체 조회 */
+	List<AdmireAndCategoryDTO> selectAllCommendList();
+	
+	/* 칭찬 게시판 상세 조회 */
+	AdmireAndCategoryDTO commendDetail(int num);
+
+	/* 칭찬 게시판 삭제(컬럼 변경) */
+	int deleteCommend(int num);
 
 
 

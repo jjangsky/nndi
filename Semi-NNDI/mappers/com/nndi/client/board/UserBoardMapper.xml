@@ -24,6 +24,22 @@
  		</association>
  	</resultMap>
  	
+ 	<!-- AdmireAndCategoryDTO -->
+ 	<resultMap type="com.nndi.model.joindto.client.board.AdmireAndCategoryDTO" id="AdmireAndCategoryResultMap">
+ 		<id property="num" column="NUM"/>
+ 		<result property="cate" column="CATE_NUM"/>
+ 		<result property="memId" column="MEM_ID"/>
+ 		<result property="postDate" column="POST_DATE"/>
+ 		<result property="title" column="TITLE"/>
+ 		<result property="content" column="CONTENT"/>
+ 		<result property="displayYn" column="DISPLAY_YN"/>
+ 		<result property="hits" column="HITS"/>
+ 		<association property="category" javaType="com.nndi.model.commondto.PostCategoryDTO">
+ 			<id property="cateNum" column="CATE_NUM"/>
+ 			<result property="cateKind" column="CATE_KIND"/>
+ 		</association>
+ 	</resultMap>
+ 	
  	<!-- boardDTO -->
  	<resultMap type="com.nndi.model.commondto.BoardDTO" id="boardResultMap">
  		<id property="num" column="NUM"/>
@@ -64,6 +80,20 @@
 	     <result property="environment" column="ENVIRONMENT"/>
 	     <result property="empProcess" column="EMP_PROCESS"/>
 	   </resultMap>
+	
+	<!-- AdmireDTO -->   
+	<resultMap type="com.nndi.model.commondto.AdmireDTO" id="CommendResultMap">
+		<id property= "num" column="NUM"/>
+		<result property="cate" column="CATE_NUM"/>
+		<result property="memId" column="MEM_ID"/>
+		<result property="postDate" column="POST_DATE"/>
+		<result property="title" column="TITLE"/>
+		<result property="content" column="CONTENT"/>
+		<result property="displayYn" column="DISPLAY_YN"/>
+		<result property="hits" column="HITS"/>
+	</resultMap>
+	
+	
  	
  	<!--  민원 전체 조회 쿼리 -->
  	<select id="selectBoardList" resultMap="BoardAndCategoryResultMap">
@@ -253,6 +283,51 @@
 		  FROM TBL_TEACHER_EMPLOYMENT A
 		 WHERE A.NUM = #{ num }
 	  </select>
+	  
+	 <!-- 칭찬 게시판 전체 조회 -->
+	<select id="selectAllCommendList" resultMap="AdmireAndCategoryResultMap">
+	 	SELECT
+               A.NUM
+	 	     , A.CATE_NUM
+	 	     , A.MEM_ID
+	 	     , A.POST_DATE
+	 	     , A.TITLE
+	 	     , A.CONTENT
+	 	     , A.DISPLAY_YN
+	 	     , A.HITS
+	 	     , B.CATE_NUM
+ 	 	     , B.CATE_KIND
+ 	 	 FROM TBL_POST_ADMIRE A
+ 	 	 JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+ 	 	WHERE A.DISPLAY_YN = 'Y'
+   </select>
+   
+   <!-- 칭찬 게시판 상세 조회 -->
+   <select id="commendDetail" resultMap="AdmireAndCategoryResultMap">
+	 	SELECT
+               A.NUM
+	 	     , A.CATE_NUM
+	 	     , A.MEM_ID
+	 	     , A.POST_DATE
+	 	     , A.TITLE
+	 	     , A.CONTENT
+	 	     , A.DISPLAY_YN
+	 	     , A.HITS
+	 	     , B.CATE_NUM
+ 	 	     , B.CATE_KIND
+ 	 	  FROM TBL_POST_ADMIRE A
+ 	 	  JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+ 	     WHERE NUM = #{ num }
+
+ 	 </select>
+   
+   <!-- 칭찬 게시판 삭제 -->
+    <delete id="deleteCommend">
+	     UPDATE
+	            TBL_POST_ADMIRE
+	        SET DISPLAY_YN = 'N'
+	      WHERE NUM = #{ num }
+ 	</delete>  
 	  
  	
  	

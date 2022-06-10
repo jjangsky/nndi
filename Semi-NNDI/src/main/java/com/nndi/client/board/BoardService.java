@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.nndi.model.commondto.AdmireDTO;
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.NoticeDTO;
 import com.nndi.model.commondto.TCREmploymentDTO;
+import com.nndi.model.joindto.client.board.AdmireAndCategoryDTO;
 import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
 
@@ -195,6 +197,54 @@ public class BoardService {
 		
 		return empDetail;
 	}
+
+	/* 칭찬게시판 전체 조회 */
+	public static List<AdmireAndCategoryDTO> selectAllCommendList() {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		
+		List<AdmireAndCategoryDTO> commendList = boardMapper.selectAllCommendList();
+		
+		sqlSession.close();
+		
+		return commendList;
+		
+	}
+	
+	/* 칭찬게시판 상세 조회 */
+	public static AdmireAndCategoryDTO commendDetail(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		
+		AdmireAndCategoryDTO commendDetail = boardMapper.commendDetail(num);
+		
+		return commendDetail;
+		
+	}
+	
+	/* 칭찬 게시판 삭제(조회 여부 변경) */
+	public static int deleteCommend(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		int result = boardMapper.deleteCommend(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
 	
 	
 	

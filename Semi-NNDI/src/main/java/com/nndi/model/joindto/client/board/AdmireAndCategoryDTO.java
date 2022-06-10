@@ -1,21 +1,14 @@
-package com.nndi.model.commondto;
+package com.nndi.model.joindto.client.board;
 
 import java.sql.Date;
 
-public class AdmireDTO {
-//	NUM	NUMBER
-//	CATE_NUM	NUMBER
-//	MEM_ID	VARCHAR2(30 BYTE)
-//	POST_DATE	DATE
-//	TITLE	VARCHAR2(50 BYTE)
-//	CONTENT	CLOB
-//	ANSWER_YN	VARCHAR2(30 BYTE)
-//	ANSWER_CONTENT	CLOB
-//	DISPLAY_YN	VARCHAR2(30 BYTE)
-//	HITS	NUMBER
+import com.nndi.model.commondto.PostCategoryDTO;
+
+public class AdmireAndCategoryDTO {
 	
 	private int num;
 	private int cate;
+	private PostCategoryDTO category;
 	private String memId;
 	private java.sql.Date postDate;
 	private String title;
@@ -24,14 +17,15 @@ public class AdmireDTO {
 	private String answerContent;
 	private String displayYn;
 	private int hits;
-	public AdmireDTO() {
+	public AdmireAndCategoryDTO() {
 		super();
 	}
-	public AdmireDTO(int num, int cate, String memId, Date postDate, String title, String content, String answerYn,
-			String answerContent, String displayYn, int hits) {
+	public AdmireAndCategoryDTO(int num, int cate, PostCategoryDTO category, String memId, Date postDate, String title,
+			String content, String answerYn, String answerContent, String displayYn, int hits) {
 		super();
 		this.num = num;
 		this.cate = cate;
+		this.category = category;
 		this.memId = memId;
 		this.postDate = postDate;
 		this.title = title;
@@ -52,6 +46,12 @@ public class AdmireDTO {
 	}
 	public void setCate(int cate) {
 		this.cate = cate;
+	}
+	public PostCategoryDTO getCategory() {
+		return category;
+	}
+	public void setCategory(PostCategoryDTO category) {
+		this.category = category;
 	}
 	public String getMemId() {
 		return memId;
@@ -103,11 +103,10 @@ public class AdmireDTO {
 	}
 	@Override
 	public String toString() {
-		return "AdmireDTO [num=" + num + ", cate=" + cate + ", memId=" + memId + ", postDate=" + postDate + ", title="
-				+ title + ", content=" + content + ", answerYn=" + answerYn + ", answerContent=" + answerContent
-				+ ", displayYn=" + displayYn + ", hits=" + hits + "]";
+		return "AdmireAndCategoryDTO [num=" + num + ", cate=" + cate + ", category=" + category + ", memId=" + memId
+				+ ", postDate=" + postDate + ", title=" + title + ", content=" + content + ", answerYn=" + answerYn
+				+ ", answerContent=" + answerContent + ", displayYn=" + displayYn + ", hits=" + hits + "]";
 	}
 	
-	
-	
+
 }
