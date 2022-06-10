@@ -18,9 +18,9 @@
 	
 	 <section>
 	 	<div>
-	    <h3 class="notice"><b><u>나의 민원 신청 조회</u></b></h3>
+	    <h3 class="notice"><b><u> ${ sessionScope.loginMember.name }님 민원 신청 조회</u></b></h3>
 	  </div>
-	  
+	
 	  <div class="post list"> 
       <form>
         <table class="blueone">
@@ -62,6 +62,7 @@
       
     </table>
     </form>
+    
     <!-- test -->
   </div>
         
