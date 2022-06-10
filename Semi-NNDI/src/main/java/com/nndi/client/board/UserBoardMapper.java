@@ -35,6 +35,9 @@ public interface UserBoardMapper {
 	
 	/* 공지사항 조회수 증가 업데이트 */
 	int incrementNoticeCount(int num);
+	
+	/* 민원 게시판 조회수 증가 업데이트 */
+	int incrementComplainCount(int num);
 
 
 

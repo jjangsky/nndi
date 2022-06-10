@@ -40,10 +40,6 @@
   </div>
 
   <div class="post list"> 
-      <div>
-        <button class="vision">공개글 보기</button>
-        <button class="vision">전체 보기</button>
-      </div>
       <form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
         <table class="blueone">
       <thead>

@@ -33,6 +33,7 @@
               <th>환불 여부</th>
               <th>대관 시작일</th>
               <th>대관 종료일</th>
+              <th>결제 금액</th>
               
           </tr>
       </thead>
@@ -46,6 +47,9 @@
 				<td><c:out value="${ rent.rentRefYn }"/></td>
 				<td><c:out value="${ rent.rentStart }"/></td>
 				<td><c:out value="${ rent.rentEnd }"/></td>
+				<c:if test="${rent.rentCost != '0'}">
+					<td><c:out value="${ rent.rentCost }"/>원</td>
+				</c:if>
 			</tr>
 			</c:forEach>
       
