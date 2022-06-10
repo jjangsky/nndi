@@ -56,6 +56,8 @@
 		                    <td class="td2">${ detailqna.answerYn }</td>
 		                </tr>
 		            </table>
+		            <label>답변자</label><br>
+		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		             <label>답변 내용</label><br>
 		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" >${ requestScope.detailqna.answerContent }</textarea><br>
 		            <c:choose>
@@ -112,6 +114,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

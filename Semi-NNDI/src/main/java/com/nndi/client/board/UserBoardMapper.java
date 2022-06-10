@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.NoticeDTO;
+import com.nndi.model.commondto.TCREmploymentDTO;
 import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
 
@@ -35,6 +36,17 @@ public interface UserBoardMapper {
 	
 	/* 공지사항 조회수 증가 업데이트 */
 	int incrementNoticeCount(int num);
+	
+	/* 민원 게시판 조회수 증가 업데이트 */
+	int incrementComplainCount(int num);
+	
+	/* 강사 모집 게시판 전체 조회 */
+	List<TCREmploymentDTO> selectEmployee();
+	
+	/* 강사 모집 상세 조회 */
+	TCREmploymentDTO selectEmpDetail(int num);
+
+
 
 
 

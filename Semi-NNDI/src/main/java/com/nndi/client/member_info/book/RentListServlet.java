@@ -39,12 +39,13 @@ public class RentListServlet extends HttpServlet {
 		
 		/* 가져온 결과값에 따른 조건문 처리 */
 		if(bookRentList.isEmpty()) {
-			request.setAttribute("message", "");
-			path = "";
-			System.out.println("대출 도서 없음");
-		} else {
 			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			request.setAttribute("message", "현재 빌리신 도서가 존재하지 않습니다.");
+			System.out.println("대출 도서 없음");
+		} else {
+			path = "/WEB-INF/views/client/member-info/book/MemberRentBookList.jsp";
+			request.setAttribute("bookRentList", bookRentList);
+			System.out.println("대출 도서 있음");;
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

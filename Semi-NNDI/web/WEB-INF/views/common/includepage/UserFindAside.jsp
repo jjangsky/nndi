@@ -26,7 +26,7 @@
                 <li><button onclick="location.href='${pageContext.servletContext.contextPath}/MemberLogin'">로그인</button></li>
                 <li><button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'">회원가입</button></li>
                 <li><button onclick="location.href='${pageContext.servletContext.contextPath}/Member/idFind'">아이디 찾기</button></li>
-                <li><button onclick="location.href='${pageContext.servletContext.contextPath}'">비밀번호 찾기</button></li>
+                <li><button onclick="location.href='${pageContext.servletContext.contextPath}/Member/pwdinitialization'">비밀번호 초기화</button></li>
             </ul>
         </div>
     </nav>

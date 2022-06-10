@@ -2,6 +2,8 @@ package com.nndi.common.login;
 
 import static com.nndi.common.config.Template.getSqlSession;
 
+import java.util.Random;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -110,7 +112,6 @@ public class MemberLoginService {
 		
 		return result;
 	}
-
 	
 	/* Delete OutMember Service */
 	public int deleteOutMember() {
@@ -188,6 +189,44 @@ public class MemberLoginService {
 		}
 		
 		sqlSession.close();
+		
+		return result;
+	}
+
+	/* 고객 비밀번호 조회용 Service */
+	public String selectMemberPwd(MemberAliveDTO memberAliveList) {
+
+		SqlSession sqlSession = getSqlSession();
+
+		mapper = sqlSession.getMapper(LoginMapper.class);
+		
+		String result = "0";
+		
+		/* User Password 조회 */
+		String userPwd = mapper.selectMemberPwd(memberAliveList);
+		
+		/* 일치값 없을 경우 이후의 트랜잭션 생략 */
+		if(userPwd.equals(userPwd.equals(null))) {
+			return result;
+		} else {
+			return userPwd;
+		}
+	}
+
+	/* 고객 비밀번호 Update 용 Service */
+	public int updateMemberpwd(MemberAliveDTO memberAliveListForPwd) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(LoginMapper.class);
+		
+		int result = mapper.updateMemberPassword(memberAliveListForPwd);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
 		
 		return result;
 	}

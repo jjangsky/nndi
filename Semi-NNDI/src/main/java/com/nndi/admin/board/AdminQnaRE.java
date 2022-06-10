@@ -19,6 +19,7 @@ public class AdminQnaRE extends HttpServlet {
 		System.out.println("서블릿 오기는 했니?");
 
 		String content = request.getParameter("content");
+		String managerId = request.getParameter("managerId");
 		int num = Integer.valueOf(request.getParameter("num"));
 		
 		System.out.println("Controller " + content + " " + num);
@@ -27,6 +28,7 @@ public class AdminQnaRE extends HttpServlet {
 		
 		Qna.setNum(num);
 		Qna.setAnswerContent(content);
+		Qna.setManagerId(managerId);
 		
 		BoardService boardService = new BoardService();
 		

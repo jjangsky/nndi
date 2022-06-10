@@ -40,11 +40,13 @@ public class ComplainInsertServlet extends HttpServlet {
 			
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("insert 성공");
+			request.setAttribute("successCode", "insertComplain");
 		} else {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("insert 실패");
+			request.setAttribute("message", "민원 신청 접수 실패");
 		}
 		
 		

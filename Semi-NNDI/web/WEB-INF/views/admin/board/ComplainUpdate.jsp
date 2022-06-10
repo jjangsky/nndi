@@ -56,6 +56,8 @@
 		                    <td class="td2">${ detailComplain.answerYn }</td>
 		                </tr>
 		            </table>
+		            <label>답변자</label><br>
+		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		            <label>답변 내용</label><br>
 		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" required>${ requestScope.detailComplain.answerContent }</textarea><br>
 		            <c:choose>
@@ -80,7 +82,7 @@
 	            let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
 	            /* console.log('누름확인'); */
 	            if (confirm(text) == true) {
-	                location.href = "${pageContext.servletContext.contextPath}/login/admin/qnaList"; 
+	                location.href = "${pageContext.servletContext.contextPath}/login/admin/complainList"; 
 	            }
 	          };
 	          
@@ -113,6 +115,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

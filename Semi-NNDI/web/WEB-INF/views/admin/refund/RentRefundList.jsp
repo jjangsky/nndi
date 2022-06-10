@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,54 +31,47 @@
 			<div class="post title">
     			<h3 class="top">대관 환불내역 조회</h3>
 			</div>
-			<form action="">
-			  <button class="search btn" type="submit">검색</button> 
-			  <input class="search in" type="text" placeholder="검색어 입력" required>
-			  <select class="search select" required>
-			    <option value="">None</option>
-			    <option value="name">이름</option>
-			    <option value="place">시설</option>
-			    <option value="number">접수번호</option>
-			  </select>
-			</form>
-    
-			<div class="post list">
-			    <table class="t1">
-			        <thead>
-			            <tr>
-			                
-			                <th>번호</th>
-			                <th>이름</th>
-			                <th>시설</th>
-			                <th>결제 금액</th>
-			                <th>환불 여부</th>
-			                <th>결제일</th>
-			                <th></th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>
-			                <td>12</td>
-			                <td>김용승</td>
-			                <td>대강당</td>
-			                <td>600,000원</td>
-			                <td>Y</td>
-			                <td>2022/05/28</td>
-			                <td><button class="btn btn-secondary">관리</button></td>
-			            </tr>
-			            <tr>
-			                <td>8</td>
-			                <td>김최용</td>
-			                <td>강의실 201호</td>
-			                <td>300,000원 </td>
-			                <td>Y</td>
-			                <td>2022/04/29</td>
-			                <td><button class="btn btn-secondary">관리</button></td>
-			            </tr>
-			            
-			        </tbody>
-			    </table>
-			    <div class="pagination">
+			<div class="search">
+		      <form action="">
+		        <button class="search btn" type="submit">검색</button> 
+		        <input class="search in" type="text" placeholder="검색어 입력" required>
+		        <select class="search select" required>
+		          <option value="">None</option>
+		          <option value="title">이름</option>
+		          <option value="category">시설</option>
+		          <option value="writer">접수번호</option>
+		        </select>
+		      </form>
+		    </div>
+		    
+   			<div class="post list"> 
+		        <table class="t1">
+		            <thead>
+		              <tr>
+		                <th>게시글 번호</th>
+		                <th>고객 이름</th>
+		                <th>시설 이름</th>
+		                <th>결제 금액</th>
+		                <th>환불 여부</th>
+		                <th>대관 시작일</th>
+		                <th>대관 종료일</th>
+		              </tr>
+		            </thead>
+		            <tbody>
+		              <c:forEach var="refund" items="${ requestScope.refundList }">
+		              	<tr>
+			                <td>${ refund.postNum }</td>
+			                <td>${ refund.name }</td>
+			                <td>${ refund.cenKindsname }</td>
+			                <td>${ refund.rentCost }</td>
+			                <td>${ refund.rentPayYn }</td>
+			                <td>${ refund.rentStart }</td>
+			                <td>${ refund.rentEnd }</td>
+		            	</c:forEach>
+		            </tbody>
+		        </table>
+		    </div>
+			<div class="pagination">
 			      <a href="#">&laquo;</a>
 			      <a href="#">1</a>
 			      <a class="active" href="#">2</a>
@@ -94,6 +88,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -58,7 +58,27 @@
 		 WHERE A.MANAGER_ID = #{ managerId } 	   
 	</select>
 	
-		<!-- Login ManagerList Select -->
+	<!-- MemberPwdFinder -->
+	<select id="selectMemberPwd" resultType="java.lang.String">
+		SELECT
+		       A.PWD
+		  FROM TBL_MEMBER_ALIVE A
+		 WHERE A.ID = #{ id }
+		   AND A.PHONE1 = #{ phone1 }
+		   AND A.PHONE2 = #{ phone2 }
+		   AND A.PHONE3 = #{ phone3 }      
+	</select>
+	
+	<!-- MemberPwdUpdate -->
+	<update id="updateMemberPassword" parameterType="AliveDTO">
+		UPDATE
+			   TBL_MEMBER_ALIVE A
+		   SET A.PWD = #{ pwd }
+		 WHERE A.ID = #{ id }  
+		  	   
+	</update>
+	
+	<!-- Login ManagerList Select -->
 	<select id="selectLoginManager" resultMap="ManagerlistResultMap">
 		SELECT
 		       A.MANAGER_ID

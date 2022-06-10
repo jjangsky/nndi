@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.NoticeDTO;
+import com.nndi.model.commondto.TCREmploymentDTO;
 import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
 
@@ -55,7 +56,20 @@ public class BoardService {
 		
 		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
 		
-		BoardAndCategoryDTO complainDetail = boardMapper.complainDetail(num);
+		int result = boardMapper.incrementComplainCount(num);
+		
+		BoardAndCategoryDTO complainDetail = null;
+		
+		if(result > 0) {
+			complainDetail = boardMapper.complainDetail(num);	
+			if(complainDetail != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} else {
+			sqlSession.rollback();
+		}
 		
 		return complainDetail;
 	}
@@ -153,6 +167,39 @@ public class BoardService {
 		
 		return complainAnswer;
 	}
+	
+	/* 강사게시판 전체 조회 */
+	public static List<TCREmploymentDTO> selectEmployee() {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		
+		List<TCREmploymentDTO> emp = boardMapper.selectEmployee();
+		
+		sqlSession.close();
+		
+		return emp;
+	}
+	
+	/* 강사게시판 상세 조회 */
+	public static TCREmploymentDTO selectEmpDetail(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		
+		TCREmploymentDTO empDetail = boardMapper.selectEmpDetail(num);
+		
+		sqlSession.close();
+		
+		return empDetail;
+	}
+	
+	
+	
+
+	
 	
 
 }

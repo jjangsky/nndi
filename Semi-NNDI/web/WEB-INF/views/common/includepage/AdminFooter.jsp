@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/sidebars.css" >
     <div class="nav">
-  		<button class="topnav butns" type="button" type="none">관리자 페이지</button>
-  		<button class="topnav butns" type="button"></button>
+  		<button class="topnav butns" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/index.jsp'">너나들이 메인으로</button>
 	</div>
 	<footer>
 		<img src="${pageContext.servletContext.contextPath}/resources/image/admin/footer.png" class="nndi-foot">
