@@ -36,7 +36,7 @@
   </div>
     
   <button class="r9" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAUpdate?num=${requestScope.qnadto.num}'">수정</button> 
-  <button class="r9" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAdelete?num=${requestScope.qnadto.num}'">삭제</button> 
+  <button class="r9" onclick="location.href='${pageContext.servletContext.	contextPath}/login/board/QNAdelete?num=${requestScope.qnadto.num}'">삭제</button> 
 </section>
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>  
 </body>

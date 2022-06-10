@@ -35,7 +35,7 @@
     <p class="jemok">제목</p>
     <div class="min4">
     <tr>
-    <textarea name="title">${requestScope.qnadto.title}</textarea>
+    <textarea name="title" style="resize: none;">${requestScope.qnadto.title}</textarea>
     </tr>
      </div>
   </div>
@@ -44,7 +44,7 @@
     <p class="jemok">내용</p>
     <div class="min2">
     
-     <textarea name="content">${requestScope.qnadto.content}</textarea>
+     <textarea name="content" style="resize: none;">${requestScope.qnadto.content}</textarea>
     
   </div>
  </div>

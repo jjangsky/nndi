@@ -57,7 +57,7 @@
 		                </tr>
 		            </table>
 		             <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" readonly style="resize: none;" >${ requestScope.detailqna.answerContent }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" >${ requestScope.detailqna.answerContent }</textarea><br>
 		            <c:choose>
 		            	<c:when test="${ detailqna.answerYn eq 'N' }">
 				            <button id="createpost" class="btns add" type="button">작 성 하 기</button>
