@@ -20,7 +20,7 @@
         color: aliceblue !important;
       }
     </style>
-<title>Admin Teacher List</title>
+<title>Admin Member SummingUp</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp"/>
@@ -33,29 +33,72 @@
 		    <div class="post title">
 		        <h3 class="top">회원 통계</h3>
 		    </div>
+		    <div class="new">
+		      <h3 class="to">신규가입자 수</h3>
+		        <form id="new">
+		          <label>조회할 기간 입력</label>
+		          <input id="start" name="start" type="date" required>
+		          &nbsp;&nbsp;&nbsp;부터&nbsp;&nbsp;&nbsp;
+		          <input id="end" name="end" type="date" required>
+		          <br>
+		          <button id="newMember" class="btns" type="button">조회하기</button>
+		        </form>
+        		<h4 id="result" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>
+    		</div>
 		    </div>
 		    <div class="total">
 		      <h3 class="to">전체 회원 수</h3>
 		      <label>금일 날짜까지의 회원의 수를 조회합니다.</label>
 		      <button id="totalMember" class="btns">조회하기</button>
-		      <h4 id="result1" class="result"></h4>
+		      <h4 id="result1" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>
 		    </div>
-		    <div class="dead">
+		    <div class="dead" style="margin-bottom : 3%">
 		      <h3 class="to">탈퇴 회원 전체 수</h3>
 		      <label>금일 날짜까지의 탈퇴한 회원의 수를 조회합니다.</label>
 		      <button id="deadMember" class="btns">조회하기</button>
-		      <h4 id="result2" class="result"></h4>    <!--innerHTML 로 결과값 도출-->
+		      <h4 id="result2" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>    <!--innerHTML 로 결과값 도출-->
 		    </div>
       
 	</section>
 	
 	<script>
-		$("#totalMember").onclick(function(){
+		$("#newMember").click(function(){
+			const start = $("#start").val();
+			const end = $("#end").val();
+			$("#newMember").submit();
+			
+	        $.ajax({
+	             url: "${pageContext.servletContext.contextPath}/login/admin/newMemberSumming",
+	             type: "get",
+	             data:{
+	            	 start : start,
+	            	 end : end
+	             },
+	             success: function(data){
+	                     $("#result").html(data);
+	                     console.log(data);
+	             },
+	             error: function(request, status){
+	                 alert("네트워크를 확인해주세요.")
+	             }
+	         });
+	 	});
+		
+		$("#totalMember").click(function(){
 	           $.ajax({
-	                url: "${pageContext.servletContext.contextPath}/login/admin/memberTotalSumming",
+	                url: "${pageContext.servletContext.contextPath}/login/admin/memberSummings",
 	                type: "get",
 	                success: function(data){
-	                        $("#result1").html('　사용 가능한 아이디입니다.');
+	                        $("#result1").html(data);
 	                        console.log(data);
 	                },
 	                error: function(request, status){
@@ -63,12 +106,13 @@
 	                }
 	            });
 	    });
-		$("#deadMember").onclick(function(){
+		
+		$("#deadMember").click(function(){
 	           $.ajax({
-	                url: "${pageContext.servletContext.contextPath}/login/admin/memberDeadSumming",
+	                url: "${pageContext.servletContext.contextPath}/login/admin/deadMemberSumming",
 	                type: "get",
 	                success: function(data){
-	                        $("#result2").html('　사용 가능한 아이디입니다.');
+	                        $("#result2").html(data);
 	                        console.log(data);
 	                },
 	                error: function(request, status){

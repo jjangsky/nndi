@@ -51,6 +51,7 @@
 		     , A.RENT_END
 		  FROM TBL_RENT_REQUEST A
 		  LEFT OUTER JOIN TBL_MEMBER_ALIVE B ON (A.MEM_ID = B.ID)
+		 ORDER BY A.POST_NUM DESC
 	</select>
 	
 	<select id="selectOneByNumRent" resultMap="rentAndMemberMap" parameterType="_int">

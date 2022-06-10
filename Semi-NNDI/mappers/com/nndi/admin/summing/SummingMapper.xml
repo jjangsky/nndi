@@ -84,6 +84,47 @@
   	<association property="category" resultMap="postCategoryMap"/>
   </resultMap>
   
+  <!-- MemberAlive ResultMap, typeAlias = AliveDTO -->
+	<resultMap type="AliveDTO" id="memberAliveResultMap">
+		<id property="id" column="ID"/>
+		<result property="idQueNum" column="ID_QUE_NUM"/>
+		<result property="phone1" column="PHONE1"/>
+		<result property="phone2" column="PHONE2"/>
+		<result property="phone3" column="PHONE3"/>
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="address1" column="ADDRESS1"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="address3" column="ADDRESS3"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="birth" column="BIRTH"/>
+		<result property="idAnswer" column="ID_ANSWER"/>
+		<result property="gender" column="GENDER"/>
+		<result property="lastLogin" column="LAST_LOGIN"/>
+		<result property="userStatus" column="USER_STATUS"/>
+		<result property="outDate" column="OUT_DATE"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+	</resultMap>
+	
+	<!-- MemberDead ResultMap, typeAlias = DeadDTO -->
+	<resultMap type="DeadDTO" id="DeadMemberResultMap">
+		<id property="no" column="NO"/>
+		<result property="phone1" column="PHONE1"/>
+		<result property="phone2" column="PHONE2"/>
+		<result property="phone3" column="PHONE3"/>
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="address1" column="ADDRESS1"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="address3" column="ADDRESS3"/>
+		<result property="id" column="ID"/>
+		<result property="pwd" column="PWD"/>
+		<result property="birth" column="BIRTH"/>
+		<result property="name" column="NAME"/>
+		<result property="gender" column="GENDER"/>
+	</resultMap>
+  
   <!-- 민원 전체 게시글 조회 -->
   <select id="selectTotalComplain" resultType="_int">
   	SELECT 
@@ -172,6 +213,42 @@
   	 ]]>
   </select>
   
+  <!-- 현재 활동 회원 수 조회 -->
+  <select id="aliveMembercnt" resultType="_int">
+  	SELECT 
+  	       COUNT(A.ID)
+  	  FROM TBL_MEMBER_ALIVE A
+  	 WHERE A.USER_STATUS = 'A'
+  </select>
   
+  <!-- 휴면 회원 수 조회 -->
+  <select id="restMemberCnt" resultType="_int">
+  	SELECT 
+  	       COUNT(A.ID)
+  	  FROM TBL_MEMBER_ALIVE A
+  	 WHERE A.USER_STATUS = 'R'
+  </select>
   
+  <!-- 휴면, 활동 회원 전체 조회 -->
+  <select id="allMemberCnt" resultType="_int">
+  	SELECT 
+  	       COUNT(A.ID)
+  	  FROM TBL_MEMBER_ALIVE A
+  	 WHERE A.USER_STATUS IN ('A','R')
+  </select>
+  
+  <!--  탈퇴 회원 통계 -->
+  <select id="deadMemberSumming" resultType="_int">
+  	SELECT 
+  	       COUNT(A.ID)
+  	  FROM TBL_MEMBER_DEAD A
+  </select>
+  
+  <!-- 탈퇴 회원 통계 -->
+  <select id="newMemberSum" parameterType="map" resultType="_int">
+  	SELECT 
+  	       COUNT(A.ID)
+  	  FROM TBL_MEMBER_ALIVE A
+  	 WHERE A.ENROLL_DATE BETWEEN #{ start } AND #{ end }
+  </select>
 </mapper>
