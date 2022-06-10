@@ -37,15 +37,15 @@
 				break;
 			case "insertComplain" : 
 				successMessage = "민원 신청이 성공적으로 접수되었습니다. !";
-				movePath = "../../index.jsp";
+				movePath = "../../../index.jsp";
 				break;
 			case "updateComplain" : 
 				successMessage = "해당 민원을 성공적으로 수정하였습니다 !";
-				movePath = "../../index.jsp";
+				movePath = "../../../index.jsp";
 				break;
 			case "deleteComplain" : 
 				successMessage = "해당 민원을 성공적으로 삭제하였습니다. !";
-				movePath = "../../index.jsp";
+				movePath = "../../../index.jsp";
 				break;
 		}
 

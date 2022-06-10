@@ -16,9 +16,9 @@ public class TCREmploymentDTO {
 	
 	private int num;
 	private String managerId;
-	private String clsNum;
+	private int clsNum;
 	private String title;
-	private java.sql.Date postDate;
+	private String fileName;
 	private String empYn;
 	private String empCondition;
 	private int empNumber;
@@ -27,14 +27,14 @@ public class TCREmploymentDTO {
 	public TCREmploymentDTO() {
 		super();
 	}
-	public TCREmploymentDTO(int num, String managerId, String clsNum, String title, Date postDate, String empYn,
+	public TCREmploymentDTO(int num, String managerId, int clsNum, String title, String fileName, String empYn,
 			String empCondition, int empNumber, String environment, String empProcess) {
 		super();
 		this.num = num;
 		this.managerId = managerId;
 		this.clsNum = clsNum;
 		this.title = title;
-		this.postDate = postDate;
+		this.fileName = fileName;
 		this.empYn = empYn;
 		this.empCondition = empCondition;
 		this.empNumber = empNumber;
@@ -53,10 +53,10 @@ public class TCREmploymentDTO {
 	public void setManagerId(String managerId) {
 		this.managerId = managerId;
 	}
-	public String getClsNum() {
+	public int getClsNum() {
 		return clsNum;
 	}
-	public void setClsNum(String clsNum) {
+	public void setClsNum(int clsNum) {
 		this.clsNum = clsNum;
 	}
 	public String getTitle() {
@@ -65,11 +65,11 @@ public class TCREmploymentDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public java.sql.Date getPostDate() {
-		return postDate;
+	public String getFileName() {
+		return fileName;
 	}
-	public void setPostDate(java.sql.Date postDate) {
-		this.postDate = postDate;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	public String getEmpYn() {
 		return empYn;
@@ -104,7 +104,7 @@ public class TCREmploymentDTO {
 	@Override
 	public String toString() {
 		return "TCREmploymentDTO [num=" + num + ", managerId=" + managerId + ", clsNum=" + clsNum + ", title=" + title
-				+ ", postDate=" + postDate + ", empYn=" + empYn + ", empCondition=" + empCondition + ", empNumber="
+				+ ", fileName=" + fileName + ", empYn=" + empYn + ", empCondition=" + empCondition + ", empNumber="
 				+ empNumber + ", environment=" + environment + ", empProcess=" + empProcess + "]";
 	}
 	
