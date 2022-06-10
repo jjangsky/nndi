@@ -62,7 +62,7 @@
     <button onclick="location.href='${pageContext.servletContext.contextPath}/site/Policy'" class="FooterButton">개인정보방침</button>
     <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'" class="FooterButton">오시는길</button>
     <button onclick="location.href='${pageContext.servletContext.contextPath}/Member/idFind'" class="FooterButton" >아이디 찾기</button>
-    <button onclick="location.href='${pageContext.servletContext.contextPath}/Member/pwdFind'" class="FooterButton">비밀번호 찾기</button>
+    <button onclick="location.href='${pageContext.servletContext.contextPath}/Member/pwdinitialization'" class="FooterButton">비밀번호 초기화</button>
     <button onclick="location.href='${pageContext.servletContext.contextPath}/index.jsp'" class="FooterButton">홈으로</button>
     <button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'" class="FooterButton">회원가입</button>
     </div>

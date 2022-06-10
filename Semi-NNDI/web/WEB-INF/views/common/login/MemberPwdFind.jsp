@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFindAside.css" >
 <title>너나들이 중랑</title>
 
@@ -15,25 +14,47 @@
 <jsp:include page="../../common/includepage/UserFindAside.jsp"/>
 </aside>
 
-<section style="float: left;">
+<section>
 	<div>
-		<br><h3> 비밀번호 찾기</h3><br>
+	    <form id="pwdFind" action="${ pageContext.servletContext.contextPath }/Member/pwdinitialization/input" method="post" >
+	        <p><br>
+	        <label for="name">아이디 : </label>
+	        <input type="text" id="userId" name="userId" size="30" required>   <p>
+	        
+	         <label for="phone" id="input">연락처: </label>
+	            <select name="selectUserPhone" required style="width: auto;">
+	                <option value="010">010</option>
+	                <option value="016">016</option>
+	                <option value="011">011</option>
+	                <option value="019">019</option>
+	            </select>
+	            <input type="tel" name="phone2" size="4" id="phone2" required>
+	            <input type="tel" name="phone3" size="4" id="phone3" required><p>
 	
-			<table>
-				<tr>
-	   				<td>
-						<strong>휴대폰 인증으로 비밀번호 찾기</strong><br><br>
-						<img src="${pageContext.servletContext.contextPath}/resources/image/client/Phone.png"><br><br>
-						<strong>가입자 본인 명의의 휴대폰으로</strong> <br> 본인여부를 확인합니다. <br> 아래 버튼을 눌러 인증을 <br> 진행하시길 바랍니다. <br><br>
-						<button type="submit">휴대폰 인증하기</button><br>
-	           		</td>
-	       		</tr>
-	   		</table>
-	</div> 
-</section>
+	        <button type="button" id="pwdfinbutton" >비밀번호 초기화</button>
+	    </form>
+	</div>
+	<script>
+	
+		
+	const pwdfinbutton = document.getElementById("pwdfinbutton");
+	
+		pwdfinbutton.onclick = function(){
+		 	let text ="비밀번호 초기화시 임의의 난수로 비밀번호가 재생성됩니다. \n 정말 변경하시려면 '확인'을 누르세요.";
+				if(confirm(text) ==  true){
+					document.getElementById("pwdFind").submit();
+			} 
+		};
+    	
+	</script>
+	
 
+</section>
 </body>
+
+	
 <br clear="both">
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
+
 
 </html>

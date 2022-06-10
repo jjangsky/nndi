@@ -3,6 +3,8 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
  
  <mapper namespace="com.nndi.client.board.UserBoardMapper">
+ 
+ 
  	<!-- BoardAndCategoryDTO -->
  	<resultMap type="com.nndi.model.joindto.client.board.BoardAndCategoryDTO" id="BoardAndCategoryResultMap">
  		<id property="num" column="NUM"/>
@@ -186,6 +188,18 @@
                TBL_POST_NOTICE A
  		   SET A.HITS = (SELECT B.HITS
  		                   FROM TBL_POST_NOTICE B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }
+ 		  
+ 	</update>
+ 	
+ 	<!-- 민원게시판 조회수 증가 쿼리문 -->
+ 	<update id="incrementComplainCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_COMPLAIN A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_COMPLAIN B
  		                  WHERE B.NUM = #{ num }
  		                ) +1
   		WHERE A.NUM = #{ num }

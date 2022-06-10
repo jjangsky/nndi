@@ -44,7 +44,8 @@
       </div>
 
 <div class="topnav1" >
-  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">강좌 안내</button>
+<%--   <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">강좌 안내</button> --%>
+<   <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">강좌 안내</button> 
   <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
   <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CCC'">고객 지원 센터</button>
   <button onclick="location.href='${pageContext.servletContext.contextPath}/site/agreement'">이용약관</button>
