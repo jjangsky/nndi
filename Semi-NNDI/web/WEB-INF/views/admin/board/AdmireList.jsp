@@ -27,7 +27,7 @@
     
 		<div>
 		    <div class="post title">
-		        <h3 class="top">민원</h3>
+		        <h3 class="top">칭찬하기</h3>
 		    </div>
 		    <div class="search">
 		      <form action="">
@@ -89,6 +89,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

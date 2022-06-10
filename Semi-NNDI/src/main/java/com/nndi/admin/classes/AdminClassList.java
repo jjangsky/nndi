@@ -28,6 +28,7 @@ public class AdminClassList extends HttpServlet {
 		ClassesService classService = new ClassesService();
 		
 		List<ClassesAndTeacherAndCenterDTO> classList = classService.selectAllClassList();
+		
 		List<Map<String, String>> time = new ArrayList<>();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for(ClassesAndTeacherAndCenterDTO ctc : classList) {

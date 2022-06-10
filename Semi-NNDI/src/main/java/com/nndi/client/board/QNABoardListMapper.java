@@ -12,6 +12,9 @@ public interface QNABoardListMapper {
 	List<QnaDTO> QNABoardList();
 
 	/* 문의글 상세 조회 하기 */
-	QnaDTO QNABoardListDetail(int num);	
+	QnaDTO QNABoardListDetail(int num);
+
+	/* 마이페이지에서 문의글 조회 하기 */
+	List<QnaDTO> MyPageQNAList(String loginId);	
 
 }

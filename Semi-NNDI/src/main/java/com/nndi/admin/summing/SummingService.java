@@ -10,8 +10,11 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.ComplainDTO;
 import com.nndi.model.commondto.FAQDTO;
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.commondto.NoticeDTO;
 import com.nndi.model.commondto.QnaDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
+import com.nndi.model.joindto.admin.rent.RentAndMemberAliveDTO;
 
 import static com.nndi.common.config.Template.getSqlSession;
 
@@ -109,6 +112,30 @@ public class SummingService {
 		System.out.println("Service : " +newMemberSumming);
 		
 		return newMemberSumming;
+	}
+
+	/* 메인에 띄울 리스트들 */
+	public Map<String, Object> mainRequestList() {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(SummingMapper.class);
+		
+		Map<String, Object> mainRequestList = new HashMap<String, Object>();
+		
+		List<ClassesAndTeacherAndCenterDTO> classList = mapper.selectClassList();
+		List<QnaDTO> qnaList = mapper.selectQnaList();
+		List<MemberAliveDTO> memberList = mapper.selectMemberList();
+		List<RentAndMemberAliveDTO> rentList = mapper.selectRentList();
+		
+		mainRequestList.put("classList", classList);
+		mainRequestList.put("qnaList", qnaList);
+		mainRequestList.put("memberList", memberList);
+		mainRequestList.put("rentList", rentList);
+		
+		System.out.println("Service " + mainRequestList);
+		
+		return mainRequestList;
 	}
 
 }

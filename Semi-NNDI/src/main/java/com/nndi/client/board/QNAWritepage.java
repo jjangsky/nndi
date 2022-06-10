@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.commondto.QnaDTO;
 
 @WebServlet("/login/board/QNAWritepage")
@@ -22,12 +24,21 @@ public class QNAWritepage extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/client/board/QNAWritepage.jsp").forward(request, response);
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("서블릿확인용");
+		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		
+		System.out.println(loginMember.getId());
+		System.out.println("로그인 정보 확인용 : " + loginMember.getId());
+		String login = loginMember.getId();
+		
 		int categoryCode = Integer.parseInt(request.getParameter("category"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		QnaDTO qnadto = new QnaDTO();
+		qnadto.setMemId(login);
 		qnadto.setCateNum(categoryCode);
 		qnadto.setTitle(title);
 		qnadto.setContent(content);
@@ -38,7 +49,7 @@ public class QNAWritepage extends HttpServlet {
 		System.out.println("insert확인용"+qnadto);
 		
 		if(result>0) {
-			response.sendRedirect("QNABoardList");
+			response.sendRedirect("QNAClassList");
 			System.out.println("성공시 콘솔 출력 문구");
 		} else {
 			System.out.println("실패시 콘솔 출력");
