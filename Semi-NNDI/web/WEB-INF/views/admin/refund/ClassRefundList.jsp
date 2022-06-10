@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,62 +26,53 @@
 	 
 	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
 	  
-    
-		<div>
+	 	 <div>
 			<div class="post title">
     			<h3 class="top">수강 환불내역 조회</h3>
 			</div>
-			<form action="">
-			  <button class="search btn" type="submit">검색</button> 
-			  <input class="search in" type="text" placeholder="검색어 입력" required>
-			  <select class="search select" required>
-			    <option value="">None</option>
-			    <option value="name">이름</option>
-			    <option value="id">아이디</option>
-			    <option value="class">강좌</option>
-			    <option value="teacher">강사</option>
-			  </select>
-			</form>
-    
-			<div class="post list">
-			    <table class="t1">
-			        <thead>
-			            <tr>
-			                <th>강좌번호</th>
-			                <th>이름</th>
-			                <th>회원 ID</th>
-			                <th>강좌명</th>
-			                <th>강사명</th>
-			                <th>결제금액</th>
-			                <th>환불여부</th>
-			                <th>결제일</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>
-			                <td>5</td>
-			                <td>김용승</td>
-			                <td>diagon77</td>
-			                <td>도자기 만들기</td>
-			                <td>박도자</td>
-			                <td>15,000원</td>
-			                <td>Y</td>
-			                <td>2022/05/12</td>
-			            </tr>
-			            <tr>
-			                <td>2</td>
-			                <td>나큰용</td>
-			                <td>user0101</td>
-			                <td>건강 수영(고급)</td>
-			                <td>박태환 </td>
-			                <td>50,000원</td>
-			                <td>Y</td>
-			                <td>2022/04/29</td>
-			            </tr>
-			            
-			        </tbody>
-			    </table>
-			</div>
+			<div class="search">
+		      <form action="">
+		        <button class="search btn" type="submit">검색</button> 
+		        <input class="search in" type="text" placeholder="검색어 입력" required>
+		        <select class="search select" required>
+			   		<option value="">None</option>
+			    	<option value="name">이름</option>
+			    	<option value="id">아이디</option>
+			    	<option value="class">강좌</option>
+			    	<option value="teacher">강사</option>
+		        </select>
+		      </form>
+		    </div>
+		
+			<div class="post list"> 
+		        <table class="t1">
+		            <thead>
+		              <tr>
+		                <th>강좌 번호</th>
+		                <th>이름</th>
+		                <th>회원 ID</th>
+		                <th>강좌명</th>
+		                <th>강사명</th>
+		                <th>결제금액</th>
+		                <th>환불여부</th>
+		                <th>결제일</th>
+		              </tr>
+		            </thead>
+		            <tbody>
+		              <c:forEach var="refund" items="${ requestScope.classrefundList }">
+		              	<tr>
+			                <td>${ refund.clsNum }</td>
+			                <td>${ refund.name }</td>
+			                <td>${ refund.id }</td>
+			                <td>${ refund.clsName }</td>
+			                <td>${ refund.tcrName }</td>
+			                <td>${ refund.clsPrice }</td>
+			                <td>${ refund.refundYn }</td>
+			                <td>${ refund.clsPayDay }</td>
+		            	</c:forEach>
+		            </tbody>
+		        </table>
+		    </div>
 		    <div class="pagination">
 		      <a href="#">&laquo;</a>
 		      <a href="#">1</a>
