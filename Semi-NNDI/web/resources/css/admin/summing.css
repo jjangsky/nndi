@@ -20,6 +20,7 @@
     border: 1px solid #ccc;
     margin-right: 3%;
     margin-top: 40px;
+    margin-bottom : 3%
 }
 
 .to {
@@ -80,9 +81,8 @@ tbody td{
 
 .result{
     color: rgb(255, 109, 109);
-    margin-left: 600px;
+    margin-left: 10%;
     padding: 20px 8px 12px 0;
-    font-weight: bolder;
 }
 
 .supost{

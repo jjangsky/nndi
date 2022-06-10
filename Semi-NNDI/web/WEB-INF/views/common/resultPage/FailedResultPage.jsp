@@ -8,10 +8,10 @@
 </head>
 <body>
 	<script>
-         const text = "'${ requestScope.message }' '확인'" ;
+         const text = "'${ requestScope.message }'" ;
 			window.onload = function(){
 				if(confirm(text) == true){
-					location.href="${ pageContext.servletContext.contextPath }/RestMemberLogin"
+					location.href="${ pageContext.servletContext.contextPath }/index.jsp"
 					
 				} else {
 					location.href="${ pageContext.servletContext.contextPath }/index.jsp"

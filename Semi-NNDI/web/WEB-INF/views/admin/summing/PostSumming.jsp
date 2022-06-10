@@ -44,7 +44,6 @@
 			</div>
 			<div class="new">
 				<h4 class="to">민원 게시글</h4>
-				<form action="">
 					<div class="supost">
 						<table>
 							<thead>
@@ -52,6 +51,7 @@
 									<th>전체 게시글 수</th>
 									<th>답변완료</th>
 									<th>미답변</th>
+									<th>바로가기</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,10 +59,16 @@
 									<td>${ requestScope.complainTotalcnt }</td>
 									<td>${ requestScope.complainRECnt }</td>
 									<td>${ requestScope.complainNotRECnt }</td>
+									<td>
+									<button class="btn btn-secondary"
+										onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/complainList'">
+										보기</button>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
-				</form>
 				<h4 class="result"></h4>
 			</div>
 			<div class="total">
@@ -74,6 +80,7 @@
 								<th>전체 게시글 수</th>
 								<th>답변완료</th>
 								<th>미답변</th>
+								<th>바로가기</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,6 +88,13 @@
 								<td>${ requestScope.qnaTotalcnt }</td>
 								<td>${ requestScope.qnaRECnt }</td>
 								<td>${ requestScope.qnaNotRECnt }</td>
+								<td>
+									<button class="btn btn-secondary"
+										onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/qnaList'">
+										보기</button>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -93,6 +107,7 @@
 					<thead>
 						<tr>
 							<th>번호</th>
+							<th>조회수</th>
 							<th>제목</th>
 							<th>문의유형</th>
 							<th>자세히</th>
@@ -103,6 +118,7 @@
 							items="${ requestScope.noticeHitTops }">
 							<tr>
 								<td>${ noticeHitTops.num }</td>
+								<td>${ noticeHitTops.hits }</td>
 								<td>${ noticeHitTops.title }</td>
 								<td>${ noticeHitTops.category.cateKind }</td>
 								<td>
@@ -123,6 +139,7 @@
 					<thead>
 						<tr>
 							<th>번호</th>
+							<th>조회수</th>
 							<th>제목</th>
 							<th>문의유형</th>
 							<th>자세히</th>
@@ -132,6 +149,7 @@
 						<c:forEach var="faqHitTops" items="${ requestScope.faqHitTops }">
 							<tr>
 								<td>${ faqHitTops.num }</td>
+								<td>${ faqHitTops.hits }</td>
 								<td>${ faqHitTops.title }</td>
 								<td>${ faqHitTops.category.cateKind }</td>
 								<td><button class="btn btn-secondary"

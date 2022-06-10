@@ -1,6 +1,8 @@
 package com.nndi.admin.summing;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.nndi.model.commondto.ComplainDTO;
 import com.nndi.model.commondto.FAQDTO;
@@ -32,5 +34,20 @@ public interface SummingMapper {
 
 	/* 공지사항 조회수 순위 */
 	List<NoticeDTO> selectNoticeHitTops();
+
+	/* 현재 활동 회원 수 조회 */
+	int aliveMembercnt();
+
+	/* 휴면 회원 수 조회 */
+	int restMemberCnt();
+
+	/* 휴면, 활동 회원 전체 조회 */
+	int allMemberCnt();
+
+	/* 탈퇴 회원 통계 */
+	int deadMemberSumming();
+
+	/* 탈퇴 회원 통계 */
+	int newMemberSum(Map<String, java.sql.Date> date);
 
 }

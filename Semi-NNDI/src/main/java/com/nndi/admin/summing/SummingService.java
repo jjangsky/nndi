@@ -1,5 +1,7 @@
 package com.nndi.admin.summing;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +51,64 @@ public class SummingService {
 		System.out.println("Service " + postSummingRequestList);
 		
 		return postSummingRequestList;
+	}
+
+	/* 회원 통계 */
+	public Map<String, Integer> memberSummingList() {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(SummingMapper.class);
+
+		Map<String, Integer> memberSummingRequestList = new HashMap<String, Integer>();
+		
+		int aliveMemberCnt = mapper.aliveMembercnt();
+		int restMemberCnt = mapper.restMemberCnt();
+		int allMemberCnt = mapper.allMemberCnt();
+		
+		memberSummingRequestList.put("aliveMemberCnt", aliveMemberCnt);
+		memberSummingRequestList.put("restMemberCnt", restMemberCnt);
+		memberSummingRequestList.put("allMemberCnt", allMemberCnt);
+		
+		System.out.println("Service : " +memberSummingRequestList);
+		
+		return memberSummingRequestList;
+	}
+
+	/* 탈퇴 회원 통계 */
+	public List<Integer> deadMemberSumming() {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(SummingMapper.class);
+
+		List<Integer> deadMemberSumming = new ArrayList<Integer>();
+		
+		int deadMemberSum = mapper.deadMemberSumming();
+		
+		deadMemberSumming.add(deadMemberSum);
+		
+		System.out.println("Service : " +deadMemberSumming);
+		
+		return deadMemberSumming;
+	}
+
+	/* 신규 회원 통계 */
+	public List<Integer> newMemberSumming(Map<String, java.sql.Date> date) {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(SummingMapper.class);
+
+		List<Integer> newMemberSumming = new ArrayList<Integer>();
+		
+		int newMemberSum = mapper.newMemberSum(date);
+		
+		newMemberSumming.add(newMemberSum);
+		
+		System.out.println("Service : " +newMemberSumming);
+		
+		return newMemberSumming;
 	}
 
 }
