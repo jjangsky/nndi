@@ -23,11 +23,13 @@ public class ComplainDeleteServlet extends HttpServlet {
 		
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
-			System.out.println("조회 여부 변경 성공");
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+			System.out.println("update 성공");
+			request.setAttribute("successCode", "deleteComplain");
 		} else {
-			path = "/WEB-INF/views/client/board/ComplainSelect.jsp";
-			System.out.println("조회 여부 변경 실패");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			System.out.println("update 실패");
+			request.setAttribute("message", "민원 삭제 실패");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

@@ -50,6 +50,9 @@
 				<c:if test="${rent.rentCost != '0'}">
 					<td><c:out value="${ rent.rentCost }"/>원</td>
 				</c:if>
+				<c:if test="${rent.rentCost == '0'}">
+					<td>미결제</td>
+				</c:if>
 			</tr>
 			</c:forEach>
       
