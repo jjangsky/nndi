@@ -55,7 +55,20 @@ public class BoardService {
 		
 		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
 		
-		BoardAndCategoryDTO complainDetail = boardMapper.complainDetail(num);
+		int result = boardMapper.incrementComplainCount(num);
+		
+		BoardAndCategoryDTO complainDetail = null;
+		
+		if(result > 0) {
+			complainDetail = boardMapper.complainDetail(num);	
+			if(complainDetail != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} else {
+			sqlSession.rollback();
+		}
 		
 		return complainDetail;
 	}

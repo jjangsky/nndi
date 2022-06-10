@@ -79,7 +79,7 @@
 	          	<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">칭찬 조회</button></li>
 	          	<br>
-	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">민원 조회</button></li>
+	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/myboard/complain'">민원 조회</button></li>
 	          	<br>
 	        </ul>
 	    </div>
