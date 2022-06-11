@@ -29,7 +29,7 @@ public class AdminEmployTcrInsert extends HttpServlet {
 
 		TCREmploymentDTO emp = new TCREmploymentDTO();
 
-		String clsNum = request.getParameter("clsNum");
+		int clsNum = Integer.valueOf(request.getParameter("clsNum"));
 		String title = request.getParameter("title");
 		String empYn = request.getParameter("empYn");
 		String empCondition = request.getParameter("empCondition");

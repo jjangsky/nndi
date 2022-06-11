@@ -45,9 +45,7 @@
 				<button id="back" class="back">목록으로</button>
 			</div>
 			<div>
-				<div class="post title">
-					<h3 class="top">공지사항 등록하기</h3>
-				</div>
+				
 				<div>
 					<button id="back" class="back">목록으로</button>
 				</div>
