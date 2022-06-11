@@ -19,38 +19,38 @@
         	<div id="img" style="position: absolute; top: 45%; left:90%">
         
 		       <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'">
-		        <img src="${pageContext.servletContext.contextPath}/resources/image/client/008.png" style="width: 20px;
-	height: 20px;"> 오시는 길
+		        <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/008.png"> 
+		        오시는 길
 		       </button>
 		       
-		       <button>
-		       	<img src="${pageContext.servletContext.contextPath}/resources/image/client/Search.png" style="width: 20px;
-	height: 20px;">강좌 둘러보기
+		       <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">
+		       	<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/Search.png">
+		       	강좌 둘러보기
 		       </button>
 		       
 		       <br>
-		       <button>
-		       <img src="${pageContext.servletContext.contextPath}/resources/image/client/006.png" 
-		       style="	width: 20px; height: 20px;">QNA문의
+		       <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">
+		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/006.png">
+		       QNA문의
 		       </button>
 		       
-		       <button>
-		       <img src="${pageContext.servletContext.contextPath}/resources/image/client/RequestCenter.png" 
-		       style="width: 20px; height: 20px;">대관 신청
+		       <button onclick="location.href='${pageContext.servletContext.contextPath}/center/list/select'">
+		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/RequestCenter.png">
+		       대관 신청
 		       </button>
 		       
 		       <br>
 		       <br>
 		       
 		       <button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'">
-		       <img src="${pageContext.servletContext.contextPath}/resources/image/client/Accounting.png" style="width: 20px;
-	height: 20px;">
+		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/Accounting.png">
 		       회원 가입하기
 		       </button>
 		       
 		       <button onclick="window.open('https://blog.naver.com/romantic_muk2')">
-		       <img src="${pageContext.servletContext.contextPath}/resources/image/client/005.png" style="	width: 20px;
-	height: 20px;"> 묵 2동 블로그</button>
+		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/005.png">
+		        묵 2동 블로그
+		        </button>
 			
 			</div>
 </section>

@@ -55,6 +55,7 @@
 	    <div class="collapse" id="orders2-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/MyPageClass'">수강 이력 현황</button></li>
+	        	<br>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">수강 환불 신청</button></li>
 	      	</ul>
 	    </div>
