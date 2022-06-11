@@ -1,50 +1,50 @@
 package com.nndi.client.board;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.commondto.BoardDTO;
+import com.nndi.model.commondto.AdmireDTO;
+import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
 
-@WebServlet("/login/board/complain/modify/*")
-public class ComplainUpdateModify extends HttpServlet {
+@WebServlet("/login/board/commend/update/modify")
+public class CommendUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+     
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
-		request.setCharacterEncoding("UTF-8");
 		
 		int num = Integer.valueOf(request.getParameter("num"));
 		int categoryCode = Integer.parseInt(request.getParameter("category"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
-		BoardDTO board = new BoardDTO();
+		AdmireDTO board = new AdmireDTO();
 		board.setNum(num);
 		board.setCate(categoryCode);
 		board.setTitle(title);
 		board.setContent(content);
 		
-		BoardService boardService = new BoardService();
-		int result = boardService.updateComplain(board);
+		int result = BoardService.updateCommend(board);
 		
 		String path = "";
 		if(result > 0) {
 			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("update 성공");
-			request.setAttribute("successCode", "updateComplain");
+			request.setAttribute("successCode", "updateCommend");
 		} else {
 			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("update 실패");
-			request.setAttribute("message", "민원 수정 실패");
+			request.setAttribute("message", "칭찬 수정 실패");
 		}
 		
 		
 		request.getRequestDispatcher(path).forward(request, response);
-		
+	
 	}
 
 }
