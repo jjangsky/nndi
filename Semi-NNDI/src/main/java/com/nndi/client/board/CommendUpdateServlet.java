@@ -25,7 +25,7 @@ public class CommendUpdateServlet extends HttpServlet {
 		
 		AdmireDTO board = new AdmireDTO();
 		board.setNum(num);
-		board.setCate(categoryCode);
+		board.setCateNum(categoryCode);
 		board.setTitle(title);
 		board.setContent(content);
 		

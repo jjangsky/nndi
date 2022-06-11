@@ -13,37 +13,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.joindto.admin.member.MemberTotalDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
+import com.nndi.model.joindto.admin.member.ClassMemberAndClassDTO;
 
-
-@WebServlet("/login/admin/memberList")
-public class AdminMemberList extends HttpServlet {
+@WebServlet("/login/admin/memberClassList.do")
+public class AdminMemberClassList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("컨트롤러 도착");
+		System.out.println("hihihihihihihihi");
 		
-		AdminMemberService adminmemberService = new AdminMemberService();
+		String memId = request.getParameter("id");
 		
-		List<MemberTotalDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
+		System.out.println(memId);
+	
+		AdminMemberService memberService = new AdminMemberService();
 		
-		for(MemberTotalDTO memberAlive : memberAliveList) {
-			System.out.println(memberAlive);
-		}
-		
+		List<ClassMemberAndClassDTO> memberClasList = memberService.memberClasList(memId);
 		List<Map<String, String>> time = new ArrayList<>();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		for(MemberTotalDTO ctc : memberAliveList) {
+		for(ClassMemberAndClassDTO ctc : memberClasList) {
 			Map<String, String> map = new HashMap<>();
-			map.put("birth", sdf.format(ctc.getBirth()));
+			map.put("start", sdf.format(ctc.getCls().getClsStartDay()));
+			map.put("end", sdf.format(ctc.getCls().getClsEndDay()));
 			time.add(map);
 		}
 		
 		String path = "";
-		if (!memberAliveList.isEmpty()) {
-			path = "/WEB-INF/views/admin/member/MemberList.jsp";
-			request.setAttribute("memberAliveList", memberAliveList);
+		if (!memberClasList.isEmpty()) {
+			path = "/WEB-INF/views/admin/member/MemberDetailClassList.jsp";
+			request.setAttribute("memberClasList", memberClasList);
 			request.setAttribute("time", time);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
@@ -52,9 +52,6 @@ public class AdminMemberList extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
-		
 	}
 
 }
-
-

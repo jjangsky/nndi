@@ -1,7 +1,6 @@
 package com.nndi.admin.board;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,36 +9,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.commondto.NoticeDTO;
 
-
-@WebServlet("/login/admin/noticeAdd")
-public class AdminNoticeAdd extends HttpServlet {
+@WebServlet("/login/admin/noticeUpdate")
+public class AdminNoticeUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.getRequestDispatcher("/WEB-INF/views/admin/board/NoticeAdd.jsp").forward(request, response);
-		
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("hihihihihihihihiihihihihihi");
 		
-		System.out.println("하이하이~~~~~공지 등록임");
-		
+		int num = Integer.valueOf(request.getParameter("num"));
 		String title = request.getParameter("title");
-		String managerId = request.getParameter("managerId");
-		int cateNum = Integer.valueOf(request.getParameter("cateNum"));
 		String content = request.getParameter("content");
+		String managerId = request.getParameter("managerId");
 		
-		NoticeDTO addNotice = new NoticeDTO();
+		NoticeDTO updateNotice = new NoticeDTO();
 		
-		addNotice.setTitle(title);
-		addNotice.setManagerId(managerId);
-		addNotice.setCateNum(cateNum);
-		addNotice.setContent(content);
+		updateNotice.setNum(num);
+		updateNotice.setTitle(title);
+		updateNotice.setContent(content);
+		updateNotice.setManagerId(managerId);
 		
 		BoardService boardService = new BoardService();
 		
-		int result = boardService.insertNotice(addNotice);
+		int result = boardService.updateNotice(updateNotice);
 		
 		if(result>0) {
 			response.sendRedirect("noticeList");
@@ -48,7 +40,6 @@ public class AdminNoticeAdd extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/views/admin/selectErrorPage/UpdateFail.jsp").forward(request, response);
 			System.out.println("fail");
 		}
-		
 	}
 
 }

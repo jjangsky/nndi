@@ -495,4 +495,31 @@
       )
   </insert>
 
+  <!-- 공지사항 등록 -->
+  <insert id="insertNotice" parameterType="com.nndi.model.commondto.NoticeDTO">
+  	INSERT 
+  	  INTO TBL_POST_NOTICE
+  	VALUES
+  	(
+  	  SEQ_NOTICE_POST_NUM.NEXTVAL 
+  	, #{ managerId }
+  	, #{ cateNum }
+  	, DEFAULT
+  	, #{ title }
+  	, #{ content }
+  	, DEFAULT
+  	, 0
+  	)
+  </insert>
+  
+  <!-- 공지사항 수정 -->
+  <update id="updateNotice" parameterType="com.nndi.model.commondto.NoticeDTO">
+  	UPDATE 
+            TBL_POST_NOTICE A
+        SET A.MANAGER_ID = #{ managerId }
+          , A.POST_DATE = SYSDATE
+          , A.TITLE = #{ title }
+          , A.CONTENT = #{ content }
+      WHERE A.NUM = #{ num }
+  </update>
 </mapper>

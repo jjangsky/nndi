@@ -27,7 +27,7 @@
 	color: aliceblue !important;
 }
 </style>
-<title>Admin MemberList</title>
+<title>Admin MemberBookRentList</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp" />
@@ -37,43 +37,58 @@
 		<jsp:include page="../../common/includepage/AdminAside.jsp" />
 
 		<div class="post title">
-			<h3 class="top">전체 회원 조회</h3>
+			<h3 class="top">회원 수강내역 조회</h3>
 		</div>
+		<br>
 
+		<form>
 		<div class="post list">
 			<table class="tb01">
 				<thead class="table-lgiht">
 					<tr>
-						<th>회원ID</th>
-						<th>이름</th>
-						<th>연락처</th>
-						<th>생년월일</th>
-						<th>가입날짜</th>
-						<th>상세보기</th>
+						<th>강좌 번호</th>
+						<th>강좌 이름</th>
+						<th>해당 강의실</th>
+						<th>분류</th>
+						<th>환불 여부</th>
+						<th>개강일</th>
+						<th>종강일</th>
+						<th> </th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="alive" items="${ requestScope.memberAliveList }" varStatus="status">
+					<c:forEach var="memberCls"
+						items="${ requestScope.memberClasList }" varStatus="status">
 						<tr>
-							<td>${ alive.id }</td>
-							<td>${ alive.name }</td>
-							<td>${ alive.phone }</td>
-							<td>${ requestScope.time[status.index].birth }</td>
-							<td>${ alive.enrollDate }</td>
-							<td>
-								<button class="btn btn-secondary"
-									onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'">
-									확인</button>
-							</td>
+							<td>${ memberCls.clsNum }</td>
+							<td>${ memberCls.cls.clsName }</td>
+							<td>${ memberCls.cls.cenName }</td>
+							<td>${ memberCls.cls.clsCategoryName }</td>
+							<td>${ memberCls.refundYn }</td>
+							<td>${ requestScope.time[status.index].start }</td>
+							<td>${ requestScope.time[status.index].end }</td>
+							<td><input type="hidden" id="id" name="num"	value="${ memberCls.id }"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-
-
+		<div>
+			<button id="back" type="button" class="btn btn-secondary"
+					style="float:right; margin-right:5%; margin-top:1.5%">돌아가기</button>
+		</div>
+	</form>
 	</section>
+	<br>
+	<br>
+	<br>
+	<script>
+    const back = document.getElementById("back");
+    let id = document.getElementById("id").value;
+    back.onclick = function(){
+    	location.href="${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id="+id;
+    };
+    </script>
 
 	<jsp:include page="../../common/includepage/AdminFooter.jsp" />
 </body>

@@ -35,14 +35,14 @@
 		      <button id="back" class="back">목록으로</button>
 		    </div>
 		    <div class="post add">
-		        <form action="post">
-		        	<input type="hidden" id="num" name="num" value="${ detailComplain.num }">
+		        <form  id="update" action="${pageContext.servletContext.contextPath}/login/admin/noticeUpdate" method="post">
+		        	<input type="hidden" id="num" name="num" value="${ detailNotice.num }">
 		            <label>제목</label><br>
-		            <input id="title" maxlength=100 type="text" readonly value='${ detailNotice.title }'><br>     <!-- readonly에 value값 넣기 -->
+		            <input name="title" id="title" maxlength=100 type="text" value='${ detailNotice.title }'><br>     <!-- readonly에 value값 넣기 -->
 		            <label>카테고리</label><br>
-		            <input id="title" type="text" readonly value=${ detailNotice.category.cateKind }><br>
-		            <label>파일첨부</label><br>
-		            <input type="file" required><br>
+		            <input name="categoryNum" type="text" readonly value=${ detailNotice.category.cateKind }><br>
+		            <label>수정하는 작성자</label><br>
+		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		            <label>내용</label><br>
 		            <textarea name="content" id="content" cols="30" rows="15" style="resize: none;" required 
 		            		  >${ requestScope.detailNotice.content }</textarea><br>
