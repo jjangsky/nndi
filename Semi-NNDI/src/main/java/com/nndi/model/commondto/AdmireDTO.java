@@ -15,7 +15,7 @@ public class AdmireDTO {
 //	HITS	NUMBER
 	
 	private int num;
-	private int cateNum;
+	private int cate;
 	private String memId;
 	private java.sql.Date postDate;
 	private String title;
@@ -27,11 +27,11 @@ public class AdmireDTO {
 	public AdmireDTO() {
 		super();
 	}
-	public AdmireDTO(int num, int cateNum, String memId, Date postDate, String title, String content, String answerYn,
+	public AdmireDTO(int num, int cate, String memId, Date postDate, String title, String content, String answerYn,
 			String answerContent, String displayYn, int hits) {
 		super();
 		this.num = num;
-		this.cateNum = cateNum;
+		this.cate = cate;
 		this.memId = memId;
 		this.postDate = postDate;
 		this.title = title;
@@ -47,11 +47,11 @@ public class AdmireDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getCateNum() {
-		return cateNum;
+	public int getCate() {
+		return cate;
 	}
-	public void setCateNum(int cateNum) {
-		this.cateNum = cateNum;
+	public void setCate(int cate) {
+		this.cate = cate;
 	}
 	public String getMemId() {
 		return memId;
@@ -103,10 +103,11 @@ public class AdmireDTO {
 	}
 	@Override
 	public String toString() {
-		return "CommendDTO [num=" + num + ", cateNum=" + cateNum + ", memId=" + memId + ", postDate=" + postDate
-				+ ", title=" + title + ", content=" + content + ", answerYn=" + answerYn + ", answerContent="
-				+ answerContent + ", displayYn=" + displayYn + ", hits=" + hits + "]";
+		return "AdmireDTO [num=" + num + ", cate=" + cate + ", memId=" + memId + ", postDate=" + postDate + ", title="
+				+ title + ", content=" + content + ", answerYn=" + answerYn + ", answerContent=" + answerContent
+				+ ", displayYn=" + displayYn + ", hits=" + hits + "]";
 	}
-
+	
+	
 	
 }

@@ -65,6 +65,13 @@ public interface BoardMapper {
 
 	/* 공지사항 삭제 */
 	int deleteNotice(int num);
+	
+	/* faq 삭제 */
+	int deletefaq(int num);
+	
+	/* faq 등록 */
+	int insertfaq(FAQDTO insertFaq);
+
 
 	/* 강사모집 전체조회 */
 	List<EmpTeacherAndClassDTO> selectAllEmpTeacherList();

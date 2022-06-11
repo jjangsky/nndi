@@ -55,6 +55,10 @@
 		                    <td class="td1">답변 여부</td>
 		                    <td class="td2">${ detailqna.answerYn }</td>
 		                </tr>
+		                <tr>
+		                    <td class="td1">답변 내용</td>
+		                    <td class="td2">${ detailqna.answerContent }</td>
+		                </tr>
 		            </table>
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">

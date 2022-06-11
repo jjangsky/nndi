@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
 	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
 	  
 	   <div class="post title">
-    <h3 class="top">도서 대여 조회</h3>
+    <h3 class="top">회원 도서 대출내역 조회</h3>
 </div>
 <br>
 <form action="">
@@ -54,14 +54,14 @@
             </tr>
         </thead>
         <tbody>
-           <c:forEach var="bookrent" items="${ requestScope.memberBookRentList }">
+           <c:forEach var="memberBookRentList" items="${ requestScope.memberBookRentList }">
 		    <tr>
-		      <td>${ bookrent.rentNum }</td>
-		      <td>${ bookrent.name }</td>
-		      <td>${ bookrent.writer }</td>
-		      <td>${ bookrent.rentDate }</td>
-		      <td>${ bookrent.returnDate }</td>
-		      <td>${ bookrent.rentYn }</td>
+		      <td>${ memberBookRentList.rentNum }</td> 
+		      <td>${ memberBookRentList.name }</td>
+		      <td>${ memberBookRentList.writer }</td>
+		      <td>${ memberBookRentList.rentDate }</td>
+		      <td>${ memberBookRentList.returnDate }</td>
+		      <td>${ memberBookRentList.rentYn }</td>
 		    </tr>
 		   </c:forEach> 
         </tbody>
@@ -71,4 +71,4 @@
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
 </body>
-</html>
+</html> --%>
