@@ -45,7 +45,7 @@
 
   <div>
     <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/board/commend/delete?num=${ requestScope.commendDetail.num }'">삭제하기</button>
-  	<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/complain/update?num=${ requestScope.complainDetail.num }'">수정하기</button>
+  	<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/commend/update?num=${ requestScope.commendDetail.num }'">수정하기</button>
     <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/board/list/commend'">목록으로</button>
   </div>
 

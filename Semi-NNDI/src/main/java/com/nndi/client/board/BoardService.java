@@ -220,11 +220,30 @@ public class BoardService {
 		
 		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
 		
-		AdmireAndCategoryDTO commendDetail = boardMapper.commendDetail(num);
+		int result = boardMapper.incrementCommendCount(num);
+		
+		AdmireAndCategoryDTO commendDetail = null;
+		
+		if(result > 0) {
+			commendDetail = boardMapper.commendDetail(num);
+			
+			if(commendDetail != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+			
+		} else {
+			sqlSession.rollback();
+		} 
+		
+		sqlSession.close();
 		
 		return commendDetail;
 		
 	}
+	
+	
 	
 	/* 칭찬 게시판 삭제(조회 여부 변경) */
 	public static int deleteCommend(int num) {
@@ -233,6 +252,44 @@ public class BoardService {
 		
 		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
 		int result = boardMapper.deleteCommend(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+
+	/* 칭찬 게시판 작성하기 */
+	public int insertCommend(AdmireDTO commend) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		int result = boardMapper.insertCommend(commend);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+	
+		return result;
+	}
+	
+	/* 민원 게시판 수정하기 */
+	public static int updateCommend(AdmireDTO board) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		int result = boardMapper.updateCommend(board);
 		
 		if(result > 0) {
 			sqlSession.commit();

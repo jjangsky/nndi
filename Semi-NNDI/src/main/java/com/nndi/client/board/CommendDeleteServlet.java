@@ -19,14 +19,18 @@ public class CommendDeleteServlet extends HttpServlet {
 		
 		String path = "";
 		if(result > 0) {
-			path = "/WEB-INF/views/client/board/CommendList.jsp";
-			System.out.println("삭제 성공!");
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+			System.out.println("update 성공");
+			request.setAttribute("successCode", "deleteCommend");
 		} else {
-			path = "/WEB-INF/views/client/board/CommendList.jsp";
-			System.out.println("삭제 실패!");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			System.out.println("update 실패");
+			request.setAttribute("message", "칭찬 삭제 실패");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
+		
+		
 	
 	
 	}

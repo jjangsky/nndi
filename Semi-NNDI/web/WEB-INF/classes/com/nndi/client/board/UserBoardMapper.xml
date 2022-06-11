@@ -300,6 +300,7 @@
  	 	 FROM TBL_POST_ADMIRE A
  	 	 JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
  	 	WHERE A.DISPLAY_YN = 'Y'
+ 	    ORDER BY A.NUM DESC
    </select>
    
    <!-- 칭찬 게시판 상세 조회 -->
@@ -328,6 +329,46 @@
 	        SET DISPLAY_YN = 'N'
 	      WHERE NUM = #{ num }
  	</delete>  
+ 	
+ 	
+ 	<!-- 칭찬 게시판 작성 -->
+ 	<insert id="insertCommend" parameterType="com.nndi.model.commondto.AdmireDTO">
+	INSERT
+	       INTO TBL_POST_ADMIRE
+	VALUES
+	     (
+	       SEQ_ADMIRE_POST_NUM.nextval
+		 , #{ cate }
+	     , #{ memId }
+	 	 , SYSDATE
+         , #{ title }
+	     , #{ content }
+         , 'Y'
+	     , '0'
+	     )
+ 	
+ 	</insert>
+ 	
+ 	<!-- 칭찬 게시판 수정하기 -->
+ 	<update id="updateCommend" parameterType="com.nndi.model.commondto.AdmireDTO">
+ 	  UPDATE
+               TBL_POST_ADMIRE A
+           SET A.CATE_NUM = #{ cate }
+             , A.TITLE = #{ title }
+             , A.CONTENT = #{ content }
+         WHERE A.NUM = #{ num }
+ 	</update>
+ 	
+ 	<!-- 칭찬게시판 조회수 증가 쿼리문 -->
+ 	<update id="incrementCommendCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_ADMIRE A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_ADMIRE B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }  
+ 	</update>
 	  
  	
  	

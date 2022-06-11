@@ -67,7 +67,7 @@
   </div>
 </div>
 <div>
-    <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/board/complain/towrite'">글작성</button>
+    <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/commend/towrite'">글작성</button>
     </div>
     
     <div class="pagination">

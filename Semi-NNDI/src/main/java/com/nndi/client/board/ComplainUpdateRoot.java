@@ -2,6 +2,7 @@ package com.nndi.client.board;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,15 @@ public class ComplainUpdateRoot extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		int num = Integer.parseInt(request.getParameter("num"));
+		
+		System.out.println(" 넘어 온 숫자는?" + num);
+		
+		/* BoardService board = new BoardService();
+		
+		BoardAndCategoryDTO complainUpdate = board.complainDetail(num);
+		System.out.println(complainUpdate);
+		
+		request.setAttribute("complainUpdate ", complainUpdate);*/
 		
 		request.setAttribute("num", num);
 		

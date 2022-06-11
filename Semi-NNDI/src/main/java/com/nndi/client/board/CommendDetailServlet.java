@@ -7,15 +7,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.AdmireDTO;
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.board.AdmireAndCategoryDTO;
 
 @WebServlet("/board/list/commend/detail/*")
 public class CommendDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		
+		HttpSession loginSession = request.getSession();
+		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
+		System.out.println(loginMember.getId());
+		
 		int num = Integer.valueOf(request.getParameter("num"));
 		
 		System.out.println(num);
@@ -25,7 +32,7 @@ public class CommendDetailServlet extends HttpServlet {
 		System.out.println(commendDetail);
 		
 		String path = "";
-		if(commendDetail != null) {
+		if(loginMember.getId().equals(commendDetail.getMemId())) {
 			path = "/WEB-INF/views/client/board/CommendDetail.jsp";
 			request.setAttribute("commendDetail", commendDetail);
 		} else {

@@ -23,17 +23,14 @@
 
 
 <div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
-    <b>주민들의 소중한 의견을 적극 반영하는 너나들이, 중랑이 되도록 노력하겠습니다.</b><br>
-    <b> 너나들이, 중랑 문화센터와 관련된 민원사항만을 접수하는 곳입니다.</b><br>
-    <b>게시판 작성내용으로 인한 법적문제 발생시 민,형사상 책임은 전적으로 게시자에게 있습니다.</br></b>
-    <b>민원인의 신상정보는 공개하지 않겠습니다.</b><br>
-    <b>궁금하신 사항은 담당자에게 문의 바랍니다.</b><br>
-    <b style="color: red;">욕설, 비방, 선정성, 상업성, 정치적 표현 등 부적절한 표현의 게재글은 비공개 전활 또는 삭제될 수 있습니다.</b>
-</div>
+    <b>칭찬하기 게시판은 행정서비스 및 프로그램 진행에 있어 이웃주민과 민원인들에게 감동을 준 너나들이, 중랑의 직원 및 부서를 칭찬하는 게시판 입니다.</b><br>
+    <b style="color: red;">※ 게시판 작성내용으로 인한 법적 문제 발생 시 민·형사상 책임은 전적으로 게시자에게 있음을 알립니다.</b><br>
+    <b>- 개인정보 보호를 위해 게시내용에 개인정보를 입력하는 행위를 삼가하여 주시기 바랍니다.</br></b>
+    </div>
 
-<form action="${ pageContext.servletContext.contextPath }/login/board/complain/modify?num=${requestScope.num}" method="post">
+<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.num}" method="post">
   <div class="write2">
-    <p>민원 글 수정</p>
+    <p>민원 글 작성</p>
   </div>
 
   <div class="min3">
@@ -54,8 +51,8 @@
     <p class="jemok">제목</p>
     <div class="min4">
     <tr>
-    <textarea placeholder="제목을 입력하세요" name="title">${ requestScope.complainUpdate.title }</textarea>
-    <input type="hidden" value="${ request.num }" name="num">
+    <textarea placeholder="제목을 입력하세요" name="title"></textarea>
+    
     </tr>
   </div>
 
@@ -63,7 +60,7 @@
     <p class="jemok">내용</p>
     <div class="min2">
     
-     <textarea placeholder="글 내용을 입력하세요" name="content">${ requestScoep.complainUpdate.content }</textarea>
+     <textarea placeholder="글 내용을 입력하세요" name="content"></textarea>
     
   </div>
 

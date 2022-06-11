@@ -56,6 +56,15 @@ public interface UserBoardMapper {
 
 	/* 칭찬 게시판 삭제(컬럼 변경) */
 	int deleteCommend(int num);
+	
+	/* 칭찬 게시판 작성하기 */
+	int insertCommend(AdmireDTO commend);
+	
+	/* 칭찬 게시판 수정하기 */
+	int updateCommend(AdmireDTO board);
+	
+	/* 칭찬 게시판 조회수 증가 */
+	int incrementCommendCount(int num);
 
 
 
