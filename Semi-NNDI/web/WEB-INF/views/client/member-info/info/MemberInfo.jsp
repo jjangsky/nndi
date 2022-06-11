@@ -5,28 +5,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
-    <script src="${ pageContext.servletContext.contextPath }/resources/javascript/client/client.js"></script>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/sidebars.css" >
+    
+    <script 
+    	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script 
+    	src="${ pageContext.servletContext.contextPath }/resources/javascript/client/client.js"></script>
+    <link 
+    	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
+    <link 
+    	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/sidebars.css" >
+	
 	<title>너나들이 중랑</title>
 	<jsp:include page="../../../common/includepage/UserHeader.jsp"/>
 </head>
 <body>
+
 <aside>
 	<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
 </aside>
+
 <section>
     <div>
-        <div class="post title">
-            <h3 class="top">개인 정보 조회</h3>
+        <div class="post title" style="background-color: rgba(254, 190, 190, 0.5);" >
+            <h3 class="top"  style="text-align: center">개인 정보 조회</h3>
         </div>
     </div>
-
-    <div class="hc" style="float: right;">
-        <button id="back" class="back">홈으로</button>
-  </div>
 
     <div class="hc" >
         <div class="it">약관 동의</div>
