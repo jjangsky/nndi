@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.MemberAliveDTO;
-import com.nndi.model.joindto.admin.member.MemberAliveAndBookRentAndBookInfoDTO;
 import com.nndi.model.joindto.admin.member.MemberTotalDTO;
 
 public class AdminMemberService {
@@ -82,23 +81,6 @@ public class AdminMemberService {
 		return result;
 	}
 
-	/* 회원별 도서대출리스트 조회 */
-	public List<MemberAliveAndBookRentAndBookInfoDTO> selectOneMemberBookRentListById() {
-		
-		System.out.println("서비스 도착");
-		
-		SqlSession sqlSession = getSqlSession();
-		
-		mapper = sqlSession.getMapper(MemberMapper.class);
-		
-		List<MemberAliveAndBookRentAndBookInfoDTO> memberBookRentList = mapper.selectOneMemberBookRentListById();
-		
-		System.out.println("Service : " + memberBookRentList);
-		
-		return memberBookRentList;
-	}
-
-	
 	
 }
 	

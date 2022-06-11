@@ -3,7 +3,6 @@ package com.nndi.admin.member;
 import java.util.List;
 
 import com.nndi.model.commondto.MemberAliveDTO;
-import com.nndi.model.joindto.admin.member.MemberAliveAndBookRentAndBookInfoDTO;
 import com.nndi.model.joindto.admin.member.MemberTotalDTO;
 
 public interface MemberMapper {
@@ -16,7 +15,7 @@ public interface MemberMapper {
 	MemberTotalDTO selectOneMemberAliveById(String id);
 
 	/* 회원별 도서대출리스트 조회 */
-	List<MemberAliveAndBookRentAndBookInfoDTO> selectOneMemberBookRentListById();
+//	List<MemberAliveAndBookRentAndBookInfoDTO> selectOneMemberBookRentListById();
 	
 	/* 휴먼회원 리스트 조회 */
 	List<MemberAliveDTO> selectAllRestMemberList();
