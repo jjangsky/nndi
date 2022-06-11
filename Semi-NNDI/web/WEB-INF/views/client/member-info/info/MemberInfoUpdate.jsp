@@ -17,7 +17,7 @@
 <section>
     <div>
         <div class="post title">
-            <h3 class="top">개인 정보 조회</h3>
+            <h3 class="top">개인 정보 수정</h3>
         </div>
     </div>
 
