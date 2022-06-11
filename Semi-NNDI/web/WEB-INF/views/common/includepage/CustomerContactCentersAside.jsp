@@ -33,7 +33,7 @@
          		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의 하기</button></li>
          		<br>
-         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}'">칭찬 하기</button></li>
+         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/commend'">칭찬 하기</button></li>
          		<br>
          		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/employee/board/list'">강사 모집</button></li>
         	</ul>
