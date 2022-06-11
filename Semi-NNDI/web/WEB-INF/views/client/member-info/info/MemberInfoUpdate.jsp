@@ -16,10 +16,14 @@
 </aside>
 <section>
     <div>
-        <div class="post title" style="background-color: rgba(254, 190, 190, 0.5);">
-            <h3 class="top" style="text-align: center">개인 정보 수정</h3>
+        <div class="post title">
+            <h3 class="top">개인 정보 수정</h3>
         </div>
     </div>
+
+    <div class="hc" style="float: right;">
+        <button id="back" class="back">홈으로</button>
+  </div>
 
     <div class="hc" >
         <div class="it">약관 동의</div>
@@ -112,10 +116,8 @@
             <input type="tel" name="phone3" size="4" id="phone3" value='${ loginMember.phone3 }'><p>
             
                 <div style="margin-left: 40%;">
-                    <button id="submitbutton" onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo/Update'">
-                    제출
-                    </button>
-                    <button type="reset" id="submitbutton">취소</button>
+                    <button id="submitbutton" onclick="location.href='${pageContext.servletContext.contextPath}/login/MemberInfo/Update'">수정</button>
+                    <button type="reset" id="submitbutton">작성 내용 삭제</button>
                 </div>
         </form>
     </div>

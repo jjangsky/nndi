@@ -50,6 +50,8 @@
  </div>
   <div class="min3">
     <div class="min2">
+      <!-- <input type="radio" name="ox"> 공개
+      <input type="radio" name="ox"> 비공개 -->
   </div>
 
   <div>

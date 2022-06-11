@@ -23,7 +23,8 @@
             <th>관리자 ID</th>           
             <th>제목</th>
             <th>조회수</th>
-		 </tr>        
+            <!-- <th>상세</th> -->
+		    </tr>        
     </thead>
     <tbody>
     <c:forEach var="faq" items="${ requestScope.faqdto }">
@@ -32,6 +33,11 @@
           <td class="qaf">${faq.managerId}</td>
           <td class="qaf">${faq.title}</td>
           <td class="qaf">${faq.hits}</td>
+<%--            <td>
+          	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/FAQListDetail?num=${faq.num}'">
+          		보기
+          	</button>
+          </td> --%>
       </tr>
       </c:forEach>
     </tbody>
@@ -39,6 +45,16 @@
     
   </div>
   
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">&raquo;</a>
+  </div>
 </section>
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
   <script>
@@ -54,6 +70,7 @@
 				}
 				
 				$tds[i].onclick = function() {
+					/* 게시물 번호까지 알아왔으니 이제 상세보기는 할 수 있습니다. */
 							
 					const num = this.parentNode.children[0].innerText;
 					location.href="${pageContext.servletContext.contextPath}/login/board/FAQListDetail?num=" + num;

@@ -7,7 +7,7 @@ button{
 }
 
 li{
-    margin-left: 50px;
+	margin-left: 50px;
 }
 
 .dropdown-toggle { outline: 0; }
@@ -73,5 +73,3 @@ li{
 .menubtn:hover{
   background-color: rgb(175, 175, 175);
 }
-
-

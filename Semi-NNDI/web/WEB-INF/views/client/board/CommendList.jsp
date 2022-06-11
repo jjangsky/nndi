@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>너나들이 중랑</title>
@@ -19,14 +20,23 @@
 <body>
 
 	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-
 	<section>
-		<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
-    	<b>칭찬하기 게시판은 행정서비스 및 프로그램 진행에 있어 이웃주민과 민원인들에게 감동을 준 너나들이, 중랑의 직원 및 부서를 칭찬하는 게시판 입니다.</b><br>
-    	<b style="color: red;">※ 게시판 작성내용으로 인한 법적 문제 발생 시 민·형사상 책임은 전적으로 게시자에게 있음을 알립니다.</b><br>
-    	<b>- 개인정보 보호를 위해 게시내용에 개인정보를 입력하는 행위를 삼가하여 주시기 바랍니다.<br></b>
+	<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
+    <b>칭찬하기 게시판은 행정서비스 및 프로그램 진행에 있어 이웃주민과 민원인들에게 감동을 준 너나들이, 중랑의 직원 및 부서를 칭찬하는 게시판 입니다.</b><br>
+    <b style="color: red;">※ 게시판 작성내용으로 인한 법적 문제 발생 시 민·형사상 책임은 전적으로 게시자에게 있음을 알립니다.</b><br>
+    <b>- 개인정보 보호를 위해 게시내용에 개인정보를 입력하는 행위를 삼가하여 주시기 바랍니다.</br></b>
      
      </div>
+  <div style="float: right; margin-left: 600px; margin-top: 50px; margin-bottom: 20px;" >
+   
+        <select size = "1" >
+                <option value="title" selected>제목</option>
+                <option value="user" selected>내용</option>
+        </select>
+   
+    <input type="text" placeholder="검색어 입력">
+    <button>검색</button> 
+  </div>
 
   <div class="post list"> 
       <form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
@@ -60,6 +70,16 @@
     <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/commend/towrite'">글작성</button>
     </div>
     
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">&raquo;</a>
+  </div>
 	</section>
 	
 	<script>

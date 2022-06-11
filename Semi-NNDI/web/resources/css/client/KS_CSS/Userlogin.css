@@ -2,12 +2,11 @@
 
 button{
 	background-color: rgba(254, 190, 190, 1);
-	color: rgb(255, 255, 255);
+	color: blue;
 	border: 0px
 }
 
-.FooterButton{
+#FooterButton{
 	float: right;
-	color: rgb(255, 255, 255);
+	color: blue;
 }
-

@@ -7,14 +7,18 @@
 <head>
 
 <meta charset="UTF-8">
-   	<link
-   		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Header.css">
+    <link 
+    	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Header.css">
+   <link 
+   		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
+	<link 
+		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Footer.css">
 	<link 
 		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/AsideButton.css">
-   	<link 
-   		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
     <link 
     	rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link 
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<script 
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     
@@ -23,11 +27,10 @@
 </head>
 
 <body>
-	<div>
-    	<img 
-    		src="${pageContext.servletContext.contextPath}/resources/image/client/main_header.PNG" class="nndi-logo" 
-    		onclick="location.href='${pageContext.servletContext.contextPath}/index.jsp'">
-    </div>
+	
+    <img 
+    	src="${pageContext.servletContext.contextPath}/resources/image/client/main_header.PNG" class="nndi-logo" 
+    	onclick="location.href='${pageContext.servletContext.contextPath}/index.jsp'">
     
     <div class="topnav0"> 
         <br>
@@ -54,12 +57,13 @@
         <button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'">사이트맵</button>
       </div>
 
-	<div class="topnav1" style="background-color:  rgba(254, 190, 190, 1); float: right; width:100%; height: 50px">
-  		<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">강좌 안내</button> 
-  		<button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
-  		<button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">고객 지원 센터</button>
-  		<button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'">너나들이 소개</button>
-	</div>
+<div class="topnav1" >
+  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">강좌 안내</button> 
+<%--   <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">강좌 안내</button> --%>
+  <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
+  <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">고객 지원 센터</button>
+  <button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'">너나들이 소개</button>
+</div>
 
 </body>
 </html>
