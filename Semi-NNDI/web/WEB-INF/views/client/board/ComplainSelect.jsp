@@ -40,10 +40,6 @@
   </div>
 
   <div class="post list"> 
-      <div>
-        <button class="vision">공개글 보기</button>
-        <button class="vision">전체 보기</button>
-      </div>
       <form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
         <table class="blueone">
       <thead>
@@ -58,14 +54,28 @@
     </thead>
       <c:forEach var="board" items="${ requestScope.boardList }">
 			<tr>
-				<td><c:out value="${ board.num }"/></td>
-				<td><c:out value="${ board.category.cateKind }"/></td>
-				<td><c:out value="${ board.title}"/></td>
-				<td><c:out value="${ board.date}"/></td>
-				<td><c:out value="${ board.answer }"/></td>
-				<td><c:out value="${ board.hits }"/></td>
+				<td class="test"><c:out value="${ board.num }"/></td>
+				<td class="test"><c:out value="${ board.category.cateKind }"/></td>
+				<td class="test"><c:out value="${ board.title}"/></td>
+				<td class="test"><c:out value="${ board.date}"/></td>
+				<td class="test"><c:out value="${ board.answer }"/></td>
+				<td class="test"><c:out value="${ board.hits }"/></td>
 			</tr>
-			</c:forEach>
+			
+			<c:if test="${board.answerContent != null}">
+
+		      <tr>
+		      	  <td>[답변]</td>
+		          <td class="test2" style="display: none;">${board.num}</td>
+		          <td class="test2">${ board.category.cateKind }</td>
+		          <td class="test2">${ board.title }</td>
+		          <td class="test2">${ board.date }</td>
+		          <td class="test2">${ board.answer }</td>
+		          <td class="test2">${ board.hits }</td>
+		          
+		          </tr>
+			</c:if>    
+		</c:forEach>
       
       
     </table>
@@ -90,9 +100,9 @@
 	
 	<script>
 		
-		if(document.getElementsByTagName("td")) {
+		if(document.getElementsByClassName("test")) {
 			
-			const $tds = document.getElementsByTagName("td");
+			const $tds = document.getElementsByClassName("test");
 			for(let i = 0; i < $tds.length; i++) {
 				
 				$tds[i].onmouseenter = function() {
@@ -101,10 +111,33 @@
 				}
 				
 				$tds[i].onclick = function() {
-					/* 게시물 번호까지 알아왔으니 이제 상세보기는 할 수 있습니다. */
+
 					
 					const num = this.parentNode.children[0].innerText;
 					location.href="${pageContext.servletContext.contextPath}/login/board/complain/detail?num=" + num;
+					
+				}
+				
+			}
+			
+		}
+		
+			if(document.getElementsByClassName("test2")) {
+			
+			const $tds = document.getElementsByClassName("test2");
+			for(let i = 0; i < $tds.length; i++) {
+				
+				$tds[i].onmouseenter = function() {
+
+					this.parentNode.style.cursor = "pointer";
+				}
+				
+				$tds[i].onclick = function() {
+					
+							
+					const num2 = this.parentNode.children[1].innerText;
+					location.href="${pageContext.servletContext.contextPath}/login/answer/complain/detail?num=" + num2;
+					
 					
 				}
 				

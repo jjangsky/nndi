@@ -63,11 +63,10 @@
 		               		 <td>${ restbook.isbn }</td>
 		                	 <td>${ restbook.publisher }</td>
 		                	 <td>
-		                	<button class="btn btn-secondary"
-		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBookReturn.do?no=${ book.code }'" >
-		                	복귀</button>
-		                </td>
+		                	 	<button class="btn btn-secondary"
+		                				onclick="location.href=
+		                				'${ pageContext.servletContext.contextPath }/login/admin/deleteBookReturn.do?code=${ restbook.code }'" >복귀</button>
+		                	 </td>
 		              </tr>
 		              </c:forEach>
 		        </tbody>
@@ -99,6 +98,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

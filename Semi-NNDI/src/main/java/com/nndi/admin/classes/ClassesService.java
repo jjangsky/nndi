@@ -98,5 +98,26 @@ public class ClassesService {
 		
 		return result;
 	}
+
+	/* 강좌 등록 */
+	public int insertClass(ClassDTO cls) {
+		
+		System.out.println("Service 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(ClassMapper.class);
+		
+		int result = mapper.insertClass(cls);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+		
+	}
 	
 }

@@ -4,6 +4,8 @@
  
  <mapper namespace="com.nndi.client.board.UserBoardMapper">
  
+ 
+ 	<!-- BoardAndCategoryDTO -->
  	<resultMap type="com.nndi.model.joindto.client.board.BoardAndCategoryDTO" id="BoardAndCategoryResultMap">
  		<id property="num" column="NUM"/>
  		<result property="cate" column="CATE_NUM"/>
@@ -22,6 +24,7 @@
  		</association>
  	</resultMap>
  	
+ 	<!-- boardDTO -->
  	<resultMap type="com.nndi.model.commondto.BoardDTO" id="boardResultMap">
  		<id property="num" column="NUM"/>
  		<result property="cate" column="CATE_NUM"/>
@@ -36,6 +39,32 @@
  		<result property="hits" column="HITS"/>
  	</resultMap>
  
+ 	<!-- NoticeDTO -->
+	  <resultMap type="com.nndi.model.commondto.NoticeDTO" id="NoticeResultMap">
+	  	<id property="num" column="NUM"/>
+	  	<result property="managerId" column="MANAGER_ID"/>
+	  	<result property="cateNum" column="CATE_NUM"/>
+	  	<result property="postDate" column="POST_DATE"/>
+	  	<result property="title" column="TITLE"/>
+	  	<result property="content" column="CONTENT"/>
+	  	<result property="hits" column="HITS"/>
+	  	<result property="uploadFileKey" column="UPLOAD_FILE_KEY"/>
+	  </resultMap>
+	  
+	<!-- TBLEmploymentDTO -->
+	   <resultMap type="com.nndi.model.commondto.TCREmploymentDTO" id="EmpResultMap">
+	     <id property="num" column="NUM"/>
+	     <result property="managerId" column="MANAGER_ID"/>
+	     <result property="clsNum" column="CLS_NUM"/>
+	     <result property="title" column="TITLE"/>
+	     <result property="fileName" column="FILE_NAME"/>
+	     <result property="empYn" column="EMP_YN"/>
+	     <result property="empCondition" column="EMP_CONDITION"/>
+	     <result property="empNumber" column="EMP_NUMBER"/>
+	     <result property="environment" column="ENVIRONMENT"/>
+	     <result property="empProcess" column="EMP_PROCESS"/>
+	   </resultMap>
+ 	
  	<!--  민원 전체 조회 쿼리 -->
  	<select id="selectBoardList" resultMap="BoardAndCategoryResultMap">
  		SELECT
@@ -65,13 +94,13 @@
         (
           SEQ_COMPLAIN_POST_NUM.NEXTVAL
         , #{ cate }
-        , 'user01'
-        , 'MANAGER01'
+        , #{ memberId }
+        , NULL
         , TO_DATE(SYSDATE,'YYYY.MM.DD HH24:MI')
         , #{ title }
         , #{ content }
         , 'N'
-        , '미답변'
+        , NULL
         , 'Y'
         , '0'
         )
@@ -98,6 +127,7 @@
          WHERE A.NUM = #{ num }
  	</select>
  	
+ 	<!-- 민원 수정 쿼리 -->
  	<update id="updateComplain" parameterType="com.nndi.model.commondto.BoardDTO">
  		UPDATE
                TBL_POST_COMPLAIN A
@@ -107,6 +137,124 @@
          WHERE A.NUM = #{ num }
  	
  	</update>
+ 	
+ 	<!-- 공지사항 전체 조회 쿼리 -->
+ 	<select id="selectNotice" resultMap="NoticeResultMap">
+ 		SELECT
+               A.NUM
+             , A.MANAGER_ID
+             , A.CATE_NUM
+             , A.POST_DATE
+             , A.TITLE
+             , A.CONTENT
+             , A.HITS
+             , A.UPLOAD_FILE_KEY
+          FROM TBL_POST_NOTICE A
+ 	</select>
+ 	
+ 	<!-- 공지사항 상세 조회 쿼리 -->
+ 	<select id="selectNoticeDetail" parameterType="_int" resultMap="NoticeResultMap">
+ 		SELECT
+               A.NUM
+             , A.MANAGER_ID
+             , A.CATE_NUM
+             , A.POST_DATE
+             , A.TITLE
+             , A.CONTENT
+             , A.HITS
+             , A.UPLOAD_FILE_KEY
+          FROM TBL_POST_NOTICE A
+         WHERE A.NUM = #{ num }
+ 	</select>
+ 	
+ 	<!-- 민원 게시판 삭제(컬럼값 변경)  -->
+ 	<update id="deleteComplain" parameterType="_int">
+ 		UPDATE
+               TBL_POST_COMPLAIN A
+           SET A.DISPLAY_YN = 'N'
+         WHERE A.NUM = #{ num }
+ 	</update>
+ 	
+ 	<!--  민원게시판 답변 상세조회 쿼리 -->
+    <select id="selectComplainAnswer" parameterType="_int" resultMap="BoardAndCategoryResultMap">
+ 		SELECT
+               A.NUM
+             , A.CATE_NUM
+             , A.MEM_ID
+             , A.MANAGER_ID
+             , A.POST_DATE
+             , A.TITLE
+             , A.CONTENT
+             , A.ANSWER_YN
+             , A.ANSWER_CONTENT
+             , A.DISPLAY_YN
+             , A.HITS
+             , B.CATE_NUM
+             , B.CATE_KIND
+          FROM TBL_POST_COMPLAIN A
+          JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+         WHERE A.NUM = #{ num }
+ 	</select> 
+ 	
+ 	<!-- 공지사항 조회수 증가 쿼리문 -->
+ 	<update id="incrementNoticeCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_NOTICE A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_NOTICE B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }
+ 		  
+ 	</update>
+ 	
+ 	<!-- 민원게시판 조회수 증가 쿼리문 -->
+ 	<update id="incrementComplainCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_COMPLAIN A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_COMPLAIN B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }
+ 		  
+ 	</update>
+ 	
+ 	<!--  강사 모집 게시판 전체 조회 쿼리문 -->
+ 	<select id="selectEmployee" resultMap="EmpResultMap">
+		SELECT
+		       A.NUM
+		     , A.MANAGER_ID
+		     , A.CLS_NUM
+		     , A.TITLE
+		     , A.FILE_NAME
+		     , A.EMP_YN
+		     , A.EMP_CONDITION
+		     , A.EMP_NUMBER
+		     , A.ENVIRONMENT
+		     , A.EMP_PROCESS
+		  FROM TBL_TEACHER_EMPLOYMENT A
+	  </select>
+	  
+	  
+	  <!--  강사 모집 게시판 전체 조회 쿼리문 -->
+ 	<select id="selectEmpDetail" resultMap="EmpResultMap">
+		SELECT
+		       A.NUM
+		     , A.MANAGER_ID
+		     , A.CLS_NUM
+		     , A.TITLE
+		     , A.FILE_NAME
+		     , A.EMP_YN
+		     , A.EMP_CONDITION
+		     , A.EMP_NUMBER
+		     , A.ENVIRONMENT
+		     , A.EMP_PROCESS
+		  FROM TBL_TEACHER_EMPLOYMENT A
+		 WHERE A.NUM = #{ num }
+	  </select>
+	  
+ 	
  	
  	
  

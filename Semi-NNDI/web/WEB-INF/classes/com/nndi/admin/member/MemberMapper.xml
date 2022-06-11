@@ -65,8 +65,8 @@
   	<result property="publisher" column="PUBLISHER"/>
 </resultMap>
 
-<!-- BookRentAndBookInfoDTO resultMap 생성 
-  <resultMap type="com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO" id="bookRentAndBookInfoMap">
+<!-- BookRentAndBookInfoDTO resultMap 생성 -->
+  <!-- <resultMap type="com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO" id="bookRentAndBookInfoMap">
   	<id property="rentNum" column="RENT_NUM"/>
   	<result property="code" column="CODE"/>
   	<result property="memId" column="MEM_ID"/>
@@ -75,6 +75,7 @@
   	<result property="rentYn" column="RENT_YN"/>
   	<association property="bookinfo" resultMap="BookInfoMap"/>
   </resultMap> -->
+
   
 <!-- MemberAliveAndBookRentAndBookInfoMap resultMap 생성 -->  
 <resultMap type="com.nndi.model.joindto.admin.member.MemberAliveAndBookRentAndBookInfoDTO" id="memberAliveAndBookRentAndBookInfoMap">
@@ -100,6 +101,7 @@
 <!-- 	<association property="bookRent" resultMap="BookRentMap"/> -->
 	<association property="bookInfo" resultMap="BookInfoMap"/>
 </resultMap>
+
 
   
   <!-- MemberAlive 전체 조회 쿼리 -->	
@@ -131,6 +133,7 @@
   	 WHERE A.ID = #{ id }
    </select>
    
+
 <!--     memberDetailBookList 조회 쿼리  
     <select id="selectOneMemberBookRentListById" parameterType="string" resultMap="memberAliveAndBookRentAndBookInfoMap">
       SELECT
@@ -147,8 +150,11 @@
 	  WHERE A.ID = #{ id }
 	</select> -->
 	
-	<!--RestMember전체 조회 쿼리 -->	
-  <select id="selectAllRestMemberList"  parameterType="string" resultMap="MemberRestMap">
+
+
+	<!-- MemberRest전체 조회 쿼리 -->	
+  <select id="selectAllRestMemberList"  resultMap="MemberRestMap">
+
     SELECT 
            ID
          , NAME

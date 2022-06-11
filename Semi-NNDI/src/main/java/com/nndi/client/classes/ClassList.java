@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.commondto.ClassDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
 @WebServlet("/login/board/QNAClassList")
 public class ClassList extends HttpServlet {
@@ -18,7 +18,7 @@ public class ClassList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("서블릿 확인용");
 		ClassListService classservice = new ClassListService();
-		List<ClassDTO> classList = classservice.ClassList();
+		List<ClassesAndTeacherAndCenterDTO> classList = classservice.ClassList();
 		System.out.println("dto 확인용 "+ classList);
 		
 		request.setCharacterEncoding("UTF-8");

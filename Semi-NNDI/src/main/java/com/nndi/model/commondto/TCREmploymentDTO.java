@@ -1,5 +1,7 @@
 package com.nndi.model.commondto;
 
+import java.sql.Date;
+
 public class TCREmploymentDTO {
 //	NUM	NUMBER
 //	MANAGER_ID	VARCHAR2(30 BYTE)
@@ -14,7 +16,7 @@ public class TCREmploymentDTO {
 	
 	private int num;
 	private String managerId;
-	private String clsNum;
+	private int clsNum;
 	private String title;
 	private String fileName;
 	private String empYn;
@@ -25,7 +27,7 @@ public class TCREmploymentDTO {
 	public TCREmploymentDTO() {
 		super();
 	}
-	public TCREmploymentDTO(int num, String managerId, String clsNum, String title, String fileName, String empYn,
+	public TCREmploymentDTO(int num, String managerId, int clsNum, String title, String fileName, String empYn,
 			String empCondition, int empNumber, String environment, String empProcess) {
 		super();
 		this.num = num;
@@ -51,10 +53,10 @@ public class TCREmploymentDTO {
 	public void setManagerId(String managerId) {
 		this.managerId = managerId;
 	}
-	public String getClsNum() {
+	public int getClsNum() {
 		return clsNum;
 	}
-	public void setClsNum(String clsNum) {
+	public void setClsNum(int clsNum) {
 		this.clsNum = clsNum;
 	}
 	public String getTitle() {
@@ -105,6 +107,7 @@ public class TCREmploymentDTO {
 				+ ", fileName=" + fileName + ", empYn=" + empYn + ", empCondition=" + empCondition + ", empNumber="
 				+ empNumber + ", environment=" + environment + ", empProcess=" + empProcess + "]";
 	}
+	
 	
 	
 }

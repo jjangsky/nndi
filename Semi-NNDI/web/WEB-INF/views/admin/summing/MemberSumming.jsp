@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/post.css" >
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/summing.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
       .btn{
@@ -16,7 +20,7 @@
         color: aliceblue !important;
       }
     </style>
-<title>Admin Teacher List</title>
+<title>Admin Member SummingUp</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp"/>
@@ -24,8 +28,6 @@
 	<section>
 	 
 	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
-	  
-    
 	
 		<div>
 		    <div class="post title">
@@ -33,31 +35,93 @@
 		    </div>
 		    <div class="new">
 		      <h3 class="to">신규가입자 수</h3>
-		        <form action="">
+		        <form id="new">
 		          <label>조회할 기간 입력</label>
-		          <input type="date" required>&nbsp;&nbsp;&nbsp;부터&nbsp;&nbsp;&nbsp;
-		          <input type="date" required><br>
-		          <button class="btns" type="submit">조회하기</button>
+		          <input id="start" name="start" type="date" required>
+		          &nbsp;&nbsp;&nbsp;부터&nbsp;&nbsp;&nbsp;
+		          <input id="end" name="end" type="date" required>
+		          <br>
+		          <button id="newMember" class="btns" type="button">조회하기</button>
 		        </form>
-		        <h4 class="result"></h4>
+        		<h4 id="result" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>
+    		</div>
 		    </div>
 		    <div class="total">
 		      <h3 class="to">전체 회원 수</h3>
 		      <label>금일 날짜까지의 회원의 수를 조회합니다.</label>
-		      <button class="btns">조회하기</button>
-		      <h4 class="result"></h4>
+		      <button id="totalMember" class="btns">조회하기</button>
+		      <h4 id="result1" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>
 		    </div>
-		    <div class="dead">
+		    <div class="dead" style="margin-bottom : 3%">
 		      <h3 class="to">탈퇴 회원 전체 수</h3>
 		      <label>금일 날짜까지의 탈퇴한 회원의 수를 조회합니다.</label>
-		      <button class="btns">조회하기</button>
-		      <h4 class="result">fffff</h4>    <!--innerHTML 로 결과값 도출-->
+		      <button id="deadMember" class="btns">조회하기</button>
+		      <h4 id="result2" style="color: rgb(255, 109, 109);
+    								  margin-left: 5%;
+    								  font-weight: bolder;
+    								  padding: 20px 8px 12px 0;"></h4>    <!--innerHTML 로 결과값 도출-->
 		    </div>
-  	  	</div>
       
 	</section>
 	
+	<script>
+		$("#newMember").click(function(){
+			const start = $("#start").val();
+			const end = $("#end").val();
+			$("#newMember").submit();
+			
+	        $.ajax({
+	             url: "${pageContext.servletContext.contextPath}/login/admin/newMemberSumming",
+	             type: "get",
+	             data:{
+	            	 start : start,
+	            	 end : end
+	             },
+	             success: function(data){
+	                     $("#result").html(data);
+	                     console.log(data);
+	             },
+	             error: function(request, status){
+	                 alert("네트워크를 확인해주세요.")
+	             }
+	         });
+	 	});
+		
+		$("#totalMember").click(function(){
+	           $.ajax({
+	                url: "${pageContext.servletContext.contextPath}/login/admin/memberSummings",
+	                type: "get",
+	                success: function(data){
+	                        $("#result1").html(data);
+	                        console.log(data);
+	                },
+	                error: function(request, status){
+	                    alert("네트워크를 확인해주세요.")
+	                }
+	            });
+	    });
+		
+		$("#deadMember").click(function(){
+	           $.ajax({
+	                url: "${pageContext.servletContext.contextPath}/login/admin/deadMemberSumming",
+	                type: "get",
+	                success: function(data){
+	                        $("#result2").html(data);
+	                        console.log(data);
+	                },
+	                error: function(request, status){
+	                    alert("네트워크를 확인해주세요.")
+	                }
+	            });
+	    });
+	</script>
+	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

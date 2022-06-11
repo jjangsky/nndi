@@ -28,7 +28,6 @@
             <th>아이디</th>           
             <th>날짜</th>
             <th>제목</th>
-            <th>공개여부</th>
             <th>조회수</th>
 		    </tr>        
     </thead>
@@ -39,7 +38,6 @@
           <td class="test">${qna.memId}</td>
           <td class="test">${qna.postDate}</td>
           <td class="test">${qna.title}</td>
-          <td class="test">${qna.displayYn}</td>
           <td class="test">${qna.hits}</td>
 
       </tr>
@@ -51,7 +49,6 @@
           <td class="test2">${qna.managerId}</td>
           <td class="test2">${qna.postDate}</td>
           <td class="test2">${qna.title}</td>
-          <td class="test2">${qna.displayYn}</td>
           <td class="test2">${qna.hits}</td>
 
       </tr>
@@ -114,7 +111,6 @@
 				}
 				
 				$tds[i].onclick = function() {
-					/* 게시물 번호까지 알아왔으니 이제 상세보기는 할 수 있습니다. */
 							
 					const num = this.parentNode.children[1].innerText;
 					location.href="${pageContext.servletContext.contextPath}/login/board/QNABoardAnswerList?num=" + num;

@@ -8,8 +8,13 @@ import com.nndi.model.commondto.QnaDTO;
 
 public interface QNABoardListMapper {
 
+	/* 문의글 전체 조회 하기 */
 	List<QnaDTO> QNABoardList();
 
-	QnaDTO QNABoardListDetail(int num);	
+	/* 문의글 상세 조회 하기 */
+	QnaDTO QNABoardListDetail(int num);
+
+	/* 마이페이지에서 문의글 조회 하기 */
+	List<QnaDTO> MyPageQNAList(String loginId);	
 
 }

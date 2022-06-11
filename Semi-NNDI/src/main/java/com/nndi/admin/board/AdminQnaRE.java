@@ -16,10 +16,10 @@ public class AdminQnaRE extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
+		System.out.println("서블릿 오기는 했니?");
 
 		String content = request.getParameter("content");
+		String managerId = request.getParameter("managerId");
 		int num = Integer.valueOf(request.getParameter("num"));
 		
 		System.out.println("Controller " + content + " " + num);
@@ -28,6 +28,7 @@ public class AdminQnaRE extends HttpServlet {
 		
 		Qna.setNum(num);
 		Qna.setAnswerContent(content);
+		Qna.setManagerId(managerId);
 		
 		BoardService boardService = new BoardService();
 		

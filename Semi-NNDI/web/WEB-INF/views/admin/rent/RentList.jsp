@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,42 +45,32 @@
 		        <thead>
 		            <tr>
 		                <th>접수번호</th>
-		                <th>이름</th>
+		                <th>접수자</th>
 		                <th>연락처</th>
-		                <th>대여기간</th>
+		                <th>대여 시작일</th>
+		                <th>대여 종료일</th>
 		                <th>대관시설</th>
 		                <th>승인여부</th>
 		                <th>승인관리</th>
 		            </tr>
 		        </thead>
 		        <tbody>
-		            <tr>
-		                <td>3</td>
-		                <td>김용승</td>
-		                <td>010-4545-7558</td>
-		                <td>22년5월7일 16:00 - 18:00</td>
-		                <td>탁구장</td>
-		                <td>예</td>
-		                <td><button type="button" class="btn btn-secondary" onclick="location.href='selectRent.html'" >관리</button></td>
-		            </tr>
-		            <tr>
-		                <td>2</td>
-		                <td>김승용</td>
-		                <td>010-7777-5578</td>
-		                <td>22년5월19일 12:00 - 17:00</td>
-		                <td>수영장</td>
-		                <td>예</td>
-		                <td><button type="button" class="btn btn-secondary">관리</button></td>
-		            </tr>
-		            <tr>
-		                <td>1</td>
-		                <td>용승용</td>
-		                <td>010-4545-8828</td>
-		                <td>22년5월14일 20:00 - 22:00</td>
-		                <td>소강의실 201호</td>
-		                <td>아니오</td>
-		                <td><button type="button" class="btn btn-secondary">관리</button></td>   
-		            </tr>
+		            <c:forEach var="rent" items="${ requestScope.rentList }">
+	              <tr>
+	                <td>${ rent.num }</td>
+	                <td>${ rent.memId }</td>
+	                <td>${ rent.member.phone }</td>
+	                <td>${ rent.rentStart }</td>
+	                <td>${ rent.rentEnd }</td>
+	                <td>${ rent.centerName }</td>
+	                <td>${ rent.rentReqYn }</td>
+	                <td>
+	                <button type="button"
+	                			class="btn btn-secondary" 
+	                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailRent.do?num=${ rent.num }'">조회</button></td>
+	              </tr>
+	              </c:forEach>
 		        </tbody>
     		</table>
     	<hr/>
@@ -97,6 +88,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

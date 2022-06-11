@@ -78,8 +78,16 @@
 		        </table>
 		    </div>
 		    <div class="btns">
-		      <button class="btns addbtn">글쓰기</button>
+		      <button id="addpost" class="btns addbtn">글쓰기</button>
 		    </div>
+		    
+		    <script>
+			const addpost = document.getElementById("addpost");
+			addpost.onclick = function() {
+					location.href = "${pageContext.servletContext.contextPath}/login/admin/noticeAdd";
+			};
+		</script>
+		
 		    <div class="pagination">
 		        <a href="#">&laquo;</a>
 		        <a href="#">1</a>
@@ -95,6 +103,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

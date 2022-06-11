@@ -30,12 +30,14 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false">대관 안내</button>
 	    <div class="collapse" id="orders1-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+	    	<li><a href="${pageContext.servletContext.contextPath}/center/list/select" class="link-dark d-inline-flex text-decoration-none rounded fw-semibold">대관 신청</a></li>
 	        </ul>
 	    </div>
 	    
 	    <br>
 	    
-	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-2 collapsed" data-bs-toggle="collapse" data-bs-target="#orders2-collapse" aria-expanded="false">작은 도서관</button>
+	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-2 collapsed" onclick="location.href='${pageContext.servletContext.contextPath}/site/ClientBookInfo'"
+	    		data-bs-toggle="collapse" data-bs-target="#orders2-collapse" aria-expanded="false">작은 도서관</button>
 	    <div class="collapse" id="orders2-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 	        </ul>

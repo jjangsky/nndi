@@ -44,4 +44,40 @@ public class BookService {
 		return deleteBookList;
 	}
 
+	/* 도서 폐기 전환 */
+	public int updateBookSearchYn(int code) {
+		System.out.println("서비스 도착");
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BookMapper.class);
+		int result = mapper.UpdateBook(code);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		
+		return result;
+	}
+
+	/* 폐기 도서 전환 */
+	public int updateBookSearchYnReturn(int code) {
+		System.out.println("서비스 도착");
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BookMapper.class);
+		int result = mapper.UpdateBookReturn(code);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		
+		return result;
+	}
+
 }

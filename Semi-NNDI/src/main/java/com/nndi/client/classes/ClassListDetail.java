@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.commondto.ClassDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
 @WebServlet("/login/board/ClassListDetail")
 public class ClassListDetail extends HttpServlet {
@@ -21,7 +21,7 @@ public class ClassListDetail extends HttpServlet {
 		System.out.println("파라미터 확인용"+num);
 		
 		ClassListService classlist = new ClassListService();
-		ClassDTO classdto = classlist.classdetail(num);
+		ClassesAndTeacherAndCenterDTO classdto = classlist.classdetail(num);
 		
 		System.out.println("dto확인용"+classdto);
 		request.setAttribute("classdto", classdto);

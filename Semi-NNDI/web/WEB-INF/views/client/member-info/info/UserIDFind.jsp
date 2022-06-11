@@ -9,8 +9,6 @@
 </head>
 <body>
 
-<%-- 	<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/> --%>
-	
 </body>
 
 <br clear="both">

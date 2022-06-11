@@ -22,5 +22,8 @@ public interface ClassMapper {
 
 	/* 강좌 삭제 */
 	int deleteClass(int num);
+
+	/* 강좌 등록 */
+	int insertClass(ClassDTO cls);
 	
 }

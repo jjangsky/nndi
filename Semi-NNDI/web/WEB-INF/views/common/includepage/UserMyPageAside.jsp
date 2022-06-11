@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -40,11 +40,11 @@
 	    <div class="collapse" id="orders1-collapse">
 	      	<ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
    			   	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 신청 현황</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/myPage/rentList'">대관 신청 현황</button></li>
 	        	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 신청 취소</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/cancelList'">대관 신청 취소</button></li>
 	        	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">대관 환불 신청</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/refund'">대관 환불 신청</button></li>
 	        	<br>
 	      	</ul>
 	    </div>
@@ -54,7 +54,7 @@
 	    <button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders2-collapse" aria-expanded="false">강좌 관리</button>
 	    <div class="collapse" id="orders2-collapse">
 	    	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">수강 이력 현황</button></li>
+	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/MyPageClass'">수강 이력 현황</button></li>
 	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">수강 환불 신청</button></li>
 	      	</ul>
 	    </div>
@@ -75,11 +75,11 @@
 	    <div class="collapse" id="orders4-collapse">
 	        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 	        <br>
-	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">문의 조회</button></li>
+	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/MyPageQNA'">문의 조회</button></li>
 	          	<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">칭찬 조회</button></li>
 	          	<br>
-	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">민원 조회</button></li>
+	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/myboard/complain'">민원 조회</button></li>
 	          	<br>
 	        </ul>
 	    </div>

@@ -9,8 +9,10 @@ import org.apache.ibatis.session.SqlSession;
 import com.nndi.model.commondto.ComplainDTO;
 import com.nndi.model.commondto.FAQDTO;
 import com.nndi.model.commondto.QnaDTO;
+import com.nndi.model.commondto.TCREmploymentDTO;
 import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.ComplainAndCategoryDTO;
+import com.nndi.model.joindto.admin.board.EmpTeacherAndClassDTO;
 import com.nndi.model.joindto.admin.board.FAQAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.NoticeAndCategoryDTO;
 import com.nndi.model.joindto.admin.board.QnaAndCategoryDTO;
@@ -204,8 +206,26 @@ public class BoardService {
 		SqlSession sqlSession = getSqlSession();
 		
 		mapper = sqlSession.getMapper(BoardMapper.class);
-		
+		System.out.println("Service에서 전달받은 qna 내용 :" + qna);
 		int result = mapper.UpdateQnaRE(qna);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
+	/* Qna 삭제 */
+	public int deleteQnaRE(int qna) {
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		System.out.println("Service에서 전달받은 qna 내용 :" + qna);
+		int result = mapper.DeleteQnaRE(qna);
+		System.out.println("쿼리 결과값: " + result);
 		
 		if(result > 0) {
 			sqlSession.commit();
@@ -324,5 +344,102 @@ public class BoardService {
 		return result;
 	}
 	
+
+	/* 강사모집 전체조회 */
+	public List<EmpTeacherAndClassDTO> selectAllEmpTeacherList() {
+
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		List<EmpTeacherAndClassDTO> empTeacherList = mapper.selectAllEmpTeacherList();
+		
+		System.out.println("Service : " + empTeacherList);
+		
+		return empTeacherList;
+	}
+
+	/* 강사모집 상세조회 */
+	public EmpTeacherAndClassDTO selectOneByNumEmp(int num) {
+
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		EmpTeacherAndClassDTO detailEmp = mapper.selectEmpOneByNum(num);
+		
+		System.out.println("Service : " + detailEmp);
+		
+		return detailEmp;
+	}
+
+	/* 강사모집 삭제 */
+	public int deleteEmpTcr(int num) {
+
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.deleteEmpTcr(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 강사모집 수정 */
+	public int updateEmpTcr(TCREmploymentDTO emp) {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.updateEmpTcr(emp);
+		
+		System.out.println( "Service :  " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 강사모집 등록 */
+	public int insertEmpTcr(TCREmploymentDTO emp) {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.insertEmpTcr(emp);
+		
+		System.out.println( "Service :  " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	
+
 
 }

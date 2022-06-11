@@ -37,7 +37,7 @@
 		    <div class="post add">
 		        <form action="">
 		        	<input type="hidden" id="num" name="num" value="${ detailAdmire.num }" />
-		            <label>민원 내용</label>
+		            <label>내용</label>
 		            <table>
 		                <tr>
 		                    <td class="td1">제목</td>
@@ -88,6 +88,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

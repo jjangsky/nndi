@@ -57,15 +57,15 @@
 	              </tr>
 	            </thead>
 	            <tbody>
-	            <c:forEach var="cls" items="${ requestScope.classList }">
+	            <c:forEach var="cls" items="${ requestScope.classList }" varStatus="status"> <!--  -->
 	              <tr>
 	                <td>${ cls.clsNum }</td>
 	                <td>${ cls.clsName }</td>
 	                <td>${ cls.teacher.name }</td>
 	                <td>${ cls.clsApplyCnt }</td>
 	                <td>${ cls.clsMaxCnt }</td>
-	                <td>${ cls.clsStartDay }</td>
-	                <td>${ cls.clsEndDay }</td>
+	                <td>${ requestScope.time[status.index].start }</td>
+	                <td>${ requestScope.time[status.index].end }</td>
 	                <td>${ cls.clsStartYn }</td>
 	                <td>
 	                <button type="button"
@@ -91,6 +91,5 @@
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

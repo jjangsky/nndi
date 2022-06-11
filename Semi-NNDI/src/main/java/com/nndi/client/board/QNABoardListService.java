@@ -31,6 +31,17 @@ public class QNABoardListService {
 		
 	}
 
+	/* 마이페이지에서 문의글 조회하기 */
+	public List<QnaDTO> MyPageQNAList(String loginId) {
+		
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(QNABoardListMapper.class);
+		
+		List<QnaDTO> mypageQNA = mapper.MyPageQNAList(loginId);
+		
+		return mypageQNA;
+	}
+
 
 
 }

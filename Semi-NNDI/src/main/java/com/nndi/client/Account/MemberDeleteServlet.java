@@ -22,14 +22,19 @@ public class MemberDeleteServlet extends HttpServlet {
 		
 		int result = new MemberService().deletemember(loginMember);
 		
+		String path = "";
 		if(result > 0) {
 			System.out.println("회원 탈퇴 성공");
-		      loginSession.setAttribute("loginStatus", 0);
-		      response.sendRedirect(request.getContextPath());
+			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+			request.setAttribute("successCode", "deleteMember");
+
 		} else {
 			System.out.println("회원 탈퇴 실패");
-			response.sendRedirect(request.getContextPath());
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "회원 탈퇴에 실패하셨습니다. 자세한 사항은 유선으로 문의 부탁드립니다.");
 		}
+		
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 

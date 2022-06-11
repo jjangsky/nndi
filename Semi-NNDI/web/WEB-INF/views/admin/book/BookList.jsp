@@ -68,27 +68,16 @@
 		               		 <td>${ book.isbn }</td>
 		                	 <td>${ book.publisher }</td>
 		                	 <td>
-		                	<button class="btn btn-secondary"
+		                	<button class="btn btn-secondary" 
 		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBookList.do?no=${ book.code }'" >
-		                	설정</button>
+	                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBook.do?code=${ book.code }'">설정</button>
 		                </td>
 		              </tr>
 		              </c:forEach>
 			        </tbody>
 			    </table>
 			 </div>
-		    <script>
-		      function deleteEdit() {
-		        var txt;
-		        if (confirm("해당 도서를 폐기처리 하시겠습니까?")) {
-		          alert("도서가 폐기처리 되었습니다.");
-		        } else {
-		          
-		        }
-		        
-		      }
-		    </script>
+
       		<br>
 		    <div class="pagination">
 		      <a href="#">&laquo;</a>
@@ -103,8 +92,7 @@
 		</div>
 			  
 	</section>
-	
+		
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

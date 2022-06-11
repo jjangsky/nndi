@@ -34,7 +34,7 @@
 		<result property="clsEndDay" column="CLS_END_DAY"/>
 		<result property="clsExplain" column="CLS_EXPLAIN"/>
 		<result property="clsTime" column="CLS_TIME"/>
-		<result property="clsCost" column="CLS-_COST"/>
+		<result property="clsCost" column="CLS_COST"/>
 		<result property="clsDay" column="CLS_DAY"/>
 		<result property="clsStartYn" column="CLS_START_YN"/>
 		<result property="clsCategoryName" column="CLS_CATEGORY_NAME"/>
@@ -152,4 +152,29 @@
 		  FROM TBL_CLASS A
 		 WHERE A.CLS_NUM = #{ num }
 	</delete>
+	
+	<!-- 강좌 등록 -->
+	<insert id="insertClass" parameterType="com.nndi.model.commondto.ClassDTO" >
+		INSERT 
+		  INTO TBL_CLASS
+		VALUES 
+		(
+		  SEQ_CLASS_CLS_NUM.NEXTVAL
+		, #{ tcrNo }
+		, #{ cenName }
+		, #{ clsName }
+		, DEFAULT
+		, #{ clsMaxCnt }
+		, #{ clsStartDay }
+		, #{ clsEndDay }
+		, #{ clsExplain }
+		, #{ clsTime }
+		, #{ clsCost }
+		, #{ clsDay }
+		, DEFAULT
+		, #{ clsCategoryName }
+		, #{ clsRecoAge } 
+		, #{ clsRunTime } 
+		)
+	</insert>
 </mapper>

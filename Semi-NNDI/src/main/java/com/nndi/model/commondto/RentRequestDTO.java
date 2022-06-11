@@ -1,6 +1,6 @@
 package com.nndi.model.commondto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class RentRequestDTO {
 //	POST_NUM	NUMBER
@@ -19,17 +19,16 @@ public class RentRequestDTO {
 	private String managerId;
 	private String memId;
 	private String rentReqYn;
-	private String rentCost;
+	private int rentCost;
 	private String rentPayYn;
 	private String rentRefYn;
-	private java.sql.Date rentStart;
-	private java.sql.Date rentEnd;
+	private java.util.Date rentStart;
+	private java.util.Date rentEnd;
 	public RentRequestDTO() {
 		super();
 	}
-	public RentRequestDTO(int num, String centerName, String managerId, String memId, String rentReqYn, String rentCost,
+	public RentRequestDTO(int num, String centerName, String managerId, String memId, String rentReqYn, int rentCost,
 			String rentPayYn, String rentRefYn, Date rentStart, Date rentEnd) {
-		super();
 		this.num = num;
 		this.centerName = centerName;
 		this.managerId = managerId;
@@ -71,10 +70,10 @@ public class RentRequestDTO {
 	public void setRentReqYn(String rentReqYn) {
 		this.rentReqYn = rentReqYn;
 	}
-	public String getRentCost() {
+	public int getRentCost() {
 		return rentCost;
 	}
-	public void setRentCost(String rentCost) {
+	public void setRentCost(int rentCost) {
 		this.rentCost = rentCost;
 	}
 	public String getRentPayYn() {
@@ -89,16 +88,16 @@ public class RentRequestDTO {
 	public void setRentRefYn(String rentRefYn) {
 		this.rentRefYn = rentRefYn;
 	}
-	public java.sql.Date getRentStart() {
+	public java.util.Date getRentStart() {
 		return rentStart;
 	}
-	public void setRentStart(java.sql.Date rentStart) {
+	public void setRentStart(java.util.Date rentStart) {
 		this.rentStart = rentStart;
 	}
-	public java.sql.Date getRentEnd() {
+	public java.util.Date getRentEnd() {
 		return rentEnd;
 	}
-	public void setRentEnd(java.sql.Date rentEnd) {
+	public void setRentEnd(java.util.Date rentEnd) {
 		this.rentEnd = rentEnd;
 	}
 	@Override
@@ -107,6 +106,5 @@ public class RentRequestDTO {
 				+ memId + ", rentReqYn=" + rentReqYn + ", rentCost=" + rentCost + ", rentPayYn=" + rentPayYn
 				+ ", rentRefYn=" + rentRefYn + ", rentStart=" + rentStart + ", rentEnd=" + rentEnd + "]";
 	}
-	
 	
 }

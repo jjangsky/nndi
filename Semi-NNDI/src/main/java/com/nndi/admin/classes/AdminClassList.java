@@ -1,7 +1,11 @@
 package com.nndi.admin.classes;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,12 +29,22 @@ public class AdminClassList extends HttpServlet {
 		
 		List<ClassesAndTeacherAndCenterDTO> classList = classService.selectAllClassList();
 		
+		List<Map<String, String>> time = new ArrayList<>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for(ClassesAndTeacherAndCenterDTO ctc : classList) {
+			Map<String, String> map = new HashMap<>();
+			map.put("start", sdf.format(ctc.getClsStartDay()));
+			map.put("end", sdf.format(ctc.getClsEndDay()));
+			time.add(map);
+		}
+				
 		System.out.println("Controller : " + classList);
 		
 		String path = "";
 		if (!classList.isEmpty()) {
 			path = "/WEB-INF/views/admin/class/ClassList.jsp";
 			request.setAttribute("classList", classList);
+			request.setAttribute("time", time);
 		} else {
 			path = "/WEB-INF/views/selectErrorPage/selectError.jsp";
 			System.out.println("잔넨..");

@@ -45,6 +45,12 @@ public interface LoginMapper {
 	/* 휴면 고객 해제 용 DAO */
 	int updateRestmemberLogin(MemberAliveDTO memberAlive);
 
+	/* 고객 비밀번호 조회용 DAO */
+	String selectMemberPwd(MemberAliveDTO memberAliveList);
+
+	/* 고객 비밀번호 초기화용 DAO */
+	int updateMemberPassword(MemberAliveDTO newPassword);
+
 
 
 }
