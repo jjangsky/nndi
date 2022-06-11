@@ -86,6 +86,11 @@ public class TeacherDTO implements Serializable {
 		return "TeacherDTO [no=" + no + ", name=" + name + ", gender=" + gender + ", birth=" + birth + ", email="
 				+ email + ", phone=" + phone + ", address=" + address + ", contractYn=" + contractYn + "]";
 	}
+
+	public void setBirth(java.util.Date birth2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

@@ -21,7 +21,6 @@
   <table class="blueone">
       <thead>
         <tr>
-            <!-- <th>번호</th> -->
             <th>강좌명</th>           
             <th>강사명</th>
             <th>장소</th>

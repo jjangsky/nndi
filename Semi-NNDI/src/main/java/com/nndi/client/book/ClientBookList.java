@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.admin.book.BookService;
+import com.nndi.common.paging.PagingService;
 import com.nndi.model.commondto.BookInfoDTO;
+import com.nndi.model.commondto.Pagenation;
+import com.nndi.model.commondto.PagingDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
 @WebServlet("/site/ClientBookInfo")
 public class ClientBookList extends HttpServlet {
@@ -20,10 +23,27 @@ public class ClientBookList extends HttpServlet {
 
 		System.out.println("컨트롤러 도착");
 		
+		String currentPage = request.getParameter("currentPage");
+		int pageNo = 1;
+		
+		if(currentPage != null && !"".equals(currentPage)) {
+			pageNo = Integer.parseInt(currentPage);
+		}
+		
 		ClientBookService bookService = new ClientBookService();
 		
-		List<BookInfoDTO> bookList = bookService.selectAllBookList();
+//		int totalCount = bookService.selectBookTotalCount();
 		
+		int limit = 8;
+		int buttonAmount = 5;
+		
+		
+		PagingDTO PagingDTO = null;
+		
+//		PagingDTO = Pagenation.getSelectCriteria(pageNo, totalCount, limit, buttonAmount);
+		
+		List<BookInfoDTO> bookList = bookService.selectAllBookList();
+
 		for(BookInfoDTO book : bookList) {
 			System.out.println(book);
 		}

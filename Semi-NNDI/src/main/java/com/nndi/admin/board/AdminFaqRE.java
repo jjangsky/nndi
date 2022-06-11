@@ -21,7 +21,6 @@ public class AdminFaqRE extends HttpServlet {
 		int num = Integer.valueOf(request.getParameter("num"));
 		
 		System.out.println("Controller " + content + " " + num);
-//		System.out.println("Controller " + content );
 		
 		FAQDTO faq = new FAQDTO();
 		
@@ -33,7 +32,7 @@ public class AdminFaqRE extends HttpServlet {
 		int result = boardService.UpdateFaqRE(faq);
 		
 		if(result>0) {
-			response.sendRedirect("FAQList");
+			response.sendRedirect("faqList");
 			System.out.println("success");
 		} else {
 			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);

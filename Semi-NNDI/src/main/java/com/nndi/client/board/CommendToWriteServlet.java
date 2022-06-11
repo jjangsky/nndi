@@ -1,20 +1,24 @@
-package com.nndi.admin.teacher;
+package com.nndi.client.board;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login/admin/teacherUpdate")
-public class AdminTeacherUpdate extends HttpServlet {
+@WebServlet("/login/board/commend/towrite")
+public class CommendToWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		
-		request.getRequestDispatcher("/WEB-INF/views/admin/teacher/TeacherUpdate.jsp").forward(request, response);
-		
+		String path = "/WEB-INF/views/client/board/CommendWrite.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
+	
 	}
+
 
 }

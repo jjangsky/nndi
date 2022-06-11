@@ -51,7 +51,7 @@
 	                <th>연락처</th>
 	                <th>생년월일</th>
 	                <th>가입날짜</th>
-	                <th>회원관리</th>
+	                <th>상세보기</th>
 	            </tr>
 			</thead>
 			<tbody>
@@ -66,7 +66,7 @@
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=
 		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'" >
-		                	회원관리</button>
+		                	확인</button>
 		                </td>
 		              </tr>
 		              </c:forEach>

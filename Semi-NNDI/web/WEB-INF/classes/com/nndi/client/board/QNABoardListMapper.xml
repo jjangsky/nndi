@@ -53,6 +53,25 @@
 		  FROM TBL_POST_QUESTION 
 		 WHERE NUM = #{ num } 
  </select>
-     
+ 
+ 
+ <select id="MyPageQNAList" parameterType="String" resultMap="QNAMap">
+		SELECT 
+     		   NUM
+     		 , CATE_NUM
+		     , MEM_ID
+     		 , MANAGER_ID  
+		     , POST_DATE
+		     , TITLE
+		     , CONTENT
+		     , ANSWER_YN
+		     , ANSWER_CONTENT
+		     , DISPLAY_YN
+		     , HITS
+		  FROM TBL_POST_QUESTION
+		 WHERE DISPLAY_YN = 'Y'
+		   AND MEM_ID = #{loginId} 
+		 ORDER BY 1 DESC 
+ </select>    
 
 </mapper>

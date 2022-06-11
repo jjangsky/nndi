@@ -22,6 +22,7 @@ SELECT
      , CONTENT
      , HITS 
   FROM TBL_POST_FAQ
+ ORDER BY NUM 
  </select>
  
  <!-- 자주 묻는 질문 상세 조회 -->    
@@ -36,4 +37,15 @@ SELECT
   FROM TBL_POST_FAQ 
 		 WHERE NUM = #{ num } 
  </select>
+ 
+ <update id="incrementFAQ">
+ 		UPDATE
+               TBL_POST_FAQ A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_FAQ B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }
+ 		  
+ </update>
 </mapper>

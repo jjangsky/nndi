@@ -42,11 +42,11 @@ public class PagingServlet extends HttpServlet {
 		System.out.println("Servlet에서 지정한 Map: " + searchMap);
 		
 		PagingService pagingService = new PagingService();
-		int totalCount = pagingService.selectTotalCount(searchMap);
+		int totalCount = pagingService.selectClassTotalCount(searchMap);
 		System.out.println("Servlet에서 지정한 totalCount" + totalCount);
 		
-		int limit = 6;
-		int buttonAmount = 4;
+		int limit = 8;
+		int buttonAmount = 5;
 		
 		PagingDTO PagingDTO = null;
 		

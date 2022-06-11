@@ -61,12 +61,13 @@
 	
  	<select id="selectBookRentList" resultMap="MemberBookRentResult">
 		SELECT
-			   DISTINCT B.NAME
+			   B.NAME
 			 , B.WRITER
 			 , A.RENT_YN
 			 , A.RENT_DATE
 		  FROM TBL_BOOK_RENT A
-		  LEFT OUTER JOIN TBL_BOOK_INFO B ON (A.CODE = B.CODE) 
+		  JOIN TBL_BOOK_INFO B ON (A.CODE = B.CODE) 
+		  JOIN TBL_MEMBER_ALIVE C ON (A.MEM_ID = C.ID)
 		 WHERE A.RETURN_DATE IS NULL 
 	</select> 
 

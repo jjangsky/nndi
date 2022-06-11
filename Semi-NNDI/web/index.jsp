@@ -12,6 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="WEB-INF/views/main/main.jsp"/>
+	<script>
+		window.onload = function(){
+			location.href="${ pageContext.servletContext.contextPath }/MemberMain"
+		}
+	</script>
 </body>
 </html>

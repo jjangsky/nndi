@@ -57,7 +57,7 @@
 		            </thead>
 		            <tbody>
 		              <tr>
-		               <c:forEach var="faq" items="${ requestScope.FAQList }">
+		               <c:forEach var="faq" items="${ requestScope.FaqList }">
 		              <tr>
 		                <td>${ faq.num }</td>
 		                <td>${ faq.title }</td>
@@ -75,7 +75,8 @@
 		        </table>
 		    </div> 
 		    <div class="btns">
-		      <button class="btns addbtn">글쓰기</button>
+		      <button class="btns addbtn" onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/insertFaq'">글쓰기</button>
 		    </div>
 		    <div class="pagination">
 		        <a href="#">&laquo;</a>
