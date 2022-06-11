@@ -271,6 +271,7 @@
   	       TBL_POST_COMPLAIN A
   	   SET A.ANSWER_CONTENT = #{ answerContent }
   	     , A.ANSWER_YN = 'Y'
+  	     , A.MANAGER_ID = #{ managerId }
   	 WHERE A.NUM = #{ num }
   </update>
   
@@ -316,6 +317,7 @@
   	     , A.ANSWER_CONTENT
   	  FROM TBL_POST_QUESTION A
   	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+  	 ORDER BY A.NUM DESC
   </select>
   
   <!-- Qna 상세보기 쿼리 -->
@@ -343,6 +345,7 @@
   	   SET 
   	   	   ANSWER_CONTENT = #{ answerContent }
   	     , ANSWER_YN = 'Y'
+  	     , MANAGER_ID = #{ managerId }
   	 WHERE NUM = #{ num }
   </update>
 
@@ -400,6 +403,7 @@
   	     , A.EMP_PROCESS
   	  FROM TBL_TEACHER_EMPLOYMENT A
   	  LEFT OUTER JOIN TBL_CLASS B ON (A.CLS_NUM = B.CLS_NUM)
+  	 ORDER BY A.NUM DESC
   </select>
   
   <!-- 강사 모집 상세 조회 -->

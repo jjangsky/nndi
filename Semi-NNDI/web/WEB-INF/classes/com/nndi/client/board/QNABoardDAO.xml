@@ -23,8 +23,8 @@
 VALUES
 (
 SEQ_QUESTION_POST_NUM.NEXTVAL,
-#{cateNum},
-'TESTID04'
+#{cateNum}
+,#{memId}
 ,''
 
 ,#{title}
