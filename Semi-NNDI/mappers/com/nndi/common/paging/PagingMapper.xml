@@ -64,7 +64,7 @@
 	</resultMap>
 	
 	<!-- Class 전체 게시글 수 조회  -->
-	<select id="selectTotalCount" resultType="_int" parameterType="hashMap">
+	<select id="selectClassTotalCount" resultType="_int" parameterType="hashMap">
 		SELECT
 		       COUNT(*)
 		  FROM TBL_CLASS A     

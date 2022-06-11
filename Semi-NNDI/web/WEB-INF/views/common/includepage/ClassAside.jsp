@@ -21,8 +21,7 @@
 		</div>
 		
 		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-1 collapsed" data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false" 
-		onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">전체 강좌 조회</button>
-		
+		onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">전체 강좌 조회</button>
 		<br>
 
 		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false"

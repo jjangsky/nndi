@@ -150,6 +150,7 @@
              , A.HITS
              , A.UPLOAD_FILE_KEY
           FROM TBL_POST_NOTICE A
+         ORDER BY A.NUM 
  	</select>
  	
  	<!-- 공지사항 상세 조회 쿼리 -->

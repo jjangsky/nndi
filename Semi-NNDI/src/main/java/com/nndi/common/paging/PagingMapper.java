@@ -11,8 +11,10 @@ import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
 public interface PagingMapper {
 
-	int selectTotalCount(Map<String, String> searchMap);
+	int selectClassTotalCount(Map<String, String> searchMap);
 
 	List<ClassesAndTeacherAndCenterDTO> selectClassList(PagingDTO pagingDTO);
+
+	int selectBookTotalCount();
 
 }

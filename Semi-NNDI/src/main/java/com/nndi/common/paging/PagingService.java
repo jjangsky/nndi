@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.BoardDTO;
+import com.nndi.model.commondto.BookInfoDTO;
 import com.nndi.model.commondto.ClassDTO;
 import com.nndi.model.commondto.PagingDTO;
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
@@ -17,14 +18,14 @@ public class PagingService {
 	private PagingMapper mapper;
 	
 	/* 강좌 전체 게시글 수 조회 */
-	public int selectTotalCount(Map<String, String> searchMap) {
+	public int selectClassTotalCount(Map<String, String> searchMap) {
 		
 		System.out.println("전체 게시글 수 조회하는 Service 도착 확인");
 		SqlSession sqlSession = getSqlSession();
 		
 		mapper =  sqlSession.getMapper(PagingMapper.class);
 		
-		int totalCount = mapper.selectTotalCount(searchMap);
+		int totalCount = mapper.selectClassTotalCount(searchMap);
 		
 		System.out.println("Service에서 조회한 Class의 전체 게시글 수 조회: " + totalCount);
 		
@@ -52,5 +53,6 @@ public class PagingService {
 		return classboardList;
 		
 	}
+
 
 }

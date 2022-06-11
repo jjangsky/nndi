@@ -21,7 +21,7 @@
 	<section>
 	 
 	  <jsp:include page="../../common/includepage/CenterAside.jsp"/>
-	  
+<%-- 	  <jsp:include page="../../common/includepage/paging.jsp"/> --%>
     
 		<div>
 		    <div class="post title" style="background-color: rgba(254, 190, 190, 1);">
@@ -69,16 +69,6 @@
 			 </div>
 
       		<br>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  	</div>
 		</div>
 			  
 	</section>
