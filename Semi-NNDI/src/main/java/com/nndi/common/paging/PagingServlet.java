@@ -46,7 +46,7 @@ public class PagingServlet extends HttpServlet {
 		System.out.println("Servlet에서 지정한 totalCount" + totalCount);
 		
 		int limit = 6;
-		int buttonAmount = 4;
+		int buttonAmount = 5;
 		
 		PagingDTO PagingDTO = null;
 		

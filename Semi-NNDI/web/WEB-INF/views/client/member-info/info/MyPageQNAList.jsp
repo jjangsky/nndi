@@ -10,7 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../../../common/includepage/CustomerContactCentersAside.jsp"/>
+	<aside>
+		<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
+	</aside>
 <section>
 <div>
    <h3 class="notice">${ sessionScope.loginMember.name } 님의 문의글 입니다.</h3>

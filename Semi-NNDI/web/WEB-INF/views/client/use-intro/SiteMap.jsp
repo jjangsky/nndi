@@ -27,10 +27,10 @@
             <tr>
                 <td>
                     <strong> 너나들이 소개</strong> <br><br>
-                    <a href="directions.html">오시는 길</a>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'" class="FooterButton">오시는길</button>
                     <br>
                     <br>
-                    <a href="siteMap.html">사이트 맵</a>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'" class="FooterButton">오시는길</button>
                 </td>
             </tr>
         </table>
@@ -41,7 +41,7 @@
             <tr>
                 <td>
                     <strong> 이용 안내</strong> <br><br>
-                    <a href="../mainpage/centerMainPage.html">시설 안내</a>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
                     <br>
                     <br>
                     <a href="">대관 안내</a>
@@ -50,7 +50,7 @@
                     <a href="">강사 안내</a>
                     <br>
                     <br>
-                    <a href="userAgreement.html">이용 약관</a>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/agreement'">이용약관</button>
                     <br>
                 </td>
             </tr>
@@ -62,19 +62,19 @@
           <tr>
               <td>
                   <strong> 고객 지원 센터</strong> <br><br>
-                  <a href="">공지사항</a>
+                  <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">공지 사항</button>
                   <br>
                   <br>
-                  <a href="">문의(QNA)</a>
+                  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의 하기</button>
                   <br>
                   <br>
-                  <a href="" >칭찬하기</a>
+                  <button onclick="location.href='${pageContext.servletContext.contextPath}'">칭찬 하기</button>
                   <br>
                   <br>
-                  <a href="">자주 묻는 질문</a>
+                  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">자주 묻는 질문</button>
                   <br>
                   <br>
-                  <a href="">민원</a>
+                  <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'">민원 신청</button>
                   <br>
                   <br>
               </td>
@@ -87,7 +87,7 @@
         <tr>
             <td>
                 <strong> 시설 이용</strong> <br><br>
-                <a href="">도서관</a>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/site/ClientBookInfo'">작은 도서관</button>
                 <br>
                 <br>
                 <a href="">체육시설</a>
@@ -105,10 +105,10 @@
         <tr>
             <td>
                 <strong> 강좌 안내</strong> <br><br>
-                <a href="" >문화 강좌</a>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'">문화</button>
                 <br>
                 <br>
-                <a href="">체육 강좌</a>
+                <button	onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassphList'">체육</button>
                 <br>
             </td>
         </tr>
