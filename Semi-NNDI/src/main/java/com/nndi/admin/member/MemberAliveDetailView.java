@@ -1,13 +1,14 @@
 package com.nndi.admin.member;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.commondto.MemberAliveDTO;
+import com.nndi.model.joindto.admin.member.MemberTotalDTO;
 
 @WebServlet("/login/admin/detailaliveMember.do")
 public class MemberAliveDetailView extends HttpServlet {
@@ -21,14 +22,13 @@ public class MemberAliveDetailView extends HttpServlet {
 		
 		AdminMemberService adminmemberService = new AdminMemberService();
 		
-		MemberAliveDTO detailMemberAlive = adminmemberService.selectOneMemberAliveById(id);
-		
-		System.out.println( "Servlet : " + detailMemberAlive );
+		MemberTotalDTO detailaliveMember = adminmemberService.selectOneMemberAliveById(id);
+		System.out.println( "Servlet : " + detailaliveMember );
 		
 		String path = "";
-		if (!"".equals(detailMemberAlive.getId()) && detailMemberAlive.getId() != null) {
+		if (!"".equals(detailaliveMember.getId()) && detailaliveMember.getId() != null) {
 			path = "/WEB-INF/views/admin/member/MemberDetail.jsp";
-			request.setAttribute("detailMemberAlive", detailMemberAlive);
+			request.setAttribute("detailMemberAlive", detailaliveMember);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");

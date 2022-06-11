@@ -279,6 +279,7 @@
   	     , A.POST_DATE
   	     , A.HITS
   	     , A.ANSWER_YN
+  	     , A.ANSWER_CONTENT
   	     , A.CONTENT
   	  FROM TBL_POST_QUESTION A
   	  LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
@@ -294,7 +295,7 @@
   	 WHERE NUM = #{ num }
   </update>
   
-     <!--  FAQ 수정 쿼리 -->
+     <!--  FAQ 수정 쿼리 !!!! 수정하면 매니저 아이디도 바뀜 쿼리추가하기 수정하기-->
   <update id="UpdateFaqRE" parameterType="com.nndi.model.commondto.FAQDTO">
   	UPDATE 
   	       TBL_POST_FAQ
@@ -322,4 +323,37 @@
       FROM TBL_POST_NOTICE A
      WHERE A.NUM = #{ num }
   </delete>
+  
+    <!-- FAQ 삭제 -->
+  <delete id="deletefaq" parameterType="_int">
+  	DELETE 
+      FROM TBL_POST_FAQ A
+     WHERE A.NUM = #{ num }
+  </delete>
+  
+  <!-- FAQ 등록 -->
+	<insert id="insertFaq" parameterType="com.nndi.model.commondto.FAQDTO">
+		INSERT 
+		  INTO TBL_POST_FAQ A
+		(
+		  A.NUM
+		, A.MANAGER_ID
+		, A.CATE_NUM
+		, A.TITLE
+		, A.CONTENT
+		, A.HITS
+		)
+		VALUES
+		(
+		  #{ num }
+		, #{ cateNum }
+		, #{ managerId }
+		, #{ title }
+		, #{ content }
+		, #{ hits }
+		)
+	</insert>
+  
 </mapper>
+
+	

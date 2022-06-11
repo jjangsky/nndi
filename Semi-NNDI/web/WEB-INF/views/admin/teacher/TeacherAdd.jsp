@@ -34,48 +34,59 @@
 	    </div>
 	    
 	    <div class="post add">
-	      <form action="">
+	    <form action="${ pageContext.servletContext.contextPath }/Teacher/input" method="post" >
 	        <label>이름 </label>
-	        <input class="en1" required> &nbsp; &nbsp;  &nbsp; &nbsp; 
+	        
+	        <input type="text" name="name" id="name" required>
 	        <label >성별 </label>
-	        <select class="emps" name="" id="" required>
-	          <option value="">none</option>
-	          <option value="male">남자</option>
-	          <option value="female">여자</option>
-	        </select>
+	        <select id="gender" name="selectGender"required>
+            	<option value="" ></option>
+                <option value="male" id="male" >남</option>
+                <option value="female" id="female">여</option>
+            </select>
 	        <br> 
-	        <label>강의명</label>
-	        <input class="en1" required>
-	        &nbsp; &nbsp; &nbsp;  
-	        <label>강좌 분류 </label>
-	        <select class="emps" name="" id="" required>
-	          <option value="">none</option>
-	          <option value="culture">문화</option>
-	          <option value="pe">체육</option>
-	        </select> <br>
-	        <label>이메일</label>
-	        <input type="email" name="email" class="emps" required> &nbsp; &nbsp; &nbsp;  
-	        <label>생년월일</label>
-	        <input class="en1" required><br>
-	        <label>연락처</label>
-	        <select class="en2" >
-	          <option value="010">010</option>
-	          <option value="016">016</option>
-	          <option value="011">011</option>
-	          <option value="019">019</option>
-	        </select>
-	        <input type="tel" name="phone2" class="en1" required>
-	        <br> 
-	        <label >우편번호</label>
-	        <input type="search" name="address" class="emps" required>&nbsp;
-	        <input type="button" value="우편번호 찾기" >
-	        <br> 
-	        <label>상세주소</label>
-	        <input type="text" name="address" required>
-	        <label>강의 내용 </label>
-	        <textarea name="content" id="content" cols="20" rows="2" style="resize: none;" required></textarea>
-	        <label>강의 이력</label>
-	        <input type="text" required>
+	       <label for="birth" id="input">생년월일:</label>
+            <input type="date" name="userBD" id="userBirthDate" size="30" required> <p>
+	        <label>이메일</label><input type="text" name="email" id="email" required> 
+                <input type="text" name="str_email02" id="str_email02" style="width:100px;" disabled value="naver.com" required>
+                <select style="width:100px;margin-right:10px" name="selectEmail" id="selectEmail">
+                                                                    <option value="1">직접입력</option>
+                                                                    <option value="naver.com" selected>naver.com</option>
+                                                                    <option value="hanmail.net">hanmail.net</option>
+                                                                    <option value="hotmail.com">hotmail.com</option>
+                                                                    <option value="nate.com">nate.com</option>
+                                                                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                                                    <option value="empas.com">empas.com</option>
+                                                                    <option value="dreamwiz.com">dreamwiz.com</option>
+                                                                    <option value="freechal.com">freechal.com</option>
+                                                                    <option value="lycos.co.kr">lycos.co.kr</option>
+                                                                    <option value="korea.com">korea.com</option>
+                                                                    <option value="gmail.com">gmail.com</option>
+                                                                    <option value="hanmir.com">hanmir.com</option>
+                                                                    <option value="paran.com">paran.com</option>
+                                                                    </select>  
+	        <br>
+            <label for="phone" id="input">연락처: </label>
+            <select name="selectUserPhone" style="width: auto;">
+                <option value="010">010</option>
+                <option value="016">016</option>
+                <option value="011">011</option>
+                <option value="019">019</option>
+            </select>
+            <input type="tel" name="phone2" size="4" id="phone2">
+            <input type="tel" name="phone3" size="4" id="phone3"><p>
+            
+	        <label for="address"> 주소: </label>            
+				<input type="text" name="address" id="address" readonly>
+
+				
+		  <input type="text" name="name" id="name" required>
+	        <label >계약해지 여부 </label>
+	        <select id="gender" name="selectGender"required>
+            	<option value="" ></option>
+                <option value="	Y" id="Y" >Y</option>
+                <option value="N" id="N">N</option>
+            </select>
 	      </div>  
 	          <button id="addpost" class="btns add">등 록 하 기</button>
 	          <button class="btns">다 시   작 성 하 기</button>

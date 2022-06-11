@@ -52,7 +52,7 @@
                 <th>이메일</th>
                 <th>주소</th>
                 <th>계약해지여부</th>
-                <th>수정</th>
+                <th>정보관리</th>
               </tr>
             </thead>
             <tbody>
@@ -68,8 +68,8 @@
 		                <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/teacherUpdate.do?no=${ teacher.no }'" >
-		                	수정</button>
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailTeacher.do?no=${ teacher.no }'" >
+		                	보기</button>
 		                </td>
 		              </tr>
 		              </c:forEach>

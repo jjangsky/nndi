@@ -1,7 +1,6 @@
-package com.nndi.admin.board;
+package com.nndi.admin.teacher;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,37 +8,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nndi.model.joindto.admin.board.FAQAndCategoryDTO;
+import com.nndi.model.commondto.TeacherDTO;
 
-@WebServlet("/login/admin/faqList")
-public class AdminFaqList extends HttpServlet {
+@WebServlet("/login/admin/detailTeacher.do")
+public class TeacherDetailView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("컨트롤러 도착");
+		int no = Integer.valueOf(request.getParameter("no"));
 		
-		BoardService boardService = new BoardService();
+		System.out.println("가져왔니? " + no);
 		
-		List<FAQAndCategoryDTO> FaqList = boardService.selectAllFAQList();
+		TeacherService teacherService = new TeacherService();
 		
-		for(FAQAndCategoryDTO faq : FaqList) {
-			System.out.println(faq);
-		}
+		TeacherDTO detailTeacher = teacherService.selectOneTeacherByNo(no);
+		
+		System.out.println( "Servlet : " + detailTeacher );
 		
 		String path = "";
-		if (!FaqList.isEmpty()) {
-			path = "/WEB-INF/views/admin/board/FaqList.jsp";
-			request.setAttribute("FaqList", FaqList);
+		if (!"".equals(detailTeacher.getNo()) && detailTeacher.getNo() != null) {
+			path = "/WEB-INF/views/admin/teacher/TeacherDetailView.jsp";
+			request.setAttribute("detailTeacher", detailTeacher);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");
 			
 		}
-
+		
 		request.getRequestDispatcher(path).forward(request, response);
+		
 		
 	}
 
 }
-

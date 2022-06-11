@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.commondto.MemberAliveDTO;
+import com.nndi.model.joindto.admin.member.MemberTotalDTO;
+
 
 @WebServlet("/login/admin/memberList")
 public class AdminMemberList extends HttpServlet {
@@ -21,9 +23,9 @@ public class AdminMemberList extends HttpServlet {
 		
 		AdminMemberService adminmemberService = new AdminMemberService();
 		
-		List<MemberAliveDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
+		List<MemberTotalDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
 		
-		for(MemberAliveDTO memberAlive : memberAliveList) {
+		for(MemberTotalDTO memberAlive : memberAliveList) {
 			System.out.println(memberAlive);
 		}
 		

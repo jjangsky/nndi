@@ -2,8 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nndi.admin.member.MemberMapper">
 
+<!-- MemberTotalDTO  resultMap 생성-->
+<resultMap type="com.nndi.model.joindto.admin.member.MemberTotalDTO" id="MemberAliveMap">
+	<id property="id" column="ID"/>
+  	<result property="idQueNum" column="ID_QUE_NUM"/>
+  	<result property="phone" column="PHONE"/>
+  	<result property="email" column="EMAIL"/>
+  	<result property="address" column="ADDRESS"/>
+  	<result property="pwd" column="PWD"/>
+  	<result property="name" column="NAME"/>
+  	<result property="birth" column="BIRTH"/>
+  	<result property="idAnswer" column="ID_ANSWER"/>
+  	<result property="gender" column="GENDER"/>
+  	<result property="lastLogin" column="LAST_LOGIN"/>
+  	<result property="userStatus" column="USER_STATUS"/>
+  	<result property="outDate" column="OUT_DATE"/>
+  	<result property="enrollDate" column="ENROLL_DATE"/>
+</resultMap>
+
 <!-- MemberAliveDTO  resultMap 생성-->
-<resultMap type="com.nndi.model.commondto.MemberAliveDTO" id="MemberAliveMap">
+<resultMap type="com.nndi.model.commondto.MemberAliveDTO" id="MemberRestMap">
 	<id property="id" column="ID"/>
   	<result property="idQueNum" column="ID_QUE_NUM"/>
   	<result property="phone1" column="PHONE1"/>
@@ -47,7 +65,7 @@
   	<result property="publisher" column="PUBLISHER"/>
 </resultMap>
 
-<!-- BookRentAndBookInfoDTO resultMap 생성 -->
+<!-- BookRentAndBookInfoDTO resultMap 생성 
   <resultMap type="com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO" id="bookRentAndBookInfoMap">
   	<id property="rentNum" column="RENT_NUM"/>
   	<result property="code" column="CODE"/>
@@ -56,16 +74,40 @@
   	<result property="returnDate" column="RETURN_DATE"/>
   	<result property="rentYn" column="RENT_YN"/>
   	<association property="bookinfo" resultMap="BookInfoMap"/>
-  </resultMap>
+  </resultMap> -->
+  
+<!-- MemberAliveAndBookRentAndBookInfoMap resultMap 생성 -->  
+<resultMap type="com.nndi.model.joindto.admin.member.MemberAliveAndBookRentAndBookInfoDTO" id="memberAliveAndBookRentAndBookInfoMap">
+	<id property="id" column="ID"/>
+  	<result property="idQueNum" column="ID_QUE_NUM"/>
+  	<result property="phone1" column="PHONE1"/>
+  	<result property="phone2" column="PHONE2"/>
+  	<result property="phone3" column="PHONE3"/>
+  	<result property="email1" column="EMAIL1"/>
+  	<result property="email2" column="EMAIL2"/>
+  	<result property="address1" column="ADDRESS1"/>
+  	<result property="address2" column="ADDRESS2"/>
+  	<result property="address3" column="ADDRESS3"/>
+  	<result property="pwd" column="PWD"/>
+  	<result property="name" column="NAME"/>
+  	<result property="birth" column="BIRTH"/>
+  	<result property="idAnswer" column="ID_ANSWER"/>
+  	<result property="gender" column="GENDER"/>
+  	<result property="lastLogin" column="LAST_LOGIN"/>
+  	<result property="userStatus" column="USER_STATUS"/>
+  	<result property="outDate" column="OUT_DATE"/>
+  	<result property="enrollDate" column="ENROLL_DATE"/>
+<!-- 	<association property="bookRent" resultMap="BookRentMap"/> -->
+	<association property="bookInfo" resultMap="BookInfoMap"/>
+</resultMap>
+
   
   <!-- MemberAlive 전체 조회 쿼리 -->	
   <select id="selectAllMemberAliveList" resultMap="MemberAliveMap">
     SELECT 
            ID
          , NAME
-         , PHONE1
-         , PHONE2
-         , PHONE3
+         , PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
          , BIRTH
          , ENROLL_DATE
       FROM TBL_MEMBER_ALIVE
@@ -80,37 +122,33 @@
           , A.ID
           , A.PWD
           , A.BIRTH 
-          , A.EMAIL1
-          , A.EMAIL2
-          , A.ADDRESS1
-          , A.ADDRESS2
-          , A.ADDRESS3
-          , A.PHONE1
-          , A.PHONE2
-          , A.PHONE3
+          , A.EMAIL1||EMAIL2 EMAIL
+          , A.ADDRESS1||ADDRESS2||ADDRESS3 ADDRESS
+          , A.PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
           , A.LAST_LOGIN
           , A.USER_STATUS
        FROM TBL_MEMBER_ALIVE A
   	 WHERE A.ID = #{ id }
    </select>
    
-   <!-- memberDetailBookList 조회 쿼리  -->
-    <select id="selectOneMemberBookListById" parameterType="string" resultMap="bookRentAndBookInfoMap">
+<!--     memberDetailBookList 조회 쿼리  
+    <select id="selectOneMemberBookRentListById" parameterType="string" resultMap="memberAliveAndBookRentAndBookInfoMap">
       SELECT
-             A.RENT_NUM
-           , B.KINDS_CODE
-           , B.NAME
-           , B.WRITER
-           , A.RENT_DATE
-           , A.RETURN_DATE
-           , A.RENT_YN
-        FROM TBL_BOOK_RENT A
-      JOIN TBL_BOOK_INFO B ON(A.CODE=B.CODE)
-      WHERE A.MEM_ID = #{ id }
-	</select>
-
-	<!-- MemberRest전체 조회 쿼리 -->	
-  <select id="selectAllRestMemberList"  parameterType="string" resultMap="MemberAliveMap">
+           B.RENT_NUM  
+         , C.KINDS_CODE  
+         , C.NAME 
+         , C.WRITER 
+         , B.RENT_DATE 
+         , B.RETURN_DATE 
+         , B.RENT_YN 
+  	  FROM TBL_MEMBER_ALIVE A
+      JOIN TBL_BOOK_RENT B ON(A.ID=B.MEM_ID)
+	  JOIN TBL_BOOK_INFO C ON(B.CODE=C.CODE)
+	  WHERE A.ID = #{ id }
+	</select> -->
+	
+	<!--RestMember전체 조회 쿼리 -->	
+  <select id="selectAllRestMemberList"  parameterType="string" resultMap="MemberRestMap">
     SELECT 
            ID
          , NAME
@@ -120,5 +158,14 @@
       WHERE USER_STATUS = 'R'
       ORDER BY ENROLL_DATE
   </select>
+  
+  <!-- 휴면회원 -> 일반회원 전환 -->
+  <update id="updateRestMember" parameterType="com.nndi.model.commondto.MemberAliveDTO">
+    UPDATE
+          TBL_MEMBER_ALIVE 
+       SET USER_STATUS ='A'
+     WHERE USER_STATUS='R'
+     AND ID = #{ id } 
+  </update>
 </mapper>
 

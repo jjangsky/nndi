@@ -286,5 +286,43 @@ public class BoardService {
 		
 		return result;
 	}
+	
+	/* FAQ 삭제 */
+	public int deletefaq(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.deletefaq(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
+	/* FAQ 등록 */
+	public int insertFaqRE(FAQDTO insertFaq) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.insertfaq(insertFaq);
+		
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+	
 
 }
