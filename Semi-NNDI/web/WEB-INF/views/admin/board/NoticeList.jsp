@@ -31,6 +31,7 @@
 		    <div class="post title">
 		        <h3 class="top">공지사항</h3>
 		    </div>
+
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>

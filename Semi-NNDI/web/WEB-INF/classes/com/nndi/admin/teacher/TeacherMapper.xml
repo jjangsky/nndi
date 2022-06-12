@@ -24,6 +24,7 @@
   	     , A.TCR_ADDRESS
   	     , A.TCR_CONTRACT_YN
   	  FROM TBL_TEACHER A
+  	  ORDER BY A.TCR_NO ASC
   </select>
   
   <!-- 강사상세 조회 쿼리 -->
@@ -44,7 +45,7 @@
 	<!-- 신규 강사 등록 -->
 	<insert id="insertTeacher" parameterType="com.nndi.model.commondto.TeacherDTO" >
 		INSERT 
-		  INTO TBL_CLASS
+		  INTO TBL_TEACHER
 		VALUES 
 		(
 		  SEQ_TCR_NO.NEXTVAL
@@ -58,15 +59,17 @@
 		)
 	</insert>
    
-   <!-- 강사 삭제  -->
-   <delete id="deleteTeacher" parameterType="_int">
-     DELETE 
-		  FROM TBL_TEACHER
-		 WHERE A.TCR_NO = # { no }
-   </delete>	 
+   <!-- 강사 삭제  CONTRACT_YN N->Y 업데이트-->
+  <update id="deleteTeacher" parameterType="com.nndi.model.commondto.TeacherDTO">
+    UPDATE
+      	   TBL_TEACHER 
+       SET TCR_CONTRACT_YN ='Y'
+     WHERE TCR_CONTRACT_YN ='N'
+     AND TCR_NO = #{ no }  
+  </update> 	 
 	
 	<!-- 강사 수정 -->
-	<update id="updateTeacher" parameterType="com.nndi.model.commondto.ClassDTO">
+	<update id="updateTeacher" parameterType="com.nndi.model.commondto.TeacherDTO">
 		UPDATE
 		       TBL_TEACHER A
 		   SET A.TCR_NAME = #{ name }
@@ -75,7 +78,7 @@
 			 , A.TCR_EMAIL = #{ email }
 			 , A.TCR_PHONE = #{ phone }
 			 , A.TCR_ADDRESS = #{ address }
-			 , A.TCR_CONTRACT_YN = #{ contractYn }
+  			 , A.TCR_CONTRACT_YN = #{ contractYn }	
 		 WHERE A.TCR_NO =  #{ no }
 	</update>
 	

@@ -28,17 +28,15 @@ public class AdminMemberList extends HttpServlet {
 		
 		List<MemberTotalDTO> memberAliveList = adminmemberService.selectAllmemberAliveList();
 		
-		for(MemberTotalDTO memberAlive : memberAliveList) {
-			System.out.println(memberAlive);
-		}
-		
 		List<Map<String, String>> time = new ArrayList<>();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		for(MemberTotalDTO ctc : memberAliveList) {
+		for(MemberTotalDTO mt : memberAliveList) {
 			Map<String, String> map = new HashMap<>();
-			map.put("birth", sdf.format(ctc.getBirth()));
+			map.put("birth", sdf.format(mt.getBirth()));
 			time.add(map);
 		}
+		
+		System.out.println("Controller : " + memberAliveList);
 		
 		String path = "";
 		if (!memberAliveList.isEmpty()) {

@@ -29,6 +29,7 @@
     <div class="post title">
         <h3 class="top">강사 조회</h3>
     </div>
+
     <div class="post list"> 
         <table class="t1">
             <thead>

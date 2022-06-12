@@ -35,6 +35,10 @@
 	    <table class="tb_02">
 	          <tbody>
 	            <tr>
+	              <th>강사고유번호</th>
+	              <td>${ detailTeacher.no }</td>
+	            </tr>  
+	            <tr>
 	              <th>이름</th>
 	              <td>${ detailTeacher.name }</td>
 	            </tr>
@@ -68,7 +72,7 @@
 	    	<button type="button" class="btn btn-secondary btns addbtn" 
 	    	onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/teacherList'">목록으로</button>
 	    	<button id="deletepost" class="btn btn-secondary btns addbtn" type="button"
-	    			onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/deleteTeacher.do.?num=${ teacher.no }'">수정하기</button>
+	    			onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/TeacherUpdate.do?no=${ detailTeacher.no }'">수정하기</button>
 	          </form>
 	    </div>  
 	   

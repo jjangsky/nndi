@@ -33,7 +33,6 @@
 	<jsp:include page="../../common/includepage/AdminHeader.jsp" />
 
 	<section>
-
 		<jsp:include page="../../common/includepage/AdminAside.jsp" />
 
 		<div class="post title">
@@ -71,6 +70,7 @@
 				</tbody>
 			</table>
 		</div>
+
 
 
 	</section>

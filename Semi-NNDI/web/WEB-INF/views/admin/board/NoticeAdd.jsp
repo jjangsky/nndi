@@ -36,14 +36,6 @@
 
 		<jsp:include page="../../common/includepage/AdminAside.jsp" />
 
-
-		<div>
-			<div class="post title">
-				<h3 class="top">공지사항</h3>
-			</div>
-			<div>
-				<button id="back" class="back">목록으로</button>
-			</div>
 			<div>
 				<div class="post add">
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/noticeAdd" method="post">

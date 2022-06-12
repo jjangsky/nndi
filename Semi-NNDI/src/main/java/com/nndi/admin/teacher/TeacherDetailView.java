@@ -17,6 +17,7 @@ public class TeacherDetailView extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int no = Integer.valueOf(request.getParameter("no"));
+//		String no = request.getParameter("no");
 		
 		System.out.println("가져왔니? " + no);
 		

@@ -29,15 +29,7 @@
 	    <div class="post title">
     		<h3 class="top">휴면 관리</h3>
   		</div>
-		<form action="">
-		  <button class="search btn" type="submit">검색</button> 
-		  <input class="search in" type="text" placeholder="검색어 입력" required>
-		  <select class="search select" required>
-		    <option value="">None</option>
-		    <option value="name">이름</option>
-		    <option value="id">회원id</option>
-		  </select>
-		</form>
+
 		  <div class="post list">
 		    <table>
 		        <thead class="table-lgiht">
@@ -57,35 +49,16 @@
 		                <td>${ rest.enrollDate }</td>
 		                <td>${ rest.lastLogin }</td>
 		                <td>
-		                	<button class="btn btn-secondary"
-		                		    onclick="location.href=
-		                		'${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'" >해지</button>
+		                	<button class="btn btn-secondary"id="admit" type="button"
+		                	onclick="location.href = '${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'">해지</button>
 		                </td>
 		              </tr>
 		       </c:forEach>
 		        </tbody>
 		    </table>
-		    <script>
-		    $("#back").click(function(){
-			      let text = "휴면 회원을 해지 합니다.";
-			      if (confirm(text) == true) {
-			        
-			      } else {
-			        
-			      }
-			    });
-		      </script>
+		   
 		    <hr/>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  </div>
+		    
 		</div>
 	</section>
 	

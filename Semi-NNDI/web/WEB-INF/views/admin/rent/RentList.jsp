@@ -30,6 +30,7 @@
 	  <div class="post title">
     	<h3 class="top">대관 신청 관리</h3>
 	  </div>
+
 		  <div class="post list">
 		    <table class="t1">
 		        <thead>

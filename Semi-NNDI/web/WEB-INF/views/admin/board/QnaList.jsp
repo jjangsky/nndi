@@ -30,6 +30,7 @@
 			<div class="post title">
         		<h3 class="top">QNA</h3>
    	 		</div>
+
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>

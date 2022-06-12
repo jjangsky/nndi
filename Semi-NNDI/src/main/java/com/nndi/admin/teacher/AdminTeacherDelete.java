@@ -13,18 +13,19 @@ public class AdminTeacherDelete extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("하이루 컨트롤러");
+		System.out.println("강사삭제 컨트롤러");
 		
-		int no = Integer.valueOf(request.getParameter("no"));
+//		int no = Integer.valueOf(request.getParameter("no"));
+		String no = request.getParameter("no");
 		
 		System.out.println("가져왔니 " + no);
 		
-		TeacherService boardService = new TeacherService();
+		TeacherService teacherService = new TeacherService();
 		
-		int result = boardService.deleteTeacher(no);
+		int result = teacherService.deleteTeacher(no);
 		
 		if(result>0) {
-			response.sendRedirect("complainList");
+			response.sendRedirect("teacherList");
 			System.out.println("success");
 		} else {
 			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);

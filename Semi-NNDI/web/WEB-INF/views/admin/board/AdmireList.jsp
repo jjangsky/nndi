@@ -29,6 +29,7 @@
 		    <div class="post title">
 		        <h3 class="top">칭찬하기</h3>
 		    </div>
+
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>
