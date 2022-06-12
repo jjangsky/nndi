@@ -42,6 +42,7 @@
                 		<th>작성자</th>
                 		<th>등록일</th>
                 		<th>모집여부</th>
+                		<th>상세보기</th>
 		              </tr>
 		            </thead>
 		            <tbody>

@@ -39,7 +39,7 @@
 
 		<div>
 			<div class="post title">
-				<h3 class="top">FAQ</h3>
+				<h3 class="top">FAQ 등록</h3>
 			</div>
 			<div>
 				<button id="back" class="back">목록으로</button>
@@ -79,7 +79,7 @@
 				}
 			};
 			addpost.onclick = function() {
-				let text = "공지사항을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+				let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
 				if (confirm(text) == true) {
 					document.getElementById("update").submit();
 				}
