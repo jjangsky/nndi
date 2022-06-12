@@ -73,7 +73,6 @@ public interface BoardMapper {
 	/* faq 등록 */
 	int insertfaq(FAQDTO insertFaq);
 
-
 	/* 강사모집 전체조회 */
 	List<EmpTeacherAndClassDTO> selectAllEmpTeacherList();
 
@@ -94,6 +93,9 @@ public interface BoardMapper {
 
 	/* 공지사항 수정 */
 	int updateNotice(NoticeDTO updateNotice);
+
+	/* FAQ 신규 등록 */
+	int insertNewFaq(FAQDTO faqDTO);
 
 
 }

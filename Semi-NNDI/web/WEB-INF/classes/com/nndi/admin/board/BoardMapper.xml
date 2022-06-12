@@ -416,6 +416,21 @@
 		)
 	</insert>
   
+  <!-- Faq 신규 등록 -->
+  <insert id="insertNewFaq" parameterType="com.nndi.model.commondto.FAQDTO">
+  	INSERT
+  	  INTO TBL_POST_FAQ
+  	VALUES 
+  	(
+  	  SEQ_FAQ_POST_NUM.NEXTVAL
+  	, #{ managerId }
+  	, #{ cateNum }
+  	, #{ title }
+  	, #{ content } 
+  	, default
+  	)  
+  </insert>
+  
   <!-- 강사모집 전체조회 -->
   <select id="selectAllEmpTeacherList" resultMap="EmpTeacherAndClassMap">
      SELECT
