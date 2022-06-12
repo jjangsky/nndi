@@ -32,12 +32,6 @@
         </div>
     </div>
 
-    <div class="hc" >
-        <div class="it">약관 동의</div>
-        <div class="it first">회원정보 입력</div>
-        <div class="it">가입 완료</div>
-    </div>
-
     <div class="post add">
            <label>이름</label>
            <input type="text" name="uName" id="uName" value='${ loginMember.name }' readonly >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,7 +93,7 @@
                
                <br>
            <label for="birth" id="input">생년월일:</label>
-           <input type="text" name="userBD" id="userBirthDate" size="30" value='${ loginMember.birth }' readonly> <p>
+           <input type="text" name="userBD" id="userBirthDate" size="30" value='${ birth }' readonly> <p>
    
            <label for="address1"> 우편 번호: </label>
 				<input type="text" name="zipCode" id="zipCode" value='${ loginMember.address1 }'  readonly >
