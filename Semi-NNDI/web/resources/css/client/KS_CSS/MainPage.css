@@ -5,8 +5,9 @@ section{
 }
 
 .img img{
-	width: 20px;
-	height: 20px;	
+	position: absolute; 
+	top: 45%; 
+	left:90%
 }
 
 .mainPageTable{
@@ -53,12 +54,18 @@ section{
 	width: 20px; 
 	height: 20px
 }
+#img img{
+	width:20px;
+	height:20px;
+	border: 0;
+	}
 
 button{
 	background-color: white; 
 	margin: 20px;
 	text-align: center;
 	width: 150px;
+	border: 0;
 }
 a{
 	background-color: white; 
