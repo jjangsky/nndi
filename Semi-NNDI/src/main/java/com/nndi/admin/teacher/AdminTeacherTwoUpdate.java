@@ -1,7 +1,6 @@
 package com.nndi.admin.teacher;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -13,54 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.commondto.TeacherDTO;
 
-@WebServlet("/login/admin/teacherAdd")
-public class AdminTeacherAdd extends HttpServlet {
+@WebServlet("/login/admin/teacherTwoUpdate")
+public class AdminTeacherTwoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/WEB-INF/views/admin/teacher/TeacherAdd.jsp").forward(request, response);
-	
-	}
+		System.out.println("강사정보 수정 컨트롤러");
+//db가 number 면 이걸로 하면됨		
+//		int no = Integer.valueOf(request.getParameter("no"));
+		String no = request.getParameter("no");
+		System.out.println(no);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		System.out.println("teacherAdd 컨트롤러");
-
-	/*	String no = request.getParameter("no");
-		String name = request.getParameter("name");
-		String gender = request.getParameter("gender");
-		java.util.Date birth = null;
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-        	birth = formatter.parse(request.getParameter("birth"));
-        } catch (ParseException e) {
-               e.printStackTrace();
-        }
-		
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String contractYn = request.getParameter("contractYn");
-        
-    */    
-		
-//		String no = request.getParameter("no");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
 		String birth = request.getParameter("birth");
-//		java.util.Date birth = null;
-		
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//        	birth = formatter.parse(request.getParameter("birth"));
-//            	
-//        } catch (ParseException e) {
-//               e.printStackTrace();
-//        }
-        
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
@@ -76,6 +42,7 @@ public class AdminTeacherAdd extends HttpServlet {
 		
 		java.sql.Date birthDay = java.sql.Date.valueOf(birth);
 		
+		System.out.println(birthDay);
         System.out.println(name);
         System.out.println(gender);
         System.out.println(birth);
@@ -85,8 +52,8 @@ public class AdminTeacherAdd extends HttpServlet {
         System.out.println(contractYn);
         
         TeacherDTO teacher = new TeacherDTO();
-		
-//        teacher.setNo(no);
+        
+        teacher.setNo(no);
         teacher.setName(name);
         teacher.setGender(gender);
         teacher.setBirth(birthDay);
@@ -94,12 +61,12 @@ public class AdminTeacherAdd extends HttpServlet {
         teacher.setPhone(phone);
         teacher.setAddress(address);
         teacher.setContractYn(contractYn);
-
-		System.out.println(teacher);
-		
-		TeacherService teacherService = new TeacherService();
-		
-		int result = teacherService.insertTeacher(teacher);
+        
+        System.out.println(teacher);
+        
+        TeacherService teacherService = new TeacherService();
+        
+		int result = teacherService.updateTeacher(teacher);
 		
 		System.out.println(result);
 		
@@ -110,8 +77,7 @@ public class AdminTeacherAdd extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);
 			System.out.println("fail");
 		}
-
-
+	
 	}
 
 }

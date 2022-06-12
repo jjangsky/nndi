@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+	<!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/sidebars.css" >
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/post.css" >
@@ -34,75 +39,53 @@
 	    </div>
 	    
 	    <div class="post add">
-	    <form action="${ pageContext.servletContext.contextPath }/Teacher/input" method="post" >
+	    <form action="${ pageContext.servletContext.contextPath }/login/admin/teacherAdd" method="post" >
 	        <label>이름 </label>
-	        
-	        <input type="text" name="name" id="name" required>
+	        <input name="name" type="text" class="input1" required>
 	        <label >성별 </label>
-	        <select id="gender" name="selectGender"required>
-            	<option value="" ></option>
-                <option value="male" id="male" >남</option>
-                <option value="female" id="female">여</option>
-            </select>
-	        <br> 
-	       <label for="birth" id="input">생년월일:</label>
-            <input type="date" name="userBD" id="userBirthDate" size="30" required> <p>
-	        <label>이메일</label><input type="text" name="email" id="email" required> 
-                <input type="text" name="str_email02" id="str_email02" style="width:100px;" disabled value="naver.com" required>
-                <select style="width:100px;margin-right:10px" name="selectEmail" id="selectEmail">
-                                                                    <option value="1">직접입력</option>
-                                                                    <option value="naver.com" selected>naver.com</option>
-                                                                    <option value="hanmail.net">hanmail.net</option>
-                                                                    <option value="hotmail.com">hotmail.com</option>
-                                                                    <option value="nate.com">nate.com</option>
-                                                                    <option value="yahoo.co.kr">yahoo.co.kr</option>
-                                                                    <option value="empas.com">empas.com</option>
-                                                                    <option value="dreamwiz.com">dreamwiz.com</option>
-                                                                    <option value="freechal.com">freechal.com</option>
-                                                                    <option value="lycos.co.kr">lycos.co.kr</option>
-                                                                    <option value="korea.com">korea.com</option>
-                                                                    <option value="gmail.com">gmail.com</option>
-                                                                    <option value="hanmir.com">hanmir.com</option>
-                                                                    <option value="paran.com">paran.com</option>
-                                                                    </select>  
-	        <br>
-            <label for="phone" id="input">연락처: </label>
-            <select name="selectUserPhone" style="width: auto;">
-                <option value="010">010</option>
-                <option value="016">016</option>
-                <option value="011">011</option>
-                <option value="019">019</option>
-            </select>
-            <input type="tel" name="phone2" size="4" id="phone2">
-            <input type="tel" name="phone3" size="4" id="phone3"><p>
-            
-	        <label for="address"> 주소: </label>            
-				<input type="text" name="address" id="address" readonly>
-
-				
-		  <input type="text" name="name" id="name" required>
+		        <select class="input1" name="gender"
+					id="gender" required>
+		              <option value="">none</option>
+		              <option value="M" id="M" >남</option>
+                	  <option value="W" id="W">여</option>
+		        </select>
+	        <label>생년월일 </label>
+		    <input type="date" name="birth" class="input1" required>
+		    <label>이메일 </label>
+		    <input type="text" class="input1" name="email" required><br>
+            <label>연락처 </label>
+		    <input type="text" class="input1" name="phone" required>
+  			<label>주소 </label>
+		    <input type="text" class="input1" name="address" required><br> 
 	        <label >계약해지 여부 </label>
-	        <select id="gender" name="selectGender"required>
-            	<option value="" ></option>
-                <option value="	Y" id="Y" >Y</option>
-                <option value="N" id="N">N</option>
-            </select>
-	      </div>  
+		    <select class="input1" name="contractYn" id="contractYn" required>
+		             <option value="">none</option>
+		             <option value="Y">Y</option>
+		             <option value="N">N</option>
+		    </select> <br>
 	          <button id="addpost" class="btns add">등 록 하 기</button>
 	          <button class="btns">다 시   작 성 하 기</button>
 	      </form>
+	  	</div>
 	  </div>
-	</div>
+
 	<script>
-	  $("#back").click(function(){
-	    let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
-	    if (confirm(text) == true) {
-	      
-	    } else {
-	      
-	    }
-	  });
-	 
+	const back = document.getElementById("back");
+	const addpost = document.getElementById("addpost");
+	back.onclick = function() {
+		let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+		/* console.log('누름확인'); */
+		if (confirm(text) == true) {
+			location.href = "${pageContext.servletContext.contextPath}/login/admin/teacherList";
+		}
+	};
+
+	addpost.onclick = function() {
+		let text = "강사를 등록하시겠습니까?\등록하시려면 '확인'을 누르세요.";
+		if (confirm(text) == true) {
+			document.getElementById("addpost").submit();
+		}
+	};
 	</script>
 	  
 	</section>

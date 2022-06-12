@@ -15,8 +15,14 @@ public interface TeacherMapper {
 	/* 강사 등록 */
 	int insertTeacher(TeacherDTO teacher);
 
-	
 	/* 강사 정보 수정(update) */
+	int updateTeacher(TeacherDTO no);
+	
+	/* 강사 삭제 */
+	int deleteTeacher(String no);
+
+
+
 }
 
 

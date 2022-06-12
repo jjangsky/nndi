@@ -30,18 +30,7 @@
 		<div class="post title">
    	 		<h3 class="top">폐기 도서 목록 조회</h3>
 		</div>
-		<form action="">
-		  <button class="search btn" type="submit">검색</button> 
-		  <input class="search in" type="text" placeholder="검색어 입력" required>
-		  <select class="search select" required>
-		    <option value="">None</option>
-		    <option value="title">제목</option>
-		    <option value="author">작가</option>
-		    <option value="address">청구기호</option>
-		    <option value="isbn">ISBN</option>
-		    <option value="publish">출판사</option>
-		  </select>
-		</form>
+		
 		  <div class="post list">
 		    <table class="t1">
 		        <thead>

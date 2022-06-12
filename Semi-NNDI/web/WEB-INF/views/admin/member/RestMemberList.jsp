@@ -29,15 +29,7 @@
 	    <div class="post title">
     		<h3 class="top">휴면 관리</h3>
   		</div>
-		<form action="">
-		  <button class="search btn" type="submit">검색</button> 
-		  <input class="search in" type="text" placeholder="검색어 입력" required>
-		  <select class="search select" required>
-		    <option value="">None</option>
-		    <option value="name">이름</option>
-		    <option value="id">회원id</option>
-		  </select>
-		</form>
+
 		  <div class="post list">
 		    <table>
 		        <thead class="table-lgiht">
@@ -57,7 +49,7 @@
 		                <td>${ rest.enrollDate }</td>
 		                <td>${ rest.lastLogin }</td>
 		                <td>
-		                	<button class="btn btn-secondary"
+		                	<button class="btn btn-secondary"id="admit" type="button"
 		                		    onclick="location.href=
 		                		'${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'" >해지</button>
 		                </td>
@@ -66,14 +58,14 @@
 		        </tbody>
 		    </table>
 		    <script>
-		    $("#back").click(function(){
-			      let text = "휴면 회원을 해지 합니다.";
+		    const admit = document.getElementById("admit");
+		    admit.onclick = function(){
+			      let text = " 휴면회원을 해지 하시겠습니까?\n해지하시려면 '확인'을 누르세요.";
+			      /* console.log('누름확인'); */
 			      if (confirm(text) == true) {
-			        
-			      } else {
-			        
-			      }
-			    });
+			    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/memberList"; 
+			      } 
+			    };
 		      </script>
 		    <hr/>
 		    <div class="pagination">

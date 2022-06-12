@@ -30,7 +30,7 @@
 	  <div class="post title">
     	<h3 class="top">대관 신청 관리</h3>
 	  </div>
-		<form action="">
+		<!-- <form action="">
 		  <button class="search btn" type="submit">검색</button> 
 		  <input class="search in" type="text" placeholder="검색어 입력" required>
 		  <select class="search select" required>
@@ -39,7 +39,7 @@
 		    <option value="place">대관시설</option>
 		    <option value="phone">연락처</option>
 		  </select>
-		</form>
+		</form> -->
 		  <div class="post list">
 		    <table class="t1">
 		        <thead>

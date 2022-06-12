@@ -30,18 +30,6 @@
 	    <h3 class="top">전체 회원 조회</h3>
 	  	</div>
 	
-	  <form action="">
-	    <button class="search btn" type="submit">검색</button> 
-	    <input class="search in" type="text" placeholder="검색어 입력" required>
-	    <select class="search select" required>
-	      <option value="">None</option>
-	      <option value="name">이름</option>
-	      <option value="birth">생년월일</option>
-	      <option value="phone">연락처</option>
-	    </select>
-	  </form>
-	
-	
 	  <div class="post list">
 	    <table class="tb01">
 	        <thead class="table-lgiht">
@@ -55,12 +43,12 @@
 	            </tr>
 			</thead>
 			<tbody>
-	            <c:forEach var="alive" items="${ requestScope.memberAliveList }">
+	            <c:forEach var="alive" items="${ requestScope.memberAliveList }" varStatus="status">
 		              <tr>
 		                <td>${ alive.id }</td>
 		                <td>${ alive.name }</td>
 		                <td>${ alive.phone }</td>
-		                <td>${ alive.birth }</td>
+		                <td>${ requestScope.time[status.index].birth }</td>
 		                <td>${ alive.enrollDate }</td>
 		                <td>
 		                	<button class="btn btn-secondary"

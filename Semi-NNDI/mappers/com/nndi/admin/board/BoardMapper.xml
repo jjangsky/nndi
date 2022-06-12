@@ -286,6 +286,7 @@
          , B.CATE_KIND
       FROM TBL_POST_FAQ A
       LEFT OUTER JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
+      ORDER BY A.NUM DESC
       </select>
       
   <!-- FAQ 상세보기 쿼리 -->

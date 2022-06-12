@@ -31,18 +31,7 @@
 			<div class="post title">
     			<h3 class="top">대관 환불내역 조회</h3>
 			</div>
-			<div class="search">
-		      <form action="">
-		        <button class="search btn" type="submit">검색</button> 
-		        <input class="search in" type="text" placeholder="검색어 입력" required>
-		        <select class="search select" required>
-		          <option value="">None</option>
-		          <option value="title">이름</option>
-		          <option value="category">시설</option>
-		          <option value="writer">접수번호</option>
-		        </select>
-		      </form>
-		    </div>
+			
 		    
    			<div class="post list"> 
 		        <table class="t1">

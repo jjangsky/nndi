@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+	<!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/sidebars.css" >
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/post.css" >
@@ -27,64 +32,104 @@
      
     <div>
        <div class="post title">
-           <h3 class="top">강사 수정</h3>
+           <h3 class="top">강사 정보수정</h3>
        </div>
        <div>
          <button id="back" class="back">목록으로</button>
        </div>
     
-       <div class="post add">
-           <form action="">
-             <label>강사명 </label>
-             <input type="text" class="emps" required><br>
-             <label>이메일</label>
-             <input type="email" name="email" class="emps" required><br>
-             <label>연락처</label>
-             <select class="en2">
-             <option value="010">010</option>
-             <option value="016">016</option>
-             <option value="011">011</option>
-             <option value="019">019</option>
-             </select>
-             <input type="tel" name="phone2" class="en1"><br> 
-             <label >우편번호</label>
-             <input type="search" name="address" class="emps" required>&nbsp;
-             <input type="button" value="우편번호 찾기" ><br> 
-             <label>상세주소</label>
-             <input type="text" name="address" required>
-             <button id="deletepost" class="btns">삭 제 하 기</button>
-             <button id="updatepost" class="btns add">수 정 하 기</button>
-           </form>
-       </div>
-     </div>
+		    <div class="post add">
+		        <form id="update" action="${pageContext.servletContext.contextPath}/login/admin/teacherTwoUpdate" method="post">
+		            <table class="tb_02">
+				          <tbody>
+				          	<tr>
+				              <th>강사고유번호</th>
+				              <td><input name="no" type="text" value="${ teacher.no }" readonly></td>
+				            </tr>
+				            <tr>
+				              <th>이름</th>
+				              <td><input name="name" type="text" value="${ teacher.name }"></td>
+				            </tr>
+				            <tr>
+				              <th>성별</th>
+				              <td><input name="gender" type="text" value="${ teacher.gender }" readonly></td>
+				            </tr>
+				            <tr>
+				              <th>생년월일</th>
+				              <td><input name="birth" type="date" value="${ teacher.birth }" required></td>
+				            </tr>
+				            <tr>
+				              <th>이메일</th>
+				              <td><input name="email" type="text" value="${ teacher.email }" required></td>
+				            </tr>
+				            <tr>
+				              <th>연락처</th>
+				              <td><input name="phone" type="text" value="${ teacher.phone }" required></td>
+				            </tr>
+				            <tr>
+				              <th>주소</th>
+				              <td><input name="address" type="text" value="${ teacher.address }" required></td>
+				            </tr> 
+				            
+ 				            <tr>
+				              <th>계약해지 여부</th>
+				              <td><input name="contractYn" type="text" value="${ teacher.contractYn }" readonly></td>
+				            </tr> 
+				          </tbody>
+				          </table>
+		              <button id="deletepost" class="btns" type="button">계 약 해 지</button>
+		              <button id="updatepost" class="btns add" 
+		              		  type="button">수 정 하 기</button>
+		        </form>
+		    </div>
+  		</div>
      <script>
-       $("#back").click(function(){
-         let text = "이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
-         if (confirm(text) == true) {
-           
-         } else {
-           
-         }
-       });
-       $("#updatepost").click(function(){
-         let text = "강사를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-         if (confirm(text) == true) {
-           
-         } else {
-           
-         }
-       });
-       $("#deletepost").click(function(){
-         let text = "강사를 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
-         if (confirm(text) == true) {
-           
-         } else {
-           
-         }
-       });
-     </script>
-     
-   </section>
+			const back = document.getElementById("back");
+			const updatepost = document.getElementById("updatepost");
+			const deletepost = document.getElementById("deletepost");
+		    back.onclick = function(){
+		      let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+		      /* console.log('누름확인'); */
+		      if (confirm(text) == true) {
+		    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/teacherList"; 
+		      }
+		    };
+		    updatepost.onclick = function(){
+			    let text = "강사 정보를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
+			    if (confirm(text) == true) {
+			    	  document.getElementById("update").submit();
+			      }
+			 };
+		    deletepost.onclick = function(){
+				let text = "계약을 해지 하시겠습니까?\n해지하시려면 '확인'을 누르세요.";
+			    if (confirm(text) == true) {
+			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/deleteTeacher.do?no=${ teacher.no }";
+			    } 
+		    };
+			
+			
+	  </script>
+	  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		const $searchZipCode = document.getElementById("searchZipCode");
+		const $goMain = document.getElementById("goMain");
+		
+		$searchZipCode.onclick = function() {
+		
+			new daum.Postcode({
+				oncomplete: function(data){
+					document.getElementById("zipCode").value = data.zonecode;
+					document.getElementById("address1").value = data.address;
+					document.getElementById("address2").focus();
+				}
+			}).open();
+		}
+		
+		$goMain.onclick = function() {
+			location.href = "${ pageContext.servletContext.contextPath }";
+		}
+	</script>
+	</section>
    
    <jsp:include page="../../common/includepage/AdminFooter.jsp"/>
 </body>

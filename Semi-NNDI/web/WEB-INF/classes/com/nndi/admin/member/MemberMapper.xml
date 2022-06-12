@@ -154,7 +154,6 @@
 
 	<!-- MemberRest전체 조회 쿼리 -->	
   <select id="selectAllRestMemberList"  resultMap="MemberRestMap">
-
     SELECT 
            ID
          , NAME

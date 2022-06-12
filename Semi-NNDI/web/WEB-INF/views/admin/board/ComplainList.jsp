@@ -30,18 +30,7 @@
 		    <div class="post title">
 		        <h3 class="top">민원</h3>
 		    </div>
-		    <div class="search">
-		      <form action="">
-		        <button class="search btn" type="submit">검색</button> 
-		        <input class="search in" type="text" placeholder="검색어 입력" required>
-		        <select class="search select" required>
-		          <option value="">None</option>
-		          <option value="title">제목</option>
-		          <option value="category">문의유형</option>
-		          <option value="writer">작성자</option>
-		          <option value="all">전체</option>
-		        </select>
-		      </form>
+
 		    </div>
 		    <div class="post list"> 
 		        <table class="t1">

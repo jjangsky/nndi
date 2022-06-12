@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html`>
+<html>
 <head>
 <meta charset="UTF-8">
 <!-- jQuery 스크립트 인용 문구
