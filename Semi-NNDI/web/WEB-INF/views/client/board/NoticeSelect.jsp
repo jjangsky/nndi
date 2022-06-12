@@ -25,16 +25,7 @@
 	    <h3 class="notice"><b><u>공지</u>사항</b></h3>
 	  </div>
 	
-	  <div style="float: right; margin-left: 600px; margin-top: 20px; margin-bottom: 20px;" >
 	   
-	        <select size = "1" >
-	                <option value="title" selected>제목</option>
-	                <option value="user" selected>작성자</option>
-	        </select>
-	   
-	    <input type="text" placeholder="검색어 입력">
-	    <button>검색</button> 
-	  </div>
 	  <div class="post list"> 
 	  	<form>
 	    <table class="blueone">
@@ -64,16 +55,6 @@
 	  </div>
 	
 	  </div>  
-	    <div class="pagination">
-	        <a href="#">&laquo;</a>
-	        <a href="#">1</a>
-	        <a class="active" href="#">2</a>
-	        <a href="#">3</a>
-	        <a href="#">4</a>
-	        <a href="#">5</a>
-	        <a href="#">6</a>
-	        <a href="#">&raquo;</a>
-	    </div>
 	  </div>
 	</section>
 

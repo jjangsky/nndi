@@ -5,9 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- jQuery 스크립트 인용 문구
-	<script src = "js/jquery-3.6.0.min.js"></script>
- -->
+
  
 <title>Insert title here</title>
 </head>

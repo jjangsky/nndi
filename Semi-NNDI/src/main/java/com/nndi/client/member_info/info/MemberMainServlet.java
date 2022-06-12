@@ -1,8 +1,6 @@
 package com.nndi.client.member_info.info;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.nndi.client.board.BoardService;
-import com.nndi.client.board.FAQListService;
-import com.nndi.model.commondto.FAQDTO;
-import com.nndi.model.commondto.NoticeDTO;
 
 @WebServlet("/MemberMain")
 public class MemberMainServlet extends HttpServlet {

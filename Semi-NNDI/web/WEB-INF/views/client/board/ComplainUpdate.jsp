@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>민원작성 페이지</title>
