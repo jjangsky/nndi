@@ -18,7 +18,9 @@ public class IDDuplicationServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userId = request.getParameter("userId");
+		System.out.println("서블릿 도착");
+		String userId = request.getParameter("inputid");
+		System.out.println(userId);
 		PrintWriter out = response.getWriter();
 		
 		MemberService memberService = new MemberService();

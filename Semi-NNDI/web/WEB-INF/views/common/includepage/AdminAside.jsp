@@ -20,7 +20,7 @@
 	 
 	   <nav>
 		    <div style="width: 280px;">
-		      <a href="${ pageContext.servletContext.contextPath }login/admin/main" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+		      <a href="${ pageContext.servletContext.contextPath }/login/admin/main" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 		        <svg class="bi pe-none me-2" width="30" height="24"></svg>
 		        <span class="fs-5 fw-semibold" style="color:rgb(255, 255, 255)">관리 목록</span>
 		      </a>

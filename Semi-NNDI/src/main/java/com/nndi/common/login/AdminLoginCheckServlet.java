@@ -25,8 +25,7 @@ public class AdminLoginCheckServlet extends HttpServlet {
 		ManagerDTO managerList = new ManagerDTO();
 		managerList.setManagerId(managerId);
 		managerList.setPwd(password);
-		
-		/* ManagerService 객체 생성 */
+				/* ManagerService 객체 생성 */
 		ManagerLoginService managerLoginService = new ManagerLoginService();
 		
 		/* 로그인한 매니저 정보 SELECT */
