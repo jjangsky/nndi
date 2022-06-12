@@ -339,7 +339,7 @@
 	VALUES
 	     (
 	       SEQ_ADMIRE_POST_NUM.nextval
-		 , #{ cate }
+		 , #{ cateNum }
 	     , #{ memId }
 	 	 , SYSDATE
          , #{ title }
@@ -354,7 +354,7 @@
  	<update id="updateCommend" parameterType="com.nndi.model.commondto.AdmireDTO">
  	  UPDATE
                TBL_POST_ADMIRE A
-           SET A.CATE_NUM = #{ cate }
+           SET A.CATE_NUM = #{ cateNum }
              , A.TITLE = #{ title }
              , A.CONTENT = #{ content }
          WHERE A.NUM = #{ num }
