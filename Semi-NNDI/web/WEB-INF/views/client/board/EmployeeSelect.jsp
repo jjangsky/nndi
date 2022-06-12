@@ -17,44 +17,41 @@
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 </head>
 <body>
+	<aside>
+		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+	</aside>
 
-	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-	<section>
-	  <div>
-	    <h3 class="notice"><b><u>강사 모집</u></b></h3>
+	<section style="float: left">
+		<div>
+	    	<h3 class="notice"><b><u>강사 모집</u></b></h3>
+	  	</div>
+	
+	  	<div class="post list"> 
+	  		<form>
+	    		<table class="blueone">
+	      			<thead>
+	      				<tr>
+					        <th>번호</th>
+					        <th>제목</th>
+					        <th>모집 여부</th>
+					        <th>모집 인원</th>
+	      				</tr>
+	   			 	</thead>
+
+		           <c:forEach var="emp" items="${ requestScope.emp}">
+						<tr>
+							<td><c:out value="${ emp.num }"/></td>
+							<td><c:out value="${ emp.title }"/></td>
+							<td><c:out value="${ emp.empYn }"/></td>
+							<td><c:out value="${ emp.empNumber}"/>명</td>
+						</tr>
+					</c:forEach>
+	  			</table>
+	  		</form>
 	  </div>
 	
-	  <div class="post list"> 
-	  	<form>
-	    <table class="blueone">
-	      <thead>
-	      <tr>
-	        <th>번호</th>
-	        <th>제목</th>
-	        <th>모집 여부</th>
-	        <th>모집 인원</th>
-	      </tr>
-	    </thead>
-
-	           <c:forEach var="emp" items="${ requestScope.emp}">
-			<tr>
-				<td><c:out value="${ emp.num }"/></td>
-				<td><c:out value="${ emp.title }"/></td>
-				<td><c:out value="${ emp.empYn }"/></td>
-				<td><c:out value="${ emp.empNumber}"/>명</td>
-			</tr>
-			</c:forEach>
-	     
-
-	  </table>
-	  </form>
-	  </div>
-	
-	  </div>  
 	</section>
 
-	
-	
 </body>
 
 <br clear="both">

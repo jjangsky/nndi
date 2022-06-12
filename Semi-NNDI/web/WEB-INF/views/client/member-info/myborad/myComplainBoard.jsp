@@ -14,60 +14,58 @@
 </head>
 <body>
 
-	<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
+	<aside>
+		<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
+	</aside>
 	
-	 <section>
-	 	<div>
-	    <h3 class="notice"><b><u> ${ sessionScope.loginMember.name }님 민원 신청 조회</u></b></h3>
-	  </div>
-	
-	  <div class="post list"> 
-      <form>
-        <table class="blueone">
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>카테고리</th>
-          <th>제목</th>
-          <th>작성일</th>
-          <th>처리상태</th>
-          <th>조회수</th>
-        </tr>
-    </thead>
-      <c:forEach var="board" items="${ requestScope.myComplain }">
-			<tr>
-				<td class="test"><c:out value="${ board.num }"/></td>
-				<td class="test"><c:out value="${ board.category.cateKind }"/></td>
-				<td class="test"><c:out value="${ board.title}"/></td>
-				<td class="test"><c:out value="${ board.date}"/></td>
-				<td class="test"><c:out value="${ board.answer }"/></td>
-				<td class="test"><c:out value="${ board.hits }"/></td>
-			</tr>
-			
-			<c:if test="${board.answerContent != null}">
-
-		      <tr>
-		      	  <td>[답변]</td>
-		          <td class="test2" style="display: none;">${board.num}</td>
-		          <td class="test2">${ board.category.cateKind }</td>
-		          <td class="test2">${ board.title }</td>
-		          <td class="test2">${ board.date }</td>
-		          <td class="test2">${ board.answer }</td>
-		          <td class="test2">${ board.hits }</td>
-		          
-		          </tr>
-			</c:if>    
-		</c:forEach>
-      
-      
-    </table>
-    </form>
+	<section style="float: left;">
+		<div>
+	    	<h3 class="notice"><b><u> ${ sessionScope.loginMember.name }님 민원 신청 조회</u></b></h3>
+	  	</div>
+	  	
+	  	<div class="post list"> 
+      		<form>
+        		<table class="blueone">
+      				<thead>
+        				<tr>
+			          		<th>번호</th>
+			          		<th>카테고리</th>
+			          		<th>제목</th>
+			        	  	<th>작성일</th>
+			          		<th>처리상태</th>
+			        		<th>조회수</th>
+        				</tr>
+    				</thead>
     
-    <!-- test -->
+    				<c:forEach var="board" items="${ requestScope.myComplain }">
+						<tr>
+							<td class="test"><c:out value="${ board.num }"/></td>
+							<td class="test"><c:out value="${ board.category.cateKind }"/></td>
+							<td class="test"><c:out value="${ board.title}"/></td>
+							<td class="test"><c:out value="${ board.date}"/></td>
+							<td class="test"><c:out value="${ board.answer }"/></td>
+							<td class="test"><c:out value="${ board.hits }"/></td>
+						</tr>
+			
+						<c:if test="${board.answerContent != null}">
+					    	<tr>
+		      	  				<td>[답변]</td>
+						        <td class="test2" style="display: none;">${board.num}</td>
+					        	<td class="test2">${ board.category.cateKind }</td>
+						        <td class="test2">${ board.title }</td>
+						        <td class="test2">${ board.date }</td>
+						        <td class="test2">${ board.answer }</td>
+						        <td class="test2">${ board.hits }</td>
+		          			</tr>
+						</c:if>    
+					</c:forEach>
+      
+    		</table>
+    	</form>
   </div>
         
      
-    </section>
+ </section>
     <script>
 		
 		if(document.getElementsByClassName("test")) {

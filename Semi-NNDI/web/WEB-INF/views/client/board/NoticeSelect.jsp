@@ -8,54 +8,48 @@
 <meta charset="UTF-8">
 <title>너나들이 중랑</title>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Policy.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/selectList.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/sidebars.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFind.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFindAside.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/post.css">
 
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 </head>
 <body>
+	<aside>
+		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+	</aside>
 
-	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-	<section>
-	  <div>
-	    <h3 class="notice"><b><u>공지</u>사항</b></h3>
-	  </div>
-	
+	<section style="float: left">
+		<div>
+	    	<h3 class="notice"><b><u>공지</u>사항</b></h3>
+	  	</div>
 	   
-	  <div class="post list"> 
-	  	<form>
-	    <table class="blueone">
-	      <thead>
-	      <tr>
-	        <th>번호</th>
-	        <th>제목</th>
-	        <th>작성자</th>
-	        <th>작성일</th>
-	        <th>조회수</th>
-	      </tr>
-	    </thead>
-
-	           <c:forEach var="notice" items="${ requestScope.noticeBoard }">
-			<tr>
-				<td><c:out value="${ notice.num }"/></td>
-				<td><c:out value="${ notice.title}"/></td>
-				<td><c:out value="${ notice.managerId}"/></td>
-				<td><c:out value="${ notice.postDate}"/></td>
-				<td><c:out value="${ notice.hits }"/></td>
-			</tr>
-			</c:forEach>
-	     
-
-	  </table>
-	  </form>
-	  </div>
+	 	<div class="post list"> 
+	  		<form>
+	    		<table class="blueone">
+	      			<thead>
+	      				<tr>
+					        <th>번호</th>
+					        <th>제목</th>
+					        <th>작성자</th>
+					        <th>작성일</th>
+					        <th>조회수</th>
+	      				</tr>
+	    			</thead>
 	
-	  </div>  
-	  </div>
+		    		<c:forEach var="notice" items="${ requestScope.noticeBoard }">
+						<tr>
+							<td><c:out value="${ notice.num }"/></td>
+							<td><c:out value="${ notice.title}"/></td>
+							<td><c:out value="${ notice.managerId}"/></td>
+							<td><c:out value="${ notice.postDate}"/></td>
+							<td><c:out value="${ notice.hits }"/></td>
+						</tr>
+					</c:forEach>
+	     
+	    		</table>
+	  		</form>
+	 	</div>
+	
 	</section>
 
 	

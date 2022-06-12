@@ -18,7 +18,7 @@
 <body>
 	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	
-		<section>
+		<section style="float: left">
 	  <div>
 	    <h3 class="notice"><b><u>공지</u>사항</b></h3>
 	  </div>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-<section>
+<section style="float: left;">
   <div>
     <h3 class="notice"><b>FAQ</b></h3>
   </div>
@@ -40,6 +40,7 @@
   </div>
   
 </section>
+<br clear="both">
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
   <script>
 		

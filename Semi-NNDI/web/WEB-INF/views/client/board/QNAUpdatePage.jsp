@@ -9,58 +9,64 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-<section>
-<form id="update" action="${pageContext.servletContext.contextPath}/login/board/QNAUpdate?num=${requestScope.qnadto.num}" method="post" >
-  <div class="write2">
-    <p>문의 글 수정</p>
-  </div>
+
+<aside>
+	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+</aside>
+
+<section style="float: left">
+
+	<form id="update" action="${pageContext.servletContext.contextPath}/login/board/QNAUpdate?num=${requestScope.qnadto.num}" method="post" >
+  		<div class="write2">
+    		<p>문의 글 수정</p>
+  		</div>
 	
-  <div class="min3">
-    <div class="min2">
-    <tr>
-      <td>분류</td>
-      <select size = "1" name="category">
-        <option value="1">강좌</option>
-        <option value="2">도서관</option>
-        <option value="3">체육</option>
-        <option value="4">문화</option>
-        <option value="5">기타</option>
-      </select>
-    </tr>
-     </div>
-  </div>
+  		<div class="min3">
+    		<div class="min2">
+    			<tr>
+      				<td>분류</td>
+      					<select size = "1" name="category">
+					        <option value="1">강좌</option>
+					        <option value="2">도서관</option>
+					        <option value="3">체육</option>
+					        <option value="4">문화</option>
+					        <option value="5">기타</option>
+      					</select>
+    			</tr>
+     		</div>
+  		</div>
 
-  <div class="min3">
-    <p class="jemok">제목</p>
-    <div class="min4">
-    <tr>
-    <textarea name="title" style="resize: none;">${requestScope.qnadto.title}</textarea>
-    </tr>
-     </div>
-  </div>
-	<!-- test -->
-  <div class="min3">
-    <p class="jemok">내용</p>
-    <div class="min2">
-    
-     <textarea name="content" style="resize: none;">${requestScope.qnadto.content}</textarea>
-    
-  </div>
- </div>
-  <div class="min3">
-    <div class="min2">
-  </div>
+  		<div class="min3">
+    		<p class="jemok">제목</p>
+    		<div class="min4">
+    			<tr>
+    			<textarea name="title" style="resize: none;">${requestScope.qnadto.title}</textarea>
+    			</tr>
+     		</div>
+  		</div>
+  		
+  		<div class="min3">
+    		<p class="jemok">내용</p>
+    		<div class="min2">
+     			<textarea name="content" style="resize: none;">${requestScope.qnadto.content}</textarea>
+		 	</div>
+		</div>
 
-  <div>
-    <button id="updatecancel" class="btns" type="button" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
-    <button id="updateqna" class="btns" type="button">수정</button>
-  </div>
- </div>
-</form>
+		<div class="min3">
+    		<div class="min2">
+  			</div>
+  			
+  			<div>
+    			<button id="updatecancel" class="btns" type="button" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
+    			<button id="updateqna" class="btns" type="button">수정</button>
+  			</div>
+ 		</div>
+	</form>
 
 </section>
 
+<br clear="both">
+<jsp:include page="../../common/includepage/UserFooter.jsp"/>
  <script>
 			const updateqna = document.getElementById("updateqna");
 			updateqna.onclick = function(){
@@ -84,8 +90,7 @@
 		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
 		    };
 </script>
-<jsp:include page="../../common/includepage/UserFooter.jsp"/>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>

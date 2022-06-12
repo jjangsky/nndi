@@ -7,20 +7,16 @@
 <meta charset="UTF-8">
 <title>너나들이 중랑</title>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Policy.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/selectList.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/sidebars.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFind.css">
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/UserFindAside.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/post.css">
 
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 </head>
 <body>
-
-	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+	<aside>
+		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+	</aside>
 	
-	<section>
+	<section style="float: left">
 		<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
     		<b>센터 운영 및 시설에 대한 건의 및 불편사항을 남겨주시면 최대한 빠른 시간 안에 답변드리겠습니다.</b><br>
     		<b style="color: red;">※ 일반 문의는 접수 후 7일, 관련 법령 해석이 요구되는 문의는 접수 후 14일 이내에 처리됩니다.</b><br>
@@ -28,56 +24,52 @@
      		<b> - 비공개 게시물의 답변은 비공개 답변으로 게시가 됩니다.</b>
      	</div>
 
-  	<div class="post list"> 
-     	<form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
-        <table class="blueone">
+  		<div class="post list"> 
+     		<form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
+        		<table class="blueone">
      
-		    <thead>
-		     	<tr>
-		        	<th>번호</th>
-		          	<th>카테고리</th>
-		          	<th>제목</th>
-		          	<th>작성일</th>
-		          	<th>처리상태</th>
-		          	<th>조회수</th>
-		       </tr>
-		   	</thead>
+		   			<thead>
+		     			<tr>
+		        			<th>번호</th>
+		          			<th>카테고리</th>
+				          	<th>제목</th>
+				          	<th>작성일</th>
+				          	<th>처리상태</th>
+				          	<th>조회수</th>
+		       			</tr>
+		   			</thead>
       
-		    <c:forEach var="board" items="${ requestScope.boardList }">
-		    
-				<tr>
-					<td class="test"><c:out value="${ board.num }"/></td>
-					<td class="test"><c:out value="${ board.category.cateKind }"/></td>
-					<td class="test"><c:out value="${ board.title}"/></td>
-					<td class="test"><c:out value="${ board.date}"/></td>
-					<td class="test"><c:out value="${ board.answer }"/></td>
-					<td class="test"><c:out value="${ board.hits }"/></td>
-				</tr>
+			    	<c:forEach var="board" items="${ requestScope.boardList }">
+						<tr>
+							<td class="test"><c:out value="${ board.num }"/></td>
+							<td class="test"><c:out value="${ board.category.cateKind }"/></td>
+							<td class="test"><c:out value="${ board.title}"/></td>
+							<td class="test"><c:out value="${ board.date}"/></td>
+							<td class="test"><c:out value="${ board.answer }"/></td>
+							<td class="test"><c:out value="${ board.hits }"/></td>
+						</tr>
+						
+					<c:if test="${board.answerContent != null}">
+						 <tr>
+					     	<td>[답변]</td>
+					         	<td class="test2" style="display: none;">${board.num}</td>
+					         	<td class="test2">${ board.category.cateKind }</td>
+					          	<td class="test2">${ board.title }</td>
+					          	<td class="test2">${ board.date }</td>
+					          	<td class="test2">${ board.answer }</td>
+					          	<td class="test2">${ board.hits }</td>
+				        </tr>
+					</c:if>    
 					
-				<c:if test="${board.answerContent != null}">
-					 <tr>
-				     	<td>[답변]</td>
-				         	<td class="test2" style="display: none;">${board.num}</td>
-				         	<td class="test2">${ board.category.cateKind }</td>
-				          	<td class="test2">${ board.title }</td>
-				          	<td class="test2">${ board.date }</td>
-				          	<td class="test2">${ board.answer }</td>
-				          	<td class="test2">${ board.hits }</td>
-			        </tr>
-				</c:if>    
-				
-			</c:forEach>
-      
-		</table>
-    	</form>
+					</c:forEach>
+				</table>
+     		</form>
  	</div>
   
 	<div>
-	
 	    <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/complain/towrite'">
 	    글작성
 	    </button>
-	    
 	</div>
 
 </section>
