@@ -109,4 +109,24 @@ public class TeacherService {
 		return result;
 	}
 
+	/* 강사 재계약 요청 */
+	public int recontactTeacher(String no) {
+		
+		System.out.println("Service 도착");
+
+		SqlSession sqlSession = getSqlSession();
+
+		mapper = sqlSession.getMapper(TeacherMapper.class);
+
+		int result = mapper.recontactTeacher(no);
+
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+
+		return result;
+	}
+
 }

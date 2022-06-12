@@ -38,13 +38,13 @@
 		        <form  id="update" action="${pageContext.servletContext.contextPath}/login/admin/noticeUpdate" method="post">
 		        	<input type="hidden" id="num" name="num" value="${ detailNotice.num }">
 		            <label>제목</label><br>
-		            <input name="title" id="title" maxlength=100 type="text" value='${ detailNotice.title }'><br>     <!-- readonly에 value값 넣기 -->
+		            <input name="title" id="title" maxlength=100 type="text" value='${ detailNotice.title }' minlength="10" placeholder="10글자 이상 입력해주세요"><br>     <!-- readonly에 value값 넣기 -->
 		            <label>카테고리</label><br>
 		            <input name="categoryNum" type="text" readonly value=${ detailNotice.category.cateKind }><br>
 		            <label>수정하는 작성자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		            <label>내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="15" style="resize: none;" required 
+		            <textarea name="content" id="content" cols="30" rows="15" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required 
 		            		  >${ requestScope.detailNotice.content }</textarea><br>
 		            <button id="updatepost" class="btns add" type="submit">수 정 하 기</button>
 		            <button id="deletepost" class="btns">삭 제 하 기</button>

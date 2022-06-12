@@ -1,6 +1,8 @@
 package com.nndi.admin.classes;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,12 +25,20 @@ public class AdminClassDetailView extends HttpServlet {
 		
 		ClassesAndTeacherAndCenterDTO cls = classService.selectOneByNumClass(num);
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		ClassesAndTeacherAndCenterDTO ctc = cls;
+		String start = sdf.format(ctc.getClsStartDay());
+		String end =  sdf.format(ctc.getClsEndDay());
+		
+		
 		System.out.println("Controller : " + cls);
 		
 		String path = "";
 		if (!"".equals(cls.getClass()) && cls.getClass() != null) {
 			path = "/WEB-INF/views/admin/class/ClassDetailView.jsp";
 			request.setAttribute("cls", cls);
+			request.setAttribute("start", start);
+			request.setAttribute("end", end);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			System.out.println("잔넨..");

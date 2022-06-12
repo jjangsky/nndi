@@ -65,9 +65,9 @@
 		            </tbody>
 		        </table>
 		    </div>
-		    <div class="btns">
-		      <button id="addpost" class="btns addbtn">글쓰기</button>
-		    </div>
+		    <div class="btns" style="margin-bottom:2%">
+		      <button id="addpost" class="btns addbtn" style="margin-bottom:2%">글쓰기</button><br><br><br>
+		    </div><br><br>
 		    
 		    <script>
 			const addpost = document.getElementById("addpost");

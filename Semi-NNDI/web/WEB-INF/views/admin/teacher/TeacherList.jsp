@@ -34,7 +34,7 @@
         <table class="t1">
             <thead>
               <tr>
-                <th>번호</th>
+                <th>강사코드</th>
                 <th>이름</th>
                 <th>성별</th>
                 <th>연락처</th>

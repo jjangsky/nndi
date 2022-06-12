@@ -48,7 +48,7 @@
 				            </tr>
 				            <tr>
 				              <th>이름</th>
-				              <td><input name="name" type="text" value="${ teacher.name }"></td>
+				              <td><input name="name" type="text" value="${ teacher.name }" minlength="2"></td>
 				            </tr>
 				            <tr>
 				              <th>성별</th>
@@ -60,15 +60,15 @@
 				            </tr>
 				            <tr>
 				              <th>이메일</th>
-				              <td><input name="email" type="text" value="${ teacher.email }" required></td>
+				              <td><input name="email" type="text" value="${ teacher.email }" minlength="2" required></td>
 				            </tr>
 				            <tr>
 				              <th>연락처</th>
-				              <td><input name="phone" type="text" value="${ teacher.phone }" required></td>
+				              <td><input name="phone" type="text" value="${ teacher.phone }" minlength="11" required></td>
 				            </tr>
 				            <tr>
 				              <th>주소</th>
-				              <td><input name="address" type="text" value="${ teacher.address }" required></td>
+				              <td><input name="address" type="text" value="${ teacher.address }" minlength="5" required></td>
 				            </tr> 
 				            
  				            <tr>
@@ -77,7 +77,7 @@
 				            </tr> 
 				          </tbody>
 				          </table>
-		              <button id="deletepost" class="btns" type="button">계 약 해 지</button>
+		              <button id="deletepost" class="btns" type="button">계약 해지 / 해지 취소</button>
 		              <button id="updatepost" class="btns add" 
 		              		  type="button">수 정 하 기</button>
 		        </form>
@@ -101,10 +101,12 @@
 			      }
 			 };
 		    deletepost.onclick = function(){
-				let text = "계약을 해지 하시겠습니까?\n해지하시려면 '확인'을 누르세요.";
+				let text = "계약을 해지 하시겠습니까?\n해지하시려면 '확인'을 누르세요.\n계약해지를 취소하실 경우 취소를 눌러주세요.";
 			    if (confirm(text) == true) {
 			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/deleteTeacher.do?no=${ teacher.no }";
-			    } 
+			    } else {
+			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/recontactTeacher.do?no=${ teacher.no }";
+			    }
 		    };
 			
 			

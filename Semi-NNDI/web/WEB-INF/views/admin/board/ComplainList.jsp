@@ -65,7 +65,7 @@
 		                </td>
 		            </c:forEach>
 		            </tbody>
-		        </table>
+		        </table><br><br><br>
 		    </div>
 		</div>
 			  

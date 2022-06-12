@@ -21,6 +21,8 @@
         color: aliceblue !important;
       }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    
 <title>Admin Teacher List</title>
 </head>
 <body>
@@ -41,7 +43,7 @@
 	    <div class="post add">
 	    <form action="${ pageContext.servletContext.contextPath }/login/admin/teacherAdd" method="post" >
 	        <label>이름 </label>
-	        <input name="name" type="text" class="input1" required>
+	        <input name="name" type="text" class="input1" id="uName" minlength="2"  required>
 	        <label >성별 </label>
 		        <select class="input1" name="gender"
 					id="gender" required>
@@ -51,20 +53,54 @@
 		        </select>
 	        <label>생년월일 </label>
 		    <input type="date" name="birth" class="input1" required>
-		    <label>이메일 </label>
-		    <input type="text" class="input1" name="email" required><br>
+		    
+		    
+		    <label>이메일 &nbsp;&nbsp;&nbsp;</label><input type="text" name="email01" id="str_email01" style="width:250px" required minlength="2">@
+                	<input type="text" name="email02" id="str_email02" style="width:300px;" disabled value="naver.com" required>
+                		<select style="width:300px;margin-right:10px" name="email03" id="selectEmail">
+	                    	<option value="1">직접입력</option>
+	                        <option value="naver.com" selected>naver.com</option>
+	                        <option value="hanmail.net">hanmail.net</option>
+	                        <option value="hotmail.com">hotmail.com</option>
+	                        <option value="nate.com">nate.com</option>
+	                        <option value="yahoo.co.kr">yahoo.co.kr</option>
+	                        <option value="empas.com">empas.com</option>
+	                        <option value="dreamwiz.com">dreamwiz.com</option>
+	                        <option value="freechal.com">freechal.com</option>
+	                        <option value="lycos.co.kr">lycos.co.kr</option>
+	                        <option value="korea.com">korea.com</option>
+	                        <option value="gmail.com">gmail.com</option>
+	                        <option value="hanmir.com">hanmir.com</option>
+	                        <option value="paran.com">paran.com</option>
+            </select><br>
+		    
             <label>연락처 </label>
-		    <input type="text" class="input1" name="phone" required>
-  			<label>주소 </label>
-		    <input type="text" class="input1" name="address" required><br> 
+		    <input type="text" class="input1" name="phone" minlength="11" required>
+		    
+		    <label for="address1"> 우편 번호: </label>
+					<input type="button" value="검색" class="btn btn-yg" id="searchZipCode" style="border: 1px solid black; background-color: #9d9adf;">
+					<input type="text" name="zipCode" id="zipCode" readonly>
+			
+				<br>
+			
+				<label for="address2"> 주소: </label>            
+					<input type="text" name="address1" id="address1" readonly>
+			
+				<br>
+			
+				<label for="address3"> 상세 주소: </label>		
+					<input type="text" name="address2" id="address2" minlength="5">
+
+    			<br>
+		    
 	        <label >계약해지 여부 </label>
 		    <select class="input1" name="contractYn" id="contractYn" required>
 		             <option value="">none</option>
 		             <option value="Y">Y</option>
 		             <option value="N">N</option>
-		    </select> <br>
+		    </select> <br><br><br>
 	          <button id="addpost" class="btns add">등 록 하 기</button>
-	          <button class="btns">다 시   작 성 하 기</button>
+	          <button class="btns">다 시   작 성 하 기</button><br><br><br><br><br><br>
 	      </form>
 	  	</div>
 	  </div>
@@ -87,7 +123,26 @@
 		}
 	};
 	</script>
-	  
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		const $searchZipCode = document.getElementById("searchZipCode");
+		const $goMain = document.getElementById("goMain");
+		
+		$searchZipCode.onclick = function() {
+		
+			new daum.Postcode({
+				oncomplete: function(data){
+					document.getElementById("zipCode").value = data.zonecode;
+					document.getElementById("address1").value = data.address;
+					document.getElementById("address2").focus();
+				}
+			}).open();
+		}
+		
+		$goMain.onclick = function() {
+			location.href = "${ pageContext.servletContext.contextPath }";
+		}
+	</script>
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>

@@ -53,9 +53,9 @@
 		                </tr>
 		            </table>
 		             <label>상세 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" required>${ requestScope.detailFaq.content }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
 		            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
-		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button>
+		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button><br><br><br>
 		        </form>
 		    </div>
   		</div>

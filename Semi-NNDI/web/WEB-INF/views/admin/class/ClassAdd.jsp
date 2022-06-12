@@ -81,7 +81,7 @@
 								action="${ pageContext.servletContext.contextPath }/login/admin/classAdd"
 								method="post">
 		          <label>강좌명 </label>
-		          <input name="clsName" type="text" class="input1" required>
+		          <input name="clsName" type="text" class="input1" minlength="3" placeholder="3글자 이상 입력해주세요" required>
 		          <label>강좌 분류 </label>
 		            <select class="input1" name="clsCategoryName"
 									id="clsCategoryName" required>
@@ -90,9 +90,9 @@
 		              <option value="체육">체육</option>
 		            </select> <br>
 		          <label>강사 코드 </label>
-		          <input type="text" name="tcrNo" class="input1" required>
+		          <input type="number" name="tcrNo" class="input1" minlength="10" placeholder="강사코드를 확인한 후 숫자만 입력해주세요" required>
 		          <label>최대수강인원 </label>
-		          <input type="text" class="input1" name="clsMaxCnt" required><br>
+		          <input type="number" class="input1" name="clsMaxCnt" placeholder="숫자만 입력해주세요" required><br>
 		          <label>강의실 </label> 
 		            <select name="cenName" class="input1" required>
 		              <option value=" ">--체육 시설--</option>
@@ -121,12 +121,12 @@
 		                <option value="전체">전체</option>
 		              </select> 
 		          <label>강좌수강료 </label>
-		          <input type="text" class="input1" name="clsCost" required>
+		          <input type="number" class="input1" name="clsCost" min="10" placeholder="숫자만 입력해주세요" required>
 		          <label>강좌요일 </label>
-		          <input type="text" class="input1" name="clsDay" required><br>
+		          <input type="text" class="input1" name="clsDay" minlength="10" placeholder="10글자 이상 입력해주세요" required><br>
 		          <label>강좌 설명</label>
 		          <textarea name="clsExplain" id="content" cols="30" rows="3"
-									style="resize: none;" required></textarea>
+									style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
 								<br>
 		          <label>강의 기간 </label>
 		          <input type="date" name="clsStartDay" class="input1"
@@ -134,9 +134,9 @@
 									class="input1" required>
 								<p>
 		          <label>강의 시간</label>
-		          <input type="text" name="clsRunTime" class="input1" required>  
-		          <label style="margin-left: 1%;">강의 총 진행시간</label>
-		          <input type="number" name="clsTime" class="input1" required>
+		          <input type="text" name="clsRunTime" class="input1" placeholder="강의 진행 시간을 입력해 주세요. 예) 12:00~13:00" required>  
+		          <label style="margin-left: 1%;" >진행시간</label>
+		          <input type="number" name="clsTime" class="input1" placeholder="1회 진행시 총 진행시간을 입력하세요" required>
 								<p>
 		
 		          <button id="addpost" class="btns add">등 록 하 기</button>

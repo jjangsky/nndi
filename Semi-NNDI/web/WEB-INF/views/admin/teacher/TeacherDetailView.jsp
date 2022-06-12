@@ -35,7 +35,7 @@
 	    <table class="tb_02">
 	          <tbody>
 	            <tr>
-	              <th>강사고유번호</th>
+	              <th>강사코드</th>
 	              <td>${ detailTeacher.no }</td>
 	            </tr>  
 	            <tr>

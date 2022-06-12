@@ -24,7 +24,7 @@
   	     , A.TCR_ADDRESS
   	     , A.TCR_CONTRACT_YN
   	  FROM TBL_TEACHER A
-  	  ORDER BY A.TCR_NO ASC
+  	 ORDER BY A.TCR_NAME ASC
   </select>
   
   <!-- 강사상세 조회 쿼리 -->
@@ -82,5 +82,13 @@
 		 WHERE A.TCR_NO =  #{ no }
 	</update>
 	
+	<!-- 강사 재계약 요청 -->
+  <update id="recontactTeacher" parameterType="string">
+    UPDATE
+      	   TBL_TEACHER 
+       SET TCR_CONTRACT_YN ='N'
+     WHERE TCR_CONTRACT_YN ='Y'
+     AND TCR_NO = #{ no }  
+  </update> 
 </mapper>
 
