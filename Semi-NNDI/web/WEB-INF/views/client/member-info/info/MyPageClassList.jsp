@@ -15,12 +15,15 @@
 <div>
    <h3 class="notice">${ sessionScope.loginMember.name } 님의 수강내역입니다.</h3>
 </div>
+
+
 <div class="post list"> 
     <table class="blueone">
       <thead>
         <tr>
             <th>수강 과목</th>
             <th>개강일</th>
+            <th>상세<th>
 		    </tr>        
     </thead>
     <tbody>
@@ -29,6 +32,11 @@
           <td class="test" style="display: none;">${mypagecls.clsNum}</td>
           <td class="test">${mypagecls.clsName}</td>
           <td class="test">${mypagecls.clsStartDay}</td>
+          <td>
+          	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">
+          		수강취소
+          	</button>
+          </td>
       </tr>
        
       </c:forEach>

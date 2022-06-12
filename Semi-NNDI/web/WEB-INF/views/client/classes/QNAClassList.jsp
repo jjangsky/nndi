@@ -33,26 +33,58 @@
 		    </tr>        
     </thead>
     <tbody>
-    <c:forEach var="cls" items="${ requestScope.classList }">
+    <c:forEach var="cls" items="${ requestScope.possibleCls }"  varStatus="status">
       <tr>
           <td class="mudo" style="display: none;">${cls.clsNum}</td>
           <td class="mudo">${cls.clsName}</td>
           <td class="mudo">${cls.teacher.name}</td>
           <td class="mudo">${cls.cenName} 호</td>
           <td class="mudo">${cls.clsApplyCnt}명//${cls.clsMaxCnt}명</td>
-          <td class="mudo">${cls.clsStartDay}</td>
-          <td class="mudo">${cls.clsEndDay}</td>
+          <td class="mudo">${requestScope.time1[status.index].start}</td>
+          <td class="mudo">${requestScope.time1[status.index].end}</td>
           <td class="mudo">${cls.clsRunTime}</td>
           <td class="mudo">${cls.clsDay}</td>
-           <td>
-           	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/QNABoardListDetail?num=${qna.num}'">
-          		보기
-          	</button> 
-          </td> 
       </tr>
       </c:forEach>
+      
     </tbody>
+    
     </table>
+    <h3>수강 신청 불가</h3>
+    
+    <table class="blueone">
+      <thead>
+        <tr>
+            <!-- <th>번호</th> -->
+            <th>강좌명</th>           
+            <th>강사명</th>
+            <th>장소</th>
+            <th>신청인원</th>
+            <th>개강일</th>
+            <th>종강일</th>
+            <th>진행시간</th>
+            <th>요일</th>
+		    </tr>        
+    </thead>
+    <tbody>
+    <c:forEach var="cls2" items="${ requestScope.impossibleCls }"  varStatus="status">
+      <tr>
+          <td class="mudo" style="display: none;">${cls2.clsNum}</td>
+          <td class="mudo">${cls2.clsName}</td>
+          <td class="mudo">${cls2.teacher.name}</td>
+          <td class="mudo">${cls2.cenName} 호</td>
+          <td class="mudo">${cls2.clsApplyCnt}명//${cls2.clsMaxCnt}명</td>
+          <td class="mudo">${requestScope.time2[status.index].start}</td>
+          <td class="mudo">${requestScope.time2[status.index].end}</td>
+          <td class="mudo">${cls2.clsRunTime}</td>
+          <td class="mudo">${cls2.clsDay}</td>
+      </tr>
+      </c:forEach>
+      
+    </tbody>
+    
+    </table>
+    
 	<%-- 페이지 처리 --%>
 	<jsp:include page="../../common/includepage/paging.jsp"/>
 	

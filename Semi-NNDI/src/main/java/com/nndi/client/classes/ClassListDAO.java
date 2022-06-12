@@ -24,4 +24,7 @@ public interface ClassListDAO {
 
 	/* 문화 강좌 상세 조회 하기 */
 	ClassesAndTeacherAndCenterDTO classculturedetail(int num);
+
+	/* 마감 강좌 조회 */
+	List<ClassesAndTeacherAndCenterDTO> ClassOffList();
 }
