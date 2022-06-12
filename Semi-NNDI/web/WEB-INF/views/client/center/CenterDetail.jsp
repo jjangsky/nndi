@@ -18,13 +18,14 @@
 
 <body>
 
-	<aside>
+	
 	<jsp:include page="../../common/includepage/CenterAside.jsp"/>
-	</aside>
+	
 	
   	<section style="float: left">
+  	  <div class="post list">
 		<form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
-	  		<table class="blueone">
+	  		<table class="blueone" style="margin-left: 40%; margin-top:10%; margin-bottom:20%; width:800px; height:400px;">
 	      		<tr>
 	          		<th><label>시설명</label></th>
 	         			<td> ${requestScope.centerDetail.centerKindName }</td>
@@ -38,12 +39,12 @@
 	    
 	    		<tr>
 	        		<th><label>이용 시작일</label></th>
-	        			<td><input type="date" name="start"></td>
+	        			<td><input type="date" name="start" required></td>
 	    		</tr>
 	    		
 	    		<tr>
 	        		<th><label>이용 종료일</label></th>
-	        			<td><input type="date" name="end"></td>
+	        			<td><input type="date" name="end" required></td>
 	    		</tr>
 	    
 	    		<tr>
@@ -57,11 +58,12 @@
 	    		</tr>
 	  
 	    		<tr>  	
-	    			<button type="reset">취소</button>
-	    			<button type="submit">등록</button>
+	    			<td><button type="submit">등록</button></td>
+	    			<td><button type="reset">취소</button></td>
 	   		 	</tr>
    		 	</table>
 	  	</form>
+	  	</div>
 	</section>
 
 </body>

@@ -24,10 +24,7 @@
     		<b>- 개인정보 보호를 위해 게시내용에 개인정보를 입력하는 행위를 삼가하여 주시기 바랍니다.</br></b>
     	</div>
     	
-    	<div style="float: right;">
-    		<button type="reset">취소</button>
-    		<button type="submit">등록</button>
-  		</div>
+    	
 
 	<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.num}" method="post">
   		<div class="write2">
@@ -54,7 +51,7 @@
     		
     		<div class="min4">
     		<tr>
-    		<textarea placeholder="제목을 입력하세요" name="title"></textarea>
+    		<textarea placeholder="제목을 입력하세요" name="title" required></textarea>
     		</tr>
   			</div>
 		</div>
@@ -62,9 +59,14 @@
 	  	<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content"></textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" required></textarea>
 		  	</div>
 		</div>
+		
+		<div style="float: right;">
+    		<button type="reset">취소</button>
+    		<button type="submit">등록</button>
+  		</div>
 		
 
 </form>

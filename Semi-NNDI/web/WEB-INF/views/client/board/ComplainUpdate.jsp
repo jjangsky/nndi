@@ -54,7 +54,7 @@
     		<p class="jemok">제목</p>
     		<div class="min4">
     			<tr>
-    			<textarea placeholder="제목을 입력하세요" name="title">${ requestScope.complainUpdate.title }</textarea>
+    			<textarea placeholder="제목을 입력하세요" name="title" required>${ requestScope.complainUpdate.title }</textarea>
     			<input type="hidden" value="${ request.num }" name="num">
    				</tr>
   			</div>
@@ -63,7 +63,7 @@
   		<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content">${ requestScoep.complainUpdate.content }</textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" required>${ requestScoep.complainUpdate.content }</textarea>
   			</div>
 		</div>
 

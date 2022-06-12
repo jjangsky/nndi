@@ -13,21 +13,23 @@
 </head>
 <body>
 
-	<aside>
+	
 	<jsp:include page="../../common/includepage/CenterAside.jsp"/>
-	</aside>
+	
 	
 	<section style="float: left">
-    	<div class="cap"><h3>대관 접수 절차 안내</h3></div>
-        	<div class="dv"><h5 class="p">상담 및 접수 > 신청서 작성 > 관리자 승인(최대 7일 소요) > 대관료 납부 > 시설 이용 <br> 시설 사용허가 신청서 1부: <a href="파일 경로/파일이름.확장자" download><button class="myButton">다운로드</button></a> </h5></div>
-        		<p class="pp">상담 및 접수 후 신청서는 메일로 송부 받습니다. 홈페이지 대관 신청만 있을 경우 반려될 수 있습니다.</p>
+		<div style="margin-left:20%; margin-top:10%; border:3px solid gray; width:500px; text-align:auto;">
+    	<h3 style="padding: 20px 20px 20px 100px;"> 대관List</h3>
+        		<p class="pp">상담 및 접수 후 신청서는 메일로 송부 받습니다. <br>홈페이지 대관 신청만 있을 경우 반려될 수 있습니다.</p>
+    	</div>
+        
         		<div class="post list">
             		<table class="blueone">
                 		<thead align="center">
-		                    <th>시설 번호</th>
-		                    <th>시설 이름</th>
-		                    <th>수용 인원</th>
-		                    <th>조회</th>
+		                    <th style="width:200px;">시설 번호</th>
+		                    <th style="width:200px;">시설 이름</th>
+		                    <th style="width:200px;">수용 인원</th>
+		                    <th style="width:200px;">조회</th>
                 		</thead>
                  		
                  		<c:forEach var="center" items="${ requestScope.centerList }">
