@@ -33,59 +33,6 @@
 	<jsp:include page="../../common/includepage/AdminHeader.jsp" />
 
 	<section>
-<<<<<<< HEAD
-	 
-	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
-	  
-	    <div class="post title">
-	    <h3 class="top">전체 회원 조회</h3>
-	  	</div>
-	
-	  <div class="post list">
-	    <table class="tb01">
-	        <thead class="table-lgiht">
-	            <tr>
-	                <th>회원ID</th>
-	                <th>이름</th>
-	                <th>연락처</th>
-	                <th>생년월일</th>
-	                <th>가입날짜</th>
-	                <th>상세보기</th>
-	            </tr>
-			</thead>
-			<tbody>
-	            <c:forEach var="alive" items="${ requestScope.memberAliveList }" varStatus="status">
-		              <tr>
-		                <td>${ alive.id }</td>
-		                <td>${ alive.name }</td>
-		                <td>${ alive.phone }</td>
-		                <td>${ requestScope.time[status.index].birth }</td>
-		                <td>${ alive.enrollDate }</td>
-		                <td>
-		                	<button class="btn btn-secondary"
-		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'" >
-		                	확인</button>
-		                </td>
-		              </tr>
-		              </c:forEach>
-	          </tbody>
-	      </table>
-	  	</div>
-	    <div class="pagination">
-	      <a href="#">&laquo;</a>
-	      <a href="#">1</a>
-	      <a class="active" href="#">2</a>
-	      <a href="#">3</a>
-	      <a href="#">4</a>
-	      <a href="#">5</a>
-	      <a href="#">6</a>
-	      <a href="#">&raquo;</a>
-	    </div>
-	  </div>
-	  
-=======
-
 		<jsp:include page="../../common/includepage/AdminAside.jsp" />
 
 		<div class="post title">
@@ -125,7 +72,7 @@
 		</div>
 
 
->>>>>>> main
+
 	</section>
 
 	<jsp:include page="../../common/includepage/AdminFooter.jsp" />

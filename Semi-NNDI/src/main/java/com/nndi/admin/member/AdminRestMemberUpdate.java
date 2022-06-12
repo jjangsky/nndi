@@ -26,7 +26,7 @@ public class AdminRestMemberUpdate extends HttpServlet {
 		int result = adminMemberService.updateRestMember(id);
 		
 		if(result>0) {
-			response.sendRedirect("memberList");
+			response.sendRedirect("restMemberList");
 			System.out.println("success");
 		} else {
 			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);

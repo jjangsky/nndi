@@ -94,6 +94,29 @@
 		<collection property="cls" resultMap="classMap"/>
 	</resultMap>
 
+	<!-- AliveDTO resultMap 생성 -->
+	<resultMap type="AliveDTO" id="memberAliveResultMap">
+		<id property="id" column="ID"/>
+		<result property="idQueNum" column="ID_QUE_NUM"/>
+		<result property="phone1" column="PHONE1"/>
+		<result property="phone2" column="PHONE2"/>
+		<result property="phone3" column="PHONE3"/>
+		<result property="email1" column="EMAIL1"/>
+		<result property="email2" column="EMAIL2"/>
+		<result property="address1" column="ADDRESS1"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="address3" column="ADDRESS3"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="birth" column="BIRTH"/>
+		<result property="idAnswer" column="ID_ANSWER"/>
+		<result property="gender" column="GENDER"/>
+		<result property="lastLogin" column="LAST_LOGIN"/>
+		<result property="userStatus" column="USER_STATUS"/>
+		<result property="outDate" column="OUT_DATE"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+	</resultMap>
+
 	<!-- MemberAlive 전체 조회 쿼리 -->
 	<select id="selectAllMemberAliveList" resultMap="MemberAliveMap">
 		SELECT
@@ -130,7 +153,7 @@
 	</select>
 	
 	<!-- MemberRest전체 조회 쿼리 -->
-	<select id="selectAllRestMemberList" resultMap="MemberAliveMap">
+	<select id="selectAllRestMemberList" resultMap="memberAliveResultMap">
 
 		SELECT
 		ID

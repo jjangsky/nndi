@@ -50,34 +50,15 @@
 		                <td>${ rest.lastLogin }</td>
 		                <td>
 		                	<button class="btn btn-secondary"id="admit" type="button"
-		                		    onclick="location.href=
-		                		'${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'" >해지</button>
+		                	onclick="location.href = '${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'">해지</button>
 		                </td>
 		              </tr>
 		       </c:forEach>
 		        </tbody>
 		    </table>
-		    <script>
-		    const admit = document.getElementById("admit");
-		    admit.onclick = function(){
-			      let text = " 휴면회원을 해지 하시겠습니까?\n해지하시려면 '확인'을 누르세요.";
-			      /* console.log('누름확인'); */
-			      if (confirm(text) == true) {
-			    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/memberList"; 
-			      } 
-			    };
-		      </script>
+		   
 		    <hr/>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  </div>
+		    
 		</div>
 	</section>
 	
