@@ -4,15 +4,32 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script 
+		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <link 
+    	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
+    	
 <title>너나들이 중랑</title>
 	<jsp:include page="../../../common/includepage/UserHeader.jsp"/>
 	
 	<style>
+	
 		label{
 			color:gray;
 		}
+		
+		.id_ok{
+			color:#008000;
+			display: none;
+		}
+
+		.id_already{
+			color:#6A82FB; 
+			display: none;
+		}
+		
 	</style>
 
 </head>
@@ -50,10 +67,10 @@
             	
             	<br>
 
-            	<label for="uid" id="inputid">아이디:</label>   
+            	<label for="uid" id="inputid" >아이디:</label>   
             		<input type="text" id="uid" name="userId" size="30" placeholder="소문자와 숫자 6~12자리" required>
     			<br>
-    		
+    			
     			<label for="idQueNum" id="idQueNum">아이디 질문: </label>
     				<select name="selectIdQueNum" id="selectIdQueNum">
     					<option value="1">출신 고등학교를 적어주세요.</option>
@@ -133,7 +150,7 @@
             
            		<div style="margin-left: 40%;">
             		<button id="submitbutton">등록</button>
-                	<button type="reset" id="submitbutton">취소</button>
+                	<button type="reset">취소</button>
             	</div>
         	</form>
     	</div>
@@ -143,6 +160,7 @@
 	<jsp:include page="../../../common/includepage/UserFooter.jsp"/>
 	
 <script>
+
 $(function(){
 
     $("#uName").focus(function(){
@@ -258,6 +276,9 @@ $(function(){
 		$goMain.onclick = function() {
 			location.href = "${ pageContext.servletContext.contextPath }";
 		}
+		
+		
 	</script>
+	
 
 </html>

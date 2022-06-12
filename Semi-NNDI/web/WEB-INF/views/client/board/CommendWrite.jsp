@@ -52,7 +52,7 @@
     			
     			<div class="min4">
     				<tr>
-    				<textarea placeholder="제목을 입력하세요" name="title"></textarea>
+    				<textarea placeholder="제목을 입력하세요" name="title" required></textarea>
     				</tr>
   				</div>
 			</div>
@@ -61,7 +61,7 @@
     			<p class="jemok">내용</p>
     			
     			<div class="min2">
-     				<textarea placeholder="글 내용을 입력하세요" name="content"></textarea>
+     				<textarea placeholder="글 내용을 입력하세요" name="content" required></textarea>
 		  		</div>
  			
  			</div>
