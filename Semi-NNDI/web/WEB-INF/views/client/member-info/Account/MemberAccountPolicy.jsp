@@ -4,12 +4,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/sidebars.css" >
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Policy.css" >
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <link 
+    	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Policy.css" >
+	
+	<link 
+		rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
+	
+	<link 
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+		crossorigin="anonymous">
+	
+	<link 
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+		crossorigin="anonymous">
+	
+	<script 
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
+		crossorigin="anonymous"></script>
+
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <title>너나들이 중랑</title>
 	<jsp:include page="../../../common/includepage/UserHeader.jsp"/>
@@ -21,23 +39,20 @@
 </aside>
 
 <section>
-  <h3 class="hok">회원가입</h3>
+	<div class="post title" style="background-color: rgba(254, 190, 190, 0.5); ">
+    	<h3 class="top" style="text-align: center">회원 가입</h3>
+    </div>
   
-  <div class="hc">
-    <div class="it first">약관 동의</div>
-    <div class="it">회원정보 입력</div>
-    <div class="it">가입 완료</div>
-  </div>
+  	<div class="hc" style="margin-bottom: 5%">
+    	<div class="it first">약관 동의</div>
+    	<div class="it">회원정보 입력</div>
+    	<div class="it">가입 완료</div>
+  	</div>
   
-  <div class="jebal">
-    <p>
-      <b>이용약관 및 개인정보 수집이용안내 동의에 체크하시기 바랍니다.</b> <br>
-    </p>
-  </div>
+  <br><br><br><br>
   
-	<form id="PolicyData" method="post" action="${ pageContext.servletContext.contextPath }/Account/policy">
+	<form id="PolicyData" method="post" action="${ pageContext.servletContext.contextPath }/Account/policy" >
 		<div class="ccc">
-			<p><b>신규 회원 가입 이용 약관</b></p>
 		  	<textarea cols="90" rows="7" readonly style="resize:none;">
             **제1조(목적)** 
 

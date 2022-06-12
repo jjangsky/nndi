@@ -23,7 +23,10 @@
       		<a href="${pageContext.servletContext.contextPath}/board/list/notice"
       			class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none">
         		<svg class="bi pe-none me-2" width="30" height="24"></svg>
-        		<span class="fs-5 fw-semibold" style="color:rgb(255, 255, 255)">고객 지원 센터</span>
+        		<span class="fs-5 fw-semibold" 
+        		style="color:rgb(255, 255, 255);">
+        		고객 지원 센터
+        		</span>
         	</a>
       	</div>
       
