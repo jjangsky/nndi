@@ -31,7 +31,6 @@
     			<h3 class="top">수강 환불내역 조회</h3>
 			</div>
 
-		
 			<div class="post list"> 
 		        <table class="t1">
 		            <thead>

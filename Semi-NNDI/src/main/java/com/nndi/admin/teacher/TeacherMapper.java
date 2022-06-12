@@ -21,6 +21,9 @@ public interface TeacherMapper {
 	/* 강사 삭제 */
 	int deleteTeacher(String no);
 
+	/* 강사 재계약 요청 */
+	int recontactTeacher(String no);
+
 
 
 }

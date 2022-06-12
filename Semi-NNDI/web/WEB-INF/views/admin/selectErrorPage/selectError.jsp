@@ -26,7 +26,7 @@
 	  
 	  <div>
 		    <div class="post title">
-		        <h3 class="top">조회결과 실패</h3>
+		        <h3 class="top">   </h3>
 		    </div>
 		    <div class="post list"> 
 		        <table class="t1">
@@ -43,7 +43,7 @@
 		            </thead>
 		            <tbody>
 		              <tr>
-		                <td colspan="7"> 요청하신 목록을 조회 실패하였습니다. :( </td>
+		                <td colspan="7"> 조회 결과가 없습니다! </td>
 		              </tr>
 		            </tbody>
 		        </table>

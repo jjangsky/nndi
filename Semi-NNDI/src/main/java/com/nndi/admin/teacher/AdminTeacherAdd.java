@@ -27,43 +27,27 @@ public class AdminTeacherAdd extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println("teacherAdd 컨트롤러");
-
-	/*	String no = request.getParameter("no");
-		String name = request.getParameter("name");
-		String gender = request.getParameter("gender");
-		java.util.Date birth = null;
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-        	birth = formatter.parse(request.getParameter("birth"));
-        } catch (ParseException e) {
-               e.printStackTrace();
-        }
-		
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String contractYn = request.getParameter("contractYn");
-        
-    */    
-		
-//		String no = request.getParameter("no");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
 		String birth = request.getParameter("birth");
-//		java.util.Date birth = null;
 		
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//        	birth = formatter.parse(request.getParameter("birth"));
-//            	
-//        } catch (ParseException e) {
-//               e.printStackTrace();
-//        }
-        
-		String email = request.getParameter("email");
+		String email01 = request.getParameter("email01");
+		String email02 = request.getParameter("email02");
+		String email03 = request.getParameter("email03");
+		String email = email01+email02+email03;
+		
+		System.out.println(email);
+		
 		String phone = request.getParameter("phone");
-		String address = request.getParameter("address");
+		
+		String address1 = request.getParameter("zipCode");
+		String address2 = request.getParameter("address1");
+		String address3 = request.getParameter("address2");
+		String address = address1+" "+address2+address3;
+		
+		System.out.println(address);
+		
 		String contractYn = request.getParameter("contractYn");
 		
 		//생년월일 sql로 변경 하기 위한 작업 
@@ -86,7 +70,6 @@ public class AdminTeacherAdd extends HttpServlet {
         
         TeacherDTO teacher = new TeacherDTO();
 		
-//        teacher.setNo(no);
         teacher.setName(name);
         teacher.setGender(gender);
         teacher.setBirth(birthDay);

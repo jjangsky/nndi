@@ -72,11 +72,11 @@
 	            </tr>
 	            <tr>
 	              <th>강좌 개강일</th>
-	              <td>${ cls.clsStartDay }</td>
+	              <td>${ requestScope.start }</td>
 	            </tr>
 	            <tr>
 	              <th>강좌 종강일</th>
-	              <td>${ cls.clsEndDay }</td>
+	              <td>${ requestScope.end }</td>
 	            </tr>
 	            <tr>
 	              <th>강좌 설명</th>

@@ -47,7 +47,7 @@
 			<div>
 				<div class="post add">
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/insertFaq" method="post">
-						<label>제목</label><br> <input type="text" name="title" required><br>
+						<label>제목</label><br> <input type="text" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><br>
 						<label>작성자</label><br> <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 						<label>카테고리</label><br> <select name="cateNum" required>
 							<option value="">None</option>
@@ -59,7 +59,7 @@
 						</select><br>
 						<label>내용</label><br>
 						<textarea name="content" id="content" cols="30" rows="15"
-							style="resize: none;" required></textarea>
+							style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
 						<br>
 						<button id="addpost" class="btns add" type="button">등 록 하
 							기</button>

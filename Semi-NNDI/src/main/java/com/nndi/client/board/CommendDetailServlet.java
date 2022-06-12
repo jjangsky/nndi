@@ -36,8 +36,8 @@ public class CommendDetailServlet extends HttpServlet {
 			path = "/WEB-INF/views/client/board/CommendDetail.jsp";
 			request.setAttribute("commendDetail", commendDetail);
 		} else {
-			path = "/WEB-INF/views/client/board/Commend.jsp";
-			request.setAttribute("message", "게시물 조회 실패!");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "본인이 작성한 게시글만 확인할 수 있습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
