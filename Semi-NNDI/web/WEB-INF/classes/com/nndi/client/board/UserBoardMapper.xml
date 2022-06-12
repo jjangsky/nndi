@@ -126,7 +126,7 @@
         , #{ cate }
         , #{ memberId }
         , NULL
-        , TO_DATE(SYSDATE,'YYYY.MM.DD HH24:MI')
+        , SYSDATE
         , #{ title }
         , #{ content }
         , 'N'
@@ -258,7 +258,6 @@
 		     , A.MANAGER_ID
 		     , A.CLS_NUM
 		     , A.TITLE
-		     , A.FILE_NAME
 		     , A.EMP_YN
 		     , A.EMP_CONDITION
 		     , A.EMP_NUMBER
@@ -268,14 +267,13 @@
 	  </select>
 	  
 	  
-	  <!--  강사 모집 게시판 전체 조회 쿼리문 -->
+	  <!--  강사 모집 게시판 상세 조회 쿼리문 -->
  	<select id="selectEmpDetail" resultMap="EmpResultMap">
 		SELECT
 		       A.NUM
 		     , A.MANAGER_ID
 		     , A.CLS_NUM
 		     , A.TITLE
-		     , A.FILE_NAME
 		     , A.EMP_YN
 		     , A.EMP_CONDITION
 		     , A.EMP_NUMBER
