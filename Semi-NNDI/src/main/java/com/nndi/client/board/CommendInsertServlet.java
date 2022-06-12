@@ -32,7 +32,7 @@ public class CommendInsertServlet extends HttpServlet {
 		
 		AdmireDTO commend = new AdmireDTO();
 		commend.setMemId(login);
-		commend.setCate(categoryCode);
+		commend.setCateNum(categoryCode);
 		commend.setTitle(title);
 		commend.setContent(content);
 		

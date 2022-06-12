@@ -84,7 +84,7 @@
 	<!-- AdmireDTO -->   
 	<resultMap type="com.nndi.model.commondto.AdmireDTO" id="CommendResultMap">
 		<id property= "num" column="NUM"/>
-		<result property="cate" column="CATE_NUM"/>
+		<result property="cateNum" column="CATE_NUM"/>
 		<result property="memId" column="MEM_ID"/>
 		<result property="postDate" column="POST_DATE"/>
 		<result property="title" column="TITLE"/>
@@ -180,6 +180,7 @@
              , A.HITS
              , A.UPLOAD_FILE_KEY
           FROM TBL_POST_NOTICE A
+         ORDER BY A.NUM 
  	</select>
  	
  	<!-- 공지사항 상세 조회 쿼리 -->

@@ -25,7 +25,7 @@ public class AdminBookListUpdate extends HttpServlet {
 		int result = bookService.updateBookSearchYn(code);
 		
 		if (result > 0) {
-			response.sendRedirect("bookList");
+			response.sendRedirect("deleteBookList");
 			System.out.println("변경 성공");
 		} else {
 			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);

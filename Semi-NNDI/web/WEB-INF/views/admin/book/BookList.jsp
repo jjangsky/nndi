@@ -31,7 +31,7 @@
 		    <div class="post title">
     			<h3 class="top">도서 목록 조회</h3>
 			</div>
-			
+
 		    <div class="post list">
 			    <table class="t1">
 			        <thead>
@@ -48,36 +48,23 @@
 			        <tbody>
 			           <c:forEach var="book" items="${ requestScope.bookList }">
 		              		<tr>
-		               		 <td>${ book.code }</td>
-		               		 <td>${ book.name }</td>
-		               		 <td>${ book.writer }</td>
-		               		 <td>${ book.locationCode }</td>
-		               		 <td>${ book.isbn }</td>
-		                	 <td>${ book.publisher }</td>
-		                	 <td>
-		                	<button class="btn btn-secondary" 
-		                			onclick="location.href=
-	                			'${ pageContext.servletContext.contextPath }/login/admin/deleteBook.do?code=${ book.code }'">설정</button>
-		                </td>
-		              </tr>
+		               			<td>${ book.code }</td>
+		               			<td>${ book.name }</td>
+		               		 	<td>${ book.writer }</td>
+		               		 	<td>${ book.locationCode }</td>
+		               		 	<td>${ book.isbn }</td>
+		                	 	<td>${ book.publisher }</td>
+		                	 	<td>
+		                			<button class="btn btn-secondary" 
+		                					onclick="location.href=
+	                						'${ pageContext.servletContext.contextPath }/login/admin/deleteBook.do?code=${ book.code }'">설정</button>
+		                		</td>
+		              		</tr>
 		              </c:forEach>
 			        </tbody>
 			    </table>
 			 </div>
-
-      		<br>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  	</div>
 		</div>
-			  
 	</section>
 		
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>

@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>너나들이 중랑</title>
@@ -18,65 +17,41 @@
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 </head>
 <body>
+	<aside>
+		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+	</aside>
 
-	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-	<section>
-	  <div>
-	    <h3 class="notice"><b><u>강사 모집</u></b></h3>
+	<section style="float: left">
+		<div>
+	    	<h3 class="notice"><b><u>강사 모집</u></b></h3>
+	  	</div>
+	
+	  	<div class="post list"> 
+	  		<form>
+	    		<table class="blueone">
+	      			<thead>
+	      				<tr>
+					        <th>번호</th>
+					        <th>제목</th>
+					        <th>모집 여부</th>
+					        <th>모집 인원</th>
+	      				</tr>
+	   			 	</thead>
+
+		           <c:forEach var="emp" items="${ requestScope.emp}">
+						<tr>
+							<td><c:out value="${ emp.num }"/></td>
+							<td><c:out value="${ emp.title }"/></td>
+							<td><c:out value="${ emp.empYn }"/></td>
+							<td><c:out value="${ emp.empNumber}"/>명</td>
+						</tr>
+					</c:forEach>
+	  			</table>
+	  		</form>
 	  </div>
 	
-	  <div style="float: right; margin-left: 600px; margin-top: 20px; margin-bottom: 20px;" >
-	   
-	        <select size = "1" >
-	                <option value="title" selected>제목</option>
-	                <option value="user" selected>작성자</option>
-	        </select>
-	   
-	    <input type="text" placeholder="검색어 입력">
-	    <button>검색</button> 
-	  </div>
-	  <div class="post list"> 
-	  	<form>
-	    <table class="blueone">
-	      <thead>
-	      <tr>
-	        <th>번호</th>
-	        <th>제목</th>
-	        <th>모집 여부</th>
-	        <th>모집 인원</th>
-	      </tr>
-	    </thead>
-
-	           <c:forEach var="emp" items="${ requestScope.emp}">
-			<tr>
-				<td><c:out value="${ emp.num }"/></td>
-				<td><c:out value="${ emp.title }"/></td>
-				<td><c:out value="${ emp.empYn }"/></td>
-				<td><c:out value="${ emp.empNumber}"/>명</td>
-			</tr>
-			</c:forEach>
-	     
-
-	  </table>
-	  </form>
-	  </div>
-	
-	  </div>  
-	    <div class="pagination">
-	        <a href="#">&laquo;</a>
-	        <a href="#">1</a>
-	        <a class="active" href="#">2</a>
-	        <a href="#">3</a>
-	        <a href="#">4</a>
-	        <a href="#">5</a>
-	        <a href="#">6</a>
-	        <a href="#">&raquo;</a>
-	    </div>
-	  </div>
 	</section>
 
-	
-	
 </body>
 
 <br clear="both">

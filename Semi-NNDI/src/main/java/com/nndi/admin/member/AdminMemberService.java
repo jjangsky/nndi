@@ -7,7 +7,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.MemberAliveDTO;
-import com.nndi.model.joindto.admin.member.MemberAliveAndBookRentAndBookInfoDTO;
+import com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO;
+import com.nndi.model.joindto.admin.member.ClassMemberAndClassDTO;
 import com.nndi.model.joindto.admin.member.MemberTotalDTO;
 
 public class AdminMemberService {
@@ -82,23 +83,37 @@ public class AdminMemberService {
 		return result;
 	}
 
-	/* 회원별 도서대출리스트 조회 */
-	public List<MemberAliveAndBookRentAndBookInfoDTO> selectOneMemberBookRentListById() {
+	/* 해당 회원의 대출도서 내역 */
+	public List<BookRentAndBookInfoDTO> memberRentBookList(String memId) {
 		
-		System.out.println("서비스 도착");
+		System.out.println("Service 도착");
 		
 		SqlSession sqlSession = getSqlSession();
 		
 		mapper = sqlSession.getMapper(MemberMapper.class);
 		
-		List<MemberAliveAndBookRentAndBookInfoDTO> memberBookRentList = mapper.selectOneMemberBookRentListById();
+		List<BookRentAndBookInfoDTO> memberRentBookList = mapper.memberRentBookList(memId);
 		
-		System.out.println("Service : " + memberBookRentList);
+		System.out.println("Service : " + memberRentBookList);
 		
-		return memberBookRentList;
+		return memberRentBookList;
 	}
 
-	
+	public List<ClassMemberAndClassDTO> memberClasList(String memId) {
+
+		System.out.println("Service 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(MemberMapper.class);
+		
+		List<ClassMemberAndClassDTO> memberClasList = mapper.memberClasList(memId);
+		
+		System.out.println("Service : " + memberClasList);
+		
+		return memberClasList;
+	}
+
 	
 }
 	

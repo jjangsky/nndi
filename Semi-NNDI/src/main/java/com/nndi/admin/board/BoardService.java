@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.ComplainDTO;
 import com.nndi.model.commondto.FAQDTO;
+import com.nndi.model.commondto.NoticeDTO;
 import com.nndi.model.commondto.QnaDTO;
 import com.nndi.model.commondto.TCREmploymentDTO;
 import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
@@ -334,7 +335,6 @@ public class BoardService {
 		
 		int result = mapper.insertfaq(insertFaq);
 		
-		
 		if(result > 0) {
 			sqlSession.commit();
 		} else {
@@ -429,6 +429,72 @@ public class BoardService {
 		int result = mapper.insertEmpTcr(emp);
 		
 		System.out.println( "Service :  " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 공지사항 등록 */
+	public int insertNotice(NoticeDTO addNotice) {
+
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.insertNotice(addNotice);
+		
+		System.out.println( "Service :  " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 공지사항 수정 */
+	public int updateNotice(NoticeDTO updateNotice) {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.updateNotice(updateNotice);
+		
+		System.out.println( "Service :  " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* Faq 작성 */
+	public int inserFaq(FAQDTO faqDTO) {
+		
+		System.out.println("서비스 도착");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(BoardMapper.class);
+		
+		int result = mapper.insertNewFaq(faqDTO);
+		
+		System.out.println("Service : " + result);
 		
 		if(result > 0) {
 			sqlSession.commit();

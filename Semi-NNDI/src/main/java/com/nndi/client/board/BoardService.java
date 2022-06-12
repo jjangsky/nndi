@@ -32,25 +32,6 @@ public class BoardService {
 		return boardList;
 	}
 
-	/* 민원 게시글 작성 */
-	public int insertComplain(BoardDTO board) {
-		
-		SqlSession sqlSession = getSqlSession();
-		
-		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
-		int result = boardMapper.insertComplain(board);
-		
-		if(result > 0) {
-			sqlSession.commit();
-		} else {
-			sqlSession.rollback();
-		}
-		
-		sqlSession.close();
-		
-		return result;
-	}
-
 	/* 민원 게시글 상세 조회 */
 	public BoardAndCategoryDTO complainDetail(int num) {
 		
@@ -75,6 +56,25 @@ public class BoardService {
 		
 		return complainDetail;
 	}
+	
+	/* 민원 게시글 작성 */
+	public int insertComplain(BoardDTO board) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		int result = boardMapper.insertComplain(board);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
 
 	/* 민원 게시글 수정 */
 	public int updateComplain(BoardDTO board) {
@@ -94,6 +94,38 @@ public class BoardService {
 		
 		return result;
 		
+	}
+	
+	/* 민원게시판 답변 상세 조회 */
+	public BoardAndCategoryDTO selectComplainAnswer(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		
+		BoardAndCategoryDTO complainAnswer = boardMapper.selectComplainAnswer(num);
+		
+		
+		return complainAnswer;
+	}
+	
+	/* 민원 게시판 삭제(컬럼 Update) */
+	public int deleteComplain(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		int result = boardMapper.deleteComplain(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
 	}
 	
 	/* 공지 사항 전체 조회 */
@@ -136,38 +168,6 @@ public class BoardService {
 		sqlSession.close();
 		
 		return noticeDetail;
-	}
-
-	/* 민원 게시판 삭제(컬럼 Update) */
-	public int deleteComplain(int num) {
-		
-		SqlSession sqlSession = getSqlSession();
-		
-		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
-		int result = boardMapper.deleteComplain(num);
-		
-		if(result > 0) {
-			sqlSession.commit();
-		} else {
-			sqlSession.rollback();
-		}
-		
-		sqlSession.close();
-		
-		return result;
-	}
-	
-	/* 민원게시판 답변 상세 조회 */
-	public BoardAndCategoryDTO selectComplainAnswer(int num) {
-		
-		SqlSession sqlSession = getSqlSession();
-		
-		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
-		
-		BoardAndCategoryDTO complainAnswer = boardMapper.selectComplainAnswer(num);
-		
-		
-		return complainAnswer;
 	}
 	
 	/* 강사게시판 전체 조회 */
@@ -243,8 +243,6 @@ public class BoardService {
 		
 	}
 	
-	
-	
 	/* 칭찬 게시판 삭제(조회 여부 변경) */
 	public static int deleteCommend(int num) {
 		
@@ -283,7 +281,7 @@ public class BoardService {
 		return result;
 	}
 	
-	/* 민원 게시판 수정하기 */
+	/* 칭찬 게시판 수정하기 */
 	public static int updateCommend(AdmireDTO board) {
 		
 		SqlSession sqlSession = getSqlSession();
@@ -301,12 +299,5 @@ public class BoardService {
 		
 		return result;
 	}
-	
-	
-	
-	
-
-	
-	
 
 }

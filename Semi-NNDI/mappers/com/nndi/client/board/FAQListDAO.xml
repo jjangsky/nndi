@@ -22,6 +22,7 @@ SELECT
      , CONTENT
      , HITS 
   FROM TBL_POST_FAQ
+ ORDER BY NUM 
  </select>
  
  <!-- 자주 묻는 질문 상세 조회 -->    
