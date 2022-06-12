@@ -30,7 +30,10 @@
 			<div class="post title">
     			<h3 class="top">수강 환불내역 조회</h3>
 			</div>
+<<<<<<< HEAD
 			
+=======
+>>>>>>> main
 		
 			<div class="post list"> 
 		        <table class="t1">
@@ -61,16 +64,6 @@
 		            </tbody>
 		        </table>
 		    </div>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  	</div>
 		</div>
 		
 			  

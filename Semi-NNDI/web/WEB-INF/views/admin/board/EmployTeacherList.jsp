@@ -67,16 +67,6 @@
 		    <div class="btns">
 		      <button id="insert" class="btns addbtn">글쓰기</button>
 		    </div>
-		    <div class="pagination">
-		        <a href="#">&laquo;</a>
-		        <a href="#">1</a>
-		        <a class="active" href="#">2</a>
-		        <a href="#">3</a>
-		        <a href="#">4</a>
-		        <a href="#">5</a>
-		        <a href="#">6</a>
-		        <a href="#">&raquo;</a>
-		     </div>
 		 </div>
 		<script>
 			const insert = document.getElementById("insert");

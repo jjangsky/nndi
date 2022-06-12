@@ -29,7 +29,7 @@
 		    <div class="post title">
 		        <h3 class="top">칭찬하기</h3>
 		    </div>
-		    
+
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>
@@ -61,16 +61,6 @@
 		            </c:forEach>
 		            </tbody>
 		        </table>
-		    </div>
-		    <div class="pagination">
-		        <a href="#">&laquo;</a>
-		        <a href="#">1</a>
-		        <a class="active" href="#">2</a>
-		        <a href="#">3</a>
-		        <a href="#">4</a>
-		        <a href="#">5</a>
-		        <a href="#">6</a>
-		        <a href="#">&raquo;</a>
 		    </div>
 		 </div>
 			  

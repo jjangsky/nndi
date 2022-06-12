@@ -11,6 +11,8 @@
 </head>
 <jsp:include page="/WEB-INF/views/common/includepage/UserHeader.jsp"/>
 <body>
+
+
     <aside>
 		<jsp:include page="/WEB-INF/views/common/includepage/NNDIIntroduceAside.jsp"/>
     </aside>
@@ -23,13 +25,20 @@
 
     <div id="siteMapDiv">
         <table id="siteMapDiv" >
-            <tr>
+            <tr> 
                 <td>
                     <strong> 너나들이 소개</strong> <br><br>
-                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'">오시는길</button>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+                    오시는길
+                    </button>
+                    
                     <br>
                     <br>
-                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'">사이트맵</button>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+                    사이트맵
+                    </button>
                 </td>
             </tr>
         </table>
@@ -40,16 +49,31 @@
             <tr>
                 <td>
                     <strong> 이용 안내</strong> <br><br>
-                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+                    시설 이용
+                    </button>
                     <br>
                     <br>
-                    <a href="">대관 안내</a>
+                    
+                    <button	onclick="location.href='${pageContext.servletContext.contextPath}/center/list/select'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+		    		대관 안내
+		    		</button>
                     <br>
                     <br>
-                    <a href="">강사 안내</a>
+                    
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/employee/board/list'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+         			강사 모집
+         			</button>
                     <br>
                     <br>
-                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/agreement'">이용약관</button>
+                    
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/site/agreement'"
+                    		style="background-color: white; color: rgba(254, 190, 190, 1);">
+                    이용약관
+                    </button>
                     <br>
                 </td>
             </tr>
@@ -58,24 +82,43 @@
 
     <div id="siteMapDiv">
         <table id="siteMapDiv" >
-          <tr>
-              <td>
-                  <strong> 고객 지원 센터</strong> <br><br>
-                  <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">공지 사항</button>
-                  <br>
-                  <br>
-                  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">문의 하기</button>
-                  <br>
-                  <br>
-                  <button onclick="location.href='${pageContext.servletContext.contextPath}'">칭찬 하기</button>
-                  <br>
-                  <br>
-                  <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">자주 묻는 질문</button>
-                  <br>
-                  <br>
-                  <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'">민원 신청</button>
-                  <br>
-                  <br>
+          	<tr>
+              	<td>
+                  	<strong> 고객 지원 센터</strong> <br><br>
+                    <button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'"
+                  		  	style="background-color: white; color: rgba(254, 190, 190, 1);">
+                  	공지 사항
+                  	</button>
+                  	<br>
+                  	<br>
+                  
+                  	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'"
+                  			style="background-color: white; color: rgba(254, 190, 190, 1);">
+                  	문의 하기
+                  	</button>
+                  	<br>
+                  	<br>
+                  
+                  	<button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/commend'"
+                  			style="background-color: white; color: rgba(254, 190, 190, 1);">
+         		  	칭찬 하기
+         		  	</button>
+                  	<br>
+                  	<br>
+                  
+                  	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'"
+                  			style="background-color: white; color: rgba(254, 190, 190, 1);">
+                  	자주 묻는 질문
+                  	</button>
+                  	<br>
+                  	<br>
+                  
+                  	<button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/complain'"
+                  			style="background-color: white; color: rgba(254, 190, 190, 1);">
+                  	민원 신청
+                  	</button>
+                  	<br>
+                  	<br>
               </td>
           </tr>
       </table>
@@ -83,16 +126,21 @@
 
     <div id="siteMapDiv2">
       <table id="siteMapDiv2" >
-        <tr>
-            <td>
-                <strong> 시설 이용</strong> <br><br>
-                <button onclick="location.href='${pageContext.servletContext.contextPath}/site/ClientBookInfo'">작은 도서관</button>
+          <tr>
+            	<td>
+                  	<strong> 시설 이용</strong> <br><br>
+                	<button onclick="location.href='${pageContext.servletContext.contextPath}/site/ClientBookInfo'"
+                			style="background-color: white; color: rgba(254, 190, 190, 1);">
+                	작은 도서관
+                	</button>
+                	<br>
+                	<br>
+                
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/center/list/select'"
+                		style="background-color: white; color: rgba(254, 190, 190, 1);">
+		    	대관 안내
+		   		</button>
                 <br>
-                <br>
-                <a href="">체육시설</a>
-                <br>
-                <br>
-                <a href="">문화시설</a>
                 <br>
             </td>
         </tr>
@@ -104,10 +152,17 @@
         <tr>
             <td>
                 <strong> 강좌 안내</strong> <br><br>
-                <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'">문화</button>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'"
+		                style="background-color: white; color: rgba(254, 190, 190, 1);">
+                문화
+                </button>
                 <br>
                 <br>
-                <button	onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassphList'">체육</button>
+                
+                <button	onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassphList'"
+                		style="background-color: white; color: rgba(254, 190, 190, 1);">
+                체육
+                </button>
                 <br>
             </td>
         </tr>

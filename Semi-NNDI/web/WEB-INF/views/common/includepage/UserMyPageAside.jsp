@@ -87,11 +87,7 @@
 	    		
 	    		<br>
 	        	<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/MyPageClass'">
-	        	수강 이력 현황</button></li>
-	        	
-	        	<br>
-	        	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">
-	        	수강 환불 신청</button></li>
+	        	수강 이력 관리</button></li>
 	        	
 	      	</ul>
 	    </div>
@@ -126,10 +122,6 @@
 	       		<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/MyPageQNA'">
 	          	문의 조회</button></li>
-	          	
-	          	<br>
-	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/'">
-	          	칭찬 조회</button></li>
 	          	
 	          	<br>
 	          	<li> <button onclick="location.href='${pageContext.servletContext.contextPath}/login/myboard/complain'">
