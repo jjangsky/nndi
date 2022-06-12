@@ -1115,7 +1115,7 @@ INSERT
 VALUES
 (  SEQ_EMPLOYMENT_POST_NUM.NEXTVAL, 'MANAGER01', 1
  , '수영교실 시간강사 신규채용 모집공고'
- , SYSDATE
+ , '파일'
  , DEFAULT
  , '가. 공고일 기준 만 20세 이상
     나. 성범죄 및 아동학대범죄(아동·청소년 및 성보호에 관한 법률) 위반 사실이 없는 자
