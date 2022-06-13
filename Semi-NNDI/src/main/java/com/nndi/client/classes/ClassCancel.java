@@ -15,11 +15,11 @@ import com.nndi.model.commondto.ClassMemberDTO;
 import com.nndi.model.commondto.ClassPaymentDTO;
 import com.nndi.model.commondto.MemberAliveDTO;
 
-@WebServlet("/login/board/ClassApply")
-public class ClassApply extends HttpServlet {
+@WebServlet("/login/board/Classcancel")
+public class ClassCancel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession loginSession = request.getSession();
 		MemberAliveDTO loginMember = (MemberAliveDTO) loginSession.getAttribute("loginMember");
@@ -29,9 +29,6 @@ public class ClassApply extends HttpServlet {
 		
 		String cls = request.getParameter("clsNum");
 		System.out.println(cls+ " clsNum 값 확인용");
-		
-		int cost = Integer.parseInt(request.getParameter("cencost"));
-		System.out.println("cost값 넘어오는지 확인용 " + cost);
 		
 		ClassMemberDTO classmemberdto = new ClassMemberDTO();
 		ClassPaymentDTO paymentdto = new ClassPaymentDTO();
@@ -43,12 +40,11 @@ public class ClassApply extends HttpServlet {
 		
 		paymentdto.setId(login);
 		paymentdto.setClsNum(cls);
-		paymentdto.setClsPrice(cost);
 		
 		System.out.println("paymentdto 확인: " + paymentdto);
 		
 		ClassApplyService classapply = new ClassApplyService();
-		int result = classapply.classmemberinsert(classmemberdto, paymentdto, login);
+		int result = classapply.Classcancel(classmemberdto, paymentdto);
 		System.out.println("인서트 확인용" + paymentdto);
 		
 		if(result>0) {
