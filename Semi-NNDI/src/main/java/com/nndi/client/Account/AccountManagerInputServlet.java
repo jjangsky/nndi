@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.ManagerDTO;
 
@@ -28,7 +29,9 @@ public class AccountManagerInputServlet extends HttpServlet {
 		if(result > 0) {
 		
 			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
-
+			HttpSession loginSession = request.getSession();
+			loginSession.setAttribute("loginStatus", 2);
+			loginSession.setAttribute("loginMember", managerList);
 			request.setAttribute("successCode", "insertMember");
 
 		} else {

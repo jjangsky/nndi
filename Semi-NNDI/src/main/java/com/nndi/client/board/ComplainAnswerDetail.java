@@ -37,11 +37,13 @@ public class ComplainAnswerDetail extends HttpServlet {
 			path = "/WEB-INF/views/client/board/ComplainAnswerDetail.jsp";
 			request.setAttribute("complainAnswer", complainAnswer);
 		} else {
-			path = "/WEB-INF/views/client/board/ComplainAnswerDetail.jsp";
-			request.setAttribute("message", "게시물 목록 조회 실패!");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "본인이 문의한 게시글의 답변만 확인할 수 있습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
+		
+		
 
 	
 	}

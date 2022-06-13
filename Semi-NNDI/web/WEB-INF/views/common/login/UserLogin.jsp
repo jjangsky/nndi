@@ -87,9 +87,16 @@
 	    홈으로
 	    </button>
 	    
-	    <button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'" class="FooterButton"  style="color:black;">
-	    회원가입
-	    </button>
+	    <c:choose>
+        	<c:when test="${ sessionScope.loginStatus ne 1 }">
+        		
+				<button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'" class="FooterButton"  style="color:black;">
+	    		회원가입
+	    		</button>
+        	</c:when>
+        </c:choose>
+        	   
+	    
     </div>
     
 </section>

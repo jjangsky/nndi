@@ -100,7 +100,7 @@
             
     		<br>
     		
-            <label>이메일</label><input type="text" name="str_email01" id="str_email01" value='${ loginMember.email1 }' style="width:100px"> 
+            <label>이메일</label><input type="text" name="str_email01" id="str_email01" value='${ loginMember.email1 }' style="width:100px"> @
             	<input type="text" name="str_email02" id="str_email02" style="width:100px;" value='${ loginMember.email2 }'>
                 
             <br>

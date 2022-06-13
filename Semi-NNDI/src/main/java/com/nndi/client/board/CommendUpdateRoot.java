@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nndi.model.joindto.client.board.AdmireAndCategoryDTO;
+import com.nndi.model.joindto.client.board.BoardAndCategoryDTO;
+
 @WebServlet("/login/board/commend/update")
 public class CommendUpdateRoot extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,14 +20,19 @@ public class CommendUpdateRoot extends HttpServlet {
 		
 		System.out.println(num);
 		
-		/*
+		System.out.println("여기는" + num);
+		
+		
+	
 		BoardService board = new BoardService();
 		
-		BoardAndCategoryDTO cmd = board.complainDetail(num);
+		AdmireAndCategoryDTO cmd = board.detailUpdatecmd(num);
+		
+		System.out.println("여기냐?" + cmd);
 		
 		request.setAttribute("cmd", cmd);
-		*/
-		request.setAttribute("num", num);
+	
+	
 		
 		request.getRequestDispatcher("/WEB-INF/views/client/board/CommendUpdate.jsp").forward(request, response);
 

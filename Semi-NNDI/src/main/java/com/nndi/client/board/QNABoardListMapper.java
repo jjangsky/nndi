@@ -15,6 +15,9 @@ public interface QNABoardListMapper {
 	QnaDTO QNABoardListDetail(int num);
 
 	/* 마이페이지에서 문의글 조회 하기 */
-	List<QnaDTO> MyPageQNAList(String loginId);	
+	List<QnaDTO> MyPageQNAList(String loginId);
+	
+	/* 문의글 조회수 기능 */
+	int incrementQnaCount(int num);	
 
 }

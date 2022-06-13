@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -54,7 +55,7 @@
         	<form action="${ pageContext.servletContext.contextPath }/Account/input" method="post" >
             
             	<label>이름: </label>
-            		<input type="text" name="uName" id="uName" placeholder="한글로 2자 이상" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            		<input type="text" name="uName" id="uName"  placeholder="한글로 2자 이상" required>
 				
 				<br>
             	
@@ -133,7 +134,8 @@
 				<br>
 			
 				<label for="address3"> 상세 주소: </label>		
-					<input type="text" name="address2" id="address2">
+					<input type="text" name="address2" id="address2"
+							value='<c:out value="${data}" escapeXml="false"/>'>
 
     			<br>
             

@@ -73,5 +73,16 @@
 		   AND MEM_ID = #{loginId} 
 		 ORDER BY 1 DESC 
  </select>    
+ 
+ <!-- 문의게시판 조회수 증가 쿼리문 -->
+ 	<update id="incrementQnaCount" parameterType="_int">
+ 		UPDATE
+               TBL_POST_QUESTION A
+ 		   SET A.HITS = (SELECT B.HITS
+ 		                   FROM TBL_POST_QUESTION B
+ 		                  WHERE B.NUM = #{ num }
+ 		                ) +1
+  		WHERE A.NUM = #{ num }  
+ 	</update>
 
 </mapper>
