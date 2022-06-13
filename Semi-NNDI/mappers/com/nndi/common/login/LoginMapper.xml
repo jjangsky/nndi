@@ -265,4 +265,11 @@
 		 WHERE A.ID = #{ id }
 	</update>
 
+	<!-- 회원가입 진행시 아이디 중복체크 -->
+	<select id="selectCheckUserId" parameterType="string" resultType="_int">
+		SELECT
+		       COUNT(A.ID)
+		  FROM TBL_MEMBER_ALIVE A
+		 WHERE A.ID = #{ userId }
+	</select>
 </mapper>

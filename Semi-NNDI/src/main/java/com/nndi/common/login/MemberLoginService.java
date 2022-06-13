@@ -231,6 +231,18 @@ public class MemberLoginService {
 		return result;
 	}
 
+	/* 회원가입 진행시 아이디 중복체크 */
+	public int selectCheckUserId(String userId) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(LoginMapper.class);
+		
+		int count = mapper.selectCheckUserId(userId);
+		
+		return count;
+	}
+
 	
 	
 	

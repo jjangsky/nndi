@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/postAdd.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
     <style>
       .btn{
         font-size: 20px !important;
@@ -53,7 +56,7 @@
 		                </tr>
 		            </table>
 		             <label>상세 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" class="faqadder" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
 		            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
 		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button><br><br><br>
 		        </form>

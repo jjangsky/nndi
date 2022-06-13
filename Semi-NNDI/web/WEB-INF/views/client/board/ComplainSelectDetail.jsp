@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,17 +31,17 @@
   		</div>
   	<div class="l1">
     	<div class="d1">
-      		<h3>${ requestScope.complainDetail.title }</h3>
-      		<p><b>작성일</b>: ${ requestScope.complainDetail.date }<br>
-		    <b>접수번호</b>: ${ requestScope.complainDetail.num }<br>
-		    <b>처리상태: </b>${ requestScope.complainDetail.answer }<br>
-		    <b>글쓴이: </b>${ requestScope.complainDetail.memberId }</p>
+      		<h3> <c:out value="${ requestScope.complainDetail.title }" escapeXml="true"/></h3>
+      		<p><b>작성일</b>:  <c:out value="${ requestScope.complainDetail.date }" escapeXml="true"/><br>
+		    <b>접수번호</b>:  <c:out value="${ requestScope.complainDetail.num }" escapeXml="true"/><br>
+		    <b>처리상태: </b> <c:out value="${ requestScope.complainDetail.answer }" escapeXml="true"/><br>
+		    <b>글쓴이: </b> <c:out value="${ requestScope.complainDetail.memberId } " escapeXml="true"/>}</p>
     	</div>
   </div>  
 
   <div class="l1">
     <div class="d1">
-      <p>${ requestScope.complainDetail.content }</p>
+      <p><c:out value="${ requestScope.complainDetail.content }" escapeXml="true"/></p>
     </div>
   </div>
 

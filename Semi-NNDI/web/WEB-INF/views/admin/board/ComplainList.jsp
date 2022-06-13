@@ -49,14 +49,14 @@
 		            <tbody>
 		            <c:forEach var="complain" items="${ requestScope.complainList }">
 		              <tr>
-		                <td>${ complain.num }</td>
-		                <td>${ complain.category.cateKind }</td>
-		                <td>${ complain.title }</td>
-		                <td>${ complain.memId }</td>
-		                <td>${ complain.postDate }</td>
-		                <td>${ complain.managerId }</td>
-		                <td>${ complain.answerYn }</td>
-		                <td>${ complain.hits }</td>
+		                <td><c:out value="${ complain.num }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.category.cateKind }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.title }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.memId }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.postDate }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.managerId }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.answerYn }" escapeXml="true"/></td>
+		                <td><c:out value="${ complain.hits }" escapeXml="true"/></td>
 		                <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,36 +13,36 @@
 <body>
 <jsp:include page="../../common/includepage/ClassAside.jsp"/>
  <section>
- <form>
-      <h3 class="cap">${requestScope.classdto.clsName}</h3>
+ <form>  
+      <h3 class="cap"><c:out value="${requestScope.classdto.clsName}"/></h3>
       <table>
         <tr align="center">
           <th>교육대상</th>
-          <td>${requestScope.classdto.clsRecoAge}</td>
+          <td><c:out value="${requestScope.classdto.clsRecoAge}"/></td>
       </tr>
       <tr align="center">
         <th>교육기간</th>
-        <td> ${requestScope.classdto.clsStartDay} ~/~ ${requestScope.classdto.clsEndDay}</td>
+        <td> <c:out value="${requestScope.classdto.clsStartDay}"/> ~/~ <c:out value="${requestScope.classdto.clsEndDay}"/></td>
     </tr>
     <tr align="center">
         <th>교육요일</th>
-        <td>${requestScope.classdto.clsDay}</td>
+        <td><c:out value="${requestScope.classdto.clsDay}"/></td>
     </tr>
     <tr align="center">
         <th>교육시간</th>
-        <td>${requestScope.classdto.clsRunTime}</td>
+        <td><c:out value="${requestScope.classdto.clsRunTime}"/></td>
     </tr>
     <tr align="center">
       <th>교육장소</th>
-      <td>${requestScope.classdto.cenName} 호 / ${ requestScope.classdto.center.centerKindName }</td>
+      <td><c:out value="${requestScope.classdto.cenName}"/> 호 / <c:out value="${ requestScope.classdto.center.centerKindName }"/></td>
     </tr>
     <tr align="center">
     <th>수강료</th>
-    <td>${requestScope.classdto.clsCost} (원)</td>
+    <td><c:out value="${requestScope.classdto.clsCost}"/> (원)</td>
     </tr>
     <tr align="center">
     <th>수강 강사</th>
-    <td>${requestScope.classdto.teacher.name}</td>
+    <td><c:out value="${requestScope.classdto.teacher.name}"/></td>
     </tr>
     
     </table>

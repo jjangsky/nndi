@@ -49,14 +49,14 @@
 		            <tbody>
 		            <c:forEach var="qna" items="${ requestScope.QnaList }">
 		              <tr>
-		                <td>${ qna.num }</td>
-		                <td>${ qna.title }</td>
-		                <td>${ qna.category.cateKind }</td>
-		                <td>${ qna.memId }</td>
-		                <td>${ qna.managerId }</td>
-		                <td>${ qna.postDate }</td>
-		                <td>${ qna.hits }</td>
-		                <td>${ qna.answerYn }</td>
+		                <td><c:out value="${ qna.num }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.title }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.category.cateKind }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.memId }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.managerId }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.postDate }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.hits }" escapeXml="true"/></td>
+		                <td><c:out value="${ qna.answerYn }" escapeXml="true"/></td>
 		              <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=
