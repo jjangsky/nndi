@@ -40,7 +40,7 @@ public class AdminLoginCheckServlet extends HttpServlet {
 				loginSession.setAttribute("loginStatus", 2);
 				loginSession.setAttribute("loginMember", loginManager);
 				System.out.println("관리자 로그인 성공");
-				path="/WEB-INF/views/admin/login/AdminMain.jsp";
+				path="/login/admin/main";
 				request.getRequestDispatcher(path).forward(request, response);
 				
 				/*로그인 실패 했을 때 */

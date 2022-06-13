@@ -36,7 +36,7 @@ public class AccounInputServlet extends HttpServlet {
 		memberlist.setPwd(request.getParameter("password"));
 		
 		memberlist.setEmail1(request.getParameter("str_email01"));
-		memberlist.setEmail2("@"+ request.getParameter("selectEmail"));
+		memberlist.setEmail2(request.getParameter("selectEmail"));
 		
 		java.util.Date date = null;
 		

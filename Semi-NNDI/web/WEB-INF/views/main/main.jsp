@@ -16,45 +16,51 @@
 		<img src="${pageContext.servletContext.contextPath}/resources/image/client/NNDIMain-004.png"
 		style="width: 100%; height: 100%">        
         
-        	 <div id="img" style="position: absolute; top: 45%; left:90%">
+			<div id="img" style="position: absolute; top: 45%; left:90%">
         
-		       <button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'"
-		       style="background-color: white; padding: 10px; color: gray">
+				<button onclick="location.href='${pageContext.servletContext.contextPath}/site/location'"
+		       			style="background-color: white; padding: 10px; color: gray">
 		        <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/008.png"> 
 		        오시는 길
-		       </button>
+		       	</button>
 		       
-		       <br>
+		       	<br>
 		       
-		       <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'"
-		        style="background-color: white; padding: 10px; color: gray">
+		       	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'"
+		       			style="background-color: white; padding: 10px; color: gray">
 		       	<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/Search.png">
 		       	강좌 둘러보기
-		       </button>
+		       	</button>
 		       
-		       <br>
+		       	<br>
 		       
-		       <button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'"
-		        style="background-color: white; padding: 10px; color: gray">
-		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/006.png">
-		       QNA문의
-		       </button>
+		       	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'"
+		        		style="background-color: white; padding: 10px; color: gray">
+		       	<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/006.png">
+		       	QNA문의
+		       	</button>
 		       
-		       <br>
+		       	<br>
 		       
-		       <button onclick="location.href='${pageContext.servletContext.contextPath}/center/list/select'"
-		        style="background-color: white; padding: 10px; color: gray">
-		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/RequestCenter.png">
-		       대관 신청
-		       </button>
+		       	<button onclick="location.href='${pageContext.servletContext.contextPath}/center/list/select'"
+		        		style="background-color: white; padding: 10px; color: gray">
+		       	<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/RequestCenter.png">
+		       	대관 신청
+		       	</button>
 		       
-		       <br>
+		       	<br>
 		       
-		       <button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'"
-		        style="background-color: white; padding: 10px; color: gray">
-		       <img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/Accounting.png">
-		       회원 가입하기
-		       </button>
+		       	<c:choose>
+        			<c:when test="${ sessionScope.loginStatus ne 1 }">
+        		
+			       		<button onclick="location.href='${pageContext.servletContext.contextPath}/Account/first'"
+			        			style="background-color: white; padding: 10px; color: gray">
+			       		<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/Accounting.png">
+			       		회원 가입하기
+			       		</button>
+        			</c:when>
+        	   </c:choose>
+        
 		       
 		       <br>
 		       

@@ -52,14 +52,14 @@
            			</select>
 			</c:if>
 		
-		<br>
-			
 			<c:if test="${ loginMember.gender eq 'W'}">
 				<label>성별: </label>
            			<select id="ugender" name="selectGender" style="width: auto;">
                			<option value="male" id="female" selected>여</option>
            			</select>
 			</c:if>
+		
+		<br>
 			
 			<label for="uid" id="inputid">아이디:</label>   
 				<input type="text" id="uid" name="userId" size="30" value='${ loginMember.id }' readonly>
@@ -108,7 +108,7 @@
            
    		<br>
    		
-        <label>이메일</label><input type="text" name="str_email01" id="str_email01" value='${ loginMember.email1 }' style="width:100px"> 
+        <label>이메일</label><input type="text" name="str_email01" id="str_email01" value='${ loginMember.email1 }' style="width:100px"> @
         	<input type="text" name="str_email02" id="str_email02" style="width:100px;" value='${ loginMember.email2 }'>
                
         <br>
