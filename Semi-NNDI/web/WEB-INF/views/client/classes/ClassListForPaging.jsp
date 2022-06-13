@@ -35,14 +35,14 @@
    <c:forEach var="cls" items="${ requestScope.classList }">
       <tr>
           <td class="mudo" style="display: none;">${cls.clsNum}</td>
-          <td class="mudo">${cls.clsName}</td>
-          <td class="mudo">${cls.teacher.name}</td>
-          <td class="mudo">${cls.cenName} 호</td>
-          <td class="mudo">${cls.clsApplyCnt}명//${cls.clsMaxCnt}명</td>
-          <td class="mudo">${cls.clsStartDay}</td>
-          <td class="mudo">${cls.clsEndDay}</td>
-          <td class="mudo">${cls.clsRunTime}</td>
-          <td class="mudo">${cls.clsDay}</td>
+          <td class="mudo"><c:out value="${cls.clsName}"/></td>
+          <td class="mudo"><c:out value="${cls.teacher.name}"/></td>
+          <td class="mudo"><c:out value="${cls.cenName}"/> 호</td>
+          <td class="mudo"><c:out value="${cls.clsApplyCnt}"/>명//<c:out value="${cls.clsMaxCnt}"/>명</td>
+          <td class="mudo"><c:out value="${cls.clsStartDay}"/></td>
+          <td class="mudo"><c:out value="${cls.clsEndDay}"/></td>
+          <td class="mudo"><c:out value="${cls.clsRunTime}"/></td>
+          <td class="mudo"><c:out value="${cls.clsDay}"/></td>
              <td>
            	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/QNABoardListDetail?num=${qna.num}'">
           		보기

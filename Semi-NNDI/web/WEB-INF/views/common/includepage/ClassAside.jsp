@@ -20,7 +20,7 @@
 	<nav style="height: 100%">
 	
 		<div style="width: 280px;">
-			<a href="${pageContext.servletContext.contextPath}/board/QNAClassList" 
+			<a href="${pageContext.servletContext.contextPath}/login/board/paging" 
 				class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none">
  				<svg class="bi pe-none me-2" width="30" height="24"></svg>
   				<span class="fs-5 fw-semibold" style="color:rgb(255, 255, 255)">강좌 안내</span>
@@ -29,7 +29,7 @@
 		
 		<button class="btn btn-c btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" 
 			data-bs-toggle="collapse" data-bs-target="#orders1-collapse" aria-expanded="false" 
-			onclick="location.href='${pageContext.servletContext.contextPath}/board/QNAClassList'">전체 강좌 조회
+			onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">전체 강좌 조회
 		</button>
 		<br>
 

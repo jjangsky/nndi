@@ -25,13 +25,13 @@
             <th>조회수</th>
 		 </tr>        
     </thead>
-    <tbody>
+    <tbody>   
     <c:forEach var="faq" items="${ requestScope.faqdto }">
       <tr>
-          <td class="qaf">${faq.num}</td>
-          <td class="qaf">${faq.managerId}</td>
-          <td class="qaf">${faq.title}</td>
-          <td class="qaf">${faq.hits}</td>
+          <td class="qaf"><c:out value="${faq.num}" escapeXml="true"/></td>
+          <td class="qaf"><c:out value="${faq.managerId}" escapeXml="true"/></td>
+          <td class="qaf"><c:out value="${faq.title}" escapeXml="true"/></td>
+          <td class="qaf"><c:out value="${faq.hits}" escapeXml="true"/></td>
       </tr>
       </c:forEach>
     </tbody>

@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>민원작성 페이지</title>
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script 
+		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/UserReg.js"></script>
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/selectList.css">
@@ -27,7 +33,7 @@
 		
 
   		
-		<form action="${ pageContext.servletContext.contextPath }/login/board/commend/insert" method="post" >
+		<form id="cmdInsert" action="${ pageContext.servletContext.contextPath }/login/board/commend/insert" method="post" >
 			<div class="write2">
     		<p>칭찬 글 작성</p>
   			</div>
@@ -52,7 +58,7 @@
     			
     			<div class="min4">
     				<tr>
-    				<textarea placeholder="제목을 입력하세요" name="title" required></textarea>
+    				<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize: none;" required><c:out value="${data}" escapeXml="true"/></textarea>
     				</tr>
   				</div>
 			</div>
@@ -61,22 +67,26 @@
     			<p class="jemok">내용</p>
     			
     			<div class="min2">
-     				<textarea placeholder="글 내용을 입력하세요" name="content" required></textarea>
+     				<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize: none;" required><c:out value="${data}" escapeXml="true"/></textarea>
 		  		</div>
  			
  			</div>
  			
   			<div style="float: right;">
     			<button type="reset">취소</button>
-    			<button type="submit" onclick="myFunction()">등록</button>
+    			<button id="cmdWrite" type="button">등록</button>
   			</div>
   			
   			<script>
-				function myFunction() {
-				  if (confirm("정말로 게시글을 작성 하시겠습니까?")) {
-					  location.href = "${pageContext.servletContext.contextPath}/login/board/commend/insert";
-				  }
-			</script>
+			const cmdWrite = document.getElementById("cmdWrite");
+			cmdWrite.onclick = function(){
+		      let text = "글을 등록 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+		      if (confirm(text) == true) {
+		    	  document.getElementById("cmdInsert").submit();
+		      }
+		    };
+		   
+ 			</script>
 	
 		</form>
 	</section>
