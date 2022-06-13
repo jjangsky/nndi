@@ -39,12 +39,12 @@
 	    
 	    		<tr>
 	        		<th><label>이용 시작일</label></th>
-	        			<td><input type="date" name="start" required></td>
+	        			<td><input type="date" name="start" id="start" required></td>
 	    		</tr>
 	    		
 	    		<tr>
 	        		<th><label>이용 종료일</label></th>
-	        			<td><input type="date" name="end" required></td>
+	        			<td><input type="date" name="end" id="end" required></td>
 	    		</tr>
 	    
 	    		<tr>
