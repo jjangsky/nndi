@@ -24,7 +24,7 @@
       </tr>
       <tr align="center">
         <th>교육기간</th>
-        <td> ${requestScope.classdto.clsStartDay} ~/~ ${requestScope.classdto.clsEndDay}</td>
+        <td> ${requestScope.start} / ${requestScope.end}</td>
     </tr>
     <tr align="center">
         <th>교육요일</th>
@@ -52,10 +52,10 @@
 	<input name="cencost" type="hidden" value="${requestScope.classdto.clsCost}"/>
 	<input name="clsNum" type="hidden" value="${requestScope.classdto.clsNum}"/>
     <div class="buton">
-      <button id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">취소</button>
       <button id="app" class="btns" type="submit"  onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassApply'">신청</button>
     </div>
     </form> 
+      <button style="width: 130px;" id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/board/QNAClassList'">목록으로</button><br><br><br><br>
 </section>
  
 <br clear="both"> 

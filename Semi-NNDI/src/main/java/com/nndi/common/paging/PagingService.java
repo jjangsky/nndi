@@ -2,11 +2,13 @@ package com.nndi.common.paging;
 
 import static com.nndi.common.config.Template.getSqlSession;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.nndi.client.classes.ClassListDAO;
 import com.nndi.model.commondto.BoardDTO;
 import com.nndi.model.commondto.BookInfoDTO;
 import com.nndi.model.commondto.ClassDTO;
@@ -35,23 +37,42 @@ public class PagingService {
 	}
 
 	/* 강좌 전체 조회 */
-	public List<ClassesAndTeacherAndCenterDTO> selectBoradList(PagingDTO pagingDTO) {
-		System.out.println("강좌 전체 조회용 Service 도착 확인");
+//	public List<ClassesAndTeacherAndCenterDTO> selectBoradList(PagingDTO pagingDTO) {
+//		System.out.println("강좌 전체 조회용 Service 도착 확인");
+//		SqlSession sqlSession = getSqlSession();
+//		
+//		System.out.println("Servlet에서 전달받은 pagingDTO 값 확인: " + pagingDTO);
+//		
+//		mapper =  sqlSession.getMapper(PagingMapper.class);
+//		
+//		List<ClassesAndTeacherAndCenterDTO> classboardList = mapper.selectClassList(pagingDTO);
+//		
+//		
+//		System.out.println("Service에서 조회한 Class의 전체 게시글 : " + classboardList);
+//		
+//		sqlSession.close();
+//		
+//		return classboardList;
+//		
+//	}
+
+	public Map<String, List<ClassesAndTeacherAndCenterDTO>> ClassList(PagingDTO pagingDTO) {
 		SqlSession sqlSession = getSqlSession();
 		
-		System.out.println("Servlet에서 전달받은 pagingDTO 값 확인: " + pagingDTO);
+		mapper = sqlSession.getMapper(PagingMapper.class);
 		
-		mapper =  sqlSession.getMapper(PagingMapper.class);
+		List<ClassesAndTeacherAndCenterDTO> classdto = mapper.selectClassList(pagingDTO);		//신청가능 강좌 목록
+		List<ClassesAndTeacherAndCenterDTO> classdto2 = mapper.ClassOffList(); //신청 불가 강좌 목록
 		
-		List<ClassesAndTeacherAndCenterDTO> classboardList = mapper.selectClassList(pagingDTO);
+		System.out.println("dto 서비스 확인용" + classdto);
+
+		Map<String, List<ClassesAndTeacherAndCenterDTO>> classList = new HashMap<String, List<ClassesAndTeacherAndCenterDTO>>();
+		
+		classList.put("possibleCls", classdto);
+		classList.put("impossibleCls", classdto2);
 		
 		
-		System.out.println("Service에서 조회한 Class의 전체 게시글 : " + classboardList);
-		
-		sqlSession.close();
-		
-		return classboardList;
-		
+		return classList;
 	}
 
 

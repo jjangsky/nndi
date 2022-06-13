@@ -17,4 +17,6 @@ public interface PagingMapper {
 
 	int selectBookTotalCount();
 
+	List<ClassesAndTeacherAndCenterDTO> ClassOffList();
+
 }

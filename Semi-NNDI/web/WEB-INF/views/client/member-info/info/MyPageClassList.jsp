@@ -13,8 +13,12 @@
 	<aside>
 		<jsp:include page="../../../common/includepage/UserMyPageAside.jsp"/>
 	</aside>
+	
 <section>
+
 <div>
+<br><br><br><br>
+
    <h3 class="notice">${ sessionScope.loginMember.name } 님의 수강내역입니다.</h3>
 </div>
 
@@ -35,7 +39,7 @@
           <td class="test">${mypagecls.clsName}</td>
           <td class="test">${mypagecls.clsStartDay}</td>
           <td>
-          	<button onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">
+          	<button class="r1" onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">
           		수강취소
           	</button>
           </td>
