@@ -50,7 +50,7 @@
          		민원 신청</button></li>
          		
          		<br>
-         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'" style="color: black">
+         		<li><button onclick="location.href='${pageContext.servletContext.contextPath}/board/QNABoardList'" style="color: black">
          		문의 하기</button></li>
          		
          		<br>
