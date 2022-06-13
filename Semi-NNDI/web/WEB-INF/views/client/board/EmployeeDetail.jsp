@@ -24,7 +24,7 @@
 	
 	  	<div class="l1">
 	    	<div class="d1">
-	      		<h3>${ requestScope.emp.title }</h3>
+	      		<h3><c:out value="${ requestScope.emp.title }" escapeXml="true"/></h3>
 	    	</div>
 	  	</div>
 	
@@ -41,17 +41,17 @@
 		    				<p>모집 여부 : 모집 마감</p><br>
 		    			</c:if>
 	      
-	      		<p>모집 인원 : ${ requestScope.emp.empNumber }명</p><br>
+	      		<p>모집 인원 : <c:out value="${ requestScope.emp.empNumber }" escapeXml="true"/>명</p><br>
 	      		<br>
 	      		<hr>
 	      		<br>
 	      		
 	      		<b>자격 요건</b><br>
-	      		<p>${ requestScope.emp.empCondition }</p><br>
+	      		<p><c:out value="${ requestScope.emp.empCondition }" escapeXml="true"/></p><br>
 	      		<b>근무 환경</b><br>
-	      		<p>${ requestScope.emp.environment }</p><br>
+	      		<p><c:out value="${ requestScope.emp.environment }" escapeXml="true"/></p><br>
 	      		<b>모집 과정</b><br>
-	      		<p>${ requestScope.emp.empProcess }</p><br>
+	      		<p><c:out value="${ requestScope.emp.empProcess }" escapeXml="true"/></p><br>
 	    </div>
   </div>
 	

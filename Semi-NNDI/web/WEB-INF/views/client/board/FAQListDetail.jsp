@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +15,14 @@
 	<section style="float: left; width: 1500px;">
     	<div class="l1">
     		<div class="d1">
-      			<h3>${requestScope.faqdto.title}</h3>
-     			<p><b>작성자: </b>${requestScope.faqdto.managerId}</p>
+      			<h3><c:out value="${requestScope.faqdto.title}" escapeXml="true"/></h3>
+     			<p><b>작성자: </b><c:out value="${requestScope.faqdto.managerId}" escapeXml="true"/></p>
     		</div>
-  		</div>  
+  		</div>
 
   		<div class="l1">
     		<div class="d1">
-      			<p>${requestScope.faqdto.content}</p>
+      			<p><c:out value="${requestScope.faqdto.content}" escapeXml="true"/></p>
     		</div>
   		</div>
   

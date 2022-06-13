@@ -32,12 +32,12 @@
             <th>상세<th>
 		    </tr>        
     </thead>
-    <tbody>
+    <tbody>  
     <c:forEach var="mypagecls" items="${ requestScope.clsandpaymentdto }">
       <tr>
           <td class="test" style="display: none;">${mypagecls.clsNum}</td>
-          <td class="test">${mypagecls.clsName}</td>
-          <td class="test">${mypagecls.clsStartDay}</td>
+          <td class="test"><c:out value="${mypagecls.clsName}"/></td>
+          <td class="test"><c:out value="${mypagecls.clsStartDay}"/></td>
           <td>
           	<button class="r1" onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">
           		수강취소

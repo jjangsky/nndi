@@ -34,16 +34,16 @@
 	                <th>출판사</th>
 		        </tr>
 	        </thead>
-			        
+			      
 	        <tbody>
 	        	<c:forEach var="book" items="${ requestScope.bookList }">
                 	<tr>
-              			<td>${ book.code }</td>
-               		 	<td>${ book.name }</td>
-               		 	<td>${ book.writer }</td>
-               		 	<td>${ book.locationCode }</td>
-               		 	<td>${ book.isbn }</td>
-                	 	<td>${ book.publisher }</td>
+              			<td><c:out value="${ book.code }"/></td>
+               		 	<td><c:out value="${ book.name }"/></td>
+               		 	<td><c:out value="${ book.writer }"/></td>
+               		 	<td><c:out value="${ book.locationCode }"/></td>
+               		 	<td><c:out value="${ book.isbn }"/></td>
+                	 	<td><c:out value="${ book.publisher }"/></td>
               		</tr>
               	</c:forEach>
 	        </tbody>

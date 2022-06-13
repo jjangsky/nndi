@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>민원작성 페이지</title>
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script 
+		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/UserReg.js"></script>
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Policy.css">
@@ -30,7 +36,7 @@
 			<b style="color: red;">욕설, 비방, 선정성, 상업성, 정치적 표현 등 부적절한 표현의 게재글은 비공개 전활 또는 삭제될 수 있습니다.</b>
 		</div>
 
-	<form action="${ pageContext.servletContext.contextPath }/login/board/complain/modify?num=${requestScope.cmp.num}" method="post">
+	<form id="cmpUpdate" action="${ pageContext.servletContext.contextPath }/login/board/complain/modify?num=${requestScope.cmp.num}" method="post">
   		<div class="write2">
     		<p>민원 글 수정</p>
   		</div>
@@ -54,7 +60,7 @@
     		<p class="jemok">제목</p>
     		<div class="min4">
     			<tr>
-    			<textarea placeholder="제목을 입력하세요" name="title" required>${requestScope.cmp.title}</textarea>
+    			<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize: none;" required><c:out value="${requestScope.cmp.title}" escapeXml="true"/></textarea>
     			<input type="hidden" value="${ request.num }" name="num">
    				</tr>
   			</div>
@@ -63,14 +69,24 @@
   		<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" required>${requestScope.cmp.content}</textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize: none;" required><c:out value="${requestScope.cmp.content}" escapeXml="true"/></textarea>
   			</div>
 		</div>
 
   		<div>
   			<button type="reset">취소</button>
-    		<button type="submit">등록</button>
+    		<button id="cmpModify" type="button">등록</button>
   		</div>
+  		<script>
+			const cmpModify = document.getElementById("cmpModify");
+			cmpModify.onclick = function(){
+		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+		      if (confirm(text) == true) {
+		    	  document.getElementById("cmpUpdate").submit();
+		      }
+		    };
+		</script>
+  		
 	</form>
 </section>
 	
