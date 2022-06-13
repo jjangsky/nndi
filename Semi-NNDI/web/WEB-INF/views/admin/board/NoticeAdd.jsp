@@ -37,7 +37,14 @@
 		<jsp:include page="../../common/includepage/AdminAside.jsp" />
 
 			<div>
+				<div class="post title">
+					<h3 class="top">공지사항 등록하기</h3>
+				</div>
+				<div>
+					<button id="back" class="back">목록으로</button>
+				</div>
 				<div class="post add">
+
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/noticeAdd" method="post">
 						<label>제목</label><br> <input type="text" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><br>
 						<label>작성자</label><br> <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
@@ -48,7 +55,7 @@
 							<option value="3">시설</option>
 							<option value="4">직원</option>
 							<option value="5">기타</option>
-						</select><br>
+						</select><br> <label>파일첨부</label><br> <input type="file" name="uploadFileKey" multiple="multiple" required><br>
 						<label>내용</label><br>
 						<textarea name="content" id="content" cols="30" rows="15"
 							style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
@@ -59,7 +66,6 @@
 					</form>
 				</div>
 			</div>
-		</div>
 		<script>
 			const back = document.getElementById("back");
 			const addpost = document.getElementById("addpost");

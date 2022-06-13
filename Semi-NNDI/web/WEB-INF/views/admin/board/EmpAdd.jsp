@@ -40,7 +40,7 @@
 
 		<div>
 			<div class="post title">
-				<h3 class="top">강사모집 상세 조회</h3>
+				<h3 class="top">강사모집 글작성</h3>
 			</div>
 		</div>
 		<div>
