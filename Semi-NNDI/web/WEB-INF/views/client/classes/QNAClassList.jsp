@@ -13,7 +13,8 @@
 <jsp:include page="../../common/includepage/ClassAside.jsp"/>
 <section>	
   <div>
-    <h3 class="notice"><b><u>강좌</u>조회</b></h3>
+  
+    <h3 class="notice" style="margin-top:200px"><b><u>강좌</u>조회</b></h3>
   </div>
  
 	<div class="post list"> 
@@ -49,8 +50,9 @@
     </tbody>
     
     </table>
+    <br><br>
     <h3>수강 신청 불가</h3>
-    
+    <br><br>
     <table class="blueone">
       <thead>
         <tr>
@@ -83,9 +85,8 @@
     </tbody>
     
     </table>
-    
-	<%-- 페이지 처리 --%>
-	<jsp:include page="../../common/includepage/paging.jsp"/>
+    <br><br>
+    </div>
 	
   </section>
   <jsp:include page="../../common/includepage/UserFooter.jsp"/>
