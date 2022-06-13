@@ -70,6 +70,8 @@
 
             	<label for="uid" id="inputid" >아이디:</label>   
             		<input type="text" id="uid" name="userId" size="30" placeholder="소문자와 숫자 6~12자리" required>
+            		<button type="button" id="sendIdCheck">중복체크</button>
+            		<p id="checkId"></p>
     			<br>
     			
     			<label for="idQueNum" id="idQueNum">아이디 질문: </label>
@@ -259,12 +261,10 @@ $(function(){
 })
 </script>
 	  
-	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
-		const $searchZipCode = document.getElementById("searchZipCode");
-		const $goMain = document.getElementById("goMain");
+		const searchZipCode = document.getElementById("searchZipCode");
 		
-		$searchZipCode.onclick = function() {
+		searchZipCode.onclick = function() {
 		
 			new daum.Postcode({
 				oncomplete: function(data){
@@ -275,12 +275,35 @@ $(function(){
 			}).open();
 		}
 		
-		$goMain.onclick = function() {
-			location.href = "${ pageContext.servletContext.contextPath }";
-		}
 		
 		
 	</script>
-	
-
+	<script type="text/javascript">
+	<!-- 아이디 중복체크 확인 ajax처리 -->
+	$("#sendIdCheck").click(function(){
+		const userId = $("#uid").val();
+		console.log("호출됐니");
+	        $.ajax({
+	             url: "${pageContext.servletContext.contextPath}/client/checkUserId",
+	             type: "get",
+	             data:{
+	            	 userId : userId
+	             },
+	             success: function(data){
+	            	 if(data=="1"){
+	                     $("#checkId").html("현재 사용중인 아이디 입니다. 다시 시도해 주세요!");
+	                     console.log(data);
+	                     $("#checkId").css('color', 'red').css('font-size', '16px');
+	            	 } else {
+	            		 $("#checkId").html("사용 가능한 아이디 입니다.");
+	                     console.log(data);
+	                     $("#checkId").css('color', 'blue').css('font-size', '16px');
+	            	 }
+	             },
+	             error: function(request, status){
+	                 alert("네트워크를 확인해주세요.")
+	             }
+	         });
+	 	});
+	</script>
 </html>

@@ -51,6 +51,9 @@ public interface LoginMapper {
 	/* 고객 비밀번호 초기화용 DAO */
 	int updateMemberPassword(MemberAliveDTO newPassword);
 
+	/* 회원가입 진행시 아이디 중복체크 */
+	int selectCheckUserId(String userId);
+
 
 
 }
