@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <html lang="ko">
@@ -33,8 +34,8 @@
   		<div class="l1">
     		<div class="d1">
       			<h3>[답변] ${ requestScope.complainAnswer.title }</h3>
-      			<p><b>작성일</b>: ${ requestScope.complainAnswer.date }<br>
-      			<b>접수번호</b>: ${ requestScope.complainAnswer.num }<br>
+      			<p><b>작성일: </b> ${ requestScope.complainAnswer.date }<br>
+      			<b>접수번호: </b> ${ requestScope.complainAnswer.num }<br>
       			<b>처리상태: </b>${ requestScope.complainAnswer.answer }<br>
       			<b>글쓴이: </b>${ requestScope.complainAnswer.memberId }</p>
     		</div>

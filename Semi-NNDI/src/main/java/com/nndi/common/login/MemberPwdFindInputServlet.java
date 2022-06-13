@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.nndi.common.mail.MailSend;
 import com.nndi.model.commondto.MemberAliveDTO;
 
 @WebServlet("/Member/pwdinitialization/input")
@@ -51,6 +52,9 @@ public class MemberPwdFindInputServlet extends HttpServlet {
 			int newPwd7 = (int)(Math.random() * 10);
 			String password = ("" + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
 
+			MailSend ms = new MailSend();
+			ms.MailSend(password);
+			
 			/* 난수 비크립트 처리 */
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String newPassword = passwordEncoder.encode(password);
