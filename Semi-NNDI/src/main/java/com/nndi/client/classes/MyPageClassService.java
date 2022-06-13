@@ -15,7 +15,7 @@ public class MyPageClassService {
 		SqlSession sqlSession = getSqlSession();
 		mapper = sqlSession.getMapper( ClasspaymentMapper.class);
 		
-		List<ClassAndClasspaymentDTO> classandpaymentdto = mapper.MypageclassList();
+		List<ClassAndClasspaymentDTO> classandpaymentdto = mapper.MypageclassList(loginId);
 		
 		return classandpaymentdto;
 	}

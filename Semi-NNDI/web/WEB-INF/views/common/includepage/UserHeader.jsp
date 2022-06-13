@@ -57,7 +57,7 @@
       </div>
 
 	<div class="topnav1" style="background-color:  rgba(254, 190, 190, 1); float: right; width:100%; height: 50px">
-  		<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/paging'">강좌 안내</button> 
+  		<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAClassList'">강좌 안내</button> 
   		<button onclick="location.href='${pageContext.servletContext.contextPath}/site/CenterInfo'">시설 이용</button>
   		<button onclick="location.href='${pageContext.servletContext.contextPath}/board/list/notice'">고객 지원 센터</button>
   		<button onclick="location.href='${pageContext.servletContext.contextPath}/site/SiteMap'">너나들이 소개</button>
