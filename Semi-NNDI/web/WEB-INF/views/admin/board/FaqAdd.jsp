@@ -21,6 +21,9 @@
 	rel="stylesheet"
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
 <style>
 .btn {
 	font-size: 20px !important;
@@ -59,7 +62,7 @@
 						</select><br>
 						<label>내용</label><br>
 						<textarea name="content" id="content" cols="30" rows="15"
-							style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
+							style="resize: none;" minlength="10" class="faqcontent" placeholder="10글자 이상 입력해주세요" required></textarea>
 						<br>
 						<button id="addpost" class="btns add" type="button">등 록 하
 							기</button>

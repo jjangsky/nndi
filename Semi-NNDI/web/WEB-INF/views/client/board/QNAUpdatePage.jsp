@@ -57,7 +57,7 @@
   			</div>
   			
   			<div>
-    			<button id="updatecancel" class="btns" type="button" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
+    			<button id="updatecancel" class="btns" type="button">취소</button>
     			<button id="updateqna" class="btns" type="button">수정</button>
   			</div>
  		</div>
@@ -69,27 +69,27 @@
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
  <script>
 			const updateqna = document.getElementById("updateqna");
+ 			const updatecancel = document.getElementById("updatecancel");
+			
 			updateqna.onclick = function(){
-		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요. 수정을 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요.";
+		      let text = "글을 수정 하시겠습니까?\n수정하시려면 '확인'을 누르세요. 수정을 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요.";
 		      if (confirm(text) == true) {
 		    	  document.getElementById("update").submit();
 		      }
 		    };
-		   /*  updatecancel.onclick = function(){
-			      let text = "수정을 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요.";
+ 
+		    updatecancel.onclick = function(){
+			      let text = "수정을 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요. 목록으로 되돌아갑니다.";
 			      if (confirm(text) == true) {
-			    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
+			    	  location.href = "${pageContext.servletContext.contextPath}/board/QNABoardList";
 			      }
-			    };
-		    }); */
+		    }; 
  </script>
  
-<script>
-			const updatecancel = document.getElementById("updatecancel");
-			updatecancel.onclick = function(){
-		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
-		    };
-</script>
+<!--  <script>
+ </script> -->
+ 
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

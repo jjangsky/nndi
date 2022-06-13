@@ -36,13 +36,31 @@
   		</div>
 
   		<div>
-    		<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">목록으로</button>
+    		<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/board/QNABoardList'">목록으로</button>
   		</div>
  
   		<button class="r9" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAUpdate?num=${requestScope.qnadto.num}'">수정</button> 
-  		<button class="r9" onclick="location.href='${pageContext.servletContext.	contextPath}/login/board/QNAdelete?num=${requestScope.qnadto.num}'">삭제</button> 
+		<button class="r9" id="cancelman">삭제</button> 
 
 	</section>
+	<script>
+			const updateqna = document.getElementById("cancelman");
+			updateqna.onclick = function(){
+		      let text = "글을 삭제 하시겠습니까?\n삭제하시려면 '확인'을 누르세요. 삭제를 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요.";
+		      if (confirm(text) == true) {
+		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNAdelete?num=${requestScope.qnadto.num}";
+		      }
+		    };
+		   /*  updatecancel.onclick = function(){
+			      let text = "수정을 취소 하시겠습니까?\n취소하시려면 '취소'를 누르세요.";
+			      if (confirm(text) == true) {
+			    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
+			      }
+			    };
+		    }); */
+ </script>
+	
+	
 	
 </body>
 <br clear="both">

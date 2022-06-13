@@ -34,7 +34,7 @@ public class QNABoarddelete extends HttpServlet {
 		
 		if (result>0) {
 			System.out.println("성공시 출력하는 문구");
-			response.sendRedirect("QNABoardList");
+			response.sendRedirect("/Semi-NNDI/board/QNABoardList");
 		} else {
 			System.out.println("실패임");
 		}

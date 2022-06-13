@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/sidebars.css" >
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/post.css" >
@@ -41,25 +44,25 @@
 		            <table>
 		                <tr>
 		                    <td class="td1">문의 제목</td>
-		                    <td class="td2">${ detailComplain.title }</td>
+		                    <td class="td2"><c:out value="${ detailComplain.title }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">작성자</td>
-		                    <td class="td2">${ detailComplain.memId }</td>
+		                    <td class="td2"><c:out value="${ detailComplain.memId }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">내용</td>
-		                    <td class="td2">${ detailComplain.content }</td>
+		                    <td class="td2"><c:out value="${ detailComplain.content }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">답변 여부</td>
-		                    <td class="td2">${ detailComplain.answerYn }</td>
+		                    <td class="td2"><c:out value="${ detailComplain.answerYn }" escapeXml="true"/></td>
 		                </tr>
 		            </table>
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		            <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="3" placeholder="3글자 이상 입력해주세요" required>${ requestScope.detailComplain.answerContent }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" class="complaincontent" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailComplain.answerContent }</textarea><br>
 		            <c:choose>
                      <c:when test="${ detailComplain.answerYn eq 'N' }">
                         <button id="createpost" class="btns add" type="button">작 성 하 기</button>

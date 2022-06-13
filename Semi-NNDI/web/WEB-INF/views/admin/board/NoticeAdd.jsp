@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
 <link rel="stylesheet"
@@ -57,7 +60,7 @@
 							<option value="5">기타</option>
 						</select><br> <label>파일첨부</label><br> <input type="file" name="uploadFileKey" multiple="multiple" required><br>
 						<label>내용</label><br>
-						<textarea name="content" id="content" cols="30" rows="15"
+						<textarea name="content" id="content" class="noticecontent" cols="30" rows="15"
 							style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
 						<br>
 						<button id="addpost" class="btns add" type="button">등 록 하

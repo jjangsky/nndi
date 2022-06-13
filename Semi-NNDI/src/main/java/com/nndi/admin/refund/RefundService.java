@@ -39,7 +39,7 @@ public class RefundService {
 		List<RentClassViewDTO> classRefundList = mapper.selectAllClassRefundList();
 		
 		for(RentClassViewDTO list : classRefundList) {
-			System.out.println("Service : " + classRefundList);
+			System.out.println("Service : " + list);
 		}
 		
 		return classRefundList;

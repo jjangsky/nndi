@@ -41,23 +41,23 @@
 		            <table>
 		                <tr>
 		                    <td class="td1">제목</td>
-		                    <td class="td2">${ detailAdmire.title }</td>
+		                    <td class="td2"><c:out value="${ detailAdmire.title }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">카테고리</td>
-		                    <td class="td2">${ detailAdmire.category.cateKind }</td>
+		                    <td class="td2"><c:out value="${ detailAdmire.category.cateKind }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">내용</td>
-		                    <td class="td2">${ detailAdmire.content }</td>
+		                    <td class="td2"><c:out value="${ detailAdmire.content }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">작성자</td>
-		                    <td class="td2">${ detailAdmire.memId }</td>
+		                    <td class="td2"><c:out value="${ detailAdmire.memId }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">작성일</td>
-		                    <td class="td2">${ detailAdmire.postDate }</td>
+		                    <td class="td2"><c:out value="${ detailAdmire.postDate }" escapeXml="true"/></td>
 		                </tr>
 		            </table>
 		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button>
