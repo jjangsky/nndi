@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.MemberAliveDTO;
 
@@ -50,7 +51,7 @@ public class AccounInputServlet extends HttpServlet {
 			
 		memberlist.setAddress1(request.getParameter("zipCode"));
 		memberlist.setAddress2(request.getParameter("address1"));
-		memberlist.setAddress3(request.getParameter("address1"));
+		memberlist.setAddress3(request.getParameter("address2"));
 		
 		memberlist.setPhone1(request.getParameter("selectUserPhone"));
 		memberlist.setPhone2(request.getParameter("phone2"));
@@ -64,6 +65,9 @@ public class AccounInputServlet extends HttpServlet {
 			
 			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			
+			HttpSession loginSession = request.getSession();
+			loginSession.setAttribute("loginStatus", 1);
+			loginSession.setAttribute("loginMember", memberlist);
 			request.setAttribute("successCode", "insertMember");
 
 		} else {

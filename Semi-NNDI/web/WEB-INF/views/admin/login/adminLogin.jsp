@@ -70,8 +70,8 @@
                               </div>
                               <br>
                               <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
-                              <button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/Account/Manager/First'" class="menubtn">관리자 계정 생성</button>
                         </form>
+                              <button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/Account/Manager/First'" class="menubtn">관리자 계정 생성</button>
                     </div>
                 </div>
             </div>

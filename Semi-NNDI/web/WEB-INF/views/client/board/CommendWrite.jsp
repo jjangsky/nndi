@@ -27,7 +27,7 @@
 		
 
   		
-		<form action="${ pageContext.servletContext.contextPath }/login/board/commend/insert" method="post">
+		<form action="${ pageContext.servletContext.contextPath }/login/board/commend/insert" method="post" >
 			<div class="write2">
     		<p>칭찬 글 작성</p>
   			</div>
@@ -36,7 +36,7 @@
     			<div class="min2">
     				<tr>
       					<td>분류</td>
-      						<select size = "1" name="category">
+      						<select size = "1" name="category" >
 						        <option value="1">문화 강좌</option>
 						        <option value="2">체육 강좌</option>
 						        <option value="3">시설</option>
