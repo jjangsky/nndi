@@ -45,6 +45,7 @@ public class RefundService {
 		return classRefundList;
 	}
 
+	/* 대관 환불 승인 Service */
 	public int updateRentRefund(int num) {
 		
 		SqlSession sqlSession = getSqlSession();

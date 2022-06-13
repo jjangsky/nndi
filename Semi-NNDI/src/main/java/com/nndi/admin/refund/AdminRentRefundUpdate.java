@@ -6,28 +6,37 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/login/admin/rentRefund.do")
+@WebServlet("/login/admin/rentRefundList.do")
 public class AdminRentRefundUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/*대관 환불 내역 업데이트 서블릿 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("서블릿 도착 확인");
-		
+		System.out.println(request.getParameter("postNum"));
 		int num = Integer.valueOf(request.getParameter("postNum"));
 		System.err.println(num);
 		
 		RefundService refundService = new RefundService();
 		
 		int result = refundService.updateRentRefund(num);
-		
+		System.out.println("업데이트 결과값: " + result);
+		System.out.println("여기 맞아진짜?");
+		String page = "";
+		result = 0;
 		if(result > 0) {
+			
+			page = "/WEB-INF/views/admin/refund/RentRefundList.jsp";
 			response.sendRedirect("rentRefundList");
-			System.out.println("success");
+
 		} else {
-			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);
-			System.out.println("fail");
+			
+			page = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			
+			request.setAttribute("message", "정보 변경에 실패하셨습니다. 입력값을 확인해주세요.");
+			request.getRequestDispatcher(page).forward(request, response);
 		}
 		
 	}

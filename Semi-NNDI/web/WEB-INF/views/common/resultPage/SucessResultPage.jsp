@@ -10,7 +10,6 @@
 	<script>
 		(function(){
 		const successCode = "${ requestScope.successCode }";
-		
 		let successMessage = "";
 		let movePath = "";
 		
@@ -58,6 +57,10 @@
 			case "updateCommend" : 
 				successMessage = "칭찬 게시글을 성공적으로 수정하였습니다. !";
 				movePath = "../../../../index.jsp";
+				break;
+			case "UpdateRefund" :
+				successMessage = "환불 승인이 완료되었습니다.";
+				movePath = "../ClassRefundList.ㅓ네";
 				break;
 		}
 

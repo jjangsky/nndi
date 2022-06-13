@@ -9,6 +9,7 @@
 		<result property="cenKindsname" column="CEN_KINDS_NAME"/>
 		<result property="rentCost" column="RENT_COST"/>
 		<result property="rentPayYn" column="RENT_PAY_YN"/>
+		<result property="rentRefYn" column="RENT_REF_YN"/>
 		<result property="rentStart" column="RENT_START"/>
 		<result property="rentEnd" column="RENT_END"/>
 	</resultMap>
@@ -56,6 +57,11 @@
 	</select>
 	
 	<!-- 대관 환불 승인 Update -->
-	
+	<update id="UpdateRefund" parameterType="_int">
+		UPDATE
+			   TBL_RENT_REQUEST A
+		   SET RENT_REF_YN = 'Y'
+		 WHERE A.POST_NUM = ${ postNum } 	   	
+	</update>
 </mapper>
 

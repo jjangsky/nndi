@@ -46,6 +46,7 @@
 				                <th>환불 여부</th>
 				                <th>대관 시작일</th>
 				                <th>대관 종료일</th>
+				                <th>환불 승인</th>
 	              			</tr>
 	            		</thead>
 	           	
@@ -61,7 +62,9 @@
 					                <td>${ refund.rentStart }</td>
 					                <td>${ refund.rentEnd }</td>
 	              					<td>
-	                					<button id="updatePost" class="btns add" type="button">
+	                					<button class="btn btn-secondary" 
+		                						onclick="location.href=
+	                							'${ pageContext.servletContext.contextPath }/login/admin/rentRefund.do?postNum=${ refund.postNum }'">
 		                				보기
 		                				</button>
 	                				</td>
@@ -73,13 +76,13 @@
    			</div>
 		</div>
 	<script>
-		const updatepost = document.getElementById("updatepost");
+		const updatepost = document.getElementById("updatePost");
         
 		if(updatepost){
-            updatepost.onclick = function(){
+			updatepost.onclick = function(){
               let text = "환불 승인을 진행하시겠습니까? \n변경하시려면 '확인'을 누르세요.";
               if (confirm(text) == true) {
-                 document.getElementById("update").submit();
+                 location.href = "${pageContext.servletContext.contextPath}/login/admin/rentRefund.do?postNum=${ refund.postNum }";
               }
             };
          }
