@@ -24,7 +24,7 @@ VALUES
 (
   SEQ_MEMBER_DEAD_NO.NEXTVAL, '010', '9876', '5432'
 , 'knsol1992', 'naver.com', '13480', '경기 성남시 분당구 대왕판교로 477', '카카오'
-, 'TESTID03', '$2a$10$zQCBurT5hli7gNu6DY6wfeK.GXvyvTu/5yhZlpf3EhNTbeNleBsmW'
+, 'testid03', '$2a$10$zQCBurT5hli7gNu6DY6wfeK.GXvyvTu/5yhZlpf3EhNTbeNleBsmW'
 , TO_DATE(19920819,'RRRRMMDD'), '동동', 'W'
 );
 

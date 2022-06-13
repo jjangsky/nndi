@@ -34,7 +34,6 @@
 
 		    
    			<div class="post list"> 
-   				<form id="update" action="${ pageContext.servletContext.contextPath }/login/admin/rentRefund" method="post">
 	        		<table class="t1">
 	            		<thead>
 	              			<tr>
@@ -63,31 +62,17 @@
 					                <td>${ refund.rentEnd }</td>
 	              					<td>
 	                					<button class="btn btn-secondary" 
-		                						onclick="location.href=
-	                							'${ pageContext.servletContext.contextPath }/login/admin/rentRefund.do?postNum=${ refund.postNum }'">
-		                				보기
+	                							onclick="location.href=
+	                							'${ pageContext.servletContext.contextPath }/login/admin/rentRefundUpdate.do?postNum=${ refund.postNum }'" > 
+		                				승인 결정
 		                				</button>
 	                				</td>
 	                			</tr>	
 	            			</c:forEach>
 	            		</tbody>
 	        		</table>
-    			</form>
    			</div>
 		</div>
-	<script>
-		const updatepost = document.getElementById("updatePost");
-        
-		if(updatepost){
-			updatepost.onclick = function(){
-              let text = "환불 승인을 진행하시겠습니까? \n변경하시려면 '확인'을 누르세요.";
-              if (confirm(text) == true) {
-                 location.href = "${pageContext.servletContext.contextPath}/login/admin/rentRefund.do?postNum=${ refund.postNum }";
-              }
-            };
-         }
-		
-	  </script>	  
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>

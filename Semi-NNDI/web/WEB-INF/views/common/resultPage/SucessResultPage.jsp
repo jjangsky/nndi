@@ -60,8 +60,17 @@
 				break;
 			case "UpdateRefund" :
 				successMessage = "환불 승인이 완료되었습니다.";
-				movePath = "../ClassRefundList.ㅓ네";
+				movePath = "/Semi-NNDI/login/admin/rentRefundList";
 				break;
+			case "UpdateBookDelete" :
+				successMessage = "도서 폐기가 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/bookList";
+				break;
+			case "UpdateBookDeleteReturn" :
+				successMessage = "도서 폐기 취소가 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/deleteBookList";
+				break;
+				
 		}
 
 		alert(successMessage);

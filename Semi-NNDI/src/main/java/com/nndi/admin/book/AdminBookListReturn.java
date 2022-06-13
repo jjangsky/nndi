@@ -21,13 +21,21 @@ public class AdminBookListReturn extends HttpServlet {
 		BookService bookService = new BookService();
 		int result = bookService.updateBookSearchYnReturn(code);
 		
+		String page = "";
+		
 		if (result > 0) {
-			response.sendRedirect("bookList");
+			
 			System.out.println("변경 성공");
+			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+			request.setAttribute("successCode", "UpdateBookDeleteReturn");
+			
 		} else {
-			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);
+			page = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "도서 폐기 취소에 실패하셨습니다. 입력값을 확인해 주세요.");
+			
 		}
 	
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 
