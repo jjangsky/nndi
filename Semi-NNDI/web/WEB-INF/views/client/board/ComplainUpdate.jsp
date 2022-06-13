@@ -30,7 +30,7 @@
 			<b style="color: red;">욕설, 비방, 선정성, 상업성, 정치적 표현 등 부적절한 표현의 게재글은 비공개 전활 또는 삭제될 수 있습니다.</b>
 		</div>
 
-	<form action="${ pageContext.servletContext.contextPath }/login/board/complain/modify?num=${requestScope.cmp.num}" method="post">
+	<form id="cmpUpdate" action="${ pageContext.servletContext.contextPath }/login/board/complain/modify?num=${requestScope.cmp.num}" method="post">
   		<div class="write2">
     		<p>민원 글 수정</p>
   		</div>
@@ -69,8 +69,18 @@
 
   		<div>
   			<button type="reset">취소</button>
-    		<button type="submit">등록</button>
+    		<button id="cmpModify" type="button">등록</button>
   		</div>
+  		<script>
+			const cmpModify = document.getElementById("cmpModify");
+			cmpModify.onclick = function(){
+		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+		      if (confirm(text) == true) {
+		    	  document.getElementById("cmpUpdate").submit();
+		      }
+		    };
+		</script>
+  		
 	</form>
 </section>
 	

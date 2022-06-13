@@ -26,7 +26,7 @@
     	
     	
 
-	<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.cmd.num}" method="post">
+	<form id="cmdUpdate" action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.cmd.num}" method="post">
   		<div class="write2">
     	<p>칭찬글 수정하기</p>
   		</div>
@@ -65,7 +65,19 @@
 		
 		<div style="float: right;">
     		<button type="reset">취소</button>
-    		<button type="submit">등록</button>
+    		<button id="cmdModify" type="button">등록</button>
+    		
+    		
+    	<script>
+			const cmdModify = document.getElementById("cmdModify");
+			cmdModify.onclick = function(){
+		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+		      if (confirm(text) == true) {
+		    	  document.getElementById("cmdUpdate").submit();
+		      }
+		    };
+		   
+ 	</script>
   		</div>
 		
 
