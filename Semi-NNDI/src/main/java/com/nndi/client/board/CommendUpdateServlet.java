@@ -43,7 +43,9 @@ public class CommendUpdateServlet extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher(path).forward(request, response);
+		//request.getRequestDispatcher(path).forward(request, response);
+		
+		response.sendRedirect("/Semi-NNDI/board/list/commend");
 	
 	}
 

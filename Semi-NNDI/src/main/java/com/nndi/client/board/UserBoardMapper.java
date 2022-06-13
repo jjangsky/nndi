@@ -65,6 +65,12 @@ public interface UserBoardMapper {
 	
 	/* 칭찬 게시판 조회수 증가 */
 	int incrementCommendCount(int num);
+	
+	/* 칭찬게시판 수정하기 기본값 불러오기 */
+	AdmireAndCategoryDTO detailUpdatecmd(int num);
+	
+	/* 민원게시판 수정하기 기본값 불러오기 */
+	BoardAndCategoryDTO detaulUpdateCmp(int num);
 
 
 

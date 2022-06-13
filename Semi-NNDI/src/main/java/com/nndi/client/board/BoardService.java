@@ -299,5 +299,30 @@ public class BoardService {
 		
 		return result;
 	}
+	
+	/* 칭찬게시판 수정하기 기본값 넘겨주기 위함 */
+	public AdmireAndCategoryDTO detailUpdatecmd(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		AdmireAndCategoryDTO cmd = boardMapper.detailUpdatecmd(num);
+		
+		sqlSession.close();
+		
+		return cmd;
+	}
+
+	public BoardAndCategoryDTO detailUpdateCmp(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		boardMapper = sqlSession.getMapper(UserBoardMapper.class);
+		BoardAndCategoryDTO cmp = boardMapper.detaulUpdateCmp(num);
+		
+		sqlSession.close();
+		
+		return cmp;
+	}
 
 }

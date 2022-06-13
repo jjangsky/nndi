@@ -26,9 +26,9 @@
     	
     	
 
-	<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.num}" method="post">
+	<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.cmd.num}" method="post">
   		<div class="write2">
-    	<p>민원 글 작성</p>
+    	<p>칭찬글 수정하기</p>
   		</div>
   		
   		<div class="min3">
@@ -51,7 +51,7 @@
     		
     		<div class="min4">
     		<tr>
-    		<textarea placeholder="제목을 입력하세요" name="title" required></textarea>
+    		<textarea placeholder="제목을 입력하세요" name="title" required>${requestScope.cmd.title}</textarea>
     		</tr>
   			</div>
 		</div>
@@ -59,7 +59,7 @@
 	  	<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" required></textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" required>${requestScope.cmd.content}</textarea>
 		  	</div>
 		</div>
 		

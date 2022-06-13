@@ -68,8 +68,15 @@
  			
   			<div style="float: right;">
     			<button type="reset">취소</button>
-    			<button type="submit">등록</button>
+    			<button type="submit" onclick="myFunction()">등록</button>
   			</div>
+  			
+  			<script>
+				function myFunction() {
+				  if (confirm("정말로 게시글을 작성 하시겠습니까?")) {
+					  location.href = "${pageContext.servletContext.contextPath}/login/board/commend/insert";
+				  }
+			</script>
 	
 		</form>
 	</section>
