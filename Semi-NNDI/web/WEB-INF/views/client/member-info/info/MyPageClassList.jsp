@@ -29,18 +29,17 @@
         <tr>
             <th>수강 과목</th>
             <th>개강일</th>
-            <th>상세<th>
+            <th>  <th>
 		    </tr>        
     </thead>
     <tbody>
-    <c:forEach var="mypagecls" items="${ requestScope.clsandpaymentdto }">
+    <c:forEach var="mypagecls" items="${ requestScope.clsandpaymentdto }" varStatus="status">
       <tr>
           <td class="test" style="display: none;">${mypagecls.clsNum}</td>
           <td class="test">${mypagecls.clsName}</td>
-          <td class="test">${mypagecls.clsStartDay}</td>
+          <td class="test">${requestScope.time[status.index].start}</td>
           <td>
-          	<button class="r1" onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">
-          		수강취소
+          	<button class="r1" onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">수강취소
           	</button>
           </td>
       </tr>

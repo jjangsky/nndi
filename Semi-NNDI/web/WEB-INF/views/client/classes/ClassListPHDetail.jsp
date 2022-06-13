@@ -21,7 +21,7 @@
       </tr>
       <tr align="center">
         <th>교육기간</th>
-        <td> ${requestScope.classdto.clsStartDay} ~/~ ${requestScope.classdto.clsEndDay}</td>
+        <td> ${requestScope.start} / ${requestScope.end}</td>
     </tr>
     <tr align="center">
         <th>교육요일</th>
