@@ -2,8 +2,10 @@ package com.nndi.admin.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 import java.util.Random;
 
+import javax.mail.Authenticator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.google.gson.Gson;
 import com.nndi.common.login.MemberLoginService;
+import com.nndi.common.mail.MailSend;
 import com.nndi.model.commondto.MemberAliveDTO;
 
 @WebServlet("/login/admin/memberPwdUpdate")
@@ -39,6 +42,9 @@ public class AdminMemberPwdUpdate extends HttpServlet {
 		int newPwd7 = (int)(Math.random() * 10);
 		String password = ("" + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
 
+		MailSend ms = new MailSend();
+		ms.MailSend(password);
+		
 		/* 난수 비크립트 처리 */
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String newPassword = passwordEncoder.encode(password);
