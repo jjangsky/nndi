@@ -31,7 +31,7 @@ public class AdminRestMemberList extends HttpServlet {
 		String path = "";
 		if (!memberRestList.isEmpty()) {
 			path = "/WEB-INF/views/admin/member/RestMemberList.jsp";
-			request.setAttribute("memberAliveList", memberRestList);
+			request.setAttribute("memberRestList", memberRestList);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");
@@ -43,3 +43,4 @@ public class AdminRestMemberList extends HttpServlet {
 	}
 
 }
+

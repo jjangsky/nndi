@@ -2,10 +2,13 @@ package com.nndi.client.Account;
 
 import static com.nndi.common.config.Template.getSqlSession;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.nndi.model.commondto.ManagerDTO;
 import com.nndi.model.commondto.MemberAliveDTO;
+import com.nndi.model.joindto.admin.member.BookRentAndBookInfoDTO;
 
 public class MemberService {
 
@@ -99,5 +102,6 @@ public class MemberService {
 		
 		return result;
 	}
+
 
 }

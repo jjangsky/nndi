@@ -103,10 +103,12 @@ public class AdmireDTO {
 	}
 	@Override
 	public String toString() {
-		return "CommendDTO [num=" + num + ", cateNum=" + cateNum + ", memId=" + memId + ", postDate=" + postDate
+		return "AdmireDTO [num=" + num + ", cateNum=" + cateNum + ", memId=" + memId + ", postDate=" + postDate
 				+ ", title=" + title + ", content=" + content + ", answerYn=" + answerYn + ", answerContent="
 				+ answerContent + ", displayYn=" + displayYn + ", hits=" + hits + "]";
 	}
-
+	
+	
+	
 	
 }

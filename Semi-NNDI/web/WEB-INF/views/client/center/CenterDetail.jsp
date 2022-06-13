@@ -18,51 +18,55 @@
 
 <body>
 
-	<aside>
-	<jsp:include page="../../common/includepage/CenterAside.jsp"/>
-	</aside>
 	
-  <section>
-	  <form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
-	  <table class="blueone">
-	      <tr>
-	          <th><label>시설명</label></th>
-	         <td> ${requestScope.centerDetail.centerKindName }</td>
-	         <input type="hidden" name="code" value="${requestScope.centerDetail.cenName }">
-	         
-
-	      </tr>
-	      <tr>
-	        <th><label>접수 대상 및 기간</label></th>
-	        <td>제한없음:정기접수</td>
-	    </tr>
-	    <tr>
-	        <th><label>이용 시작일</label></th>
-	        <td><input type="date" name="start"></td>
-	    </tr>
-	    <tr>
-	        <th><label>이용 종료일</label></th>
-	        <td><input type="date" name="end"></td>
-	    </tr>
-	    <tr>
-	        <th><label>접수 방법</label></th>
-	        <td>대기제(관리자승인)</td>
-	    </tr>
-	    <tr>
-	        <th><label>대관료</label></th>
-	        <td>문의 요망</td>
-	    </tr>
+	<jsp:include page="../../common/includepage/CenterAside.jsp"/>
+	
+	
+  	<section style="float: left">
+  	  <div class="post list">
+		<form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
+	  		<table class="blueone" style="margin-left: 40%; margin-top:10%; margin-bottom:20%; width:800px; height:400px;">
+	      		<tr>
+	          		<th><label>시설명</label></th>
+	         			<td> ${requestScope.centerDetail.centerKindName }</td>
+	         				<input type="hidden" name="code" value="${requestScope.centerDetail.cenName }">
+	      		</tr>
+	      		
+	      		<tr>
+	        		<th><label>접수 대상 및 기간</label></th>
+	        			<td>제한없음:정기접수</td>
+	    		</tr>
+	    
+	    		<tr>
+	        		<th><label>이용 시작일</label></th>
+	        			<td><input type="date" name="start" required></td>
+	    		</tr>
+	    		
+	    		<tr>
+	        		<th><label>이용 종료일</label></th>
+	        			<td><input type="date" name="end" required></td>
+	    		</tr>
+	    
+	    		<tr>
+	        		<th><label>접수 방법</label></th>
+	        			<td>대기제(관리자승인)</td>
+	    		</tr>
+	    	
+	    		<tr>
+	        		<th><label>대관료</label></th>
+	        			<td>문의 요망</td>
+	    		</tr>
 	  
-	    <tr>  	
-	    <button type="reset">취소</button>
-	    <button type="submit">등록</button>
-	    </tr>
-	  
-	  </form>
-
-</section>
+	    		<tr>  	
+	    			<td><button type="submit">등록</button></td>
+	    			<td><button type="reset">취소</button></td>
+	   		 	</tr>
+   		 	</table>
+	  	</form>
+	  	</div>
+	</section>
 
 </body>
-
+	<br clear="both">
 	<jsp:include page="../../common/includepage/UserFooter.jsp"/>
 </html>

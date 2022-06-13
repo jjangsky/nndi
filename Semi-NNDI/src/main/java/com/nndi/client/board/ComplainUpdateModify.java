@@ -12,7 +12,6 @@ import com.nndi.model.commondto.BoardDTO;
 @WebServlet("/login/board/complain/modify/*")
 public class ComplainUpdateModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		

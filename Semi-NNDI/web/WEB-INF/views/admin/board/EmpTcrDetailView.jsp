@@ -72,7 +72,7 @@
 						<tr>
 							<th>글제목</th>
 							<td><textarea name="title" id="content" cols="60" rows="1"
-									style="resize: none;" required>${ detailEmp.title }</textarea>
+									style="resize: none;" minlength="5" placeholder="5글자 이상 입력해주세요" required>${ detailEmp.title }</textarea>
 							</td>
 						</tr>
 						<tr>
@@ -86,24 +86,24 @@
 						<tr>
 							<th>자격요건</th>
 							<td><textarea name="empCondition" id="content" cols="60"
-									rows="10" style="resize: none;" required>${ detailEmp.empCondition }</textarea>
+									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.empCondition }</textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>모집인원</th>
-							<td><input name="empNumber" type="text"
+							<td><input name="empNumber" type="number" placeholder="숫자만 입력해주세요"
 								value=${ detailEmp.empNumber }></td>
 						</tr>
 						<tr>
 							<th>근무환경</th>
 							<td><textarea name="environment" id="content" cols="60"
-									rows="10" style="resize: none;" required>${ detailEmp.environment }</textarea>
+									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.environment }</textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>채용절차</th>
 							<td><textarea name="empProcess" id="content" cols="60"
-									rows="10" style="resize: none;" required>${ detailEmp.empProcess }</textarea>
+									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.empProcess }</textarea>
 							</td>
 						</tr>
 					</tbody>

@@ -25,8 +25,7 @@ public class AdminLoginCheckServlet extends HttpServlet {
 		ManagerDTO managerList = new ManagerDTO();
 		managerList.setManagerId(managerId);
 		managerList.setPwd(password);
-		
-		/* ManagerService 객체 생성 */
+				/* ManagerService 객체 생성 */
 		ManagerLoginService managerLoginService = new ManagerLoginService();
 		
 		/* 로그인한 매니저 정보 SELECT */
@@ -37,16 +36,18 @@ public class AdminLoginCheckServlet extends HttpServlet {
 		HttpSession loginSession = request.getSession();
 		
 		/* 로그인 성공 했을 때 */
-		if(loginManager != null) {
+		if(null != loginManager) {
 				loginSession.setAttribute("loginStatus", 2);
 				loginSession.setAttribute("loginMember", loginManager);
+				System.out.println("관리자 로그인 성공");
 				path="/WEB-INF/views/admin/login/AdminMain.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				
 				/*로그인 실패 했을 때 */
 		} else {
 			path="/WEB-INF/views/admin/login/adminLogin.jsp";
-			request.setAttribute("loginStatus", 3);
+			request.setAttribute("loginStatus", 3); 
+			System.out.println("관리자 로그인 실패");
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 	}

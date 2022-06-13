@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.nndi.model.commondto.ComplainDTO;
 import com.nndi.model.commondto.FAQDTO;
+import com.nndi.model.commondto.NoticeDTO;
 import com.nndi.model.commondto.QnaDTO;
 import com.nndi.model.commondto.TCREmploymentDTO;
 import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
@@ -65,6 +66,12 @@ public interface BoardMapper {
 
 	/* 공지사항 삭제 */
 	int deleteNotice(int num);
+	
+	/* faq 삭제 */
+	int deletefaq(int num);
+	
+	/* faq 등록 */
+	int insertfaq(FAQDTO insertFaq);
 
 	/* 강사모집 전체조회 */
 	List<EmpTeacherAndClassDTO> selectAllEmpTeacherList();
@@ -80,6 +87,15 @@ public interface BoardMapper {
 
 	/* 강사모집 등록 */
 	int insertEmpTcr(TCREmploymentDTO emp);
+
+	/* 공지사항 등록 */
+	int insertNotice(NoticeDTO addNotice);
+
+	/* 공지사항 수정 */
+	int updateNotice(NoticeDTO updateNotice);
+
+	/* FAQ 신규 등록 */
+	int insertNewFaq(FAQDTO faqDTO);
 
 
 }

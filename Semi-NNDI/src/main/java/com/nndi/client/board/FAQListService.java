@@ -12,7 +12,7 @@ public class FAQListService {
 	
 	private static FAQListDAO FAQmapper;
 
-	public List<FAQDTO> FAQlistservice() {
+	public static List<FAQDTO> FAQlistservice() {
 		SqlSession sqlSession = getSqlSession();
 		FAQmapper = sqlSession.getMapper(FAQListDAO.class);
 		

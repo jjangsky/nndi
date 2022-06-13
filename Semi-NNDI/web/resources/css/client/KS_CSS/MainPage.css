@@ -3,6 +3,13 @@
 section{
 	height: auto;
 }
+
+.img img{
+	position: absolute; 
+	top: 45%; 
+	left:90%
+}
+
 .mainPageTable{
 	border : 0; 
 	width: 400px; 
@@ -11,9 +18,6 @@ section{
 	margin-top: 5%
 }
 
-.mainPageTable legend{
-	border: 1px solid black;
-}
 
 .mainPageTable td{
 	text-align: center;
@@ -38,8 +42,8 @@ section{
 	margin-top: 5%;
 }
 
-.mainPageTable2 legend{
-	border: 1px solid black;
+.mainPageTable2 button{
+	border: 0px
 }
 
 .mainPageTable2 td{
@@ -50,11 +54,18 @@ section{
 	width: 20px; 
 	height: 20px
 }
+#img img{
+	width:20px;
+	height:20px;
+	border: 0;
+	}
+
 button{
 	background-color: white; 
 	margin: 20px;
 	text-align: center;
 	width: 150px;
+	border: 0;
 }
 a{
 	background-color: white; 

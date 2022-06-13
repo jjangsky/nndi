@@ -47,6 +47,18 @@
 				successMessage = "해당 민원을 성공적으로 삭제하였습니다. !";
 				movePath = "../../../index.jsp";
 				break;
+			case "insertCommend" : 
+				successMessage = "칭찬 게시글을 성공적으로 작성하였습니다. !";
+				movePath = "../../../index.jsp";
+				break;
+			case "deleteCommend" : 
+				successMessage = "칭찬 게시글을 성공적으로 삭제하였습니다. !";
+				movePath = "../../../index.jsp";
+				break;
+			case "updateCommend" : 
+				successMessage = "칭찬 게시글을 성공적으로 수정하였습니다. !";
+				movePath = "../../../../index.jsp";
+				break;
 		}
 
 		alert(successMessage);

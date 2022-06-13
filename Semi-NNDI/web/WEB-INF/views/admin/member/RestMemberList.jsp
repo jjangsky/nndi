@@ -26,20 +26,10 @@
 	 
 	   <jsp:include page="../../common/includepage/AdminAside.jsp"/>
 	  
-	  <div>
 	    <div class="post title">
     		<h3 class="top">휴면 관리</h3>
   		</div>
-		<form action="">
-		  <button class="search btn" type="submit">검색</button> 
-		  <input class="search in" type="text" placeholder="검색어 입력" required>
-		  <select class="search select" required>
-		    <option value="">None</option>
-		    <option value="name">이름</option>
-		    <option value="birth">생년월일</option>
-		    <option value="phone">연락처</option>
-		  </select>
-		</form>
+
 		  <div class="post list">
 		    <table>
 		        <thead class="table-lgiht">
@@ -51,44 +41,24 @@
 		                <th>휴면회원 해지</th>
 		            </tr>
 		        </thead>
-		       <c:forEach var="rest" items="${ requestScope.memberAliveList }">
+		        <tbody>
+		       <c:forEach var="rest" items="${ requestScope.memberRestList }">
 		              <tr>
 		                <td>${ rest.id }</td>
 		                <td>${ rest.name }</td>
 		                <td>${ rest.enrollDate }</td>
 		                <td>${ rest.lastLogin }</td>
 		                <td>
-		                	<button class="btn btn-secondary"
-		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/detailaliveMember.do?id=${ alive.id }'" >
-		                	회원관리</button>
+		                	<button class="btn btn-secondary"id="admit" type="button"
+		                	onclick="location.href = '${pageContext.servletContext.contextPath}/login/admin/changeAliveMember.do?id=${ rest.id }'">해지</button>
 		                </td>
 		              </tr>
-		              </c:forEach>
+		       </c:forEach>
 		        </tbody>
 		    </table>
-		    <script>
-		      function deleteEdit() {
-		        var txt;
-		        if (confirm("해당 회원은 휴면 회원 상태입니다.\n휴먼 회원을 해제 하시겠습니까?")) {
-		          alert("휴면 회원이 해제되었습니다.");
-		        } else {
-		          
-		        }
-		        
-		      }
-		      </script>
+		   
 		    <hr/>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  </div>
+		    
 		</div>
 	</section>
 	

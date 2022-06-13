@@ -30,19 +30,7 @@
 		    <div class="post title">
 		        <h3 class="top">FAQ</h3>
 		    </div>
-		    <div class="search">
-		      <form action="">
-		        <button class="search btn" type="submit">검색</button> 
-		        <input class="search in" type="text" placeholder="검색어 입력" required>
-		        <select class="search select" required>
-		          <option value="">None</option>
-		          <option value="title">제목</option>
-		          <option value="category">문의유형</option>
-		          <option value="writer">작성자</option>
-		          <option value="all">전체</option>
-		        </select>
-		      </form>
-		    </div>
+
 		    <div class="post list"> 
 		        <table class="t1">
 		            <thead>
@@ -57,7 +45,7 @@
 		            </thead>
 		            <tbody>
 		              <tr>
-		               <c:forEach var="faq" items="${ requestScope.FAQList }">
+		               <c:forEach var="faq" items="${ requestScope.FaqList }">
 		              <tr>
 		                <td>${ faq.num }</td>
 		                <td>${ faq.title }</td>
@@ -75,18 +63,9 @@
 		        </table>
 		    </div> 
 		    <div class="btns">
-		      <button class="btns addbtn">글쓰기</button>
+		      <button class="btns addbtn" onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/admin/insertFaq'">글쓰기</button>
 		    </div>
-		    <div class="pagination">
-		        <a href="#">&laquo;</a>
-		        <a href="#">1</a>
-		        <a class="active" href="#">2</a>
-		        <a href="#">3</a>
-		        <a href="#">4</a>
-		        <a href="#">5</a>
-		        <a href="#">6</a>
-		        <a href="#">&raquo;</a>
-		      </div>
 		</div>	  
 	</section>
 	

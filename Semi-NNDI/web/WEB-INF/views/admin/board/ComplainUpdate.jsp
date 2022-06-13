@@ -59,7 +59,7 @@
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		            <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" required>${ requestScope.detailComplain.answerContent }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="3" placeholder="3글자 이상 입력해주세요" required>${ requestScope.detailComplain.answerContent }</textarea><br>
 		            <c:choose>
                      <c:when test="${ detailComplain.answerYn eq 'N' }">
                         <button id="createpost" class="btns add" type="button">작 성 하 기</button>

@@ -37,7 +37,7 @@ public class AdminComplainRE extends HttpServlet {
 			response.sendRedirect("complainList");
 			System.out.println("success");
 		} else {
-			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/admin/selectErrorPage/UpdateFail.jsp").forward(request, response);
 			System.out.println("fail");
 		}
 		

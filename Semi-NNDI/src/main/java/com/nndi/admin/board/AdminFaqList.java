@@ -21,16 +21,16 @@ public class AdminFaqList extends HttpServlet {
 		
 		BoardService boardService = new BoardService();
 		
-		List<FAQAndCategoryDTO> FAQList = boardService.selectAllFAQList();
+		List<FAQAndCategoryDTO> FaqList = boardService.selectAllFAQList();
 		
-		for(FAQAndCategoryDTO faq : FAQList) {
+		for(FAQAndCategoryDTO faq : FaqList) {
 			System.out.println(faq);
 		}
 		
 		String path = "";
-		if (!FAQList.isEmpty()) {
+		if (!FaqList.isEmpty()) {
 			path = "/WEB-INF/views/admin/board/FaqList.jsp";
-			request.setAttribute("FAQList", FAQList);
+			request.setAttribute("FaqList", FaqList);
 		} else {
 			path = "/WEB-INF/views/admin/selectErrorPage/selectError.jsp";
 			request.setAttribute("message", "목록 조회 실패!");

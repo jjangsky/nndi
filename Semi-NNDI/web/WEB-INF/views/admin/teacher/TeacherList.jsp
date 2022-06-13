@@ -29,30 +29,19 @@
     <div class="post title">
         <h3 class="top">강사 조회</h3>
     </div>
-    <div class="search">
-      <form action="">
-        <button class="search btn" type="submit">검색</button> 
-        <input class="search in" type="text" placeholder="검색어 입력" required>
-        <select class="search select" required>
-          <option value="">None</option>
-          <option value="classname">강좌명</option>
-          <option value="classteachername">강사명</option>
-          <option value="all">전체</option>
-        </select>
-      </form>
-    </div>
+
     <div class="post list"> 
         <table class="t1">
             <thead>
               <tr>
-                <th>번호</th>
+                <th>강사코드</th>
                 <th>이름</th>
                 <th>성별</th>
                 <th>연락처</th>
                 <th>이메일</th>
                 <th>주소</th>
                 <th>계약해지여부</th>
-                <th>수정</th>
+                <th>정보관리</th>
               </tr>
             </thead>
             <tbody>
@@ -68,22 +57,13 @@
 		                <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=
-		                			'${ pageContext.servletContext.contextPath }/login/admin/teacherUpdate.do?no=${ teacher.no }'" >
-		                	수정</button>
+		                			'${ pageContext.servletContext.contextPath }/login/admin/detailTeacher.do?no=${ teacher.no }'" >
+		                	보기</button>
 		                </td>
 		              </tr>
 		              </c:forEach>
             </tbody>
         </table>
-    </div>
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">&raquo;</a>
     </div>
 	  
 	</section>

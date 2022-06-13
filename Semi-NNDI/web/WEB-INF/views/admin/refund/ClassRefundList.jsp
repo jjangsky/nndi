@@ -30,19 +30,6 @@
 			<div class="post title">
     			<h3 class="top">수강 환불내역 조회</h3>
 			</div>
-			<div class="search">
-		      <form action="">
-		        <button class="search btn" type="submit">검색</button> 
-		        <input class="search in" type="text" placeholder="검색어 입력" required>
-		        <select class="search select" required>
-			   		<option value="">None</option>
-			    	<option value="name">이름</option>
-			    	<option value="id">아이디</option>
-			    	<option value="class">강좌</option>
-			    	<option value="teacher">강사</option>
-		        </select>
-		      </form>
-		    </div>
 		
 			<div class="post list"> 
 		        <table class="t1">
@@ -73,16 +60,6 @@
 		            </tbody>
 		        </table>
 		    </div>
-		    <div class="pagination">
-		      <a href="#">&laquo;</a>
-		      <a href="#">1</a>
-		      <a class="active" href="#">2</a>
-		      <a href="#">3</a>
-		      <a href="#">4</a>
-		      <a href="#">5</a>
-		      <a href="#">6</a>
-		      <a href="#">&raquo;</a>
-		  	</div>
 		</div>
 		
 			  

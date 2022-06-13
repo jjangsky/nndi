@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +36,20 @@
 <title>NNDI Admin Login</title>
 </head>
 <body>
+
+        <c:choose>
+        	<c:when test="${ requestScope.loginStatus eq 3 }">
+        		<script>
+        			alert("로그인에 실패하셨습니다. 아이디/비밀번호를 확인해주세요.")
+        		</script>
+        	</c:when>
+        	<c:when test="${ requestScope.loginStatus eq 4 }">
+        		<script>
+	        		alert("로그인이 필요합니다. 로그인해주세요.")
+        		</script>
+        	</c:when>
+        </c:choose>
+
    <jsp:include page="../../common/includepage/AdminHeader.jsp"/>
    
    <div id="login" class="body">

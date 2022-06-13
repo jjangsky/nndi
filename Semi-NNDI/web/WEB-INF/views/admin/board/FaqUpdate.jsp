@@ -17,7 +17,7 @@
         color: aliceblue !important;
       }
     </style>
-<title>Admin FAQ List</title>
+<title>Admin FAQ detail View</title>
 </head>
 <body>
 	<jsp:include page="../../common/includepage/AdminHeader.jsp"/>
@@ -35,7 +35,7 @@
    			<button id="back" class="back">목록으로</button>
  		</div>
   		<div class="post add">
-		        <form action="${pageContext.servletContext.contextPath}/login/admin/faqRE" method="post">
+		        <form id="update" action="${pageContext.servletContext.contextPath}/login/admin/faqRE" method="post">
 		        	<input type="hidden" id="num" name="num" value="${ detailFaq.num }" />
 		            <label>FAQ 내용</label>
 		            <table>
@@ -52,37 +52,35 @@
 		                    <td class="td2">${ detailFaq.content }</td>
 		                </tr>
 		            </table>
-		             <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" required>${ requestScope.detailFaq.content }</textarea><br>
-		            <button id="updatepost" class="btns add" type="submit">수 정 하 기</button>
-		            <button id="deletepost" class="btns">삭 제 하 기</button>
+		             <label>상세 내용</label><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
+		            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
+		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button><br><br><br>
 		        </form>
 		    </div>
   		</div>
 	<script>
 	const back = document.getElementById("back");
 	const updatepost = document.getElementById("updatepost");
+	const deletepost = document.getElementById("deletepost");
     back.onclick = function(){
       let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
-      /* console.log('누름확인'); */
       if (confirm(text) == true) {
     	   location.href = "${pageContext.servletContext.contextPath}/login/admin/faqList"; 
       }
     };
     updatepost.onclick = function(){
-      let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
+      let text = "내용을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
       if (confirm(text) == true) {
-    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/faqRE";
+    	  document.getElementById("update").submit();
       }
     };
-    $("#deletepost").click(function(){
-      let text = "답변을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
+    deletepost.onclick = function(){
+      let text = "게시물을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
       if (confirm(text) == true) {
-        
-      } else {
-        
+    	  location.href = "${pageContext.servletContext.contextPath}/login/admin/deletefaq.do?num=${ detailFaq.num }"; 
       }
-    });
+    };
 </script>
 	  
 </section>

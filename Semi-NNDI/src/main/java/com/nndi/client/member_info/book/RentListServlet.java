@@ -1,7 +1,6 @@
 package com.nndi.client.member_info.book;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.nndi.model.joindto.admin.board.AdmireAndCategoryDTO;
+import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.member_info.book.MemberAndBookRentDTO;
 
 
@@ -27,8 +26,10 @@ public class RentListServlet extends HttpServlet {
 		
 		/* 로그인 된 고객 Session 정보 가져오기 */
 		HttpSession loginSession = request.getSession();
+		MemberAliveDTO member =(MemberAliveDTO) loginSession.getAttribute("loginMember");
+		
 		/* 가져온 로그인 된 고객 Session정보로 해당 고객이 빌린 도서 대출 내역 조회해 오기(반납되지 않은 도서만) */
-		List<MemberAndBookRentDTO>bookRentList = memberService.UserRentBook(loginSession);
+		List<MemberAndBookRentDTO>bookRentList = memberService.UserRentBook(member);
 		
 		for(MemberAndBookRentDTO rentList : bookRentList) {
 			System.out.println("Controller : " + rentList);

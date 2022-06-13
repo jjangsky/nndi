@@ -64,7 +64,7 @@
 	</resultMap>
 	
 	<!-- Class 전체 게시글 수 조회  -->
-	<select id="selectTotalCount" resultType="_int" parameterType="hashMap">
+	<select id="selectClassTotalCount" resultType="_int" parameterType="hashMap">
 		SELECT
 		       COUNT(*)
 		  FROM TBL_CLASS A     
@@ -72,7 +72,53 @@
 
 	<select id="selectClassList" resultMap="classAndTeacherAndCenterMap">
 		SELECT
-         
+			   A.RNUM
+			 , A.CLS_NUM
+    		 , A.TCR_NO
+    		 , A.TCR_NAME
+    		 , A.TCR_GENDER
+    		 , A.CEN_NAME
+    		 , A.CEN_KINDS_NAME
+    		 , A.CLS_NAME
+    		 , A.CLS_APPLY_CNT
+    		 , A.CLS_MAX_CNT
+    		 , A.CLS_START_DAY
+    		 , A.CLS_END_DAY
+    		 , A.CLS_EXPLAIN
+    		 , A.CLS_TIME
+    		 , A.CLS_COST
+    		 , A.CLS_DAY
+    		 , A.CLS_START_YN
+    		 , A.CLS_CATEGORY_NAME
+    		 , A.CLS_RECO_AGE
+    		 , A.CLS_RUN_TIME
+    	  FROM (SELECT
+               		   ROWNUM RNUM 
+               		 , B.CLS_NUM
+               		 , B.TCR_NO
+               		 , B.TCR_NAME
+               		 , B.TCR_GENDER
+               		 , B.CEN_NAME
+               		 , B.CEN_KINDS_NAME
+               		 , B.CLS_NAME
+               		 , B.CLS_APPLY_CNT
+               		 , B.CLS_MAX_CNT
+               		 , B.CLS_START_DAY
+               		 , B.CLS_END_DAY
+               		 , B.CLS_EXPLAIN
+               		 , B.CLS_TIME
+               		 , B.CLS_COST
+               		 , B.CLS_DAY
+               		 , B.CLS_START_YN
+               		 , B.CLS_CATEGORY_NAME
+               		 , B.CLS_RECO_AGE
+               		 , b.CLS_RUN_TIME
+               	  FROM VIEW_SELECT_ALL_CLASS B
+             <![CDATA[ 
+ 		 	     WHERE ROWNUM <= #{ endRow } 
+ 		 	 ]]>
+    		 ) A
+ 	  	WHERE RNUM >= #{ startRow } 
 	</select>
 	
 	

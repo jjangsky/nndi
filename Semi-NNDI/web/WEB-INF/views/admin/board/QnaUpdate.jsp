@@ -55,11 +55,15 @@
 		                    <td class="td1">답변 여부</td>
 		                    <td class="td2">${ detailqna.answerYn }</td>
 		                </tr>
+		                <tr>
+		                    <td class="td1">답변 내용</td>
+		                    <td class="td2">${ detailqna.answerContent }</td>
+		                </tr>
 		            </table>
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		             <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" >${ requestScope.detailqna.answerContent }</textarea><br>
+		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" >${ requestScope.detailqna.answerContent }</textarea><br>
 		            <c:choose>
 		            	<c:when test="${ detailqna.answerYn eq 'N' }">
 				            <button id="createpost" class="btns add" type="button">작 성 하 기</button>

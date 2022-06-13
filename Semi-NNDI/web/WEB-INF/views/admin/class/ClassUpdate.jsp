@@ -120,13 +120,13 @@
 		      }
 		    };
 		    updatepost.onclick = function(){
-			    let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
+			    let text = "강좌정보를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
 			    if (confirm(text) == true) {
 			    	  document.getElementById("update").submit();
 			      }
 			 };
 		    deletepost.onclick = function(){
-				let text = "답변을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
+				let text = "강좌를 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
 			    if (confirm(text) == true) {
 			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/classDelete.do?num=${ cls.clsNum }";
 			    } 
