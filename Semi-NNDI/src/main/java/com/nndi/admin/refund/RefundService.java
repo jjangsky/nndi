@@ -39,10 +39,27 @@ public class RefundService {
 		List<RentClassViewDTO> classRefundList = mapper.selectAllClassRefundList();
 		
 		for(RentClassViewDTO list : classRefundList) {
-			System.out.println("Service : " + classRefundList);
+			System.out.println("Service : " + list);
 		}
 		
 		return classRefundList;
+	}
+
+	public int updateRentRefund(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(RefundMapper.class);
+		
+		int result = mapper.UpdateRefund(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
 	}
 
 }

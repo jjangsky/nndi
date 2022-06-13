@@ -11,4 +11,6 @@ public interface RefundMapper {
 
 	List<RentClassViewDTO> selectAllClassRefundList();
 
+	int UpdateRefund(int num);
+
 }

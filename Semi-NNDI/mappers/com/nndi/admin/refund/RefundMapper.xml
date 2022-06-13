@@ -34,9 +34,11 @@
 		     , A.CEN_KINDS_NAME
 		     , A.RENT_COST
 		     , A.RENT_PAY_YN
+		     , A.RENT_REF_YN
 		     , A.RENT_START
 		     , A.RENT_END
 		  FROM VIEW_RENT_REFUND A
+		 WHERE A.RENT_PAY_YN = 'Y' 
 	</select>
 	
 	<!-- 강좌 환불 내역 전체 리스트 조회 -->
@@ -52,6 +54,8 @@
      		 , A.CLS_PAY_DAY
      	  FROM VIEW_CLASS_REFUND A	
 	</select>
+	
+	<!-- 대관 환불 승인 Update -->
 	
 </mapper>
 

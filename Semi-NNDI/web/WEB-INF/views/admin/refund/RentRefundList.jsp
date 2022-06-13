@@ -34,35 +34,57 @@
 
 		    
    			<div class="post list"> 
-		        <table class="t1">
-		            <thead>
-		              <tr>
-		                <th>게시글 번호</th>
-		                <th>고객 이름</th>
-		                <th>시설 이름</th>
-		                <th>결제 금액</th>
-		                <th>환불 여부</th>
-		                <th>대관 시작일</th>
-		                <th>대관 종료일</th>
-		              </tr>
-		            </thead>
-		            <tbody>
-		              <c:forEach var="refund" items="${ requestScope.refundList }">
-		              	<tr>
-			                <td>${ refund.postNum }</td>
-			                <td>${ refund.name }</td>
-			                <td>${ refund.cenKindsname }</td>
-			                <td>${ refund.rentCost }</td>
-			                <td>${ refund.rentPayYn }</td>
-			                <td>${ refund.rentStart }</td>
-			                <td>${ refund.rentEnd }</td>
-		            	</c:forEach>
-		            </tbody>
-		        </table>
-		    </div>
+   				<form id="update" action="${ pageContext.servletContext.contextPath }/login/admin/rentRefund" method="post">
+	        		<table class="t1">
+	            		<thead>
+	              			<tr>
+				                <th>게시글 번호</th>
+				                <th>고객 이름</th>
+				                <th>시설 이름</th>
+				                <th>결제 금액</th>
+				                <th>결제 여부</th>
+				                <th>환불 여부</th>
+				                <th>대관 시작일</th>
+				                <th>대관 종료일</th>
+	              			</tr>
+	            		</thead>
+	           	
+	           			<tbody>
+	              			<c:forEach var="refund" items="${ requestScope.refundList }">
+	              				<tr>
+					                <td>${ refund.postNum }</td>
+					                <td>${ refund.name }</td>
+					                <td>${ refund.cenKindsname }</td>
+					                <td>${ refund.rentCost }</td>
+					                <td>${ refund.rentPayYn }</td>
+					                <td>${ refund.rentRefYn }</td>
+					                <td>${ refund.rentStart }</td>
+					                <td>${ refund.rentEnd }</td>
+	              					<td>
+	                					<button id="updatePost" class="btns add" type="button">
+		                				보기
+		                				</button>
+	                				</td>
+	                			</tr>	
+	            			</c:forEach>
+	            		</tbody>
+	        		</table>
+    			</form>
+   			</div>
 		</div>
+	<script>
+		const updatepost = document.getElementById("updatepost");
+        
+		if(updatepost){
+            updatepost.onclick = function(){
+              let text = "환불 승인을 진행하시겠습니까? \n변경하시려면 '확인'을 누르세요.";
+              if (confirm(text) == true) {
+                 document.getElementById("update").submit();
+              }
+            };
+         }
 		
-			  
+	  </script>	  
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>
