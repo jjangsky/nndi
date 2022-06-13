@@ -26,9 +26,21 @@ public class QNABoardListService {
 		SqlSession sqlSession = getSqlSession();
 		mapper = sqlSession.getMapper(QNABoardListMapper.class);
 		
-		QnaDTO qnadto = mapper.QNABoardListDetail(num);
-		return qnadto;
+		int result = mapper.incrementQnaCount(num);
 		
+		QnaDTO qnadto = null;
+		
+		if(result > 0) {
+			qnadto = mapper.QNABoardListDetail(num);
+				if(qnadto != null) {
+				  sqlSession.commit();
+				}else {
+				sqlSession.rollback();
+				}
+			}else {
+				sqlSession.rollback();
+			}
+		return qnadto;
 	}
 
 	/* 마이페이지에서 문의글 조회하기 */

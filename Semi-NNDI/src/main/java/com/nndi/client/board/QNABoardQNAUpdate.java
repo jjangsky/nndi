@@ -54,7 +54,7 @@ public class QNABoardQNAUpdate extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		if (result>0) {
-			response.sendRedirect("QNABoardList");
+			response.sendRedirect("/Semi-NNDI/board/QNABoardList");
 			System.out.println("성공시 출력하는 문구");
 		} else {
 			System.out.println("실패임");

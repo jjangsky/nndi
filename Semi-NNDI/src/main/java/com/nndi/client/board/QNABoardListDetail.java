@@ -30,16 +30,16 @@ public class QNABoardListDetail extends HttpServlet {
 		
 		System.out.println("이글의 ID를 확인해볼까요: " + qnadto.getMemId());
 		
+			
 		String path = "";
-		
-		
 		if(loginMember.getId().equals(qnadto.getMemId())) {
 			path = "/WEB-INF/views/client/board/QNABoardListDetail.jsp";
 			request.setAttribute("qnadto", qnadto);
 		} else {
-			request.setAttribute("cannotYourId", "당신의 게시글이 아니면 볼 수 없습니다만?");
+			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+			request.setAttribute("message", "본인이 문의한 게시글만 확인할 수 있습니다.");
 		}
-		request.getRequestDispatcher("/WEB-INF/views/client/board/QNABoardListDetail.jsp").forward(request, response);
+		request.getRequestDispatcher(path).forward(request, response);
 		
 	}	
 }

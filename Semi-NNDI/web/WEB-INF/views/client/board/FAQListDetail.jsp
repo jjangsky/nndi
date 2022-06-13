@@ -11,7 +11,7 @@
 <jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 <body>
 
-	<section style="float: left">
+	<section style="float: left; width: 1500px;">
     	<div class="l1">
     		<div class="d1">
       			<h3>${requestScope.faqdto.title}</h3>
@@ -25,7 +25,7 @@
     		</div>
   		</div>
   
-    	<div>
+    	<div><br><br><br><br><br><br>
     		<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/FAQList'">목록으로</button>
   		</div>
 	</section>

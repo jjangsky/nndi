@@ -12,13 +12,14 @@
 <body>
 <jsp:include page="../../common/includepage/ClassAside.jsp"/>
 <section>	
+
   <div>
   
     <h3 class="notice" style="margin-top:200px"><b><u>강좌</u>조회</b></h3>
   </div>
  
 	<div class="post list"> 
-	 <p style="float: right;">내부사정으로 요일은 불가피하게 변경될수있슴다</p>
+	 <p style="float: right;"><b>※내부사정으로 요일은 불가피하게 변경될수있습니다<br>※한번 취소한 강좌는 재신청이 불가능합니다.</b></p>
     <table class="blueone">
       <thead>
         <tr>
@@ -33,7 +34,21 @@
 		    </tr>        
     </thead>
     <tbody>
-    <c:forEach var="cls" items="${ requestScope.possibleCls }"  varStatus="status">
+<%--     <c:forEach var="cls" items="${ requestScope.possibleCls }"  varStatus="status">
+      <tr>
+          <td class="mudo" style="display: none;">${cls.clsNum}</td>
+          <td class="mudo">${cls.clsName}</td>
+          <td class="mudo">${cls.teacher.name}</td>
+          <td class="mudo">${cls.cenName} 호</td>
+          <td class="mudo">${cls.clsApplyCnt}명//${cls.clsMaxCnt}명</td>
+          <td class="mudo">${requestScope.time1[status.index].start}</td>
+          <td class="mudo">${requestScope.time1[status.index].end}</td>
+          <td class="mudo">${cls.clsRunTime}</td>
+          <td class="mudo">${cls.clsDay}</td>
+      </tr>
+      </c:forEach> --%>
+      
+      <c:forEach var="cls" items="${ requestScope.possibleCls }"  varStatus="status">
       <tr>
           <td class="mudo" style="display: none;">${cls.clsNum}</td>
           <td class="mudo">${cls.clsName}</td>
@@ -47,11 +62,14 @@
       </tr>
       </c:forEach>
       
+      
     </tbody>
     
     </table>
     <br><br>
-    <h3>수강 신청 불가</h3>
+      <jsp:include page="../../common/includepage/paging.jsp"/>
+    <br><br>
+    <h3>수강 신청 인원 초과</h3>
     <br><br>
     <table class="blueone">
       <thead>
@@ -70,22 +88,22 @@
     <tbody>
     <c:forEach var="cls2" items="${ requestScope.impossibleCls }"  varStatus="status">
       <tr>
-          <td class="mudo" style="display: none;">${cls2.clsNum}</td>
-          <td class="mudo">${cls2.clsName}</td>
-          <td class="mudo">${cls2.teacher.name}</td>
-          <td class="mudo">${cls2.cenName} 호</td>
-          <td class="mudo">${cls2.clsApplyCnt}명//${cls2.clsMaxCnt}명</td>
-          <td class="mudo">${requestScope.time2[status.index].start}</td>
-          <td class="mudo">${requestScope.time2[status.index].end}</td>
-          <td class="mudo">${cls2.clsRunTime}</td>
-          <td class="mudo">${cls2.clsDay}</td>
+          <td style="display: none;">${cls2.clsNum}</td>
+          <td>${cls2.clsName}</td>
+          <td>${cls2.teacher.name}</td>
+          <td>${cls2.cenName} 호</td>
+          <td>${cls2.clsApplyCnt}명//${cls2.clsMaxCnt}명</td>
+          <td>${requestScope.time2[status.index].start}</td>
+          <td>${requestScope.time2[status.index].end}</td>
+          <td>${cls2.clsRunTime}</td>
+          <td>${cls2.clsDay}</td>
       </tr>
       </c:forEach>
       
     </tbody>
     
     </table>
-    <br><br>
+    <br><br> 
     </div>
 	
   </section>

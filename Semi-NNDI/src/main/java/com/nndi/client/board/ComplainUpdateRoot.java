@@ -21,14 +21,15 @@ public class ComplainUpdateRoot extends HttpServlet {
 		
 		System.out.println(" 넘어 온 숫자는?" + num);
 		
-		/* BoardService board = new BoardService();
+		 BoardService board = new BoardService();
 		
-		BoardAndCategoryDTO complainUpdate = board.complainDetail(num);
-		System.out.println(complainUpdate);
+		BoardAndCategoryDTO cmp = board.detailUpdateCmp(num);
 		
-		request.setAttribute("complainUpdate ", complainUpdate);*/
+		System.out.println("받아왔냐?" + cmp);
 		
-		request.setAttribute("num", num);
+		request.setAttribute("cmp",cmp);
+		
+		
 		
 		String path = "/WEB-INF/views/client/board/ComplainUpdate.jsp";
 		request.getRequestDispatcher(path).forward(request, response);

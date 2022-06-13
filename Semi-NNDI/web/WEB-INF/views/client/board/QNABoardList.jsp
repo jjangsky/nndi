@@ -18,7 +18,8 @@
 	</aside>
 
 <section style="float: left;">
-	<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%;">
+	<div style="border: 2px solid black; padding: 5px; margin-left: 20%; margin-right: 2%; width: 1000px">
+	<h3>문의 게시판</h3>
     	<b>너나들이, 중랑은 회원님들의 궁금증을 해결하기 위해 문의 게시판을 운영하고 있습니다.</b><br>
     	<b>센터 운영 및 시설에 대한 건의 및 불편사항을 남겨주시면 최대한 빠른 시간 안에 답변드리겠습니다.</b></br>
     	<b style="color: red;">※ 일반 문의는 접수 후 7일, 관련 법령 해석이 요구되는 문의는 접수 후 14일 이내에 처리됩니다.</b><br>
@@ -27,7 +28,7 @@
 	</div>	
   
   	<div class="post list"> 
-    	<table class="blueone">
+    	<table class="blueone" style="width: 1500px; margin-left: 20%">
      		<thead>
         		<tr>
 		            <th>번호</th>
@@ -66,12 +67,12 @@
     
   </div>
   	<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNAWritepage'">문의글작성</button>
-  
+  <br><br>
 	
   </section>
   
   <br clear="both">
-  
+  <br><br><br><br>
   <jsp:include page="../../common/includepage/UserFooter.jsp"/>
   
   <script>

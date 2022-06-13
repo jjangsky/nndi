@@ -1,5 +1,10 @@
 package com.nndi.client.classes;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +28,21 @@ public class ClassListDetail extends HttpServlet {
 		ClassListService classlist = new ClassListService();
 		ClassesAndTeacherAndCenterDTO classdto = classlist.classdetail(num);
 		
-		System.out.println("dto확인용"+classdto);
-		request.setAttribute("classdto", classdto);
 		
-		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassListDetail.jsp").forward(request, response);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		ClassesAndTeacherAndCenterDTO ctc = classdto;
+		String start = sdf.format(ctc.getClsStartDay());
+		String end =  sdf.format(ctc.getClsEndDay());
+		
+		System.out.println("dto확인용"+classdto);
+		
+		String path = "";
+		path = "/WEB-INF/views/client/classes/ClassListDetail.jsp";
+		request.setAttribute("classdto", classdto);
+		request.setAttribute("start", start);
+		request.setAttribute("end", end);
+		
+		request.getRequestDispatcher(path).forward(request, response);
 		
 		
 		}	
