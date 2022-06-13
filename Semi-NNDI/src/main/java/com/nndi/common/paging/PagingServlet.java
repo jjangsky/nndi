@@ -1,6 +1,8 @@
 package com.nndi.common.paging;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +61,30 @@ public class PagingServlet extends HttpServlet {
 		System.out.println("Service 처리 전 초기화 DTO 값 : " + PagingDTO);
 		
 		
-		List<ClassesAndTeacherAndCenterDTO> classList = pagingService.selectBoradList(PagingDTO);
+		Map<String,List<ClassesAndTeacherAndCenterDTO>> classList = pagingService.ClassList(PagingDTO);
+		System.out.println("dto 확인용 "+ classList);
 		
+		List<ClassesAndTeacherAndCenterDTO> possibleCls =  classList.get("possibleCls");
+		List<ClassesAndTeacherAndCenterDTO> impossibleCls = classList.get("impossibleCls");
+		
+		/* 신청가능 강좌 목록 개강, 종강일 */
+		List<Map<String, String>> time1 = new ArrayList<>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for(ClassesAndTeacherAndCenterDTO ctc : possibleCls) {
+			Map<String, String> map = new HashMap<>();
+			map.put("start", sdf.format( ctc.getClsStartDay()));
+			map.put("end", sdf.format(ctc.getClsEndDay()));
+			time1.add(map);
+		}
+		
+		/* 신청불가 강좌 목록 개강, 종강일 */
+		List<Map<String, String>> time2 = new ArrayList<>();
+		for(ClassesAndTeacherAndCenterDTO ctc : impossibleCls) {
+			Map<String, String> map = new HashMap<>();
+			map.put("start", sdf.format(ctc.getClsStartDay()));
+			map.put("end", sdf.format( ctc.getClsEndDay()));
+			time2.add(map);
+		}
 		
 		System.out.println("Service 처리 후 초기화 DTO 값 : " + classList);
 		
@@ -68,12 +92,12 @@ public class PagingServlet extends HttpServlet {
 		if(classList != null) {
 			
 			path = "/WEB-INF/views/client/classes/QNAClassList.jsp";
-			request.setAttribute("classList", classList);
+			request.setAttribute("possibleCls", possibleCls);
+			request.setAttribute("time1", time1);
+			request.setAttribute("impossibleCls", impossibleCls);
+			request.setAttribute("time2", time2);
 			request.setAttribute("PagingDTO", PagingDTO);
-		} else {
-			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
-			request.setAttribute("message", "게시물 목록 조회 실패!");
-		}
+		} 
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		

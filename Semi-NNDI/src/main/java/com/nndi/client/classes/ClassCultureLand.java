@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
-@WebServlet("/login/board/CultureLand")
+@WebServlet("/board/CultureLand")
 public class ClassCultureLand extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

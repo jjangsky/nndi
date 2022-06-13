@@ -16,7 +16,7 @@
 
 <section style="float: left">
 
-	<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
+	<div style="border: 2px solid black; padding: 5px; margin-left: 20%; margin-right: 2%; width: 1000px ">
 	    <b>주민들의 소중한 의견을 적극 반영하는 너나들이, 중랑이 되도록 노력하겠습니다.</b><br>
 	    <b> 너나들이, 중랑 문화센터와 관련된 민원사항만을 접수하는 곳입니다.</b><br>
 	    <b>게시판 작성내용으로 인한 법적문제 발생시 민,형사상 책임은 전적으로 게시자에게 있습니다.</br></b>
@@ -48,7 +48,7 @@
   		<div class="min3">
     		<p class="jemok">제목</p>
     		<div class="min4">
-    			<textarea placeholder="제목을 입력하세요" name="title" style="resize:none;" required></textarea>
+    			<input placeholder="제목을 입력하세요" name="title" style="resize:none; width: 700px;" required>
     		</div>
   		</div>
 
@@ -56,14 +56,15 @@
     		<p class="jemok">내용</p>
     	
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" style="resize:none;" required></textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" style="resize:none; width: 700px;" required></textarea>
     		</div>
 		</div>
-
+		<br><br><br>
   		<div>
     		<button id="cancelqna" class="btns" type="button" onclick="location.href=${pageContext.servletContext.contextPath}/login/board/QNABoardList">취소</button>
     		<button id="insertqna" type="button" class="btns">등록</button>
   		</div>
+  		<br><br><br><br><br><br>
 	</form>
 
  <script>

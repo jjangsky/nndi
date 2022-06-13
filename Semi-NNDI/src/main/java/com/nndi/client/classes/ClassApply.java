@@ -52,7 +52,7 @@ public class ClassApply extends HttpServlet {
 		System.out.println("인서트 확인용" + paymentdto);
 		
 		if(result>0) {
-			response.sendRedirect("QNAClassList");
+			response.sendRedirect("paging");
 			System.out.println("성공시 콘솔 출력 문구");
 		} else {
 			System.out.println("실패시 콘솔 출력");

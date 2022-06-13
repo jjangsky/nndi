@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 
-@WebServlet("/board/QNAClassList")
-public class ClassList extends HttpServlet {
+@WebServlet("/login/board/ClsList")
+public class ClassList2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -46,7 +46,7 @@
 	              </tr>
 	            </thead>
 	            <tbody>
-	            <c:forEach var="cls" items="${ requestScope.classList }" varStatus="status"> <!--  -->
+	            <c:forEach var="cls" items="${ requestScope.classList }" varStatus="status"> 
 	              <tr>
 	                <td>${ cls.clsNum }</td>
 	                <td>${ cls.clsName }</td>
