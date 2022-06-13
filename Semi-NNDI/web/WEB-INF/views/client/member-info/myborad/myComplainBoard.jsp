@@ -51,11 +51,11 @@
 					    	<tr>
 		      	  				<td>[답변]</td>
 						        <td class="test2" style="display: none;">${board.num}</td>
-					        	<td class="test2">${ board.category.cateKind }</td>
-						        <td class="test2">${ board.title }</td>
-						        <td class="test2">${ board.date }</td>
-						        <td class="test2">${ board.answer }</td>
-						        <td class="test2">${ board.hits }</td>
+					        	<td class="test2"><c:out value="${ board.category.cateKind }"/></td>
+						        <td class="test2"><c:out value="${ board.title }"/></td>
+						        <td class="test2"><c:out value="${ board.date }"/></td>
+						        <td class="test2"><c:out value="${ board.answer }"/></td>
+						        <td class="test2"><c:out value="${ board.hits }"/></td>
 		          			</tr>
 						</c:if>    
 					</c:forEach>

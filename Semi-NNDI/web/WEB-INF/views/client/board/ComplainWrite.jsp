@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>민원작성 페이지</title>
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script 
+		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/UserReg.js"></script>
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/selectList.css">
@@ -51,7 +57,7 @@
     		<p class="jemok">제목</p>
     		<div class="min4">
     			<tr>
-    			<textarea placeholder="제목을 입력하세요" name="title" required></textarea>
+    			<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize: none;" required></textarea>
    		 		</tr>
   			</div>
 		</div>
@@ -59,7 +65,7 @@
   		<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" required></textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize: none;" required></textarea>
   			</div>
 		</div>
 

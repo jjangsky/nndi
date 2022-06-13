@@ -27,8 +27,8 @@
 		<form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
 	  		<table class="blueone" style="margin-left: 40%; margin-top:10%; margin-bottom:20%; width:800px; height:400px;">
 	      		<tr>
-	          		<th><label>시설명</label></th>
-	         			<td> ${requestScope.centerDetail.centerKindName }</td>
+	          		<th><label>시설명</label></th> 
+	         			<td> <c:out value="${requestScope.centerDetail.centerKindName }"/></td>
 	         				<input type="hidden" name="code" value="${requestScope.centerDetail.cenName }">
 	      		</tr>
 	      		

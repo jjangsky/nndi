@@ -25,22 +25,22 @@
             <th>날짜</th>
             <th>제목</th>
             <!-- <th>조회수</th> -->
-		    </tr>        
-    </thead>
+		    </tr>          
+    </thead> 
     <tbody>
     <c:forEach var="mypageqna" items="${ requestScope.qnalist }">
       <tr>
           <%-- <td class="test">${mypageqna.memId}</td> --%>
           <td class="test" style="display: none;">${mypageqna.num}</td>
-          <td class="test">${mypageqna.postDate}</td>
-          <td class="test">${mypageqna.title}</td>
+          <td class="test"><c:out value="${mypageqna.postDate}"/></td>
+          <td class="test"><c:out value="${mypageqna.title}"/></td>
           <%-- <td class="test">${mypageqna.hits}</td> --%>
       </tr>
        <c:if test="${mypageqna.managerId != null}">
       <tr>
       	  <td>[답변완료]</td>
           <td class="test2" style="display: none;">${mypageqna.num}</td>
-          <td class="test2">${mypageqna.managerId}</td>
+          <td class="test2"><c:out value="${mypageqna.managerId}"/></td>
           <%-- <td class="test2">${mypageqna.postDate}</td> --%>
           <%-- <td class="test2">${mypageqna.title}</td> --%>
           <%-- <td class="test2">${mypageqna.hits}</td> --%>

@@ -40,24 +40,24 @@
     		</thead>
     		
     		<tbody>
-    
+
     			<c:forEach var="qna" items="${ requestScope.qnalist }">
       				<tr>
-			          <td class="test">${qna.num}</td>
-			          <td class="test">${qna.memId}</td>
-			          <td class="test">${qna.postDate}</td>
-			          <td class="test">${qna.title}</td>
-			          <td class="test">${qna.hits}</td>
+			          <td class="test"> <c:out value="${qna.num}" escapeXml="true"/></td>
+			          <td class="test"> <c:out value="${qna.memId}" escapeXml="true"/></td>
+			          <td class="test"> <c:out value="${qna.postDate}" escapeXml="true"/></td>
+			          <td class="test"> <c:out value="${qna.title}" escapeXml="true"/></td>
+			          <td class="test"> <c:out value="${qna.hits}" escapeXml="true"/></td>
 		          	</tr>
 		       <c:if test="${qna.managerId != null}">
 
 			      <tr>
 			      	  <td>[답변]</td>
 			          <td class="test2" style="display: none;">${qna.num}</td>
-			          <td class="test2">${qna.managerId}</td>
-			          <td class="test2">${qna.postDate}</td>
-			          <td class="test2">${qna.title}</td>
-			          <td class="test2">${qna.hits}</td>
+			          <td class="test2"><c:out value="${qna.managerId}" escapeXml="true"/></td>
+			          <td class="test2"><c:out value="${qna.postDate}" escapeXml="true"/></td>
+			          <td class="test2"><c:out value="${qna.title}" escapeXml="true"/></td>
+			          <td class="test2"><c:out value="${qna.hits}" escapeXml="true"/></td>
 			      </tr>
 		       </c:if> 
     			</c:forEach>

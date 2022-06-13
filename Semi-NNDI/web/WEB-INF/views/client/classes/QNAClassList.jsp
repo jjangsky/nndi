@@ -49,16 +49,16 @@
       </c:forEach> --%>
       
       <c:forEach var="cls" items="${ requestScope.possibleCls }"  varStatus="status">
-      <tr>
+      <tr>  
           <td class="mudo" style="display: none;">${cls.clsNum}</td>
-          <td class="mudo">${cls.clsName}</td>
-          <td class="mudo">${cls.teacher.name}</td>
-          <td class="mudo">${cls.cenName} 호</td>
-          <td class="mudo">${cls.clsApplyCnt}명//${cls.clsMaxCnt}명</td>
-          <td class="mudo">${requestScope.time1[status.index].start}</td>
-          <td class="mudo">${requestScope.time1[status.index].end}</td>
-          <td class="mudo">${cls.clsRunTime}</td>
-          <td class="mudo">${cls.clsDay}</td>
+          <td class="mudo"><c:out value="${cls.clsName}"/></td>
+          <td class="mudo"><c:out value="${cls.teacher.name}"/></td>
+          <td class="mudo"><c:out value="${cls.cenName}"/> 호</td>
+          <td class="mudo"><c:out value="${cls.clsApplyCnt}"/>명//<c:out value="${cls.clsMaxCnt}"/>명</td>
+          <td class="mudo"><c:out value="${requestScope.time1[status.index].start}"/></td>
+          <td class="mudo"><c:out value="${requestScope.time1[status.index].end}"/></td>
+          <td class="mudo"><c:out value="${cls.clsRunTime}"/></td>
+          <td class="mudo"><c:out value="${cls.clsDay}"/></td>
       </tr>
       </c:forEach>
       

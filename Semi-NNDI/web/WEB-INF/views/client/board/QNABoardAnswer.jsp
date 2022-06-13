@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +14,14 @@
 <section>
     <div class="l1">
     <div class="d1">
-      <h3>${requestScope.qnadto.title}</h3>
-      <p><b>작성자 ID: ${requestScope.qnadto.memId }</b></p>
-      <p><b>작성일</b>: ${requestScope.qnadto.postDate}<br><b>답변자 ID: </b>${requestScope.qnadto.managerId}</p>
+      <h3><c:out value="${requestScope.qnadto.title}" escapeXml="true"/></h3>
+      <p><b>작성자 ID: <c:out value="${requestScope.qnadto.memId }" escapeXml="true"/></b></p>
+      <p><b>작성일</b>: <c:out value="${requestScope.qnadto.postDate}" escapeXml="true"/><br><b>답변자 ID: </b><c:out value="${requestScope.qnadto.managerId}" escapeXml="true"/></p>
     </div>
   </div>  
-
   <div class="l1">
     <div class="d1">
-      <p>${requestScope.qnadto.answerContent}</p>
+      <p><c:out value="${requestScope.qnadto.answerContent}</p>" escapeXml="true"/>
     </div>
   </div>
 
