@@ -18,9 +18,10 @@
 	
 	
 	<section style="float: left">
-		<div style="margin-left:20%; margin-top:10%; border:3px solid gray; width:500px; text-align:auto;">
+		<div style="margin-left:20%; margin-top:10%; border:3px solid gray; width:500px; text-align:auto; padding:25px">
     	<h3 style="padding: 20px 20px 20px 100px;"> 대관List</h3>
-        		<p class="pp">상담 및 접수 후 신청서는 메일로 송부 받습니다. <br>홈페이지 대관 신청만 있을 경우 반려될 수 있습니다.</p>
+        		<p class="pp">상담 및 접수 후 신청서는 메일로 송부 받습니다. <br>홈페이지 대관 신청만 있을 경우 반려될 수 있습니다.
+        		<br>신청 기간은 신청일로부터 7일 이후, 30일 이내로 가능합니다</p>
     	</div>
         
         		<div class="post list">

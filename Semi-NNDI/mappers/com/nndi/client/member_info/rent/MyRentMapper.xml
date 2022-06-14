@@ -98,10 +98,41 @@
  		 WHERE A.MEM_ID = #{ memId }
            AND A.RENT_REF_YN = 'N'
            AND A.RENT_PAY_YN = 'N'
+           AND A.RENT_COST = '0'
      </select> 	
      
      <!-- 대관 신청철회 Update 쿼리문 -->
      <update id="updateCancel" parameterType="_int">
+     	UPDATE
+               TBL_RENT_REQUEST A
+     	   SET A.RENT_PAY_YN = 'Y'
+     	 WHERE A.POST_NUM = #{ num }
+     </update>
+     
+     <!-- 대관신청 환불 가능 리스트 조회 -->
+	<select id="selectRefundUpdate" parameterType="string" resultMap="centerNameResultMap">
+ 		SELECT
+               A.POST_NUM
+ 		     , A.CENTER_NAME
+             , B.CEN_KINDS_NAME
+ 		     , A.MANAGER_ID
+ 		     , A.MEM_ID
+ 		     , A.RENT_REQ_YN
+ 		     , A.RENT_COST
+ 		     , A.RENT_PAY_YN
+ 		     , A.RENT_REF_YN
+ 		     , A.RENT_START
+ 		     , A.RENT_END
+ 		  FROM TBL_RENT_REQUEST A
+          JOIN TBL_CENTER_MANAGEMENT B ON(A.CENTER_NAME = B.CEN_NAME)
+ 		 WHERE A.MEM_ID = #{ memId }
+           AND A.RENT_REF_YN = 'N'
+           AND A.RENT_PAY_YN = 'N'
+           AND A.RENT_REQ_YN = 'Y'
+     </select>
+
+	 <!-- 대관 신청환불 Update 쿼리문 -->
+     <update id="updateRefund" parameterType="_int">
      	UPDATE
                TBL_RENT_REQUEST A
      	   SET A.RENT_PAY_YN = 'Y'

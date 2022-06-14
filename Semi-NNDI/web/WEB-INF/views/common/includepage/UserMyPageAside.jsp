@@ -70,6 +70,10 @@
 	        	
 	        	<br>
 	        	<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/refund'">
+	        	대관 환불 내역</button></li>
+	        	
+	        	<br>
+	        	<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/refunds/update'">
 	        	대관 환불 신청</button></li>
 	        	
 	      	</ul>

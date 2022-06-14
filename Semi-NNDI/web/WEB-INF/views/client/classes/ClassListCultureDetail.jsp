@@ -22,7 +22,11 @@
       </tr>
       <tr align="center">
         <th>교육기간</th>
+<<<<<<< HEAD
+        <td> ${requestScope.start} / ${requestScope.end}</td>
+=======
         <td> <c:out value="${requestScope.classdto.clsStartDay}"/> ~/~ <c:out value="${requestScope.classdto.clsEndDay}"/></td>
+>>>>>>> main
     </tr>
     <tr align="center">
         <th>교육요일</th>
