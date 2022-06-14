@@ -23,7 +23,7 @@ public class MyRentRefundPayUpdate extends HttpServlet {
 		if(result > 0) {
 			path = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
 			System.out.println("update 성공");
-			request.setAttribute("successCode", "updateRentRefund");
+			request.setAttribute("successCode", "UpdateRefundss");
 		} else {
 			path = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
 			System.out.println("update 실패");

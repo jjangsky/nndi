@@ -77,6 +77,7 @@
 		UPDATE
 			   TBL_RENT_REQUEST A
 				   SET RENT_REF_YN = 'N'
+				     , RENT_PAY_YN = 'N'
 		 WHERE A.POST_NUM = ${ num } 	   	
 	</update>
 </mapper>
