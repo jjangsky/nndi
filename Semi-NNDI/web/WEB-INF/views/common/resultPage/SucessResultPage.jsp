@@ -70,6 +70,11 @@
 				successMessage = "도서 폐기 취소가 완료되었습니다.";
 				movePath = "/Semi-NNDI/login/admin/deleteBookList";
 				break;
+			case "updateRentRefund" :
+				successMessage = "환불 신청이 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/myPage/rentList";
+				break;
+			
 				
 		}
 
