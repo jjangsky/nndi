@@ -60,7 +60,7 @@ $(function(){
     
   $(".noticecontent").change(function(){
         
-       var regExp = /^\s*(?:\S\s*){10,}$/;
+       var regExp = /W*(?:\w+\b\W*){10,100}$/;
 
         if(regExp.test($(this).val())){     
         } else {
@@ -111,5 +111,6 @@ $(function(){
             $(this).val('');
         }
     })
+  
     
 })

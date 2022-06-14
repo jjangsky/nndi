@@ -75,7 +75,7 @@
   		</div>
 	</form>
 </section>
-	<script>
+	<!-- <script>
 			const cmpWrite = document.getElementById("cmpWrite");
 			cmpWrite.onclick = function(){
 		      let text = "글을 등록 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
@@ -84,7 +84,29 @@
 		      }
 		    };
 		   
- 	</script>
+ 	</script> -->
+ 	<script>
+ 			$("#cmpWrite").click ( function() {
+ 	            
+ 	            const content = $(".userContent").val().length;
+ 	            const title = $(".userTitle").val().length;
+ 	            
+ 	            
+ 	            console.log(content)
+ 	            console.log(title)
+ 	            if(content != 0 && title !=0){
+ 	               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+ 	               if (confirm(text) == true) {
+ 	                  document.getElementById("cmpInsert").submit(); 
+ 	               }
+ 	            }
+ 	            else {
+ 	               alert('내용을 입력해주세요')
+ 	            }
+ 	            
+ 	            
+ 	         })
+ 			</script>
 	
 	
 </body>

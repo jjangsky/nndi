@@ -77,7 +77,7 @@
     			<button id="cmdWrite" type="button">등록</button>
   			</div>
   			
-  			<script>
+  			<!-- <script>
 			const cmdWrite = document.getElementById("cmdWrite");
 			cmdWrite.onclick = function(){
 		      let text = "글을 등록 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
@@ -85,7 +85,28 @@
 		    	  document.getElementById("cmdInsert").submit();
 		      }
 		    };
-		   
+ 			</script>  -->
+ 			<script>
+ 			$("#cmdWrite").click ( function() {
+ 	            
+ 	            const content = $(".userContent").val().length;
+ 	            const title = $(".userTitle").val().length;
+ 	            
+ 	            
+ 	            console.log(content)
+ 	            console.log(title)
+ 	            if(content != 0 && title !=0){
+ 	               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+ 	               if (confirm(text) == true) {
+ 	                  document.getElementById("cmdInsert").submit(); 
+ 	               }
+ 	            }
+ 	            else {
+ 	               alert('내용을 입력해주세요')
+ 	            }
+ 	            
+ 	            
+ 	         })
  			</script>
 	
 		</form>

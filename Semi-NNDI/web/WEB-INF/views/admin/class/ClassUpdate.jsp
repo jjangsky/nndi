@@ -62,10 +62,10 @@
 				            </tr>
 				            <tr>
 				              <th>강사코드</th>
-				              <td><input name="tcrNo" type="text" value="${ cls.teacher.name }"></td>
+				              <td><input name="tcrNo" type="text" value="${ cls.teacher.name }" required></td>
 				            </tr>
 				              <th>강좌 최대 수강 인원</th>
-				              <td><input name="clsMaxCnt" type="text" min="1" max="30" value="${ cls.clsMaxCnt }"></td>
+				              <td><input name="clsMaxCnt" type="text" min="1" max="30" value="${ cls.clsMaxCnt }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 개강일</th>
@@ -77,23 +77,23 @@
 				            </tr>
 				            <tr>
 				              <th>강좌 설명</th>
-				              <td><input name="clsExplain" type="text" value="${ cls.clsExplain }"></td>
+				              <td><input name="clsExplain" type="text" value="${ cls.clsExplain }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 진행 총 시간</th>
-				              <td><input name="clsTime" type="text" value="${ cls.clsTime }"></td>
+				              <td><input name="clsTime" type="text" value="${ cls.clsTime }" required></td>
 				            </tr>
 			              	<tr>
 				              <th>강좌 진행 시간</th>
-				              <td><input name="clsRunTime" type="text"  min="1" max="6" value="${ cls.clsRunTime }"></td>
+				              <td><input name="clsRunTime" type="text"  min="1" max="6" value="${ cls.clsRunTime }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 수강료</th>
-				              <td><input name="clsCost" type="number" min="1000" value="${ cls.clsCost }"></td>
+				              <td><input name="clsCost" type="number" min="1000" value="${ cls.clsCost }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 요일</th>
-				              <td><input name="clsDay" type="text"value="${ cls.clsDay }"></td>
+				              <td><input name="clsDay" type="text"value="${ cls.clsDay }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 활성화여부</th>
