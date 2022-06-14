@@ -5,9 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<!-- ajax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/sidebars.css" >
@@ -15,6 +13,7 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/teacherEmp.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
     <style>
       .btn{
         font-size: 20px !important;
@@ -54,7 +53,7 @@
 				            </tr>
 				            <tr>
 				              <th >강좌명</th>
-				              <td><input name="clsName" type="text" value="${ cls.clsName }" readonly></td>
+				              <td><input name="clsName" class="clsName" type="text" value="${ cls.clsName }"></td>
 				            </tr>
 				            <tr>
 				              <th >강좌분류</th>
@@ -62,10 +61,10 @@
 				            </tr>
 				            <tr>
 				              <th>강사코드</th>
-				              <td><input name="tcrNo" type="text" value="${ cls.teacher.name }"></td>
+				              <td><input name="tcrNo" type="text" class="teaCode" value="${ cls.teacher.name }"></td>
 				            </tr>
 				              <th>강좌 최대 수강 인원</th>
-				              <td><input name="clsMaxCnt" type="text" min="1" max="30" value="${ cls.clsMaxCnt }"></td>
+				              <td><input name="clsMaxCnt" class="maxnum" type="text" min="1" max="30" value="${ cls.clsMaxCnt }"></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 개강일</th>
@@ -77,29 +76,29 @@
 				            </tr>
 				            <tr>
 				              <th>강좌 설명</th>
-				              <td><input name="clsExplain" type="text" value="${ cls.clsExplain }"></td>
+				              <td><input name="clsExplain" class="clsContent" type="text" value="${ cls.clsExplain }"></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 진행 총 시간</th>
-				              <td><input name="clsTime" type="text" value="${ cls.clsTime }"></td>
+				              <td><input name="clsTime" class="clsTime" type="text" value="${ cls.clsTime }"></td>
 				            </tr>
 			              	<tr>
 				              <th>강좌 진행 시간</th>
-				              <td><input name="clsRunTime" type="text"  min="1" max="6" value="${ cls.clsRunTime }"></td>
+				              <td><input name="clsRunTime" class="clsTime2" type="text" value="${ cls.clsRunTime }"></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 수강료</th>
-				              <td><input name="clsCost" type="number" min="1000" value="${ cls.clsCost }"></td>
+				              <td><input name="clsCost" class="clsCost" type="number" min="1000" value="${ cls.clsCost }"></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 요일</th>
-				              <td><input name="clsDay" type="text"value="${ cls.clsDay }"></td>
+				              <td><input name="clsDay" class="clsDay" type="text" value="${ cls.clsDay }"></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 활성화여부</th>
 				              <td>
 			                  <select id="startYn" name="clsStartYn" required>
-			                    <option value=""> </option>
+			                    <option value="">none</option>
 			                    <option value="Y">Yes</option>
 			                    <option value="N">No</option>
 			                  </select>
@@ -113,7 +112,7 @@
 		        </form>
 		    </div>
   		</div>
-	  <script>
+<!-- 	  <script>
 			const back = document.getElementById("back");
 			const updatepost = document.getElementById("updatepost");
 			const deletepost = document.getElementById("deletepost");
@@ -130,7 +129,7 @@
 			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/classDelete.do?num=${ cls.clsNum }";
 			    } 
 		    };
-	  </script>
+	  </script> -->
 	  <script type="text/javascript">
 		/* 기간조회시 입력 오류 확인 날짜 비교 */
 		$("#updatepost").click(function(){ 
@@ -163,12 +162,12 @@
 			} else if(startDateCompare.getTime() > endDateCompare.getTime()){
 				alert("시작 날짜와 종료 날짜를 확인해 주세요!");
 				$("#start").focus();
-			} else {
+			} /* else {
 				let text = "강좌정보를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
 			    if (confirm(text) == true) {
 			    	  document.getElementById("update").submit();
 			      }
-			}
+			} */
 		})
 		
 	</script>

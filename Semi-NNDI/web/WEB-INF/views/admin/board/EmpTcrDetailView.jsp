@@ -23,6 +23,10 @@
 	rel="stylesheet"
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
+	
 <style>
 .btn {
 	font-size: 20px !important;
@@ -71,7 +75,7 @@
 						</tr>
 						<tr>
 							<th>글제목</th>
-							<td><textarea name="title" id="content" cols="60" rows="1"
+							<td><textarea name="title" id="empcontent" cols="60" rows="1"
 									style="resize: none;" minlength="5" placeholder="5글자 이상 입력해주세요" required>${ detailEmp.title }</textarea>
 							</td>
 						</tr>
@@ -85,37 +89,37 @@
 						</tr>
 						<tr>
 							<th>자격요건</th>
-							<td><textarea name="empCondition" id="content" cols="60"
+							<td><textarea name="empCondition" id="emp2content" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.empCondition }</textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>모집인원</th>
-							<td><input name="empNumber" type="number" placeholder="숫자만 입력해주세요"
+							<td><input name="empNumber" type="number" placeholder="숫자만 입력해주세요" id="empnumber"
 								value=${ detailEmp.empNumber }></td>
 						</tr>
 						<tr>
 							<th>근무환경</th>
-							<td><textarea name="environment" id="content" cols="60"
+							<td><textarea name="environment" id="empevcontent" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.environment }</textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>채용절차</th>
-							<td><textarea name="empProcess" id="content" cols="60"
+							<td><textarea name="empProcess" id="empprocontent" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ detailEmp.empProcess }</textarea>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 				<button id="deletepost" class="btns" type="button">삭 제 하 기</button>
-				<button id="updatepost" class="btns add" type="button">수 정
+				<button id="updatepost23" class="btns add" type="button">수 정
 					하 기</button>
 			</form>
 		</div>
 		<script>
 			const back = document.getElementById("back");
-			const updatepost = document.getElementById("updatepost");
+			const updatepost23 = document.getElementById("updatepost23");
 			const deletepost = document.getElementById("deletepost");
 			back.onclick = function() {
 				let text = " 이 창을 나가시겠습니까?\n나가시려면 '확인'을 누르세요.";
@@ -124,11 +128,11 @@
 					location.href = "${pageContext.servletContext.contextPath}/login/admin/employTeacherList";
 				}
 			};
-			updatepost.onclick = function() {
+			updatepost23.onclick = function() {
 				let text = "게시글을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-				if (confirm(text) == true) {
+				/* if (confirm(text) == true) {
 					document.getElementById("update").submit();
-				}
+				}  */
 			};
 			deletepost.onclick = function() {
 				let text = "게시글을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";

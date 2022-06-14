@@ -64,13 +64,13 @@
 		            <label>답변 내용</label><br>
 		            
 		            <p><c:out value="${ requestScope.detailComplain.answerContent }" escapeXml="true"/></p>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="3" placeholder="3글자 이상 입력해주세요" required><c:out value="${ requestScope.detailComplain.answerContent }" escapeXml="true"/></textarea><br>
+		            <textarea name="content" id="adminCPcontent" cols="30" rows="10" style="resize: none;" minlength="3" placeholder="3글자 이상 입력해주세요" required><c:out value="${ requestScope.detailComplain.answerContent }" escapeXml="true"/></textarea><br>
 		            <c:choose>
                      <c:when test="${ detailComplain.answerYn eq 'N' }">
-                        <button id="createpost" class="btns add" type="button">작 성 하 기</button>
+                        <button id="createpost100" class="btns add" type="button">작 성 하 기</button>
                      </c:when>
                      <c:when test="${ detailComplain.answerYn eq 'Y' }">
-                        <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
+                        <button id="updatepost100" class="btns add" type="button">수 정 하 기</button>
                      </c:when>
                   </c:choose>
                   <button id="deletepost" class="btns" type="button" >삭 제 하 기</button>
@@ -94,9 +94,9 @@
 	          if(createpost){
 	             createpost.onclick = function(){
 	               let text = "답변을 작성하시겠습니까?\작성하시려면 '확인'을 누르세요.";
-	               if (confirm(text) == true) {
+	             /*   if (confirm(text) == true) {
 	                  document.getElementById("update").submit();
-	               }
+	               } */
 	             };
 	          }
 	          

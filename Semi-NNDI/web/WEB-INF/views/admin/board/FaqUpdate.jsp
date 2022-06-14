@@ -56,15 +56,15 @@
 		                </tr>
 		            </table>
 		             <label>상세 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" class="faqadder" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
-		            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
+		            <textarea name="content" id="content4" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="내용을 입력해주세요" required>${ requestScope.detailFaq.content }</textarea><br>
+		            <button id="updatepost3" class="btns add" type="button">수 정 하 기</button>
 		            <button id="deletepost" class="btns" type="button">삭 제 하 기</button><br><br><br>
 		        </form>
 		    </div>
   		</div>
 	<script>
 	const back = document.getElementById("back");
-	const updatepost = document.getElementById("updatepost");
+	const updatepost = document.getElementById("updatepost3");
 	const deletepost = document.getElementById("deletepost");
     back.onclick = function(){
       let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
@@ -74,9 +74,9 @@
     };
     updatepost.onclick = function(){
       let text = "내용을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-      if (confirm(text) == true) {
-    	  document.getElementById("update").submit();
-      }
+     /*  if (confirm(text) == true) {
+    	  document.getElementById("update").submit(); 
+      }*/
     };
     deletepost.onclick = function(){
       let text = "게시물을 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";

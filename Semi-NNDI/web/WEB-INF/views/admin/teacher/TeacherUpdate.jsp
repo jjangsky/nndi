@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/teacherEmp.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
     <style>
       .btn{
         font-size: 20px !important;
@@ -48,7 +49,7 @@
 				            </tr>
 				            <tr>
 				              <th>이름</th>
-				              <td><input name="name" type="text" value="${ teacher.name }" minlength="2"></td>
+				              <td><input name="name" type="text" value="${ teacher.name }" minlength="2" readonly></td>
 				            </tr>
 				            <tr>
 				              <th>성별</th>
@@ -60,15 +61,15 @@
 				            </tr>
 				            <tr>
 				              <th>이메일</th>
-				              <td><input name="email" type="text" value="${ teacher.email }" minlength="2" required></td>
+				              <td><input name="email" class="udtemail" type="text" value="${ teacher.email }" minlength="2" required></td>
 				            </tr>
 				            <tr>
 				              <th>연락처</th>
-				              <td><input name="phone" type="text" value="${ teacher.phone }" minlength="11" required></td>
+				              <td><input name="phone" class="udtphone" type="text" value="${ teacher.phone }" minlength="11" required></td>
 				            </tr>
 				            <tr>
 				              <th>주소</th>
-				              <td><input name="address" type="text" value="${ teacher.address }" minlength="5" required></td>
+				              <td><input name="address" class="udtadress" type="text" value="${ teacher.address }" minlength="5" required readonly></td>
 				            </tr> 
 				            
  				            <tr>
@@ -83,7 +84,7 @@
 		        </form>
 		    </div>
   		</div>
-     <script>
+    <!--  <script>
 			const back = document.getElementById("back");
 			const updatepost = document.getElementById("updatepost");
 			const deletepost = document.getElementById("deletepost");
@@ -110,7 +111,7 @@
 		    };
 			
 			
-	  </script>
+	  </script> 
 	  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		const $searchZipCode = document.getElementById("searchZipCode");
@@ -130,7 +131,7 @@
 		$goMain.onclick = function() {
 			location.href = "${ pageContext.servletContext.contextPath }";
 		}
-	</script>
+	</script> -->
 	</section>
    
    <jsp:include page="../../common/includepage/AdminFooter.jsp"/>

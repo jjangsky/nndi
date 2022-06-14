@@ -24,6 +24,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
+
 <style>
 .btn {
 	font-size: 20px !important;
@@ -50,9 +51,9 @@
 			<div>
 				<div class="post add">
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/insertFaq" method="post">
-						<label>제목</label><br> <input type="text" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/><br>
+						<label>제목</label><br> <input type="text" id="faqtitle" name="title" minlength="10" placeholder="제목을 입력하세요" required><c:out value="${data}" escapeXml="true"/><br>
 						<label>작성자</label><br> <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
-						<label>카테고리</label><br> <select name="cateNum" required>
+						<label>카테고리</label><br> <select name="cateNum" id="faqCate" required>
 							<option value="">None</option>
 							<option value="1">문화강좌</option>
 							<option value="2">체육강좌</option>
@@ -61,10 +62,10 @@
 							<option value="5">기타</option>
 						</select><br>
 						<label>내용</label><br>
-						<textarea name="content" id="content" cols="30" rows="15"
-							style="resize: none;" minlength="10" class="faqcontent" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
+						<textarea name="content" class="faqContent" id="content" cols="30" rows="15"
+							style="resize: none;" minlength="10" class="faqcontent" placeholder="내용을 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
 						<br>
-						<button id="addpost" class="btns add" type="button">등 록 하
+						<button id="addpost4" class="btns add" type="button">등 록 하
 							기</button>
 						<button class="btns" type="reset">다 시 작 성 하 기</button>
 					</form>
@@ -73,7 +74,7 @@
 		</div>
 		<script>
 			const back = document.getElementById("back");
-			const addpost = document.getElementById("addpost");
+			const addpost = document.getElementById("addpost4");
 			back.onclick = function() {
 				let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
 				/* console.log('누름확인'); */
@@ -83,9 +84,9 @@
 			};
 			addpost.onclick = function() {
 				let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
-				if (confirm(text) == true) {
+				 /* if (confirm(text) == true) {
 					document.getElementById("update").submit();
-				}
+				} */
 			};
 		</script>
 

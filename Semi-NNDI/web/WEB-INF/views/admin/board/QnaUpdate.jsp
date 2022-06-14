@@ -66,13 +66,13 @@
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		             <label>답변 내용</label><br>
-		            <textarea name="content" class="qnacontent" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" >${ requestScope.detailqna.answerContent }</textarea><br>
+		            <textarea name="content" class="qnacontent" id="qnacontent" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" >${ requestScope.detailqna.answerContent }</textarea><br>
 		            <c:choose>
 		            	<c:when test="${ detailqna.answerYn eq 'N' }">
 				            <button id="createpost" class="btns add" type="button">작 성 하 기</button>
 		            	</c:when>
 		            	<c:when test="${ detailqna.answerYn eq 'Y' }">
-				            <button id="updatepost" class="btns add" type="button">수 정 하 기</button>
+				            <button id="updatepost6" class="btns add" type="button">수 정 하 기</button>
 		            	</c:when>
 		            </c:choose>
 		            <button id="deletepost" class="btns" type="button" >삭 제 하 기</button>
@@ -81,7 +81,7 @@
 		</div>
 	  <script>
 	  	const back = document.getElementById("back");
-		const updatepost = document.getElementById("updatepost");
+		const updatepost6 = document.getElementById("updatepost6");
 		const createpost = document.getElementById("createpost");
 		const deletepost = document.getElementById("deletepost");
 		back.onclick = function(){
@@ -95,20 +95,20 @@
 		    if(createpost){
 			    createpost.onclick = function(){
 			      let text = "답변을 작성하시겠습니까?\작성하시려면 '확인'을 누르세요.";
-			      if (confirm(text) == true) {
-			    	  document.getElementById("update").submit();
-			      }
+			      /* if (confirm(text) == true) {
+			    	  document.getElementById("update").submit(); 
+			      }*/
 			    };
 		    }
 		    
-		    if(updatepost){
-			    updatepost.onclick = function(){
+		    if(updatepost6){
+		    	updatepost6.onclick = function(){
 			      let text = "답변을 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-			      if (confirm(text) == true) {
+			     /*  if (confirm(text) == true) {
 			    	  document.getElementById("update").submit();
-			      }
+			      }  */
 			    };
-		    }
+		    } 
 		    
 		    deletepost.onclick = function(){
 			      let text = "답변을 삭제하시겠습니까?\n수정하시려면 '확인'을 누르세요.";

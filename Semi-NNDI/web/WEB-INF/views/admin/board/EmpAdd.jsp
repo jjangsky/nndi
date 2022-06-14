@@ -23,6 +23,10 @@
 	rel="stylesheet"
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>	
+	
 <style>
 .btn {
 	font-size: 20px !important;
@@ -59,13 +63,13 @@
 						</tr>
 						<tr>
 							<th>글제목</th>
-							<td><textarea name="title" id="content" cols="60" rows="1"
+							<td><textarea name="title" id="empcontent" cols="60" rows="1"
 									style="resize: none;" minlength="5" placeholder="5글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>강좌고유번호</th>
-							<td><input name="clsNum" type="text" placeholder="위의 강사표를 참고하여 입력해 주세요" required><c:out value="${data}" escapeXml="true"/></td>
+							<td><input name="clsNum" id="clsNumber" type="text" placeholder="위의 강사표를 참고하여 입력해 주세요" required><c:out value="${data}" escapeXml="true"/></td>
 						</tr>
 						<tr>
 							<th>모집여부</th>
@@ -77,30 +81,30 @@
 						</tr>
 						<tr>
 							<th>자격요건</th> 
-							<td><textarea name="empCondition" id="content" cols="60"
+							<td><textarea name="empCondition" id="emp2content" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>모집인원</th>
-							<td><input name="empNumber" type="number" placeholder="숫자만 입력해주세요"
+							<td><input name="empNumber" type="number" placeholder="숫자만 입력해주세요" id="empnumber"
 								value=${ detailEmp.empNumber }><c:out value="${data}" escapeXml="true"/></td>
 						</tr>
 						<tr>
 							<th>근무환경</th>
-							<td><textarea name="environment" id="content" cols="60"
+							<td><textarea name="environment" id="empevcontent" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
 							</td>
 						</tr>
 						<tr>
 							<th>채용절차</th>
-							<td><textarea name="empProcess" id="content" cols="60"
+							<td><textarea name="empProcess" id="empprocontent" cols="60"
 									rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/></textarea>
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<button id="addpost" class="btns add">등 록 하 기</button>
+				<button id="addpost7" class="btns add">등 록 하 기</button>
             	<button class="btns" type="reset">다 시   작 성 하 기</button>
 			</form>
 		</div>
@@ -116,9 +120,9 @@
 			};
 			addpost.onclick = function() {
 				let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
-				if (confirm(text) == true) {
+				/* if (confirm(text) == true) {
 					document.getElementById("update").submit();
-				}
+				} */
 			};
 		</script>
 	</section>

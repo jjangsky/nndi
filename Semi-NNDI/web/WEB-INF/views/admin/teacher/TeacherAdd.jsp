@@ -42,7 +42,7 @@
 	    </div>
 	    
 	    <div class="post add">
-	    <form action="${ pageContext.servletContext.contextPath }/login/admin/teacherAdd" method="post" >
+	    <form id="teacheradd" action="${ pageContext.servletContext.contextPath }/login/admin/teacherAdd" method="post" >
 	        <label>이름 </label>
 	        <input name="name" type="text" class="input1" id="uName" placeholder="이름을 두 글자이상 입력해주세요" required>
 	        <label >성별 </label>
@@ -53,7 +53,7 @@
                 	  <option value="W" id="W">여</option>
 		        </select>
 	        <label>생년월일 </label>
-		    <input type="date" name="birth" class="input1" required>
+		    <input type="date" name="birth" class="input1" id="bbirth" required>
 		    
 		    
 		    <label>이메일 &nbsp;&nbsp;&nbsp;</label><input type="text" class="mam" name="email01" id="str_email01" style="width:250px" required>@
@@ -76,7 +76,7 @@
             </select><br>
 		    
             <label>연락처 </label>
-		    <input type="text" class="input1" name="phone" minlength="11" required>
+		    <input type="text" id="phnumber" class="input1" name="phone" required>
 		    
 		    <label for="address1"> 우편 번호: </label>
 					<input type="button" value="검색" class="btn btn-yg" id="searchZipCode" style="border: 1px solid black; background-color: #9d9adf;">
@@ -90,7 +90,7 @@
 				<br>
 			
 				<label for="address3"> 상세 주소: </label>		
-					<input type="text" name="address2" id="address2" minlength="2">
+					<input type="text" name="address2" id="address2">
 
     			<br>
 		    
@@ -106,7 +106,7 @@
 	  	</div>
 	  </div>
 
-	<script>
+ <script>
 	const back = document.getElementById("back");
 	const addpost = document.getElementById("addpost");
 	back.onclick = function() {
@@ -124,7 +124,7 @@
 		}
 	};
 	</script>
-	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		const $searchZipCode = document.getElementById("searchZipCode");
 		

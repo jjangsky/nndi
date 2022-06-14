@@ -49,9 +49,9 @@
 				<div class="post add">
 
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/noticeAdd" method="post">
-						<label>제목</label><br> <input type="text" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><br>
+						<label>제목</label><br> <input type="text" id="noticetitle" name="title" minlength="10" placeholder="제목을 입력해주세요" required><br>
 						<label>작성자</label><br> <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
-						<label>카테고리</label><br> <select name="cateNum" required>
+						<label>카테고리</label><br> <select id="noticecate" name="cateNum" required>
 							<option value="">None</option>
 							<option value="1">문화강좌</option>
 							<option value="2">체육강좌</option>
@@ -61,15 +61,15 @@
 						</select><br> <label>파일첨부</label><br> <input type="file" name="uploadFileKey" multiple="multiple" required><br>
 						<label>내용</label><br>
 						<textarea name="content" id="content" class="noticecontent" cols="30" rows="15"
-							style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
+							style="resize: none;" placeholder="10글자 이상 입력해주세요" required></textarea>
 						<br>
-						<button id="addpost" class="btns add" type="button">등 록 하
+						<button id="addpost2" class="btns add" type="button">등 록 하
 							기</button>
 						<button class="btns" type="reset">다 시 작 성 하 기</button>
 					</form>
 				</div>
 			</div>
-		<script>
+<!-- 		<script>
 			const back = document.getElementById("back");
 			const addpost = document.getElementById("addpost");
 			back.onclick = function() {
@@ -85,7 +85,7 @@
 					document.getElementById("update").submit();
 				}
 			};
-		</script>
+		</script> -->
 
 	</section>
 
