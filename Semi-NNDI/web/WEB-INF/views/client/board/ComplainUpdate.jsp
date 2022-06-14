@@ -77,7 +77,7 @@
   			<button type="reset">취소</button>
     		<button id="cmpModify" type="button">등록</button>
   		</div>
-  		<script>
+  		<!-- <script>
 			const cmpModify = document.getElementById("cmpModify");
 			cmpModify.onclick = function(){
 		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
@@ -85,7 +85,30 @@
 		    	  document.getElementById("cmpUpdate").submit();
 		      }
 		    };
-		</script>
+		</script> -->
+		
+		<script>
+ 			$("#cmpModify").click ( function() {
+ 	            
+ 	            const content = $(".userContent").val().length;
+ 	            const title = $(".userTitle").val().length;
+ 	            
+ 	            
+ 	            console.log(content)
+ 	            console.log(title)
+ 	            if(content != 0 && title !=0){
+ 	               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+ 	               if (confirm(text) == true) {
+ 	                  document.getElementById("cmpUpdate").submit(); 
+ 	               }
+ 	            }
+ 	            else {
+ 	               alert('내용을 입력해주세요')
+ 	            }
+ 	            
+ 	            
+ 	         })
+ 			</script>
   		
 	</form>
 </section>
