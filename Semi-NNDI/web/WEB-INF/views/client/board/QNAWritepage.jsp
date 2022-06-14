@@ -73,7 +73,7 @@
   		<br><br><br><br><br><br>
 	</form>
 
- <script>
+ <!-- <script>
 			const cancelqna = document.getElementById("cancelqna");
 			const insertqna = document.getElementById("insertqna");
 		    insertqna.onclick = function(){
@@ -90,7 +90,29 @@
 			cancelqna.onclick = function(){
 		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
 		    };
-</script>
+</script> -->
+			<script>
+ 			$("#insertqna").click ( function() {
+ 	            
+ 	            const content = $(".userContent").val().length;
+ 	            const title = $(".userTitle").val().length;
+ 	            
+ 	            
+ 	            console.log(content)
+ 	            console.log(title)
+ 	            if(content != 0 && title !=0){
+ 	               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+ 	               if (confirm(text) == true) {
+ 	                  document.getElementById("write").submit(); 
+ 	               }
+ 	            }
+ 	            else {
+ 	               alert('내용을 입력해주세요')
+ 	            }
+ 	            
+ 	            
+ 	         })
+ 			</script>
 
 </section>
 <br clear="both">

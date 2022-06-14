@@ -71,7 +71,7 @@
           INTO TBL_RENT_REQUEST
  		VALUES
  		(
- 		  SEQ_REQUEST_POST_NUM.nextval
+ 		  SEQ_REQUEST_POST_NUM.NEXTVAL
  		, #{ centerName }
  		, NULL
  		, #{ memId }

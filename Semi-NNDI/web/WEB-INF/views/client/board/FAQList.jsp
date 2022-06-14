@@ -16,7 +16,7 @@
     <h3 class="notice"><b>FAQ</b></h3>
   </div>
 <div class="post list"> 
-    <table style="width: 1500px;" class="blueone">
+    <table style="width: 1000px;" class="blueone">
       <thead>
         <tr>
             <th>번호</th>

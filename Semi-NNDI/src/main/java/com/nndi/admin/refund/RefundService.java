@@ -63,4 +63,45 @@ public class RefundService {
 		return result;
 	}
 
+	/* 수강 환불 승인 Service */
+	public int updateClassRefund(int num) {
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(RefundMapper.class);
+		
+		System.out.println("활불 승인 서비스 도착 확인 ");
+		
+		int result = mapper.UpdateClassRefund(num);
+		System.out.println("Service 결과값: " + result);
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 대관 환불 승인 취소 Service */
+	public int updateClassRefundCancel(int num) {
+		
+		System.out.println("서비스서비스서비스서비스");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(RefundMapper.class);
+		
+		int result = mapper.updateClassRefundCancel(num);
+		
+		System.out.println("서비스 서비스 리절트 : " + result);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
 }

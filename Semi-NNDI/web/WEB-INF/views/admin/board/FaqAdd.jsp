@@ -82,12 +82,35 @@
 					location.href = "${pageContext.servletContext.contextPath}/index.jsp";
 				}
 			};
+<<<<<<< HEAD
 			addpost.onclick = function() {
 				let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
 				 /* if (confirm(text) == true) {
 					document.getElementById("update").submit();
 				} */
 			};
+=======
+			/* addpost.onclick = function() {
+				
+				const content = document.getElementById("content").value.length;
+				const title = document.getElementById("title").value.length;
+				const cate = document.getElementById("cate").value.length;
+				
+				console.log(content)
+				console.log(title)
+				if(content != 0 && title !=0 && cate !=0){
+					let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+					if (confirm(text) == true) {
+						document.getElementById("update").submit(); 
+					}
+				}
+				else {
+					alert('내용을 입력해주세요')
+				}
+				
+				
+			}; */
+>>>>>>> main
 		</script>
 
 	</section>

@@ -26,7 +26,7 @@ public class MemberPwdFindInputServlet extends HttpServlet {
 		memberAliveList.setPhone1(request.getParameter("selectUserPhone"));
 		memberAliveList.setPhone2(request.getParameter("phone2"));
 		memberAliveList.setPhone3(request.getParameter("phone3"));
-		
+		String id = request.getParameter("userId");
 		/* MemberService 인스턴스 생성 */
 		MemberLoginService memberService = new MemberLoginService();
 
@@ -52,8 +52,10 @@ public class MemberPwdFindInputServlet extends HttpServlet {
 			int newPwd7 = (int)(Math.random() * 10);
 			String password = ("" + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
 
+			String email = memberService.selectOneMemberAliveById(id);
+			
 			MailSend ms = new MailSend();
-			ms.MailSend(password);
+			ms.MailSend(password , email);
 			
 			/* 난수 비크립트 처리 */
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -71,9 +73,9 @@ public class MemberPwdFindInputServlet extends HttpServlet {
 			/* Update 성공시 생성한 난수 비밀번호를 출력할 jsp 페이지로 이동. */
 			if(result > 0) {
 				System.out.println("변경 성공");
-				page = "/WEB-INF/views/common/login/MemberFwdFindResult.jsp";
-				
-				request.setAttribute("message", password);
+				page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+				System.out.println("성공~");
+				request.setAttribute("successCode", "UpdateMemberPwd");
 			} else {
 				System.out.println("변경 실패");
 				page = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";

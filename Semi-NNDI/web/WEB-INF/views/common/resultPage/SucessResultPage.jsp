@@ -72,9 +72,24 @@
 				break;
 			case "updateRentRefund" :
 				successMessage = "환불 신청이 완료되었습니다.";
-				movePath = "/Semi-NNDI/login/myPage/rentList";
+				movePath = "/Semi-NNDI/login/admin/rentList";
 				break;
-			
+
+			case "UpdateMemberPwd" :
+				successMessage = "비밀번호가 이메일로 발송되었습니다. 재로그인 부탁드립니다.";
+				movePath = "../../index.jsp";
+				break;
+
+			case "UpdateClassRefund" :
+				successMessage = "환불 신청이 취소되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/rentRefundList";
+				break;
+			case "classrefundList" :
+				successMessage = "환불 신청이 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/rentRefundList";
+				break;
+				
+
 				
 		}
 

@@ -243,6 +243,22 @@ public class MemberLoginService {
 		return count;
 	}
 
+	/* 이메일을 가져오기 위한 쿼리 */
+	public String selectOneMemberAliveById(String id) {
+
+		System.out.println("Service~~~!!!!!");
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(LoginMapper.class);
+		
+		String email = mapper.selectOneMemberAliveById(id);
+		
+		System.out.println("Service : " + email);
+		
+		return email;
+	}
+
 	
 	
 	

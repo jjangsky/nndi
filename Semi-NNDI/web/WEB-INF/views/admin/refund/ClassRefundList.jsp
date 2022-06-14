@@ -43,6 +43,7 @@
 		                <th>결제금액</th>
 		                <th>환불여부</th>
 		                <th>결제일</th>
+	        			<th>환불 승인</th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -56,6 +57,16 @@
 			                <td>${ refund.clsPrice }</td>
 			                <td>${ refund.refundYn }</td>
 			                <td>${ refund.clsPayDay }</td>
+			                <td>
+	                			<button  
+			                			class="btn btn-secondary app" 
+	                					onclick="location.href=
+	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundUpdate.do?clsNum=${ refund.clsNum }'"> 
+		                		승인 결정
+		                		</button>
+	              			<td>
+
+	                		</td>			                
 		            	</c:forEach>
 		            </tbody>
 		        </table>

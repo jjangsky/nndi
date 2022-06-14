@@ -80,17 +80,17 @@
 		    
 		    <label for="address1"> 우편 번호: </label>
 					<input type="button" value="검색" class="btn btn-yg" id="searchZipCode" style="border: 1px solid black; background-color: #9d9adf;">
-					<input type="text" name="zipCode" id="zipCode" readonly>
+					<input type="text" name="zipCode" id="zipCode" required>
 			
 				<br>
 			
 				<label for="address2"> 주소: </label>            
-					<input type="text" name="address1" id="address1" readonly>
+					<input type="text" name="address1" id="address1" required>
 			
 				<br>
 			
 				<label for="address3"> 상세 주소: </label>		
-					<input type="text" name="address2" id="address2">
+					<input type="text" name="address2" id="address2" minlength="2" required> 
 
     			<br>
 		    

@@ -156,6 +156,7 @@
           FROM TBL_POST_COMPLAIN A
           JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
          WHERE A.NUM = #{ num }
+           AND A.DISPLAY_YN = 'Y'
  	</select>
  	
  	<!-- 민원 수정 쿼리 -->

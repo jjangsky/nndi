@@ -54,6 +54,9 @@ public interface LoginMapper {
 	/* 회원가입 진행시 아이디 중복체크 */
 	int selectCheckUserId(String userId);
 
+	/* 이메일 인증을 위한 이메일 조회 */
+	String selectOneMemberAliveById(String id);
+
 
 
 }
