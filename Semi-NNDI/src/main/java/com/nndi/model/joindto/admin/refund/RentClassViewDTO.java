@@ -7,6 +7,7 @@ public class RentClassViewDTO implements Serializable {
 
 	private static final long serialVersionUID = -2047005345621602462L;
 
+	private int postNum;
 	private int clsNum;
 	private String name;
 	private String id;
@@ -19,8 +20,9 @@ public class RentClassViewDTO implements Serializable {
 	public RentClassViewDTO() {
 	}
 	
-	public RentClassViewDTO(int clsNum, String name, String id, String clsName, String tcrName, int clsPrice,
-			String refundYn, Date clsPayDay) {
+	public RentClassViewDTO(int postNum, int clsNum, String name, String id, String clsName, String tcrName,
+			int clsPrice, String refundYn, Date clsPayDay) {
+		this.postNum = postNum;
 		this.clsNum = clsNum;
 		this.name = name;
 		this.id = id;
@@ -29,6 +31,14 @@ public class RentClassViewDTO implements Serializable {
 		this.clsPrice = clsPrice;
 		this.refundYn = refundYn;
 		this.clsPayDay = clsPayDay;
+	}
+
+	public int getPostNum() {
+		return postNum;
+	}
+
+	public void setPostNum(int postNum) {
+		this.postNum = postNum;
 	}
 
 	public int getClsNum() {
@@ -101,11 +111,10 @@ public class RentClassViewDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "RentClassViewDTO [clsNum=" + clsNum + ", name=" + name + ", id=" + id + ", clsName=" + clsName
-				+ ", tcrName=" + tcrName + ", clsPrice=" + clsPrice + ", refundYn=" + refundYn + ", clsPayDay="
-				+ clsPayDay + "]";
+		return "RentClassViewDTO [postNum=" + postNum + ", clsNum=" + clsNum + ", name=" + name + ", id=" + id
+				+ ", clsName=" + clsName + ", tcrName=" + tcrName + ", clsPrice=" + clsPrice + ", refundYn=" + refundYn
+				+ ", clsPayDay=" + clsPayDay + "]";
 	}
-	
 	
 	
 

@@ -35,8 +35,7 @@
 		        <table class="t1">
 		            <thead>
 		              <tr>
-		                <th>강좌 번호</th>
-		                <th>이름</th>
+		                <th>게시글 번호</th>
 		                <th>회원 ID</th>
 		                <th>강좌명</th>
 		                <th>강사명</th>
@@ -50,8 +49,7 @@
 		            <tbody>
 		              <c:forEach var="refund" items="${ requestScope.classrefundList }">
 		              	<tr>
-			                <td>${ refund.clsNum }</td>
-			                <td>${ refund.name }</td>
+			                <td>${ refund.postNum }</td>
 			                <td>${ refund.id }</td>
 			                <td>${ refund.clsName }</td>
 			                <td>${ refund.tcrName }</td>
@@ -60,17 +58,17 @@
 			                <td>${ refund.clsPayDay }</td>
 			                <td>
 	                			<button  
-			                			class="btn btn-secondary app" 
+			                			class="btn btn-secondary" 
 	                					onclick="location.href=
-	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundUpdate.do?clsNum=${ refund.clsNum }'"> 
+	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundUpdate.do?postNum=${ refund.postNum }'"> 
 		                		환불 승인
 		                		</button>
 	              			<td>
 			                <td>
 	                			<button  
-			                			class="btn btn-secondary app" 
+			                			class="btn btn-secondary" 
 	                					onclick="location.href=
-	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundCansleUpdate.do?clsNum=${ refund.clsNum }'"> 
+	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundUpdateCansle.do?postNum=${ refund.postNum }'"> 
 		                		환불 취소
 		                		</button>
 	              			<td>

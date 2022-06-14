@@ -10,13 +10,13 @@ public class ClassMemberDTO implements Serializable {
 	private String clsNum;
 	private String refundYn;
 	
-	public ClassMemberDTO() {
-	}
-	
 	public ClassMemberDTO(String id, String clsNum, String refundYn) {
 		this.id = id;
 		this.clsNum = clsNum;
 		this.refundYn = refundYn;
+	}
+
+	public ClassMemberDTO() {
 	}
 	public String getId() {
 		return id;
@@ -43,6 +43,9 @@ public class ClassMemberDTO implements Serializable {
 	public String toString() {
 		return "ClassMemberDTO [id=" + id + ", clsNum=" + clsNum + ", refundYn=" + refundYn + "]";
 	}
+	
+
+	
 	
 	
 }

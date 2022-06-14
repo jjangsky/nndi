@@ -16,6 +16,7 @@
 	
 	<!--  ClassRefundViewDTO resultMap 생성 -->
 	<resultMap type="com.nndi.model.joindto.admin.refund.RentClassViewDTO" id="RentClassViewDTO">
+		<id property="postNum" column="POST_NUM"/>
 		<result property="clsNum" column="CLS_NUM"/>
 		<result property="name" column="NAME"/>
 		<result property="id" column="ID"/>
@@ -42,10 +43,27 @@
 		 WHERE A.RENT_PAY_YN = 'Y' 
 	</select>
 	
-	<!-- 강좌 환불 내역 전체 리스트 조회 -->
+	<!-- 대관 환불 승인 Update -->
+	<update id="UpdateRefund" parameterType="_int">
+		UPDATE
+			   TBL_RENT_REQUEST A
+		   SET RENT_REF_YN = 'Y'
+		 WHERE A.POST_NUM = ${ num } 	   	
+	</update>
+	
+	<!-- 대관 환불 승인 취소 Update -->
+	<update id="updateClassRefundCancel" parameterType="_int">
+		UPDATE
+			   TBL_RENT_REQUEST A
+	       SET RENT_REF_YN = 'N'
+		 WHERE A.POST_NUM = ${ num } 	   	
+	</update>
+	
+	<!-- 수강 환불 내역 전체 리스트 조회 -->
 	<select id="selectAllClassRefundList" resultMap="RentClassViewDTO">
 		SELECT
-    		   A.CLS_NUM
+			   A.POST_NUM	
+    		 , A.CLS_NUM
    		 	 , A.NAME  
     		 , A.ID  
     		 , A.CLS_NAME
@@ -56,36 +74,22 @@
      	  FROM VIEW_CLASS_REFUND A	
 	</select>
 	
-	<!-- 대관 환불 승인 Update -->
-	<update id="UpdateRefund" parameterType="_int">
-		UPDATE
-			   TBL_RENT_REQUEST A
-		   SET RENT_REF_YN = 'Y'
-		 WHERE A.POST_NUM = ${ postNum } 	   	
-	</update>
-	
-	<!-- 강좌 환불 승인 Update -->
+	<!-- 수강 환불 승인 Update -->
 	<update id="UpdateClassRefund" parameterType="_int">
 		UPDATE
-			   TBL_CLASS_MEMBER A
-		   SET A.REFUND_YN = 'Y'
-		 WHERE A.CLS_NUM = ${ num }    	
+			   TBL_CLASS_PAYMENT A
+		   SET A.CLS_PAY_YN = 'Y'
+		 WHERE ROWNUM = ${ Num }    	
 	</update>
 	
-	<!-- 강좌 환불 취소 Update -->
-	<update id="UpdateClassCanselRefund" parameterType="_int">
+	<!-- 수강 환불 취소 Update -->
+	<update id="UpdateClassRefundCansel" parameterType="_int">
 		UPDATE
-			   TBL_CLASS_MEMBER A
-		   SET A.REFUND_YN = 'N'
-		 WHERE A.CLS_NUM = ${ num }    	
+			   TBL_CLASS_PAYMENT A
+		   SET A.CLS_PAY_YN = 'N'
+		 WHERE ROWNUM = ${ num }    	
 	</update>
 	
-	<!-- 대관 환불 승인 취소 Update -->
-	<update id="updateClassRefundCancel" parameterType="_int">
-		UPDATE
-			   TBL_RENT_REQUEST A
-				   SET RENT_REF_YN = 'N'
-		 WHERE A.POST_NUM = ${ num } 	   	
-	</update>
+
 </mapper>
 
