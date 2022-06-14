@@ -104,3 +104,26 @@ $(function(){
       })
   })
 })
+
+$("#cmdWrite").click ( function() {
+            
+            const content = $(".userContent").val().length;
+            const title = $(".userTitle").val().length;
+            
+            console.log(content)
+            console.log(title)
+            if(content != 0 && title !=0 && cate !=0){
+               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+               if (confirm(text) == true) {
+                  document.getElementById("cmdInsert").submit(); 
+               }
+            }
+            else {
+               alert('내용을 입력해주세요')
+            }
+            
+            
+         })
+         
+         
+         

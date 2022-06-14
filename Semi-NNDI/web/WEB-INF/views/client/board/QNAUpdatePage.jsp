@@ -73,7 +73,7 @@
 
 <br clear="both">
 <jsp:include page="../../common/includepage/UserFooter.jsp"/>
- <script>
+ <!-- <script>
 			const updateqna = document.getElementById("updateqna");
  			const updatecancel = document.getElementById("updatecancel");
 			
@@ -90,10 +90,31 @@
 			    	  location.href = "${pageContext.servletContext.contextPath}/board/QNABoardList";
 			      }
 		    }; 
- </script>
- 
-<!--  <script>
  </script> -->
+ <script>
+ 			$("#updateqna").click ( function() {
+ 	            
+ 	            const content = $(".userContent").val().length;
+ 	            const title = $(".userTitle").val().length;
+ 	            
+ 	            
+ 	            console.log(content)
+ 	            console.log(title)
+ 	            if(content != 0 && title !=0){
+ 	               let text = "게시글을 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+ 	               if (confirm(text) == true) {
+ 	                  document.getElementById("update").submit(); 
+ 	               }
+ 	            }
+ 	            else {
+ 	               alert('내용을 입력해주세요')
+ 	            }
+ 	            
+ 	            
+ 	         })
+ 			</script>
+ 
+
  
 
 
