@@ -34,7 +34,7 @@
 		       
 		       	<br>
 		       
-		       	<button onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'"
+		       	<button onclick="location.href='${pageContext.servletContext.contextPath}/board/QNABoardList'"
 		        		style="background-color: white; padding: 10px; color: gray">
 		       	<img id="menubutton" src="${pageContext.servletContext.contextPath}/resources/image/client/006.png">
 		       	QNA문의

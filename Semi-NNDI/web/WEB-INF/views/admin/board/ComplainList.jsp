@@ -42,7 +42,6 @@
 		                <th>등록일</th>
 		                <th>답변자</th>
 		                <th>답변여부</th>
-		                <th>조회수</th>
 		                <th>상세보기</th>
 		              </tr>
 		            </thead>
@@ -56,7 +55,6 @@
 		                <td><c:out value="${ complain.postDate }" escapeXml="true"/></td>
 		                <td><c:out value="${ complain.managerId }" escapeXml="true"/></td>
 		                <td><c:out value="${ complain.answerYn }" escapeXml="true"/></td>
-		                <td><c:out value="${ complain.hits }" escapeXml="true"/></td>
 		                <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=

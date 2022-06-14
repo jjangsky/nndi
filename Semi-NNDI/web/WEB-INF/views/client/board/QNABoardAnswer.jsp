@@ -10,25 +10,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
-<section>
-    <div class="l1">
-    <div class="d1">
-      <h3><c:out value="${requestScope.qnadto.title}" escapeXml="true"/></h3>
-      <p><b>작성자 ID: <c:out value="${requestScope.qnadto.memId }" escapeXml="true"/></b></p>
-      <p><b>작성일</b>: <c:out value="${requestScope.qnadto.postDate}" escapeXml="true"/><br><b>답변자 ID: </b><c:out value="${requestScope.qnadto.managerId}" escapeXml="true"/></p>
-    </div>
+<aside>
+	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
+</aside>
+
+<section style="float: left">
+	<div class="l1">
+    	<div class="d1">
+      		<h3><c:out value="${requestScope.qnadto.title}" escapeXml="true"/></h3>
+      		<p><b>작성자 ID: <c:out value="${requestScope.qnadto.memId }" escapeXml="true"/></b></p>
+      		<p><b>작성일</b>: <c:out value="${requestScope.qnadto.postDate}" escapeXml="true"/><br><b>답변자 ID: </b><c:out value="${requestScope.qnadto.managerId}" escapeXml="true"/></p>
+    	</div>
   </div>  
+  
   <div class="l1">
-    <div class="d1">
-      <p><c:out value="${requestScope.qnadto.answerContent}</p>" escapeXml="true"/>
-    </div>
+    	<div class="d1">
+      		<p><c:out value="${requestScope.qnadto.answerContent}</p>" escapeXml="true"/>
+    	</div>
   </div>
 
   <div>
-    <button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">목록으로</button>
+    	<button class="r1" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/QNABoardList'">목록으로</button>
   </div>
-  </section>
+  
+</section>
+<br clear="both">
   <jsp:include page="../../common/includepage/UserFooter.jsp"/>
 </body>
 </html>

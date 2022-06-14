@@ -50,9 +50,9 @@
 			<div>
 				<div class="post add">
 					<form id="update" action="${pageContext.servletContext.contextPath}/login/admin/insertFaq" method="post">
-						<label>제목</label><br> <input type="text" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/><br>
+						<label>제목</label><br> <input type="text" id="title" name="title" minlength="10" placeholder="10글자 이상 입력해주세요" required><c:out value="${data}" escapeXml="true"/><br>
 						<label>작성자</label><br> <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
-						<label>카테고리</label><br> <select name="cateNum" required>
+						<label>카테고리</label><br> <select id="cate" name="cateNum" required>
 							<option value="">None</option>
 							<option value="1">문화강좌</option>
 							<option value="2">체육강좌</option>
@@ -81,12 +81,26 @@
 					location.href = "${pageContext.servletContext.contextPath}/index.jsp";
 				}
 			};
-			addpost.onclick = function() {
-				let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
-				if (confirm(text) == true) {
-					document.getElementById("update").submit();
+			/* addpost.onclick = function() {
+				
+				const content = document.getElementById("content").value.length;
+				const title = document.getElementById("title").value.length;
+				const cate = document.getElementById("cate").value.length;
+				
+				console.log(content)
+				console.log(title)
+				if(content != 0 && title !=0 && cate !=0){
+					let text = "FAQ를 등록하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+					if (confirm(text) == true) {
+						document.getElementById("update").submit(); 
+					}
 				}
-			};
+				else {
+					alert('내용을 입력해주세요')
+				}
+				
+				
+			}; */
 		</script>
 
 	</section>
