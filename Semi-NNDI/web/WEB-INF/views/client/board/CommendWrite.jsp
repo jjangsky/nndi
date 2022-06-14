@@ -73,8 +73,8 @@
  			</div>
  			
   			<div style="float: right;">
-    			<button type="reset">취소</button>
-    			<button id="cmdWrite" type="button">등록</button>
+    			<button class="btns" type="reset" style="width: 100px;">취소</button>
+    			<button class="btns" id="cmdWrite" type="button" style="width: 100px;">등록</button>
   			</div>
   			
   			<!-- <script>

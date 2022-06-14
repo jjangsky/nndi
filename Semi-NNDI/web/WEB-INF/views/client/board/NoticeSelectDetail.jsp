@@ -19,7 +19,7 @@
 <body>
 	<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	
-		<section style="float: left">
+		<section style="float: left; width: 1500px;">
 	  <div>
 	    <h3 class="notice"><b><u>공지</u>사항</b></h3>
 	  </div>

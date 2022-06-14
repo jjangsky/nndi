@@ -14,7 +14,7 @@
 		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	</aside>
 
-	<section style="float: left">
+	<section style="float: left; width: 1500px;">
   		<div class="l3" >
 	    	<b>너나들이, 중랑은 회원님들의 궁금증을 해결하기 위해 문의 게시판을 운영하고 있습니다.</b><br>
 	    	<b>센터 운영 및 시설에 대한 건의 및 불편사항을 남겨주시면 최대한 빠른 시간 안에 답변드리겠습니다.</b></br>

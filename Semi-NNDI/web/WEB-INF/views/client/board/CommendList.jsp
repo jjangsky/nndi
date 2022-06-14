@@ -27,7 +27,7 @@
 
   	<div class="post list"> 
     	<form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
-        	<table class="blueone">
+        	<table class="blueone"  style="width: 1200px;">
       			<thead>
         			<tr>
 			        	<th>번호</th>

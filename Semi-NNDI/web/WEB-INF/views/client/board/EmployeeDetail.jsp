@@ -18,10 +18,6 @@
 	
 	
 	<section style="float: left">
-	  	<div>
-	    	<h3 class="notice"><b><u>강사 모집</u></b></h3>
-	  	</div>
-	
 	  	<div class="l1">
 	    	<div class="d1">
 	      		<h3><c:out value="${ requestScope.emp.title }" escapeXml="true"/></h3>

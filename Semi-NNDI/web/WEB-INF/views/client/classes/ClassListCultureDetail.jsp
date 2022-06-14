@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="../../common/includepage/ClassAside.jsp"/>
  <section>
- <form>  
+ <form action="${pageContext.servletContext.contextPath}/login/board/ClassApply" method="post">  
       <h3 class="cap"><c:out value="${requestScope.classdto.clsName}"/></h3>
       <table>
         <tr align="center">
@@ -46,12 +46,15 @@
     </tr>
     
     </table>
-</form>  
-
+    <input name="cencost" type="hidden" value="${requestScope.classdto.clsCost}"/>
+	<input name="clsNum" type="hidden" value="${requestScope.classdto.clsNum}"/>
     <div class="buton">
-      <button id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/CultureLand'">취소</button>
-      <button id="app" class="btns" type="submit">신청</button>
+      <button id="app" class="btns" type="submit" onclick="location.href='${pageContext.servletContext.contextPath}/login/board/ClassApply'">신청</button>
     </div>
+</form>
+	  <div class="buton">  
+      <button id="deletepost" class="btns" onclick="location.href='${pageContext.servletContext.contextPath}/board/CultureLand'">목록으로</button><br><br><br><br>
+      </div>
 </section>
  
 <br clear="both"> 

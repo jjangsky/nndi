@@ -26,7 +26,7 @@
 
   		<div class="post list"> 
      		<form action="${ pageContext.servletContext.contextPath }/board/complain/list" method="get">
-        		<table class="blueone">
+        		<table class="blueone" style="width: 1200px;">
      
 		   			<thead>
 		     			<tr>
@@ -63,6 +63,7 @@
 					
 					</c:forEach>
 				</table>
+				<br>
      		</form>
  	</div>
   
@@ -71,7 +72,7 @@
 	    글작성
 	    </button>
 	</div>
-
+<br><br><br><br>
 </section>
 	
 	<script>

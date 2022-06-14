@@ -37,7 +37,7 @@
           <td class="mudo"><c:out value="${cls.teacher.name}"/></td>
           <td class="mudo"><c:out value="${cls.cenName}"/> 호</td>
           <td class="mudo"><c:out value="${cls.clsApplyCnt}"/>명//<c:out value="${cls.clsMaxCnt}"/>명</td>
-          <td class="mudo"><c:out value="${requestScope.time[status.index].start"/></td>
+          <td class="mudo"><c:out value="${requestScope.time[status.index].start}"/></td>
           <td class="mudo"><c:out value="${requestScope.time[status.index].end}"/></td>
           <td class="mudo"><c:out value="${cls.clsRunTime}"/></td>
           <td class="mudo"><c:out value="${cls.clsDay}"/></td>

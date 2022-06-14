@@ -57,7 +57,7 @@
     		<p class="jemok">제목</p>
     		<div class="min4">
     			<tr>
-    			<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize: none;" required></textarea>
+    			<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize:none; width: 600px;" required></textarea>
    		 		</tr>
   			</div>
 		</div>
@@ -65,13 +65,13 @@
   		<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize: none;" required></textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize:none; width: 600px;" required></textarea>
   			</div>
 		</div>
 
  		<div>
-    		<button type="reset">취소</button>
-    		<button id="cmpWrite" type="button">등록</button>
+    		<button type="reset" class="btns" style="width: 100px;">취소</button>
+    		<button id="cmpWrite" class="btns" style="width: 100px;" type="button">등록</button>
   		</div>
 	</form>
 </section>
