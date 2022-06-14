@@ -260,7 +260,7 @@ $(function(){
   })
 })
 </script>
-	  
+	  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		const searchZipCode = document.getElementById("searchZipCode");
 		
