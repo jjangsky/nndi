@@ -21,4 +21,10 @@ public interface MyRentMapper {
 	/* 대관 철회 Update */
 	int updateCancel(int num);
 
+	/* 대관 환불 신청 가능한 List */
+	List<RentRequestSQLAndCenterManagementDTO> selectRefundUpdate(String login);
+	
+	/* 대관 환불 신청 update */
+	int updateRefund(int num);
+
 }

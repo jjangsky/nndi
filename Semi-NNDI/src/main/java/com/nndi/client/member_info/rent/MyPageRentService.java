@@ -78,5 +78,39 @@ public class MyPageRentService {
 		
 		return result;
 	}
+	
+	/* 대관 환불 신청 가능한 리스트 */
+	public static List<RentRequestSQLAndCenterManagementDTO> selectRefundUpdate(String login) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		MyRentMapper = sqlSession.getMapper(MyRentMapper.class);
+		
+		List<RentRequestSQLAndCenterManagementDTO> rentRefundUpdate = MyRentMapper.selectRefundUpdate(login);
+		
+		sqlSession.close();
+		
+		return rentRefundUpdate;
+	}
+	
+	/* 대관 환불 신청 */
+	public static int updateRefund(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		MyRentMapper = sqlSession.getMapper(MyRentMapper.class);
+		int result = MyRentMapper.updateRefund(num);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+		
+	}
 
 }
