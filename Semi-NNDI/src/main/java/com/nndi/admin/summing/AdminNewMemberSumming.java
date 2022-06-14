@@ -42,27 +42,27 @@ public class AdminNewMemberSumming extends HttpServlet {
 		java.util.Date endIn = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
-		if(startY<endY) {
-			startIn = new java.util.Date((startY-1900), (startM-1), startD);
-			endIn = new java.util.Date((endY-1900), (endM-1), endD);
-			start = sdf.format(startIn);
-			end = sdf.format(endIn);
-		} else if(startY==endY && startM<endM) {
-			startIn = new java.util.Date((startY-1900), (startM-1), startD);
-			endIn = new java.util.Date((endY-1900), (endM-1), endD);
-			start = sdf.format(startIn);
-			end = sdf.format(endIn);
-		} else if(startY==endY && startM==endM && startD<endD) {
-			startIn = new java.util.Date((startY-1900), (startM-1), startD);
-			endIn = new java.util.Date((endY-1900), (endM-1), endD);
-			start = sdf.format(startIn);
-			end = sdf.format(endIn);
-		} else {
-			endIn = new java.util.Date((startY-1900), (startM-1), startD);
-			startIn = new java.util.Date((endY-1900), (endM-1), endD);
-			start = sdf.format(startIn);
-			end = sdf.format(endIn);
-		}
+//		if(startY<endY) {
+//			startIn = new java.util.Date((startY-1900), (startM-1), startD);
+//			endIn = new java.util.Date((endY-1900), (endM-1), endD);
+//			start = sdf.format(startIn);
+//			end = sdf.format(endIn);
+//		} else if(startY==endY && startM<endM) {
+//			startIn = new java.util.Date((startY-1900), (startM-1), startD);
+//			endIn = new java.util.Date((endY-1900), (endM-1), endD);
+//			start = sdf.format(startIn);
+//			end = sdf.format(endIn);
+//		} else if(startY==endY && startM==endM && startD<endD) {
+//			startIn = new java.util.Date((startY-1900), (startM-1), startD);
+//			endIn = new java.util.Date((endY-1900), (endM-1), endD);
+//			start = sdf.format(startIn);
+//			end = sdf.format(endIn);
+//		} else {
+//			endIn = new java.util.Date((startY-1900), (startM-1), startD);
+//			startIn = new java.util.Date((endY-1900), (endM-1), endD);
+//			start = sdf.format(startIn);
+//			end = sdf.format(endIn);
+//		}
 		
 		java.sql.Date startDay = java.sql.Date.valueOf(start);
 		java.sql.Date endDay = java.sql.Date.valueOf(end);

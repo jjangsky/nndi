@@ -10,8 +10,12 @@
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/post.css">
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/centerRent.css">
-<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/centerList.css">
-
+<!-- ajax -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
 
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 </head>
@@ -24,12 +28,12 @@
 	
   	<section style="float: left">
   	  <div class="post list">
-		<form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post">
+		<form action="${ pageContext.servletContext.contextPath }/login/center/insert" method="post" id="rentRequestForm">
 	  		<table class="blueone" style="margin-left: 40%; margin-top:10%; margin-bottom:20%; width:800px; height:400px;">
 	      		<tr>
 	          		<th><label>시설명</label></th>
 	         			<td> ${requestScope.centerDetail.centerKindName }</td>
-	         				<input type="hidden" name="code" value="${requestScope.centerDetail.cenName }">
+	         				<input type="hidden" name="code" value="${ requestScope.centerDetail.cenName }">
 	      		</tr>
 	      		
 	      		<tr>
@@ -58,14 +62,57 @@
 	    		</tr>
 	  
 	    		<tr>  	
-	    			<td><button type="submit">등록</button></td>
+	    			<td><button id="sendRentRequest" type="button">등록</button></td>
 	    			<td><button type="reset">취소</button></td>
 	   		 	</tr>
    		 	</table>
 	  	</form>
 	  	</div>
 	</section>
-
+	<script type="text/javascript">
+		/* 기간조회시 입력 오류 확인 날짜 비교 */
+		$("#sendRentRequest").click(function(){ 
+			let date = new Date();
+			
+			let minDate = date.setDate(date.getDate()+6);
+			console.log('minDate' + minDate);
+	
+			let maxDate = date.setDate(date.getDate()+24);
+			console.log(maxDate);
+			
+			let start = $("#start").val();
+			let end = $("#end").val();
+			
+			console.log(start);
+			console.log(end);
+				
+			let startArr = start.split('-');
+			let endArr = end.split('-');
+				
+			console.log(startArr);
+			console.log(endArr);
+				
+			let startDateCompare = new Date(startArr[0], parseInt(startArr[1])-1, startArr[2]);
+			let endDateCompare = new Date(endArr[0], parseInt(endArr[1])-1, endArr[2]);
+				
+			console.log(startDateCompare);
+			console.log(endDateCompare);
+			
+			if(startDateCompare.getTime() < minDate){
+				alert("대관요청 시작일은 금일 날짜에 7일 이후부터 가능합니다!");
+				$("#start").focus();
+			} else if(startDateCompare.getTime() > endDateCompare.getTime()){
+				alert("시작 날짜와 종료 날짜를 확인해 주세요!");
+				$("#start").focus();
+			} else if(endDateCompare.getTime() > maxDate || startDateCompare.getTime() > maxDate) {
+				alert("대관요청 시작, 종료일은 금일 날짜로부터 30일 이내로 가능합니다!");
+				$("#start").focus();
+			} else {
+				$("#rentRequestForm").submit();
+			}
+		})
+		
+	</script>
 </body>
 	<br clear="both">
 	<jsp:include page="../../common/includepage/UserFooter.jsp"/>
