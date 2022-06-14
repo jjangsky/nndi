@@ -25,7 +25,7 @@
 	   
 	 	<div class="post list"> 
 	  		<form>
-	    		<table class="blueone">
+	    		<table class="blueone"  style="width: 1200px;">
 	      			<thead>
 	      				<tr>
 					        <th>번호</th>

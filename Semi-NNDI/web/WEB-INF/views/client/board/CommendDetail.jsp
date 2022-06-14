@@ -18,7 +18,7 @@
 		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	</aside>
 
-	<section style="float: left; ">
+	<section style="float: left; width: 1500px;">
     	<div style="border: 2px solid black; padding: 5px; margin-left: 18%; margin-right: 2%; ">
     		<b>칭찬하기 게시판은 행정서비스 및 프로그램 진행에 있어 이웃주민과 민원인들에게 감동을 준 너나들이, 중랑의 직원 및 부서를 칭찬하는 게시판 입니다.</b><br>
     		<b style="color: red;">※ 게시판 작성내용으로 인한 법적 문제 발생 시 민·형사상 책임은 전적으로 게시자에게 있음을 알립니다.</b><br>

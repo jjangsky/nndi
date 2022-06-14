@@ -20,7 +20,7 @@
 		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	</aside>
 	
-	<section style="float: left;">
+	<section style="float: left; width: 1500px;">
   		<div class="l3">
     		<b>주민들의 소중한 의견을 적극 반영하는 너나들이, 중랑이 되도록 노력하겠습니다.</b><br>
 		    <b> 너나들이, 중랑 문화센터와 관련된 민원사항만을 접수하는 곳입니다.</b><br>

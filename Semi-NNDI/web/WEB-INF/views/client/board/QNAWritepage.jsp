@@ -73,24 +73,6 @@
   		<br><br><br><br><br><br>
 	</form>
 
- <!-- <script>
-			const cancelqna = document.getElementById("cancelqna");
-			const insertqna = document.getElementById("insertqna");
-		    insertqna.onclick = function(){
-		      let text = "글을 등록 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
-		      if (confirm(text) == true) {
-		    	  document.getElementById("write").submit();
-		      }
-		    };
-		   
- </script>
- 
- <script>
-			const updatecancel = document.getElementById("cancelqna");
-			cancelqna.onclick = function(){
-		    	  location.href = "${pageContext.servletContext.contextPath}/login/board/QNABoardList";
-		    };
-</script> -->
 			<script>
  			$("#insertqna").click ( function() {
  	            
