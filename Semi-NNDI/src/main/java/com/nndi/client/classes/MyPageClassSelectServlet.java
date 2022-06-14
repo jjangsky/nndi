@@ -1,7 +1,11 @@
 package com.nndi.client.classes;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.nndi.model.commondto.MemberAliveDTO;
+import com.nndi.model.joindto.admin.classes.ClassesAndTeacherAndCenterDTO;
 import com.nndi.model.joindto.client.ClassAndClasspaymentDTO;
 
 @WebServlet("/login/board/MyPageClass")
@@ -30,8 +35,16 @@ public class MyPageClassSelectServlet extends HttpServlet {
 		
 		System.out.println("반환값 확인용" + clsandpaymentdto);
 		
+		List<Map<String, String>> time = new ArrayList<>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for(ClassAndClasspaymentDTO ctc : clsandpaymentdto) {
+			Map<String, String> map = new HashMap<>();
+			map.put("start", sdf.format( ctc.getClsStartDay()));
+			time.add(map);
+		}
 		
 		request.setAttribute("clsandpaymentdto", clsandpaymentdto);
+		request.setAttribute("time", time);
 		
 		request.getRequestDispatcher("/WEB-INF/views/client/member-info/info/MyPageClassList.jsp").forward(request, response);
 		

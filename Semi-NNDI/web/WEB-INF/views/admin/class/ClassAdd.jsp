@@ -33,6 +33,11 @@
 	color: aliceblue !important;
 }
 </style>
+</style>
+    <!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <title>Admin Teacher List</title>
 </head>
 <body>
@@ -127,14 +132,14 @@
 		          <label>강좌수강료 </label>
 		          <input type="number" class="input1" name="clsCost" min="10" placeholder="숫자만 입력해주세요" required>
 		          <label>강좌요일 </label>
-		          <input type="text" class="input1" name="clsDay" placeholder="요일을 입력해주세요 예)금, 월화 ,월수목" required><br>
+		          <input type="text" class="input1" name="clsDay" minlength="1" placeholder="요일을 입력해주세요 예)금, 월화 ,월수목" required><br>
 		          <label>강좌 설명</label>
 		          <textarea name="clsExplain" class="peanut" id="content" cols="30" rows="3"
 									style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
 								<br>
 		          <label>강의 기간 </label>
-		          <input type="date" name="clsStartDay" class="input1"
-									required> ~ <input type="date" name="clsEndDay"
+		          <input type="date" id="start" name="clsStartDay" class="input1"
+									required> ~ <input type="date" id="end" name="clsEndDay"
 									class="input1" required>
 								<p>
 		          <label>강의 시간</label>
@@ -143,7 +148,7 @@
 		          <input type="number" name="clsTime" class="input1" placeholder="1회 진행시 총 진행시간을 입력하세요" required>
 								<p>
 		
-		          <button id="addpost" class="btns add">등 록 하 기</button>
+		          <button id="addpost" type="button" class="btns add">등 록 하 기</button>
 		          <button class="btns">다 시   작 성 하 기</button>
 		        
 							</form>
@@ -164,15 +169,49 @@
 							location.href = "${pageContext.servletContext.contextPath}/login/admin/classList";
 						}
 					};
-
-					addpost.onclick = function() {
-						let text = "강좌를 등록하시겠습니까?\등록하시려면 '확인'을 누르세요.";
-						if (confirm(text) == true) {
-							document.getElementById("addpost").submit();
-						}
-					};
 				</script>
 			  
+	<script type="text/javascript">
+		/* 기간조회시 입력 오류 확인 날짜 비교 */
+		$("#addpost").click(function(){ 
+			let date = new Date();
+			
+			let minDate = date.setDate(date.getDate());
+			console.log('minDate' + minDate);
+	
+			let start = $("#start").val();
+			let end = $("#end").val();
+			
+			console.log(start);
+			console.log(end);
+				
+			let startArr = start.split('-');
+			let endArr = end.split('-');
+				
+			console.log(startArr);
+			console.log(endArr);
+				
+			let startDateCompare = new Date(startArr[0], parseInt(startArr[1])-1, startArr[2]);
+			let endDateCompare = new Date(endArr[0], parseInt(endArr[1])-1, endArr[2]);
+				
+			console.log(startDateCompare);
+			console.log(endDateCompare);
+			
+			if(startDateCompare.getTime() < minDate){
+				alert("강좌 시작일은 금일 날짜 이후부터 가능합니다!");
+				$("#start").focus();
+			} else if(startDateCompare.getTime() > endDateCompare.getTime()){
+				alert("시작 날짜와 종료 날짜를 확인해 주세요!");
+				$("#start").focus();
+			} else {
+				let text = "강좌를 등록하시겠습니까?\등록하시려면 '확인'을 누르세요.";
+				if (confirm(text) == true) {
+					document.getElementById("addpost").submit();
+				}
+			}
+		})
+		
+	</script>
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp" />

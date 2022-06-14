@@ -21,6 +21,11 @@
         color: aliceblue !important;
       }
     </style>
+    <!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    
 <title>Admin Teacher List</title>
 </head>
 <body>
@@ -64,11 +69,11 @@
 				            </tr>
 				            <tr>
 				              <th>강좌 개강일</th>
-				              <td><input name="clsStartDay" type="date" value="${ cls.clsStartDay }" required></td>
+				              <td><input id="start" name="clsStartDay" type="date" value="${ cls.clsStartDay }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 종강일</th>
-				              <td><input name="clsEndDay" type="date" value="${ cls.clsEndDay }" required></td>
+				              <td><input id="end" name="clsEndDay" type="date" value="${ cls.clsEndDay }" required></td>
 				            </tr>
 				            <tr>
 				              <th>강좌 설명</th>
@@ -113,27 +118,60 @@
 			const updatepost = document.getElementById("updatepost");
 			const deletepost = document.getElementById("deletepost");
 		    back.onclick = function(){
-		      let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
-		      /* console.log('누름확인'); */
-		      if (confirm(text) == true) {
+		      	let text = " 이 창을 나가시겠습니까?\n 현재 입력하신 정보는 저장되지 않습니다.\n 나가시려면 '확인'을 누르세요.";
+		      	/* console.log('누름확인'); */
+		      	if (confirm(text) == true) {
 		    	   location.href = "${pageContext.servletContext.contextPath}/login/admin/classList"; 
-		      }
+		      	}
 		    };
-		    updatepost.onclick = function(){
-			    let text = "강좌정보를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
-			    if (confirm(text) == true) {
-			    	  document.getElementById("update").submit();
-			      }
-			 };
 		    deletepost.onclick = function(){
 				let text = "강좌를 삭제하시겠습니까?\n삭제하시려면 '확인'을 누르세요.";
 			    if (confirm(text) == true) {
 			    	location.href = "${pageContext.servletContext.contextPath}/login/admin/classDelete.do?num=${ cls.clsNum }";
 			    } 
 		    };
-			
-			
 	  </script>
+	  <script type="text/javascript">
+		/* 기간조회시 입력 오류 확인 날짜 비교 */
+		$("#updatepost").click(function(){ 
+			let date = new Date();
+			
+			let minDate = date.setDate(date.getDate());
+			console.log('minDate' + minDate);
+	
+			let start = $("#start").val();
+			let end = $("#end").val();
+			
+			console.log(start);
+			console.log(end);
+				
+			let startArr = start.split('-');
+			let endArr = end.split('-');
+				
+			console.log(startArr);
+			console.log(endArr);
+				
+			let startDateCompare = new Date(startArr[0], parseInt(startArr[1])-1, startArr[2]);
+			let endDateCompare = new Date(endArr[0], parseInt(endArr[1])-1, endArr[2]);
+				
+			console.log(startDateCompare);
+			console.log(endDateCompare);
+			
+			if(startDateCompare.getTime() < minDate){
+				alert("강좌 시작일은 금일 날짜 이후부터 가능합니다!");
+				$("#start").focus();
+			} else if(startDateCompare.getTime() > endDateCompare.getTime()){
+				alert("시작 날짜와 종료 날짜를 확인해 주세요!");
+				$("#start").focus();
+			} else {
+				let text = "강좌정보를 수정하시겠습니까?\n수정하시려면 '확인'을 누르세요.";
+			    if (confirm(text) == true) {
+			    	  document.getElementById("update").submit();
+			      }
+			}
+		})
+		
+	</script>
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>

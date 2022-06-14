@@ -1,7 +1,11 @@
 package com.nndi.client.classes;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +25,20 @@ public class ClassPhysicalList extends HttpServlet {
 		List<ClassesAndTeacherAndCenterDTO> classList = classservice.ClassPhysicalList();
 		System.out.println("dto 확인용 "+ classList);
 		
+		List<Map<String, String>> time = new ArrayList<>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for(ClassesAndTeacherAndCenterDTO ctc : classList) {
+			Map<String, String> map = new HashMap<>();
+			map.put("start", sdf.format( ctc.getClsStartDay()));
+			map.put("end", sdf.format(ctc.getClsEndDay()));
+			time.add(map);
+		}
+		
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		request.setAttribute("classList", classList);
+		request.setAttribute("time", time);
 		
 		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassPhysicalList.jsp").forward(request, response);
 		

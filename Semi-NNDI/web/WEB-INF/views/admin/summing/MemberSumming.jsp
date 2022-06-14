@@ -74,23 +74,43 @@
 		$("#newMember").click(function(){
 			const start = $("#start").val();
 			const end = $("#end").val();
-			$("#newMember").submit();
 			
-	        $.ajax({
-	             url: "${pageContext.servletContext.contextPath}/login/admin/newMemberSumming",
-	             type: "get",
-	             data:{
-	            	 start : start,
-	            	 end : end
-	             },
-	             success: function(data){
-	                     $("#result").html(data);
-	                     console.log(data);
-	             },
-	             error: function(request, status){
-	                 alert("네트워크를 확인해주세요.")
-	             }
-	         });
+			let startArr = start.split('-');
+			let endArr = end.split('-');
+			
+			console.log(startArr);
+			console.log(endArr);
+			
+			let startDateCompare = new Date(startArr[0], parseInt(startArr[1])-1, startArr[2]);
+			let endDateCompare = new Date(endArr[0], parseInt(endArr[1])-1, endArr[2]);
+			
+			console.log(startDateCompare);
+			console.log(endDateCompare);
+			
+			if(startDateCompare.getTime() > endDateCompare.getTime()){
+				alert("시작 날짜와 종료 날짜를 확인해 주세요!");
+				
+				$("#start").focus();
+			} else{
+			
+				$("#newMember").submit();
+				
+		        $.ajax({
+		             url: "${pageContext.servletContext.contextPath}/login/admin/newMemberSumming",
+		             type: "get",
+		             data:{
+		            	 start : start,
+		            	 end : end
+		             },
+		             success: function(data){
+		                     $("#result").html(data);
+		                     console.log(data);
+		             },
+		             error: function(request, status){
+		                 alert("네트워크를 확인해주세요.")
+		             }
+		         });
+			}
 	 	});
 		
 		$("#totalMember").click(function(){

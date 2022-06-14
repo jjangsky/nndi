@@ -127,7 +127,7 @@
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		const $searchZipCode = document.getElementById("searchZipCode");
-		const $goMain = document.getElementById("goMain");
+		
 		
 		$searchZipCode.onclick = function() {
 		
@@ -140,9 +140,6 @@
 			}).open();
 		}
 		
-		$goMain.onclick = function() {
-			location.href = "${ pageContext.servletContext.contextPath }";
-		}
 	</script>
 	</section>
 	

@@ -1,6 +1,7 @@
 package com.nndi.client.classes;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +25,15 @@ public class ClassListCulturedetail extends HttpServlet {
 		ClassListService classlist = new ClassListService();
 		ClassesAndTeacherAndCenterDTO classdto = classlist.classculturedetail(num);
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		ClassesAndTeacherAndCenterDTO ctc = classdto;
+		String start = sdf.format(ctc.getClsStartDay());
+		String end =  sdf.format(ctc.getClsEndDay());
+		
 		System.out.println("dto확인용"+classdto);
 		request.setAttribute("classdto", classdto);
+		request.setAttribute("start", start);
+		request.setAttribute("end", end);
 		
 		request.getRequestDispatcher("/WEB-INF/views/client/classes/ClassListCultureDetail.jsp").forward(request, response);
 		

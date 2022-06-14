@@ -18,7 +18,7 @@
 	
 	 <section>
 	 	<div>
-	    <h3 class="notice"><b><u>대관 환불내역 조회</u></b></h3>
+	    <h3 class="notice"><b><u>대관 환불 신청</u></b></h3>
 	  </div>
         
       <div class="post list">
@@ -28,20 +28,27 @@
               <th>접수번호</th>
               <th>시설명</th>
               <th>회원ID</th>
-              <th>환불금액</th>
+              <th>환불여부</th>
+              <th>결제금액</th>
               <th>대관 시작일</th>
               <th>대관 종료일</th>
+              <th><th>
               
           </tr>
       </thead>
-      <c:forEach var="refund" items="${ requestScope.rentRefund }">
+      <c:forEach var="refund" items="${ requestScope.rentRefundUpdate }">
 			<tr>
 				<td><c:out value="${ refund.num }"/></td>
 				<td><c:out value="${ refund.centerManagement.centerKindName }"/></td>
 				<td><c:out value="${ refund.memId}"/></td>
-				<td><c:out value="${ refund.rentCost}"/></td>
+				<td><c:out value="${ refund.rentRefYn}"/></td>
+				<td><c:out value="${ refund.rentCost}"/></td>				
 				<td><c:out value="${ refund.rentStart }"/></td>
 				<td><c:out value="${ refund.rentEnd }"/></td>
+				<td><button class="btn btn-secondary"
+		                			onclick="location.href=
+		                			'${ pageContext.servletContext.contextPath }/login/rent/refund/update?num=${ refund.num }'" >
+		                	환불 신청</button></td>
 			</tr>
 			</c:forEach>
       

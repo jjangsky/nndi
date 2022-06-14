@@ -30,15 +30,15 @@
 		    </tr>         
     </thead>
     <tbody>
-    <c:forEach var="cls" items="${ requestScope.classList }">
+    <c:forEach var="cls" items="${ requestScope.classList }" varStatus="status">
       <tr>
           <td class="mudo" style="display: none;">${cls.clsNum}</td>
           <td class="mudo"><c:out value="${cls.clsName}"/></td>
           <td class="mudo"><c:out value="${cls.teacher.name}"/></td>
           <td class="mudo"><c:out value="${cls.cenName}"/> 호</td>
           <td class="mudo"><c:out value="${cls.clsApplyCnt}"/>명//<c:out value="${cls.clsMaxCnt}"/>명</td>
-          <td class="mudo"><c:out value="${cls.clsStartDay"/>}</td>
-          <td class="mudo"><c:out value="${cls.clsEndDay}"/></td>
+          <td class="mudo"><c:out value="${requestScope.time[status.index].start"/>}</td>
+          <td class="mudo"><c:out value="${requestScope.time[status.index].end}"/></td>
           <td class="mudo"><c:out value="${cls.clsRunTime}"/></td>
           <td class="mudo"><c:out value="${cls.clsDay}"/></td>
       </tr>
