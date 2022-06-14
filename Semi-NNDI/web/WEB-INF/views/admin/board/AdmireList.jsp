@@ -46,12 +46,12 @@
 		            <tbody>
 		              <c:forEach var="admire" items="${ requestScope.admireList }">
 		              <tr>
-		                <td>${ admire.num }</td>
-		                <td>${ admire.category.cateKind }</td>
-		                <td>${ admire.title }</td>
-		                <td>${ admire.memId }</td>
-		                <td>${ admire.postDate }</td>
-		                <td>${ admire.hits }</td>
+		                <td><c:out value="${ admire.num }" escapeXml="true"/></td>
+		                <td><c:out value="${ admire.category.cateKind }" escapeXml="true"/></td>
+		                <td><c:out value="${ admire.title }" escapeXml="true"/></td>
+		                <td><c:out value="${ admire.memId }" escapeXml="true"/></td>
+		                <td><c:out value="${ admire.postDate }" escapeXml="true"/></td>
+		                <td><c:out value="${ admire.hits }" escapeXml="true"/></td>
 		                <td>
 		                	<button class="btn btn-secondary"
 		                			onclick="location.href=

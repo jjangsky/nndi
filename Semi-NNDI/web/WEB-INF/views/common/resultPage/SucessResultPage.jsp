@@ -10,7 +10,6 @@
 	<script>
 		(function(){
 		const successCode = "${ requestScope.successCode }";
-		
 		let successMessage = "";
 		let movePath = "";
 		
@@ -33,7 +32,7 @@
 				break;
 			case "updateRentCancel" : 
 				successMessage = "대관신청 철회가 성공적으로 진행되었습니다. !";
-				movePath = "../../index.jsp";
+				movePath = "../../../index.jsp";
 				break;
 			case "insertComplain" : 
 				successMessage = "민원 신청이 성공적으로 접수되었습니다. !";
@@ -59,6 +58,19 @@
 				successMessage = "칭찬 게시글을 성공적으로 수정하였습니다. !";
 				movePath = "../../../../index.jsp";
 				break;
+			case "UpdateRefund" :
+				successMessage = "환불 승인이 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/rentRefundList";
+				break;
+			case "UpdateBookDelete" :
+				successMessage = "도서 폐기가 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/bookList";
+				break;
+			case "UpdateBookDeleteReturn" :
+				successMessage = "도서 폐기 취소가 완료되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/deleteBookList";
+				break;
+				
 		}
 
 		alert(successMessage);

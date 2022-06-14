@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/postAdd.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
     <style>
       .btn{
         font-size: 20px !important;
@@ -41,29 +44,29 @@
 		            <table>
 		                <tr>
 		                    <td class="td1">문의 제목</td>
-		                    <td class="td2">${ detailqna.title }</td>
+		                    <td class="td2"><c:out value="${ detailqna.title }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">작성자</td>
-		                    <td class="td2">${ detailqna.memId }</td>
+		                    <td class="td2"><c:out value="${ detailqna.memId }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">내용</td>
-		                    <td class="td2">${ detailqna.content }</td>
+		                    <td class="td2"><c:out value="${ detailqna.content }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">답변 여부</td>
-		                    <td class="td2">${ detailqna.answerYn }</td>
+		                    <td class="td2"><c:out value="${ detailqna.answerYn }" escapeXml="true"/></td>
 		                </tr>
 		                <tr>
 		                    <td class="td1">답변 내용</td>
-		                    <td class="td2">${ detailqna.answerContent }</td>
+		                    <td class="td2"><c:out value="${ detailqna.answerContent }" escapeXml="true"/></td>
 		                </tr>
 		            </table>
 		            <label>답변자</label><br>
 		            <input type="text" name="managerId" readonly value="${ sessionScope.loginMember.managerId }">
 		             <label>답변 내용</label><br>
-		            <textarea name="content" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" >${ requestScope.detailqna.answerContent }</textarea><br>
+		            <textarea name="content" class="qnacontent" id="content" cols="30" rows="10" style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" >${ requestScope.detailqna.answerContent }</textarea><br>
 		            <c:choose>
 		            	<c:when test="${ detailqna.answerYn eq 'N' }">
 				            <button id="createpost" class="btns add" type="button">작 성 하 기</button>

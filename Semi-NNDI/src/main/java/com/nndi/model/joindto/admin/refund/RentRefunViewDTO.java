@@ -12,6 +12,7 @@ public class RentRefunViewDTO implements Serializable {
 	private String cenKindsname;
 	private int rentCost;
 	private String rentPayYn;
+	private String rentRefYn;
 	private java.sql.Date rentStart;
 	private java.sql.Date rentEnd;
 	
@@ -19,15 +20,18 @@ public class RentRefunViewDTO implements Serializable {
 	}
 
 	public RentRefunViewDTO(int postNum, String name, String cenKindsname, int rentCost, String rentPayYn,
-			Date rentStart, Date rentEnd) {
+			String rentRefYn, Date rentStart, Date rentEnd) {
 		this.postNum = postNum;
 		this.name = name;
 		this.cenKindsname = cenKindsname;
 		this.rentCost = rentCost;
 		this.rentPayYn = rentPayYn;
+		this.rentRefYn = rentRefYn;
 		this.rentStart = rentStart;
 		this.rentEnd = rentEnd;
 	}
+
+
 
 	public int getPostNum() {
 		return postNum;
@@ -69,6 +73,14 @@ public class RentRefunViewDTO implements Serializable {
 		this.rentPayYn = rentPayYn;
 	}
 
+	public String getRentRefYn() {
+		return rentRefYn;
+	}
+
+	public void setRentRefYn(String rentRefYn) {
+		this.rentRefYn = rentRefYn;
+	}
+
 	public java.sql.Date getRentStart() {
 		return rentStart;
 	}
@@ -89,12 +101,16 @@ public class RentRefunViewDTO implements Serializable {
 		return serialVersionUID;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "RentRefunViewDTO [postNum=" + postNum + ", name=" + name + ", cenKindsname=" + cenKindsname
-				+ ", rentCost=" + rentCost + ", rentPayYn=" + rentPayYn + ", rentStart=" + rentStart + ", rentEnd="
-				+ rentEnd + "]";
+				+ ", rentCost=" + rentCost + ", rentPayYn=" + rentPayYn + ", rentRefYn=" + rentRefYn + ", rentStart="
+				+ rentStart + ", rentEnd=" + rentEnd + "]";
 	}
+	
+	
 	
 	
 }

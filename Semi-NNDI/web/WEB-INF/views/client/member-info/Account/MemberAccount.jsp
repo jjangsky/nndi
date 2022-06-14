@@ -5,13 +5,13 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<script 
+	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script 
 		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <link 
     	rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/Account.css">
-    	
+    
 <title>너나들이 중랑</title>
 	<jsp:include page="../../../common/includepage/UserHeader.jsp"/>
 	

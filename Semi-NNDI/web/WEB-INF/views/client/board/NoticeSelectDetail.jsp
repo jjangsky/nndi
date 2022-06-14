@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <html lang="ko">
@@ -24,15 +25,15 @@
 	  </div>
 	
 	  <div class="l1">
-	    <div class="d1">
-	      <h3>${ requestScope.noticeDetail.title }</h3>
-	      <p><b>작성일</b>: ${ requestScope.noticeDetail.postDate }<br><b>조회수</b>: ${ requestScope.noticeDetail.hits }</p>
+	    <div class="d1"> 
+	      <h3><c:out value="${ requestScope.noticeDetail.title }" escapeXml="true"/></h3>
+	      <p><b>작성일</b>: <c:out value="${ requestScope.noticeDetail.postDate }" escapeXml="true"/><br><b>조회수</b>: <c:out value="${ requestScope.noticeDetail.hits }" escapeXml="true"/></p>
 	    </div>
 	  </div>
 	
 	  <div class="l1">
 	    <div class="d1">
-	      <p>${ requestScope.noticeDetail.content }</p>
+	      <p><c:out value="${ requestScope.noticeDetail.content }" escapeXml="true"/></p>
 	    </div>
 	  </div>
 	

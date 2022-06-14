@@ -9,6 +9,7 @@
 		<result property="cenKindsname" column="CEN_KINDS_NAME"/>
 		<result property="rentCost" column="RENT_COST"/>
 		<result property="rentPayYn" column="RENT_PAY_YN"/>
+		<result property="rentRefYn" column="RENT_REF_YN"/>
 		<result property="rentStart" column="RENT_START"/>
 		<result property="rentEnd" column="RENT_END"/>
 	</resultMap>
@@ -34,9 +35,11 @@
 		     , A.CEN_KINDS_NAME
 		     , A.RENT_COST
 		     , A.RENT_PAY_YN
+		     , A.RENT_REF_YN
 		     , A.RENT_START
 		     , A.RENT_END
 		  FROM VIEW_RENT_REFUND A
+		 WHERE A.RENT_PAY_YN = 'Y' 
 	</select>
 	
 	<!-- 강좌 환불 내역 전체 리스트 조회 -->
@@ -53,5 +56,12 @@
      	  FROM VIEW_CLASS_REFUND A	
 	</select>
 	
+	<!-- 대관 환불 승인 Update -->
+	<update id="UpdateRefund" parameterType="_int">
+		UPDATE
+			   TBL_RENT_REQUEST A
+		   SET RENT_REF_YN = 'Y'
+		 WHERE A.POST_NUM = ${ postNum } 	   	
+	</update>
 </mapper>
 

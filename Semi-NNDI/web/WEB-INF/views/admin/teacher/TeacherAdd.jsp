@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/admin/teacherEmp.css" >
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
     <style>
       .btn{
         font-size: 20px !important;
@@ -43,7 +44,7 @@
 	    <div class="post add">
 	    <form action="${ pageContext.servletContext.contextPath }/login/admin/teacherAdd" method="post" >
 	        <label>이름 </label>
-	        <input name="name" type="text" class="input1" id="uName" minlength="2"  required>
+	        <input name="name" type="text" class="input1" id="uName" placeholder="이름을 두 글자이상 입력해주세요" required>
 	        <label >성별 </label>
 		        <select class="input1" name="gender"
 					id="gender" required>
@@ -55,7 +56,7 @@
 		    <input type="date" name="birth" class="input1" required>
 		    
 		    
-		    <label>이메일 &nbsp;&nbsp;&nbsp;</label><input type="text" name="email01" id="str_email01" style="width:250px" required minlength="2">@
+		    <label>이메일 &nbsp;&nbsp;&nbsp;</label><input type="text" class="mam" name="email01" id="str_email01" style="width:250px" required>@
                 	<input type="text" name="email02" id="str_email02" style="width:300px;" disabled value="naver.com" required>
                 		<select style="width:300px;margin-right:10px" name="email03" id="selectEmail">
 	                    	<option value="1">직접입력</option>
@@ -89,7 +90,7 @@
 				<br>
 			
 				<label for="address3"> 상세 주소: </label>		
-					<input type="text" name="address2" id="address2" minlength="5">
+					<input type="text" name="address2" id="address2" minlength="2">
 
     			<br>
 		    

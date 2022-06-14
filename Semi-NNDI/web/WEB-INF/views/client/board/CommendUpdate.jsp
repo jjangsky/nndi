@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>민원작성 페이지</title>
+	<script 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script 
+		type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/UserReg.js"></script>
 	<jsp:include page="../../common/includepage/UserHeader.jsp"/>
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/nndi-style.css">
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/client/KS_CSS/selectList.css">
@@ -26,7 +32,7 @@
     	
     	
 
-	<form action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.cmd.num}" method="post">
+	<form id="cmdUpdate" action="${ pageContext.servletContext.contextPath }/login/board/commend/update/modify?num=${requestScope.cmd.num}" method="post">
   		<div class="write2">
     	<p>칭찬글 수정하기</p>
   		</div>
@@ -51,7 +57,7 @@
     		
     		<div class="min4">
     		<tr>
-    		<textarea placeholder="제목을 입력하세요" name="title" required>${requestScope.cmd.title}</textarea>
+    		<textarea placeholder="제목을 입력하세요" name="title" class="userTitle" style="resize: none;" required><c:out value="${requestScope.cmd.title}" escapeXml="false"/></textarea>
     		</tr>
   			</div>
 		</div>
@@ -59,13 +65,25 @@
 	  	<div class="min3">
     		<p class="jemok">내용</p>
     		<div class="min2">
-     			<textarea placeholder="글 내용을 입력하세요" name="content" required>${requestScope.cmd.content}</textarea>
+     			<textarea placeholder="글 내용을 입력하세요" name="content" class="userContent" style="resize: none;" required><c:out value="${requestScope.cmd.title}" escapeXml="false"/></textarea>
 		  	</div>
 		</div>
 		
 		<div style="float: right;">
     		<button type="reset">취소</button>
-    		<button type="submit">등록</button>
+    		<button id="cmdModify" type="button">등록</button>
+    		
+    		
+    	<script>
+			const cmdModify = document.getElementById("cmdModify");
+			cmdModify.onclick = function(){
+		      let text = "글을 수정 하시겠습니까?\n등록하시려면 '확인'을 누르세요.";
+		      if (confirm(text) == true) {
+		    	  document.getElementById("cmdUpdate").submit();
+		      }
+		    };
+		   
+ 	</script>
   		</div>
 		
 

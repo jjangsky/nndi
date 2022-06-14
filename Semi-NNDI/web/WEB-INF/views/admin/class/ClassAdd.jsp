@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/admin/nndi-style.css">
 <link rel="stylesheet"
@@ -23,6 +25,8 @@
 	rel="stylesheet"
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+<script src="${pageContext.servletContext.contextPath}/resources/js/admincheck.js"></script>
 <style>
 .btn {
 	font-size: 20px !important;
@@ -86,7 +90,7 @@
 								action="${ pageContext.servletContext.contextPath }/login/admin/classAdd"
 								method="post">
 		          <label>강좌명 </label>
-		          <input name="clsName" type="text" class="input1" minlength="3" placeholder="3글자 이상 입력해주세요" required>
+		          <input name="clsName" type="text" id="burgerking" class="input1" minlength="2" placeholder="2글자 이상 입력해주세요" required>
 		          <label>강좌 분류 </label>
 		            <select class="input1" name="clsCategoryName"
 									id="clsCategoryName" required>
@@ -128,9 +132,9 @@
 		          <label>강좌수강료 </label>
 		          <input type="number" class="input1" name="clsCost" min="10" placeholder="숫자만 입력해주세요" required>
 		          <label>강좌요일 </label>
-		          <input type="text" class="input1" name="clsDay" minlength="1" placeholder="1글자 이상 입력해주세요" required><br>
+		          <input type="text" class="input1" name="clsDay" minlength="1" placeholder="요일을 입력해주세요 예)금, 월화 ,월수목" required><br>
 		          <label>강좌 설명</label>
-		          <textarea name="clsExplain" id="content" cols="30" rows="3"
+		          <textarea name="clsExplain" class="peanut" id="content" cols="30" rows="3"
 									style="resize: none;" minlength="10" placeholder="10글자 이상 입력해주세요" required></textarea>
 								<br>
 		          <label>강의 기간 </label>
@@ -139,7 +143,7 @@
 									class="input1" required>
 								<p>
 		          <label>강의 시간</label>
-		          <input type="text" name="clsRunTime" class="input1" placeholder="강의 진행 시간을 입력해 주세요. 예) 12:00~13:00" required>  
+		          <input type="text" name="clsRunTime" id="clsruntime" class="input1" placeholder="강의 진행 시간을 입력해 주세요. 예) 12:00~13:00" required>  
 		          <label style="margin-left: 1%;" >진행시간</label>
 		          <input type="number" name="clsTime" class="input1" placeholder="1회 진행시 총 진행시간을 입력하세요" required>
 								<p>

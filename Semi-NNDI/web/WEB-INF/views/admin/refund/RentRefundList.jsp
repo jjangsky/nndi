@@ -34,35 +34,45 @@
 
 		    
    			<div class="post list"> 
-		        <table class="t1">
-		            <thead>
-		              <tr>
-		                <th>게시글 번호</th>
-		                <th>고객 이름</th>
-		                <th>시설 이름</th>
-		                <th>결제 금액</th>
-		                <th>환불 여부</th>
-		                <th>대관 시작일</th>
-		                <th>대관 종료일</th>
-		              </tr>
-		            </thead>
-		            <tbody>
-		              <c:forEach var="refund" items="${ requestScope.refundList }">
-		              	<tr>
-			                <td>${ refund.postNum }</td>
-			                <td>${ refund.name }</td>
-			                <td>${ refund.cenKindsname }</td>
-			                <td>${ refund.rentCost }</td>
-			                <td>${ refund.rentPayYn }</td>
-			                <td>${ refund.rentStart }</td>
-			                <td>${ refund.rentEnd }</td>
-		            	</c:forEach>
-		            </tbody>
-		        </table>
-		    </div>
+	        		<table class="t1">
+	            		<thead>
+	              			<tr>
+				                <th>게시글 번호</th>
+				                <th>고객 이름</th>
+				                <th>시설 이름</th>
+				                <th>결제 금액</th>
+				                <th>결제 여부</th>
+				                <th>환불 여부</th>
+				                <th>대관 시작일</th>
+				                <th>대관 종료일</th>
+				                <th>환불 승인</th>
+	              			</tr>
+	            		</thead>
+	           	
+	           			<tbody>
+	              			<c:forEach var="refund" items="${ requestScope.refundList }">
+	              				<tr>
+					                <td>${ refund.postNum }</td>
+					                <td>${ refund.name }</td>
+					                <td>${ refund.cenKindsname }</td>
+					                <td>${ refund.rentCost }</td>
+					                <td>${ refund.rentPayYn }</td>
+					                <td>${ refund.rentRefYn }</td>
+					                <td>${ refund.rentStart }</td>
+					                <td>${ refund.rentEnd }</td>
+	              					<td>
+	                					<button class="btn btn-secondary" 
+	                							onclick="location.href=
+	                							'${ pageContext.servletContext.contextPath }/login/admin/rentRefundUpdate.do?postNum=${ refund.postNum }'" > 
+		                				승인 결정
+		                				</button>
+	                				</td>
+	                			</tr>	
+	            			</c:forEach>
+	            		</tbody>
+	        		</table>
+   			</div>
 		</div>
-		
-			  
 	</section>
 	
 	<jsp:include page="../../common/includepage/AdminFooter.jsp"/>

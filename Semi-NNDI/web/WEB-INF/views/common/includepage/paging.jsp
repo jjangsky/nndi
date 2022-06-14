@@ -9,14 +9,13 @@
 </head>
 <body>
 	<div class="pagingArea" align="center">
-	
-		<button id="startPage"><<</button>
+		<button id="startPage">◀◀</button>
 		
 		<c:if test="${ requestScope.PagingDTO.pageNo <=1 }">
-			<button disabled> <-</button>
+			<button disabled> ◀</button>
 		</c:if>
 		<c:if test="${ requestScope.PagingDTO.pageNo > 1 }">
-			<button id="prevPage">-></button>
+			<button id="prevPage">◀</button>
 		</c:if>
 		
 		<c:forEach var="p" begin="${ requestScope.PagingDTO.startPage }" end="${ requestScope.PagingDTO.endPage }" step="1">
@@ -29,13 +28,13 @@
 		</c:forEach>
 		
 		<c:if test="${ requestScope.PagingDTO.pageNo >= requestScope.PagingDTO.maxPage}">
-			<button disabled></button>
+			<button disabled>▶</button>
 		</c:if>
 		<c:if test="${ requestScope.PagingDTO.pageNo < requestScope.PagingDTO.maxPage }">
-			<button id="nextPage"></button>
+			<button id="nextPage">▶</button>
 		</c:if>
 		
-		<button id="maxPage">->></button>
+		<button id="maxPage">▶▶</button>
 	</div>
 	
 	<script>
@@ -61,21 +60,21 @@
 	if(document.getElementById("prevPage")) {
 		const $prevPage = document.getElementById("prevPage");
 		$prevPage.onclick = function() {
-			location.href = link + "?currentPage=${ requestScope.pagingDTO.pageNo - 1 }" + searchText;
+			location.href = link + "?currentPage=${ requestScope.PagingDTO.pageNo - 1 }"
 		}
 	}
 	
 	if(document.getElementById("nextPage")) {
 		const $nextPage = document.getElementById("nextPage");
 		$nextPage.onclick = function() {
-			location.href = link + "?currentPage=${ requestScope.pagingDTO.pageNo + 1 }" + searchText;
+			location.href = link + "?currentPage=${ requestScope.PagingDTO.pageNo + 1 }"
 		}
 	}
 	
 	if(document.getElementById("maxPage")) {
 		const $maxPage = document.getElementById("maxPage");
 		$maxPage.onclick = function() {
-			location.href = link + "?currentPage=${ requestScope.pagingDTO.maxPage }" + searchText;
+			location.href = link + "?currentPage=${ requestScope.PagingDTO.maxPage }"
 		}
 	}
 	

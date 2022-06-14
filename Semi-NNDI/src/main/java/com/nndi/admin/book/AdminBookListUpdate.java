@@ -24,12 +24,20 @@ public class AdminBookListUpdate extends HttpServlet {
 		BookService bookService = new BookService();
 		int result = bookService.updateBookSearchYn(code);
 		
+		String page = "";
+		
 		if (result > 0) {
-			response.sendRedirect("deleteBookList");
+			
 			System.out.println("변경 성공");
+			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
+			request.setAttribute("successCode", "UpdateBookDelete");
+			
 		} else {
-			request.getRequestDispatcher("/WEB-INF/views/selectErrorPage/UpdateFail.jsp").forward(request, response);
+			page = "/WEB-INF/views/common/resultPage/FailedResultPage.jsp";
+
 		}
+		
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 
 

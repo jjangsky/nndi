@@ -29,7 +29,7 @@ SEQ_QUESTION_POST_NUM.NEXTVAL,
 
 ,#{title}
 ,#{content}
-,'Y'
+,'N'
 ,''
 ,'Y'
 

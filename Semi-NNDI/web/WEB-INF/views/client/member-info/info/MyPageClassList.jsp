@@ -36,8 +36,8 @@
     <c:forEach var="mypagecls" items="${ requestScope.clsandpaymentdto }" varStatus="status">
       <tr>
           <td class="test" style="display: none;">${mypagecls.clsNum}</td>
-          <td class="test">${mypagecls.clsName}</td>
-          <td class="test">${requestScope.time[status.index].start}</td>
+          <td class="test"><c:out value="${mypagecls.clsName}"/></td>
+          <td class="test"><c:out value="${requestScope.time[status.index].start}"/></td>
           <td>
           	<button class="r1" onclick="location.href = '${pageContext.servletContext.contextPath}/login/board/Classcancel?clsNum=${mypagecls.clsNum}'">수강취소
           	</button>
