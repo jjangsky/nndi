@@ -42,6 +42,7 @@
           FROM TBL_POST_COMPLAIN A
           JOIN TBL_POST_CATEGORY B ON (A.CATE_NUM = B.CATE_NUM)
          WHERE A.MEM_ID = #{ memberId }
+           AND A.DISPLAY_YN = 'Y'
         ORDER BY NUM DESC
  	</select>
  

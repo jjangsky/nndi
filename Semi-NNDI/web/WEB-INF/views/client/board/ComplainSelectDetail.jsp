@@ -35,7 +35,7 @@
       		<p><b>작성일</b>:  <c:out value="${ requestScope.complainDetail.date }" escapeXml="true"/><br>
 		    <b>접수번호</b>:  <c:out value="${ requestScope.complainDetail.num }" escapeXml="true"/><br>
 		    <b>처리상태: </b> <c:out value="${ requestScope.complainDetail.answer }" escapeXml="true"/><br>
-		    <b>글쓴이: </b> <c:out value="${ requestScope.complainDetail.memberId } " escapeXml="true"/>}</p>
+		    <b>글쓴이: </b> <c:out value="${ requestScope.complainDetail.memberId } " escapeXml="true"/></p>
     	</div>
   </div>  
 
