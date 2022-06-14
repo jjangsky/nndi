@@ -120,10 +120,9 @@
 	<!-- MemberAlive 전체 조회 쿼리 -->
 	<select id="selectAllMemberAliveList" resultMap="MemberAliveMap">
 		SELECT
-		ID
+		  ID
 		, NAME
-		,
-		0 || PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
+		, PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
 		, BIRTH
 		, ENROLL_DATE
 		FROM
@@ -140,14 +139,11 @@
 		, A.ID
 		, A.PWD
 		, A.BIRTH
-		,
-		A.EMAIL1||EMAIL2 EMAIL
+		, A.EMAIL1||EMAIL2 EMAIL
 		, A.ADDRESS1||ADDRESS2||ADDRESS3 ADDRESS
-		,
-		0 || A.PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
+		, A.PHONE1||' - '||PHONE2||' - '||PHONE3 PHONE
 		, A.LAST_LOGIN
-		,
-		A.USER_STATUS
+		, A.USER_STATUS
 		FROM TBL_MEMBER_ALIVE A
 		WHERE A.ID = #{ id }
 	</select>
@@ -158,8 +154,7 @@
 		SELECT
 		ID
 		, NAME
-		,
-		LAST_LOGIN
+		, LAST_LOGIN
 		, ENROLL_DATE
 		FROM TBL_MEMBER_ALIVE
 		WHERE USER_STATUS = 'R'

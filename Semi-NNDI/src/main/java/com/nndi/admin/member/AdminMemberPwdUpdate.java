@@ -42,8 +42,14 @@ public class AdminMemberPwdUpdate extends HttpServlet {
 		int newPwd7 = (int)(Math.random() * 10);
 		String password = ("" + newPwd2 + newPwd3 + newPwd4 + newPwd5 + newPwd6 + newPwd6);	
 
+		MemberLoginService memberService = new MemberLoginService();
+		
+		String email = memberService.selectOneMemberAliveById(id);
+		
+		System.out.println("eeeeeeeeeeeeeeemailllllllllllllll" + email);
+		
 		MailSend ms = new MailSend();
-		ms.MailSend(password);
+		ms.MailSend(password ,email);
 		
 		/* 난수 비크립트 처리 */
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -56,7 +62,6 @@ public class AdminMemberPwdUpdate extends HttpServlet {
 		memberAliveListForPwd.setPwd(newPassword);
 		
 		/* 생성된 비크립트 유저 password로 Update */
-		MemberLoginService memberService = new MemberLoginService();
 		
 		int result = memberService.updateMemberpwd(memberAliveListForPwd);
 		

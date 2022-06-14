@@ -120,7 +120,7 @@
             	 id : id,
              },
              success: function(data){
-                     alert('변경된 회원의 비밀번호는 ' + data + ' 입니다');
+                     alert('비밀번호가 변경되었습니다.\n변경된 비밀번호는 해당회원의 이메일로 발송되었습니다.');
                      console.log(data);
              },
              error: function(request, status){

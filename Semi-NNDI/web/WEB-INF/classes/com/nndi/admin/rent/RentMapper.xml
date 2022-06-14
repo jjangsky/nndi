@@ -40,7 +40,7 @@
 		       A.POST_NUM
 		     , A.CENTER_NAME
 		     , A.MANAGER_ID
-		     , 0 || B.PHONE1 || '-' || B.PHONE2 || '-' || B.PHONE3 PHONE
+		     , B.PHONE1 || '-' || B.PHONE2 || '-' || B.PHONE3 PHONE
 		     , B.NAME
 		     , A.MEM_ID
 		     , A.RENT_REQ_YN
@@ -59,7 +59,7 @@
 		       A.POST_NUM
 		     , A.CENTER_NAME
 		     , A.MANAGER_ID
-		     , 0 || B.PHONE1 || '-' || B.PHONE2 || '-' || B.PHONE3 PHONE
+		     , B.PHONE1 || '-' || B.PHONE2 || '-' || B.PHONE3 PHONE
 		     , B.NAME
 		     , A.MEM_ID
 		     , A.RENT_REQ_YN

@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 public class MailSend {
 
-	public void MailSend(String password) {
+	public void MailSend(String password , String email) {
 		Properties prop = System.getProperties();
 		prop.put("mail.smtp.starttls.enable", "true");
 		prop.put("mail.smtp.host", "smtp.naver.com");
@@ -32,8 +32,8 @@ public class MailSend {
 		try {
 			msg.setSentDate(new Date());
 			
-			msg.setFrom(new InternetAddress("kimhyejj11@naver.com", "VISITOR"));
-			InternetAddress to = new InternetAddress("dbcks4646@gmail.com");
+			msg.setFrom(new InternetAddress("kimhyejj11@naver.com", "NNDI"));
+			InternetAddress to = new InternetAddress(email);
 			msg.setRecipient(Message.RecipientType.TO,	to);
 			msg.setSubject("너나들이 중랑 임시 비밀번호 발송드립니다!! :)", "UTF-8");
 			msg.setText(content, "UTF-8");

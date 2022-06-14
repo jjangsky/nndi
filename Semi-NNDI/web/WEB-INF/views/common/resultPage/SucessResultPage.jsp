@@ -74,7 +74,10 @@
 				successMessage = "환불 신청이 완료되었습니다.";
 				movePath = "/Semi-NNDI/login/myPage/rentList";
 				break;
-			
+			case "UpdateMemberPwd" :
+				successMessage = "비밀번호가 이메일로 발송되었습니다. 재로그인 부탁드립니다.";
+				movePath = "../../index.jsp";
+				break;
 				
 		}
 

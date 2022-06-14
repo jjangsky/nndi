@@ -272,4 +272,12 @@
 		  FROM TBL_MEMBER_ALIVE A
 		 WHERE A.ID = #{ userId }
 	</select>
+	
+	<!-- 이메일 인증을 위한 이메일 조회 -->
+	<select id="selectOneMemberAliveById" parameterType="string" resultType="string">
+		SELECT 
+		       A.EMAIL1 || '@' || A.EMAIL2 AS "email"
+		  FROM TBL_MEMBER_ALIVE A
+		 WHERE A.ID = #{ id }
+	</select>
 </mapper>
