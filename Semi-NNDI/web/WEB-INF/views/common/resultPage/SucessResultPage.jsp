@@ -81,9 +81,15 @@
 				break;
 
 			case "UpdateClassRefund" :
-				successMessage = "환불 신청이 취소되었습니다.";
-				movePath = "/Semi-NNDI/login/admin/rentRefundList";
+				successMessage = "환불 신청이 승인되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/classRefundList";
 				break;
+				
+			case "UpdateClassCanselRefund" :
+				successMessage = "환불 신청이 취소되었습니다.";
+				movePath = "/Semi-NNDI/login/admin/classRefundList";
+				break;
+				
 			case "classrefundList" :
 				successMessage = "환불 신청이 완료되었습니다.";
 				movePath = "/Semi-NNDI/login/admin/rentRefundList";

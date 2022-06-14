@@ -19,7 +19,10 @@ public interface RefundMapper {
 	/* 강좌 환불 승인 */
 	int UpdateClassRefund(int num);
 
-	/* 대관 환불 승인 취소 Service */
+	/* 대관 환불 승인 취소  */
 	int updateClassRefundCancel(int num);
+
+	/* 강좌 환불 취소 */
+	int UpdateClassCanselRefund(int num);
 
 }

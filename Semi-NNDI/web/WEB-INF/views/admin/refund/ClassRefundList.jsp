@@ -44,6 +44,7 @@
 		                <th>환불여부</th>
 		                <th>결제일</th>
 	        			<th>환불 승인</th>
+	        			<th>환불 취소</th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -62,10 +63,17 @@
 			                			class="btn btn-secondary app" 
 	                					onclick="location.href=
 	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundUpdate.do?clsNum=${ refund.clsNum }'"> 
-		                		승인 결정
+		                		환불 승인
 		                		</button>
 	              			<td>
-
+			                <td>
+	                			<button  
+			                			class="btn btn-secondary app" 
+	                					onclick="location.href=
+	                					'${ pageContext.servletContext.contextPath }/login/admin/classRefundCansleUpdate.do?clsNum=${ refund.clsNum }'"> 
+		                		환불 취소
+		                		</button>
+	              			<td>
 	                		</td>			                
 		            	</c:forEach>
 		            </tbody>

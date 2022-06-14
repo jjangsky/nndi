@@ -72,6 +72,7 @@ public class RefundService {
 		System.out.println("활불 승인 서비스 도착 확인 ");
 		
 		int result = mapper.UpdateClassRefund(num);
+		
 		System.out.println("Service 결과값: " + result);
 		if(result > 0) {
 			sqlSession.commit();
@@ -95,6 +96,27 @@ public class RefundService {
 		
 		System.out.println("서비스 서비스 리절트 : " + result);
 		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result;
+	}
+
+	/* 수강 과목 환불 승인 취소 Service */
+	public int updateClassCanselRefundCancel(int num) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		mapper = sqlSession.getMapper(RefundMapper.class);
+		
+		System.out.println("활불 승인 서비스 도착 확인 ");
+		
+		int result = mapper.UpdateClassCanselRefund(num);
+		
+		System.out.println("Service 결과값: " + result);
 		if(result > 0) {
 			sqlSession.commit();
 		} else {

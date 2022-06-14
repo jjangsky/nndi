@@ -72,6 +72,14 @@
 		 WHERE A.CLS_NUM = ${ num }    	
 	</update>
 	
+	<!-- 강좌 환불 취소 Update -->
+	<update id="UpdateClassCanselRefund" parameterType="_int">
+		UPDATE
+			   TBL_CLASS_MEMBER A
+		   SET A.REFUND_YN = 'N'
+		 WHERE A.CLS_NUM = ${ num }    	
+	</update>
+	
 	<!-- 대관 환불 승인 취소 Update -->
 	<update id="updateClassRefundCancel" parameterType="_int">
 		UPDATE

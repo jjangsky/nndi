@@ -6,27 +6,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/login/admin/classRefundCansleUpdate.do")
-public class AdminRentRefundCancel extends HttpServlet {
+@WebServlet("/login/admin/rentRefundUpdate.do")
+public class AdminRentRefundUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/*대관 환불 내역 업데이트 서블릿 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		System.out.println("업데이트 취소 서블릿 도착 확인");
-		System.out.println(request.getParameter("clsNum"));
-		int num = Integer.valueOf(request.getParameter("clsNum"));
+		System.out.println("업데이트 서블릿 도착 확인");
+		System.out.println(request.getParameter("postNum"));
+		int num = Integer.valueOf(request.getParameter("postNum"));
 		System.err.println(num);
 		
 		RefundService refundService = new RefundService();
 		
-		int result = refundService.updateClassCanselRefundCancel(num);
+		int result = refundService.updateRentRefund(num);
 		System.out.println("업데이트 결과값: " + result);
 		String page = "";
 		
 		if(result > 0) {
 			page = "/WEB-INF/views/common/resultPage/SucessResultPage.jsp";
-			request.setAttribute("successCode", "UpdateClassCanselRefund");
+			request.setAttribute("successCode", "updateRentRefund");
 
 		} else {
 			
@@ -35,7 +36,6 @@ public class AdminRentRefundCancel extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
-		
 	}
 
 }
