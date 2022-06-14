@@ -17,8 +17,8 @@
 		<jsp:include page="../../common/includepage/CustomerContactCentersAside.jsp"/>
 	</aside>
 
-<section style="float: left;">
-	<div style="border: 2px solid black; padding: 5px; margin-left: 20%; margin-right: 2%; width: 1000px">
+<section>
+	<div style="border: 2px solid black; padding: 5px; margin-left: 20%; margin-right: 2%; margin-top: 10%; width: 1000px">
 	<h3>문의 게시판</h3>
     	<b>너나들이, 중랑은 회원님들의 궁금증을 해결하기 위해 문의 게시판을 운영하고 있습니다.</b><br>
     	<b>센터 운영 및 시설에 대한 건의 및 불편사항을 남겨주시면 최대한 빠른 시간 안에 답변드리겠습니다.</b></br>
@@ -28,7 +28,7 @@
 	</div>	
   
   	<div class="post list"> 
-    	<table class="blueone" style="width: 1500px; margin-left: 20%">
+    	<table class="blueone" style="width: 1500px; margin-left: 20%; table-layout: fixed;">
      		<thead>
         		<tr>
 		            <th>번호</th>
@@ -46,7 +46,6 @@
 			          <td class="test"> <c:out value="${qna.memId}" escapeXml="true"/></td>
 			          <td class="test"> <c:out value="${qna.postDate}" escapeXml="true"/></td>
 			          <td class="test"> <c:out value="${qna.title}" escapeXml="true"/></td>
-			          <td class="test"> <c:out value="${qna.hits}" escapeXml="true"/></td>
 		          	</tr>
 		       <c:if test="${qna.managerId != null}">
 
@@ -56,7 +55,6 @@
 			          <td class="test2"><c:out value="${qna.managerId}" escapeXml="true"/></td>
 			          <td class="test2"><c:out value="${qna.postDate}" escapeXml="true"/></td>
 			          <td class="test2"><c:out value="${qna.title}" escapeXml="true"/></td>
-			          <td class="test2"><c:out value="${qna.hits}" escapeXml="true"/></td>
 			      </tr>
 		       </c:if> 
     			</c:forEach>

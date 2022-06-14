@@ -32,7 +32,7 @@
 			<button disabled></button>
 		</c:if>
 		<c:if test="${ requestScope.PagingDTO.pageNo < requestScope.PagingDTO.maxPage }">
-			<button id="nextPage"></button>
+			<button id="nextPage">★</button>
 		</c:if>
 		
 		<button id="maxPage">->></button>
@@ -83,9 +83,7 @@
 		location.href = link + "?currentPage=" + text + searchText;
 	}
 	
-	
 	</script>
-	
 	
 </body>
 </html>
