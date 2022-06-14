@@ -62,65 +62,10 @@
 	    		</tr>
 	  
 	    		<tr>  	
-<<<<<<< HEAD
-	    			<td><button id="sendRentRequest" type="button">등록</button></td>
-=======
-	    			<td><button type="button" data-bs-toggle="modal" data-bs-target="#rentInsert">등록</button></td>
->>>>>>> main
+	    			<td><button id="sendRentRequest" type="button" >등록</button></td>
 	    			<td><button type="reset">취소</button></td>
 	   		 	</tr>
-	   		 	
-	   		 	<!-- The Modal -->
-		<div class="modal" id="rentInsert">
-  		 <div class="modal-dialog">
-   		  <div class="modal-content">
 
-    	  <!-- Modal Header -->
-    	  <div class="modal-header">
-    	    <h4 class="modal-title">시설 대관신청</h4>
-      	  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-     	 </div>
-
-    	  <!-- Modal body -->
-    	  <div class="modal-body">
-    	    정말 해당 정보로 대관을 신청하시겠습니까?
-    	  </div>
-
-    	  <!-- Modal footer -->
-     	 <div class="modal-footer">
-     	   <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#rent">신청</button>
-     	   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">취소</button>
-     	 </div>
-     	
-     	 </div>
-     	 	</div>
-     	 		</div>
-     	 
-     	 
-		     	 <!-- The Modal -->
-				<div class="modal" id="rent">
-		  		<div class="modal-dialog">
-		   		 <div class="modal-content">
-		
-		    	  <!-- Modal Header -->
-		    	  <div class="modal-header">
-		    	    <h4 class="modal-title">시설 대관신청</h4>
-		      	  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-		     	 </div>
-		
-		    	  <!-- Modal body -->
-		    	  <div class="modal-body">
-		    	    대관 신청이 완료되었습니다.
-		    	  </div>
-		    	  
-		    	  <!-- Modal footer -->
-		     	 <div class="modal-footer">
-		     	   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-		     	 </div>
-     	 
-   	 </div>
-  	</div>
-	</div>
    		 	</table>
 	  	</form>
 	  	</div>
