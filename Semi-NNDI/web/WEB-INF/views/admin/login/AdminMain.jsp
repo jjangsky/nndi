@@ -119,7 +119,7 @@
 			</div>
 		</div>
 		<div class="total">
-			<h4 class="to">최근 강좌 리스트 조회</h4>
+			<h4 class="to">개강임박 강좌 조회</h4>
 			<div class="supost">
 				<table>
 					<thead>

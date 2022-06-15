@@ -68,7 +68,8 @@
 		  FROM TBL_BOOK_RENT A
 		  JOIN TBL_BOOK_INFO B ON (A.CODE = B.CODE) 
 		  JOIN TBL_MEMBER_ALIVE C ON (A.MEM_ID = C.ID)
-		 WHERE A.RETURN_DATE IS NULL 
+		 WHERE A.RENT_YN = 'N' 
+		   AND C.ID = #{id}
 	</select> 
 
 </mapper>

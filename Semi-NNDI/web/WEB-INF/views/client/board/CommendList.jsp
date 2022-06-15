@@ -72,7 +72,7 @@
 
 					
 					const num = this.parentNode.children[0].innerText;
-					location.href="${pageContext.servletContext.contextPath}/board/list/commend/detail?num=" + num;
+					location.href="${pageContext.servletContext.contextPath}/login/board/list/commend/detail?num=" + num;
 					
 				}
 				

@@ -68,12 +68,12 @@
 					                <td>${ refund.rentRefYn }</td>
 					                <td>${ refund.rentStart }</td>
 					                <td>${ refund.rentEnd }</td>
-	              					<td>
+	              	<!-- 				<td>
 	                					<button class="btn btn-secondary app" 
 	                							id="refundUpdate"> 
 		                				승인 결정
 		                				</button>
-	                				</td>
+	                				</td> -->
 	                			</tr>	
 	            			</c:forEach>
 	            		</tbody>

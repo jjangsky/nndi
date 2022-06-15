@@ -60,8 +60,12 @@
 				              <td><input name="clsCategoryName" type="text" value="${ cls.clsCategoryName }" readonly></td>
 				            </tr>
 				            <tr>
+				              <th>강사이름</th>
+				              <td><input name="tcrNo" type="text" class="teaCode" value="${ cls.teacher.name }" readonly></td>
+				            </tr>
+				            <tr>
 				              <th>강사코드</th>
-				              <td><input name="tcrNo" type="text" class="teaCode" value="${ cls.teacher.name }"></td>
+				              <td><input name="tcrNo" type="text" class="teaCode" value="${ cls.teacher.no }" readonly></td>
 				            </tr>
 				              <th>강좌 최대 수강 인원</th>
 				              <td><input name="clsMaxCnt" class="maxnum" type="text" min="1" max="30" value="${ cls.clsMaxCnt }"></td>

@@ -17,6 +17,5 @@
 					location.href="${ pageContext.servletContext.contextPath }/index.jsp"
 				}}
 	</script>
-	<h1 align="center">${ requestScope.message }</h1>
 </body>
 </html>

@@ -13,7 +13,7 @@ import com.nndi.model.commondto.AdmireDTO;
 import com.nndi.model.commondto.MemberAliveDTO;
 import com.nndi.model.joindto.client.board.AdmireAndCategoryDTO;
 
-@WebServlet("/board/list/commend/detail/*")
+@WebServlet("/login/board/list/commend/detail/*")
 public class CommendDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

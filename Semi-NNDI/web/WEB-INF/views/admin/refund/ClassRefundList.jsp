@@ -57,7 +57,7 @@
 			                <td>${ refund.clsPrice }</td>
 			                <td>${ refund.refundYn }</td>
 			                <td>${ refund.clsPayDay }</td>
-			                <td>
+			<%--                 <td>
 	                			<button  
 			                			class="btn btn-secondary app" 
 	                					onclick="location.href=
@@ -66,7 +66,7 @@
 		                		</button>
 	              			<td>
 
-	                		</td>			                
+	                		</td> --%>			                
 		            	</c:forEach>
 		            </tbody>
 		        </table>

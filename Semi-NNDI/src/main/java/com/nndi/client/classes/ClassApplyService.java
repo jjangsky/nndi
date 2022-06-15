@@ -57,7 +57,9 @@ public class ClassApplyService {
 			int result1 = classapplymapper.classmembercancel(classmemberdto);
 			int result2 = classapplymapper.classpaymentcancel(paymentdto);
 			int result3 = classapplymapper.classminus(paymentdto);
-			
+			System.out.println("결과값:" + result1);
+			System.out.println("결과값:" + result2);
+			System.out.println("결과값:" + result3);
 			if( result1>0 && result2>0 &&result3>0) {
 				session.commit();
 				result = 1;

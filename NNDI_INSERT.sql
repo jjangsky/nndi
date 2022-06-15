@@ -113,7 +113,7 @@ VALUES
 , 'kimhyejj11', 'gmail.com', '13480', '경기 성남시 분당구 대왕판교로 477' 
 , '쩌는아파트', '$2a$10$oIFB5dwGxF/BDdolMOF9z.ySU2cyhx3Of202zkq52sfU6d1L23UxW'
 , '김혜주', TO_DATE(19951207, 'RRRRMMDD'), '염라대왕', 'W'
-, TO_DATE(20220613, 'RRRRMMDD'), 'A', NULL, TO_DATE(20220613, 'RRRRMMDD')
+, TO_DATE(20170613, 'RRRRMMDD'), 'O', TO_DATE(20180513, 'RRRRMMDD'), TO_DATE(20150113, 'RRRRMMDD')
 );
 
 INSERT
@@ -124,7 +124,7 @@ VALUES
 , 'knsol1992', 'naver.com', '03154', '서울 종로구 종로 1' 
 , '좋은아파트', '$2a$10$otS3uPXvCg5KGCVPrrIcB.PBVAHFPPWcPZJsKql3pgQXXcuwh4pKm'
 , '김유유', TO_DATE(19630217, 'RRRRMMDD'), '나의살던고향은', 'M'
-, TO_DATE(20220613, 'RRRRMMDD'), 'A', NULL, TO_DATE(20220613, 'RRRRMMDD')
+, TO_DATE(20220313, 'RRRRMMDD'), 'A', NULL, TO_DATE(20220113, 'RRRRMMDD')
 );
 
 -- MANAGER INSERT

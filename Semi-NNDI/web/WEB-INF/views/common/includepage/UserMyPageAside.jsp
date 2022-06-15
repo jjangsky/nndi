@@ -68,9 +68,9 @@
 	        	<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/cancelList'">
 	        	대관 신청 취소</button></li>
 	        	
-	        	<br>
+<%-- 	        	<br>
 	        	<li><button onclick="location.href='${pageContext.servletContext.contextPath}/login/rent/refund'">
-	        	대관 환불 내역</button></li>
+	        	대관 환불 내역</button></li> --%>
 	        	
 	        	
 	      	</ul>

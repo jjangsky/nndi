@@ -107,7 +107,7 @@
 		          </ul>
 		        </div>
 		
-		     <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#orders6-collapse" aria-expanded="false">
+<%-- 		     <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#orders6-collapse" aria-expanded="false">
 		          환불 관리
 		        </button>
 		        <div class="collapse" id="orders6-collapse">
@@ -117,7 +117,7 @@
 		            <li><button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/login/admin/classRefundList'" class="menubtn">
 		            수강 환불내역 조회</button></li>
 		          </ul>
-		        </div>
+		        </div> --%>
 		
 		        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed " data-bs-toggle="collapse" data-bs-target="#orders7-collapse" aria-expanded="false">
 		          통계 관리
